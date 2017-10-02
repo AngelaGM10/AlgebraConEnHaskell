@@ -1,0 +1,5 @@
+\select@language {spanish}
+\contentsline {chapter}{\numberline {1}Programaci\IeC {\'o}n funcional con Haskell}{9}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introducci\IeC {\'o}n a Haskell}{9}{section.1.1}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{11}{section.1.1}
+\contentsline {chapter}{Indice de definiciones}{11}{chapter*.2}
