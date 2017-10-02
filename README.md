@@ -1,3 +1,3 @@
 # AlgebraConEnHaskell
 
-Primera versión 1.
+Primera versión 2.
