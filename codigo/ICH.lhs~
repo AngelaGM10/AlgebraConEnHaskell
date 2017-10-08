@@ -1,0 +1,9 @@
+\begin{code}
+module ICH where 
+import Data.List
+\end{code}
+
+
+\section{Iniciación a un capítulo}
+
+En esta sección...

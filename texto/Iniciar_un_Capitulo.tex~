@@ -1,0 +1,110 @@
+\chapter{Como empezar con Emacs en Ubuntu}\label{sec:InCapHas}
+En este capítulo se hace una breve explicación de conceptos básicos para empezar a redactar un documento a LaTeX en Emacs y con Haskell a la vez, así como ir actualizando los archivos junto con la plataforma Github. Comenzaremos explicando como realizar la instalación de Ubuntu 16.04 en un PC con windows 10.\\
+
+\subsection{Instalar Ubuntu 16.04 junto a windows 10}
+
+Para realizar la instalación de Ubuntu junto a windows necesitaremos los siguientes programas:
+
+
+ 
+\subsection{Iniciar un Capítulo}
+
+\textbf{Paso 1:}\\
+Abrimos el directorio desde Emacs con Ctrl+x+d y accedemos a la carpeta de texto para crear el archivo nuevo .tex sin espacios.
+
+\textbf{Paso 2:}\\
+Hacemos lo mismo pero en la carpeta código y guardamos el archivo con la abreviatura que hemos usado en el .tex, el archivo lo guardamos como .lhs para tener ahí el código necesario de Haskell. 
+
+\textbf{Paso 3:}\\
+Al acabar el capitulo hay que actualizar el trabajo para que se quede guardado, para ello nos vamos a archivo que contiene todo el trabajo que en nuestro caso se llama 'TFG.tex' importante coger el de la extensión .tex, nos vamos a la zona donde incluimos los capitulos y usamos el comando de LaTeX con el nombre que le dimos en la carpeta de texto:\\
+
+\ include {'nombre sin el .tex'}
+
+
+
+\subsection{Abreviaciones de Emacs:}\\
+
+La tecla ctrl se denominara C y la tecla alt M, son las teclas mas utilizadas, pues bien ahora explicamos los atajos más importantes y seguiremos la misma nomenclatura de la guía para las teclas:\\
+
+ctrl es llamada C y alt M\\
+
+Para abrir o crear un archivo:\\
+C + x + C + f\\
+
+Para guardar un archivo:\\
+C + x + C + s\\
+
+Para guardar un archivo (guardar como):\\
+C + x + C + w\\
+
+Si abriste mas de un archivo puedes recorrerlos diferentes buffers con\\
+C + x + ← o →\\
+
+Emacs se divide y maneja en buffers y puedes ver varios buffers a la vez (los buffers son como una especie de ventanas).\\
+
+Para tener 2 buffers horizontales:\\
+C + x + 2\\
+
+Para tener 2 buffers verticales (si hacen estas combinaciones de teclas seguidas verán que los buffers se suman):\\
+C + x + 3\\
+
+Para cambiar el puntero a otro buffer:\\
+C + x + o\\
+
+Para tener un solo buffer:\\
+C + x + 1\\
+
+Para cerrar un buffer:\\
+C + x + k\\
+
+Si por ejemplo nos equivocamos en un atajo podemos cancelarlo con:\\
+C + g\\
+
+Para cerrar emacs basta con:\\
+C + x + C + C\\
+
+Para suspenderlo:\\
+C + z\\
+
+Podemos quitar la suspensión por su id que encontraremos ejecutando el comando:\\
+
+jobs\\
+
+Y después ejecutando el siguiente comando con el id de emacs:\\
+
+fg\\
+
+Escribimos shell y damos enter. \\
+
+
+\subsection{Push and Pull de Github con Emacs}
+
+Vamos a mostrar como subir y actualizar los archivos en la web de Github desde la Consola (o Terminal), una vez configurado el pc de forma que guarde nuestro usuario y contraseña de Github. Lo primero que debemos hacer es abrir la Consola:\\
+
+Ctrl+Alt+T\\
+
+Escribimos los siguientes comandos en orden para subir los archivos:\\
+
+cd 'carperta en la que se encuentran las subcarpetas de texto y codigo'/ \\
+
+git add .  (de esta forma seleccionamos todo)\\
+
+git commit -m 'nombre del cambio que hemos hecho'\\
+
+git push origin 'master'\\
+
+
+Para descargar los archivos hacemos lo mismo cambiando el último paso por:\\
+
+git pull origin 'master'\\
+
+
+
+
+El contenido de este capítulo se encuentra en el módulo \texttt{ICH} 
+\entrada{ICH}.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "TFG"
+%%% End:

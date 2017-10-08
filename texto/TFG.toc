@@ -1,5 +1,12 @@
 \select@language {spanish}
 \contentsline {chapter}{\numberline {1}Programaci\IeC {\'o}n funcional con Haskell}{9}{chapter.1}
 \contentsline {section}{\numberline {1.1}Introducci\IeC {\'o}n a Haskell}{9}{section.1.1}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{11}{section.1.1}
-\contentsline {chapter}{Indice de definiciones}{11}{chapter*.2}
+\contentsline {chapter}{\numberline {2}Como empezar con Emacs en Ubuntu}{11}{chapter.2}
+\contentsline {subsection}{\numberline {2.0.1}Instalar Ubuntu 16.04 junto a windows 10}{11}{subsection.2.0.1}
+\contentsline {subsection}{\numberline {2.0.2}Iniciar un Cap\IeC {\'\i }tulo}{13}{subsection.2.0.2}
+\contentsline {subsection}{\numberline {2.0.3}Abreviaciones de Emacs:}{13}{subsection.2.0.3}
+\contentsline {subsection}{\numberline {2.0.4}Push and Pull de Github con Emacs}{15}{subsection.2.0.4}
+\contentsline {chapter}{\numberline {3}Teor\IeC {\'\i }a de anillos en Haskell}{17}{chapter.3}
+\contentsline {section}{\numberline {3.1}Teor\IeC {\'\i }a de anillos en Haskell}{17}{section.3.1}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{18}{section.3.1}
+\contentsline {chapter}{Indice de definiciones}{19}{chapter*.2}
