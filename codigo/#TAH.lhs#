@@ -134,12 +134,12 @@ propRing a b c = whenFail (print errorMsg) cond
 
 Solo consideraremos los anillos commutativos, todos los ejemplos que daremos serán de anillos commutativos. Una clase fundamental de anillos finitos son \textit{el anillo de los enteros en modulo $n$}, denotado por $\mathbb{Z}_n$. Esto se corresponde con los elementos $a \in\, \mathbb{Z}$ en la misma clase de congruencias modulo n, por ejemplo $\mathbb{Z}_3 \simeq \{0,1,2\}$ hay tres clases de congruencias modulo 3. La suma y multiplicación son definidas usando la suma y multiplicación de $\mathbb{Z}$ en modulo $n$.
 
-El compilador de Haskell debería distinguir elementos de diferentes anillos y verificar que no se dupliquen. Por ejemplo el tipo de clase de $\mathbb{Z}$ depende de los valores de n. Es posible representar enteros segunla clase de Haskell pero es un poco difícil y dependemos de las clases que queremos tener.
+El compilador de Haskell debería distinguir elementos de diferentes anillos y verificar que no se dupliquen. Por ejemplo el tipo de clase de $\mathbb{Z}$ depende de los valores de n. Es posible representar enteros segunla clase de Haskell pero es un poco difícil y dependemos de las clases que queremos tener.\\
 
 \begin{defi} 
 Un dominio integral es un anillo conmutativo satisfaciendo:
 \begin{center}
-$a*b=0\,\, \Rightarrow \,\,a = 0 \vee b = 0, \,\,\,\,\,\,\forall\,\, a,b \in\,\, R.$
+$a*b=0\,\, \Rightarrow \,\,a = 0 \,\vee\, b = 0, \,\,\,\,\,\,\forall\,\, a,b \in\,\, R.$
 \end{center}
 \end{defi}
 
