@@ -6,7 +6,7 @@ import Data.List
 
 \section{Anillos en Haskell}
 
-Antes de dar la definición de anillos en Haskell daremos el tipo de clase (veáse que usaremos $**$ para la multiplicación definida anteriormente por $*$):
+En Haskell con la palabra 'data' podemos definir un nuevo tipo de clase dato. Ejemplo: "data Bool = False | True", La parte a la izquierda del = denota el tipo y la parte derecha son los constructores de datos qu especifican los diferentes valores que puede tener un tipo. En esta sección crearemos la clase de los Anillos (veáse que usaremos $**$ para la multiplicación definida anteriormente por $*$):
 \begin{code}
 class Ring a where
 (<+>) :: a -> a -> a
@@ -16,6 +16,13 @@ zero :: a
 one :: a
 \end{code}
 \\
+De esta forma definimos la clase Ring con sus constructores. Explicamos como funciona cada constructor:\\
+(<+>) :: a -> a -> a y (<**>) :: a -> a -> a , la operación suma es <+> y la multiplicación <**> (aquí ponemos dos * porque está definida la opración en Haskell con <*>) recibe dos elementos y devuelve uno. Al poner "a" no especificamos un tipo concreto.\\
+neg recibe un elemento a y devuelve otro elemento, zero y one es un elemento predefinido de la clase.\\
+
+De esta forma podemos definir funciones dentro de la clase Ring, y usará las operaciones definidas en los constructores. Así podemos construir las propiedades que definen a un anillo en Haskell.
+
+La clase Ring será una instancia pues será una clase que pertenecerá a otra clase más grande. Pues un tipo puede ser una instancia de una clase si soporta ese comportamiento, es decir trabaja con las mismas operaciones o bien es un "subconjunto" que parte de esa clase.
 
 \begin{defi}
 Un anillo es un conjunto R definido por dos operaciones binarias llamadas suma y multiplicación denotadas $+,*:R\,\times\,R \rightarrow R$ respectivamente.\\
@@ -29,7 +36,6 @@ Los axiomas de la terna $(R,+,*)$ deben satisfacer:\\
 
 4. Existencia del inverso para la suma:  $\forall\,\, a\,\in\,R,\,\exists\,\,b\,\in\,R.\,\,\,a+b=b+a=0$\\
 
-Estas cuatro condiciones definen un grupo. 
 
 \begin{code}
 
@@ -47,8 +53,6 @@ propAddInv a = (neg a <+> a == zero && a <+> neg a == zero, "propAddInv")
 
 \end{code}
 
-Una quinta condición define un grupo abeliano:
-
 5. La suma es commutativa:  $\forall\,\, a,b\,\in\,R.\,\,\,a+b=b+a$\\
 
 \begin{code}
@@ -57,7 +61,6 @@ propAddComm :: (Ring a, Eq a) => a -> a -> (Bool,String)
 propAddComm x y = (x <+> y == y <+> x, "propAddComm")
 \end{code}
 
-Para definir un anillo, es necesario agregar tres condiciones más sobre la segunda operación binaria:
 
 6. Cerrado bajo la multiplicación: $\forall\,\, a,b\,\in\,R.\,\,\,a*b \in R$\\
 
@@ -100,21 +103,17 @@ propLeftDist a b c =
 
 \end{code}
 
-Y agregando una última condición, se define un anillo conmutativo:
-\begin{code}
--- | 11. Multiplication is commutative.
-propMulComm :: (Ring a, Eq a) => a -> a -> (Bool,String)
-propMulComm x y = (x <**> y == y <**> x, "propMulComm")
-\end{code}
-\end{defi}
+Aquí definimos las primeras propiedades, \\
+propAddAssoc está definida sobre la clase Ring y la clase Eq (equivalencias) toma 3 valores de entrada del tipo a y devuelve True o False (de aquí el (Bool,String) String es cadena de caracteres y Bool el tipo de booleanos que devuelve True o False.\\
+propAddIdentity y propAddInv está definidas de igual forma y toman un elemento del tipo a y devuelve True o False.\\
+propAddComm a diferencia de los anteriores solo recibe dos elementos y devuelve el True o False. El resto de propiedades están definidas de la misma forma que las descritas anteriormente.
 
-Un anillo conmutativo puede ser representado como un tipo de clase vacío en Haskell ya que no contiene ninguna nueva operación a la estructura. Pues es un axioma que ya estaba representado.
 
 Si un anillo cuenta con un elemento neutro para la segunda operación se llama anillo unitario. A dicho elemento se le suele llamar la unidad (1) para diferenciarlo del elemento neutro de la primera operación (usualmente el 0).
 
 El conjunto de los elementos no nulos de un anillo se escriben como $R^*$. Ejemplos de anillos como $(\mathbb{Z},+,*)$ donde $+$ y $*$ denotan la suma y multiplicación ordinaria para los enteros. Otros ejemplos son $\mathbb{Q},\mathbb{R},\mathbb{C}$ con la definición usual de suma y multiplicación.\\
 
-En Haskell esto puede representarse como un tipo de clase (veáse que usaremos $**$ para la multiplicación definida anteriormente por $*$), Los axiomas de los anillos también pueden ser representados en Haskell.Estos son representados como funciones que deben ser usadas para testear que una implementación satisface las condiciones:\\
+Los axiomas de los anillos también pueden ser representados en Haskell. Estos son representados como funciones que deben ser usadas para testear que una implementación satisface las condiciones:\\
 
 \begin{code}
 
@@ -132,14 +131,31 @@ propRing a b c = whenFail (print errorMsg) cond
   _         &&& _         = (True,"")
 \end{code}
 
+Definimos la propiedad propRing definida en la clase Ring y Eq que recibe 3 elementos y lo que devuelve es Property (es un tipo de QuickCheckque se usa para comprobar). Normalmente, una Property es una función que devuelve un Booleano y comprobación como QuickCheck.
+
+Ejemplo:\\
+\begin{code}
+enterosZRing :: (Ring Int, Eq Int) => Int -> Int -> Int -> Property
+enterosZRing a b c = whenFail (print errorMsg) cond
+  where
+  (cond,errorMsg) = 
+    propAddAssoc a b c &&& propAddIdentity a  &&& propAddInv a        &&&
+    propAddComm a b    &&& propMulAssoc a b c &&& propRightDist a b c &&&
+    propLeftDist a b c &&& propMulIdentity a
+
+  (False,x) &&& _         = (False,x)
+  _         &&& (False,x) = (False,x)
+  _         &&& _         = (True,"")
+\end{code}
+
 Solo consideraremos los anillos commutativos, todos los ejemplos que daremos serán de anillos commutativos. Una clase fundamental de anillos finitos son \textit{el anillo de los enteros en modulo $n$}, denotado por $\mathbb{Z}_n$. Esto se corresponde con los elementos $a \in\, \mathbb{Z}$ en la misma clase de congruencias modulo n, por ejemplo $\mathbb{Z}_3 \simeq \{0,1,2\}$ hay tres clases de congruencias modulo 3. La suma y multiplicación son definidas usando la suma y multiplicación de $\mathbb{Z}$ en modulo $n$.
 
-El compilador de Haskell debería distinguir elementos de diferentes anillos y verificar que no se dupliquen. Por ejemplo el tipo de clase de $\mathbb{Z}$ depende de los valores de n. Es posible representar enteros segunla clase de Haskell pero es un poco difícil y dependemos de las clases que queremos tener.
+El compilador de Haskell debería distinguir elementos de diferentes anillos y verificar que no se dupliquen. Por ejemplo el tipo de clase de $\mathbb{Z}$ depende de los valores de n. Es posible representar enteros segun la clase de Haskell pero es un poco difícil y dependemos de las clases que queremos tener.\\
 
 \begin{defi} 
 Un dominio integral es un anillo conmutativo satisfaciendo:
 \begin{center}
-$a*b=0\,\, \Rightarrow \,\,a = 0 \vee b = 0, \,\,\,\,\,\,\forall\,\, a,b \in\,\, R.$
+$a*b=0\,\, \Rightarrow \,\,a = 0 \,\vee\, b = 0, \,\,\,\,\,\,\forall\,\, a,b \in\,\, R.$
 \end{center}
 \end{defi}
 
