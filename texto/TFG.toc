@@ -8,5 +8,5 @@
 \contentsline {subsection}{\numberline {2.0.4}Push and Pull de Github con Emacs}{15}{subsection.2.0.4}
 \contentsline {chapter}{\numberline {3}Teor\IeC {\'\i }a de anillos en Haskell}{17}{chapter.3}
 \contentsline {section}{\numberline {3.1}Anillos en Haskell}{17}{section.3.1}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{21}{defi.1}
-\contentsline {chapter}{Indice de definiciones}{21}{chapter*.2}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{23}{defi.2}
+\contentsline {chapter}{Indice de definiciones}{23}{chapter*.2}

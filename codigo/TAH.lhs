@@ -4,11 +4,14 @@ module TAH where
 import Data.List
 import Test.QuickCheck
 
---infixl 8 <^>
+infixl 8 <^>
 infixl 7 <**>
 infixl 6 <+>
---infixl 6 <->
-
+infixl 6 <->
+infixl 4 ~~
+infixl 7 **>
+infixl 7 <**
+infixl 7 </>
 \end{code}
 
 
@@ -127,5 +130,121 @@ instance Ring Integer where
 
 \end{code}
 
+A partir de lo anterior podemos implementar operaciones que tienen los anillos así como la resta de dos anillos, sumar los elementos de un anillo o multiplicarlos, elevar a una potencia y comparar dos anillos. Los conjuntos que verifican la función $propRing$ poseen también dichas operaciones.
+
+\begin{code}
+-- | Resta de anillos.
+(<->) :: Ring a => a -> a -> a
+a <-> b = a <+> neg b
+
+-- | Suma los elementos del anillo.
+sumRing :: Ring a => [a] -> a
+sumRing = foldr (<+>) zero
+
+-- | Producto de los elementos del anillo.
+productRing :: Ring a => [a] -> a
+productRing = foldr (<**>) one
+
+-- | Exponente de un anillo.
+(<^>) :: Ring a => a -> Integer -> a
+x <^> 0 = one
+x <^> y = if y < 0
+             then error "<^>: Input should be positive"
+             else x <**> x <^> (y-1)
+
+-- | Comprobar que dos anillos a y b son:
+--   a == b o -a == b o a == -b o -a == -b
+(~~) :: (Ring a, Eq a) => a -> a -> Bool
+x ~~ y = x == y || neg x == y || x == neg y || neg x == neg y
+
+\end{code}
+
+A continuación vamos a añadir dos funciones a las operaciones que podemos realizar con los anillos. Estas son similiares a las propiedades 7 y 8:
+
+\begin{code}
+-- |Multiplicar por la izquierda al anillo con un número entero.
+-- esto es: n **> x = x + x + ... + x, n veces.
+(**>) :: Ring a => Integer -> a -> a
+0 **> _ = zero
+n **> x | n > 0     = x <+> x <** (n-1)
+        | otherwise = neg (abs n **> x) -- error "<**: Negative input"
+
+-- |Multiplicar por la derecha al anillo con un número entero.
+(<**) :: Ring a => a -> Integer -> a
+_ <** 0 = zero
+x <** n | n > 0     = x <+> x <** (n-1)
+        | otherwise = neg (x <** abs n) -- error "<**: Negative input"
+
+\end{code}
+un anillo conmutativo es un anillo (R, +, *) con elemento unidad, el elemento neutro, en el que la operación de multiplicación * es conmutativa; es decir,\\
+ $\forall\,\, a,b\,\in\,R.\,\,\, a*b = b*a$\\
+
+Para definir los anillos conmutativos en Haskell usaremos la clase $CommutRing$ que es una subclase de $Ring$ y definiremos la función $propCommutRing$ que sirve para comprobar si un anillo es conmutativo o no.
+
+\begin{code}
+
+class Ring a => CommutRing a
+
+propMulComm :: (CommutRing a, Eq a) => a -> a -> Bool
+propMulComm a b = a <**> b == b <**> a
 
 
+-- | Specification of commutative rings. Test that multiplication is 
+-- commutative and that it satisfies the ring axioms.
+propCommutRing :: (CommutRing a, Eq a) => a -> a -> a -> Property
+propCommutRing a b c = if propMulComm a b 
+                               then propRing a b c 
+                               else whenFail (print "propMulComm") False
+\end{code}
+
+\begin{defi}
+Un dominio integral es un anillo conmutativo que satisface:\\
+$\forall\,\, a,b\,\in\,R.\,\,\, a*b = 0 \Rigtharrow \,\, a = 0 \,\,or\,\, b = 0   $
+
+\end{defi}
+
+
+\begin{code}
+-- | Definition of integral domains.
+
+class CommutRing a => IntegralDomain a
+
+-- An integral domain is a ring in which there are no zero divisors.
+propZeroDivisors :: (IntegralDomain a, Eq a) => a -> a -> Bool
+propZeroDivisors a b = if a <**> b == zero then a == zero || b == zero else True
+
+
+-- | Specification of integral domains. Test that there are no zero-divisors
+-- and that it satisfies the axioms of commutative rings.
+propIntegralDomain :: (IntegralDomain a, Eq a) => a -> a -> a -> Property
+propIntegralDomain a b c = if propZeroDivisors a b
+                              then propCommutRing a b c 
+                              else whenFail (print "propZeroDivisors") False
+
+\end{code}
+
+\begin{code}
+-------------------------------------------------------------------------------
+-- | Definition of fields.
+
+class IntegralDomain a => Field a where
+  inv :: a -> a
+
+propMulInv :: (Field a, Eq a) => a -> Bool
+propMulInv a = a == zero || inv a <**> a == one
+
+-- | Specification of fields. Test that the multiplicative inverses behave as 
+-- expected and that it satisfies the axioms of integral domains.
+propField :: (Field a, Eq a) => a -> a -> a -> Property
+propField a b c = if propMulInv a
+                     then propIntegralDomain a b c 
+                     else whenFail (print "propMulInv") False
+
+-------------------------------------------------------------------------------
+-- Operations
+
+
+-- | Division
+(</>) :: Field a => a -> a -> a
+x </> y = x <**> inv y
+\end{code}
