@@ -53,6 +53,7 @@ Para dar la definición de anillos en Haskell usaremos las clases, declaramos la
 
 
 \begin{code}
+
 class Ring a where
    (<+>) :: a -> a -> a
    (<**>) :: a -> a -> a
@@ -101,7 +102,7 @@ Para saber si un conjunto $a$ es un anillo o no necesitaremos una función que c
 
 \begin{code}
 
--- | Specification of rings. Test that the arguments satisfy the ring axioms.
+-- | Test para ver que las propiedades satisfacen los axiomas de los anillos.
 propRing :: (Ring a, Eq a) => a -> a -> a -> Property
 propRing a b c = whenFail (print errorMsg) cond
   where
@@ -113,11 +114,14 @@ propRing a b c = whenFail (print errorMsg) cond
   (False,x) &&& _         = (False,x)
   _         &&& (False,x) = (False,x)
   _         &&& _         = (True,"")
+
 \end{code}
 
 Veamos unos ejemplos de conjuntos que son anillos, para ello usaremos las instancias, de esta forma damos las operaciones que el conjunto tiene asociado para poder ser un anillo. El conjunto de los números enteros $\mathbb{Z}$ (en Haskell es el tipo $Integer$), 
 Ejemplo:\\
+
 \begin{code}
+
 -- | El conjunto de los enteros. 
 instance Ring Integer where
      (<+>)  = (+)
@@ -127,12 +131,12 @@ instance Ring Integer where
      one    = 1
 
 
-
 \end{code}
 
 A partir de lo anterior podemos implementar operaciones que tienen los anillos así como la resta de dos anillos, sumar los elementos de un anillo o multiplicarlos, elevar a una potencia y comparar dos anillos. Los conjuntos que verifican la función $propRing$ poseen también dichas operaciones.
 
 \begin{code}
+
 -- | Resta de anillos.
 (<->) :: Ring a => a -> a -> a
 a <-> b = a <+> neg b
@@ -162,6 +166,7 @@ x ~~ y = x == y || neg x == y || x == neg y || neg x == neg y
 A continuación vamos a añadir dos funciones a las operaciones que podemos realizar con los anillos. Estas son similiares a las propiedades 7 y 8:
 
 \begin{code}
+
 -- |Multiplicar por la izquierda al anillo con un número entero.
 -- esto es: n **> x = x + x + ... + x, n veces.
 (**>) :: Ring a => Integer -> a -> a
@@ -176,8 +181,11 @@ x <** n | n > 0     = x <+> x <** (n-1)
         | otherwise = neg (x <** abs n) -- error "<**: Negative input"
 
 \end{code}
+
+\begin{defi}
 un anillo conmutativo es un anillo (R, +, *) con elemento unidad, el elemento neutro, en el que la operación de multiplicación * es conmutativa; es decir,\\
  $\forall\,\, a,b\,\in\,R.\,\,\, a*b = b*a$\\
+\end{defi}
 
 Para definir los anillos conmutativos en Haskell usaremos la clase $CommutRing$ que es una subclase de $Ring$ y definiremos la función $propCommutRing$ que sirve para comprobar si un anillo es conmutativo o no.
 
@@ -189,33 +197,35 @@ propMulComm :: (CommutRing a, Eq a) => a -> a -> Bool
 propMulComm a b = a <**> b == b <**> a
 
 
--- | Specification of commutative rings. Test that multiplication is 
--- commutative and that it satisfies the ring axioms.
+-- | Test para ver que la multiplicación es conmutativa y que satisface
+-- los axiomas de los anillos.
 propCommutRing :: (CommutRing a, Eq a) => a -> a -> a -> Property
 propCommutRing a b c = if propMulComm a b 
                                then propRing a b c 
                                else whenFail (print "propMulComm") False
+
 \end{code}
 
 \begin{defi}
-Un dominio integral es un anillo conmutativo que satisface:\\
-$\forall\,\, a,b\,\in\,R.\,\,\, a*b = 0 \Rigtharrow \,\, a = 0 \,\,or\,\, b = 0   $
+Dado un anillo $A$, un elemento $a \in\, A$ se dice que es un divisor de cero si existe $b \in\, A- \{0\}$ tal que $a*b = 0$.
+Un anillo A se dice dominio de integridad, si el único divisor de cero es $0$.\\
+$\forall\,\, a,b\,\in\,R.\,\,\, a*b = 0 \Rigtharrow \,\, a = 0 \,\,or\,\, b = 0$
 
 \end{defi}
 
 
 \begin{code}
--- | Definition of integral domains.
+-- | Definición de dominios integrales.
 
 class CommutRing a => IntegralDomain a
 
--- An integral domain is a ring in which there are no zero divisors.
+-- | Un dominio integral es un anillo que
 propZeroDivisors :: (IntegralDomain a, Eq a) => a -> a -> Bool
-propZeroDivisors a b = if a <**> b == zero then a == zero || b == zero else True
+propZeroDivisors a b = if a <**> b == zero then
+                              a == zero || b == zero else True
 
-
--- | Specification of integral domains. Test that there are no zero-divisors
--- and that it satisfies the axioms of commutative rings.
+-- | Test para ver que no tiene divisores de cero y que se satisface
+-- los axiomas de los anillos conmutativos.
 propIntegralDomain :: (IntegralDomain a, Eq a) => a -> a -> a -> Property
 propIntegralDomain a b c = if propZeroDivisors a b
                               then propCommutRing a b c 
@@ -223,9 +233,13 @@ propIntegralDomain a b c = if propZeroDivisors a b
 
 \end{code}
 
+\begin{defi}
+Un cuerpo es un anillo conmutativo con elemento unidad tal $(A- \{0\})$ también es un grupo abeliano, es decir, cumple las 4 primeras propiedades.
+\end{defi}
+
 \begin{code}
--------------------------------------------------------------------------------
--- | Definition of fields.
+
+-- | Definición de cuerpo.
 
 class IntegralDomain a => Field a where
   inv :: a -> a
@@ -233,18 +247,17 @@ class IntegralDomain a => Field a where
 propMulInv :: (Field a, Eq a) => a -> Bool
 propMulInv a = a == zero || inv a <**> a == one
 
--- | Specification of fields. Test that the multiplicative inverses behave as 
--- expected and that it satisfies the axioms of integral domains.
+-- | Test para ver que los inversos multiplicativos se comportan como se
+-- espera y que satisface los axiomas de los dominios integrales.
 propField :: (Field a, Eq a) => a -> a -> a -> Property
 propField a b c = if propMulInv a
                      then propIntegralDomain a b c 
                      else whenFail (print "propMulInv") False
 
--------------------------------------------------------------------------------
--- Operations
 
+-- | Operaciones que se pueden realizar en un cuerpo a partir de lo anterior.
 
--- | Division
+-- | División
 (</>) :: Field a => a -> a -> a
 x </> y = x <**> inv y
 \end{code}
