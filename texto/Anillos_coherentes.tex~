@@ -1,0 +1,6 @@
+\chapter{Anillos coherentes}\label{sec:coherentHas}
+
+En este capítulo se muestra cómo definir la teoría de anillos en Haskell. Los anillos se pueden definir de forma compacta en grupos y monoides, pero daremos unas series de definiciones que los definen de forma más rigurosa.\\
+
+Comenzamos dando las primeras definiciones y propiedades básicas que tiene un anillo en el módulo \texttt{TAHCoherent} 
+\entrada{TAHCoherent}

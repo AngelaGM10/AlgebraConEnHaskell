@@ -1,7 +1,7 @@
 \begin{code}
 -- |Ideales finitamente generados en anillos conmutativos.
 
-module TAHideal
+module TAHIdeal
   ( Ideal(Id)
   , zeroIdeal, isPrincipal, fromId
   , eval, addId, mulId
@@ -108,6 +108,3 @@ zeroIdealWitnesses xs ys = ( zeroIdeal
                            , [replicate (length xs) zero]
                            , [replicate (length ys) zero])
 \end{code}
-
-
-
