@@ -6,17 +6,14 @@ Comenzamos dando las primeras definiciones y propiedades básicas que tiene un a
 \entrada{TAH}
 
 Para describir los anillos commutativos necesitamos un nuevo módulo \texttt{TAHCommutative}\entrada{TAHCommutative}
-
-Dentro de este último módulo podemos definir el dominio de integridad, pues se necesita que el anillo sea conmutativo, usaremos el módulo \texttt{TAHIntegralDomain}\entrada{TAHIntegralDomain}
-
-Utilizaremos un nuevo módulo para dar la definición de cuerpo que se encuentra en \texttt{TAHCuerpo}\entrada{TAHCuerpo}
+\section{Dominio de integridad y Cuerpos.}
+Dadas las nociones de anillos conmutativos podemos introducir dos conceptos básicos dominio de integridad y cuerpos, comenzamos por el módulo \texttt{TAHIntegralDomain}\entrada{TAHIntegralDomain} Ahora podemos implementar las especificaciones de la noción de cuerpo en el módulo \texttt{TAHCuerpo}\entrada{TAHCuerpo}
 
 \section{Ideales}
 El concepto de ideales es muy importante en el álgebra conmutativa. Son
-generalizaciones de muchos conceptos de los enteros. Dado que solo consideramos anillos conmutativos, la propiedad multiplicativa de izquierda y derecha son la misma. Veamos su implementación en 
-
-\section{Anillos fuertemente discretos}
-Esta sección considerará algunos anillos que son especialmente relevantes para la construcción matemática. Empezamos con el módulo \texttt{TAHStronlyDiscrete}\entrada{TAHStronglyDiscrete}
+generalizaciones de muchos conceptos de los enteros. Dado que solo consideramos anillos conmutativos, 
+la propiedad multiplicativa de izquierda y derecha son la misma. Veamos su implementación en el módulo \texttt{TAHIdeal}\entrada{TAHIdeal}
+y seguidamente daremos las nociones de unos anillos que son especialmente relevantes para la construcción matemática. Lo veremos implementado en el módulo \texttt{TAHStronlyDiscrete}\entrada{TAHStronglyDiscrete}
 
 %%% Local Variables:
 %%% mode: latex

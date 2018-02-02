@@ -26,9 +26,11 @@ se denota $<E>$, como la intersección de todos los ideales que contienen a E (q
 vacía puesto que R es un ideal que contiene a E).
 \end{defi}
 
+Para el tipo de dato de los Ideales, en anteriores versiones de Haskell podiamos introducir una restricción al tipo que ibamos a definir con el comando $"data"$, pero actualmente no se puede. Sin embargo los ideales con los que trabajaremos están restringidos a anillos conmutativos. Para aplicar dicha restricción en cada definición de instancia o función, queda explicito que usaremos los anillos conmutativos con la clase definida anteriormente $CommutRing$.
+
 \begin{code}
 -- |Ideales caracterizados por una lista de generadores.
-data CommutRing a => Ideal a = Id [a]
+data Ideal a = Id [a]
 
 instance (CommutRing a, Show a) => Show (Ideal a) where
   show (Id xs) = "<" ++ concat (intersperse "," (map show xs)) ++ ">"
@@ -71,7 +73,7 @@ suma: $(a + I) + (b + I) = (a + b) + I$,
 addId :: (CommutRing a, Eq a) => Ideal a -> Ideal a -> Ideal a
 addId (Id xs) (Id ys) = Id (nub (xs ++ ys))
 \end{code}
-se puede definir un producto, de forma natural: $(a + I)(b + I) = ab + I$.
+Se puede definir un producto, de forma natural: $(a + I)(b + I) = ab + I$.
 
 \begin{code}
 -- |  Multiplication of ideals.
@@ -83,7 +85,7 @@ Este producto está bien definido porque $I$ es un ideal. Además, la suma y el 
 equivalencia que acabamos de definir, cumplen las propiedades necesarias que hacen de $R/I$ un
 anillo: El anillo cociente de $R$ sobre $I$.
 
-Para saber si dos ideales son el mismo usaremos la siguiente función:
+Para determinar si dos ideales son el mismo usaremos la siguiente función:
 \begin{code}
 isSameIdeal :: (CommutRing a, Eq a) 
             => (Ideal a -> Ideal a -> (Ideal a, [[a]], [[a]]))

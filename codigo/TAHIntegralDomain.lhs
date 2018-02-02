@@ -6,14 +6,12 @@ module TAHIntegralDomain
    ) where
 
 import Test.QuickCheck
-import TAH
 import TAHCommutative
 \end{code}
 
 \begin{defi}
 Dado un anillo $A$, un elemento $a \in\, A$ se dice que es un divisor de cero si existe $b \in\, A- \{0\}$ tal que $a*b = 0$.
-Un anillo A se dice dominio de integridad, si el único divisor de cero es $0$.\\
-$\forall\,\, a,b\,\in\,R.\,\,\, a*b = 0 \Rigtharrow \,\, a = 0 \,\,or\,\, b = 0$
+Un anillo A se dice dominio de integridad, si el único divisor de cero es $0$. Es decir, $\forall\,\, a,b\,\in\,R.\,\,\, a*b = 0 \Rightarrow \,\, a = 0 \,\,or\,\, b = 0$
 \end{defi}
 \begin{code}
 -- | Definición de dominios integrales.
@@ -24,7 +22,7 @@ propZeroDivisors a b = if a <**> b == zero then
                               a == zero || b == zero else True
 \end{code}
 
-Para saber si un anillo es un dominio de integridad usaremos la siguiente función:
+Para determinar si un anillo es un dominio de integridad usaremos la siguiente función:
 
 \begin{code}
 propIntegralDomain :: (IntegralDomain a, Eq a) => a -> a -> a -> Property

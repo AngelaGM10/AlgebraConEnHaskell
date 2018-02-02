@@ -12,8 +12,8 @@ import TAH
 En este módulo introducimos el concepto de anillo conmutativo, que visto desde el punto de vista de la programación funcional, es una subclase de la clase $Ring$. Solo necesitaremos una función para definirlo, damos primero su definición teórica.\\
 
 \begin{defi}
-un anillo conmutativo es un anillo (R, +, *) con elemento unidad, el elemento neutro, en el que la operación de multiplicación * es conmutativa; es decir,\\
- $\forall\,\, a,b\,\in\,R.\,\,\, a*b = b*a$\\
+Un anillo conmutativo es un anillo $(R, +, *)$ en el que la operación de multiplicación $*$ es conmutativa, es decir,
+ $\,\,\,\forall\,\, a,b\,\in\,R.\,\,\, a*b = b*a$\\
 \end{defi}
 
 

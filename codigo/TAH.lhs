@@ -22,9 +22,9 @@ En esta sección, que corresponde con el fichero TAH.lhs, introducimos
 En primer lugar, damos la definición teórica de anillos:\\
 
 \begin{defi}
-Un anillo es una terna $(R,+,*), donde $R$ es un conjunto y $+, *$ son
+Un anillo es una terna $(R,+,*)$, donde $R$ es un conjunto y $+,*$ son
 dos operaciones binarias $+,*:R\,\times\,R \rightarrow R$, (llamadas
-d usualmente suma y multiplicación) verificando las siguientes propiedades: 
+usualmente suma y multiplicación) verificando las siguientes propiedades: 
 
 
 1. Asociatividad de la suma: $\forall\,\, a,b,c\,\in\,R.\,\,\,\,(a+b)+c=a+(b+c)$\\
@@ -100,11 +100,11 @@ propLeftDist a b c =
  (a <**> (b <+> c) == (a <**> b) <+> (a <**> c), "propLeftDist")
 \end{code}
 
-Para saber si un conjunto $a$ es un anillo se necesita una función que
+Para saber si una terna $(a,<+>,<**>)$ es un anillo se necesita una función que
 verifique las propiedades correspondientes:
 
 \begin{code}
--- | Test para ver que las propiedades satisfacen los axiomas de los anillos.
+-- | Test para ver que se satisfacen los axiomas de los anillos.
 propRing :: (Ring a, Eq a) => a -> a -> a -> Property
 propRing a b c = whenFail (print errorMsg) cond
   where
@@ -164,20 +164,20 @@ productRing = foldr (<**>) one
 -- | Potencia.
 (<^>) :: Ring a => a -> Integer -> a
 x <^> 0 = one
-x <^> y | y < 0     = error "<^>: Input should be positive"
+x <^> y | y < 0     = error "<^>: La entrada debe ser positiva."
         | otherwise = x <**> x <^> (y-1)
--- | Relación de semiigualdad: dos elementos son semiiguales si son
+-- | Relación de semi-igualdad: dos elementos son semi-iguales si son
 --   iguales salvo el signo.
 (~~) :: (Ring a, Eq a) => a -> a -> Bool
 x ~~ y = x == y || neg x == y || x == neg y || neg x == neg y
 \end{code}
 
-Finalmente definimos la multiplicación de un entero por la derecha, la multiplicación de un entero por la izquierda se tiene debido a que la operación <+> es commutativa.
+Finalmente definimos la multiplicación de un entero por la derecha, la multiplicación de un entero por la izquierda se tiene debido a que la operación $<+>\,$ es commutativa.
 
 \begin{code}
 -- |Multiplicación de un entero por la derecha.
 (<**) :: Ring a => a -> Integer -> a
 _ <** 0 = zero
 x <** n | n > 0     = x <+> x <** (n-1)
-        | otherwise = neg (x <** abs n) -- error "<**: Negative input"
+        | otherwise = neg (x <** abs n) -- error "<**: Entrada Negativa."
 \end{code}

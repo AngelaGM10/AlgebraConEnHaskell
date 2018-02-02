@@ -7,14 +7,14 @@ module TAHCuerpo
   ) where
 
 import Test.QuickCheck
-
-import TAH
 import TAHIntegralDomain
+
 \end{code}
 
 \begin{defi}
-Un cuerpo es un anillo conmutativo con elemento unidad tal $(A- \{0\})$ también es un grupo abeliano, es decir, cumple las 4 primeras propiedades de un anillo.
+Un cuerpo es un anillo de división conmutativo, es decir, un anillo conmutativo y unitario en el que todo elemento distinto de cero es invertible respecto del producto. Un cuerpo R es un dominio de integridad que contiene para cada elemento $a \neq\, 0$ un inverso $a^{-1}$ que verifica la igualdad: $a^{-1}a = 1$.​ 
 \end{defi}
+
 \begin{code}
 -- | Definición de cuerpo.
 class IntegralDomain a => Field a where
@@ -31,7 +31,7 @@ propField a b c = if propMulInv a
                      else whenFail (print "propMulInv") False
 \end{code}
 
-Los cuerpos poseen otras operaciones además de las que un anillo conmutativo pueda tener, como es la división. Para poder dar dicha definición establecemos el orden de prioridad para el símbolo de la división.
+En un cuerpo se puede definir la división. Para poder dar dicha definición establecemos el orden de prioridad para el símbolo de la división.
 
 \begin{code}
 infixl 7 </>
