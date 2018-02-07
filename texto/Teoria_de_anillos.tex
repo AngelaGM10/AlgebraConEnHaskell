@@ -1,12 +1,12 @@
-\chapter{Teoría de anillos en Haskell}\label{sec:anillosHas}
+\chapter{Teoría de Anillos en Haskell}
 
 En este capítulo se muestra cómo definir la teoría de anillos en Haskell. Los anillos se pueden definir de forma compacta en grupos y monoides, pero daremos unas series de definiciones que los definen de forma más rigurosa.\\
+\section{Anillos}
+Comenzamos dando las primeras definiciones y propiedades básicas que tiene un anillo para posteriormente introducir los anillos conmutativos en el módulo \texttt{TAH}\entrada{TAH}
 
-Comenzamos dando las primeras definiciones y propiedades básicas que tiene un anillo en el módulo \texttt{TAH} 
-\entrada{TAH}
-
+\section{Anillos Conmutativos}
 Para describir los anillos commutativos necesitamos un nuevo módulo \texttt{TAHCommutative}\entrada{TAHCommutative}
-\section{Dominio de integridad y Cuerpos.}
+\section{Dominio de integridad y Cuerpos}
 Dadas las nociones de anillos conmutativos podemos introducir dos conceptos básicos dominio de integridad y cuerpos, comenzamos por el módulo \texttt{TAHIntegralDomain}\entrada{TAHIntegralDomain} Ahora podemos implementar las especificaciones de la noción de cuerpo en el módulo \texttt{TAHCuerpo}\entrada{TAHCuerpo}
 
 \section{Ideales}
@@ -15,7 +15,3 @@ generalizaciones de muchos conceptos de los enteros. Dado que solo consideramos 
 la propiedad multiplicativa de izquierda y derecha son la misma. Veamos su implementación en el módulo \texttt{TAHIdeal}\entrada{TAHIdeal}
 y seguidamente daremos las nociones de unos anillos que son especialmente relevantes para la construcción matemática. Lo veremos implementado en el módulo \texttt{TAHStronlyDiscrete}\entrada{TAHStronglyDiscrete}
 
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "TFG"
-%%% End:

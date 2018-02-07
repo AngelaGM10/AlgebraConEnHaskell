@@ -13,11 +13,9 @@ import Data.List
 import Test.QuickCheck
 \end{code}
 
-\section{Teoría de anillos en Haskell}
-
 En esta sección, que corresponde con el fichero TAH.lhs, introducimos
-  los conceptos básicos de la Teoría de Anillos. El objetivo es definir
-  los conceptos mediante programación funcional y teoría de tipos.
+los conceptos básicos de la Teoría de Anillos. El objetivo es definir
+los conceptos mediante programación funcional y teoría de tipos.
 
 En primer lugar, damos la definición teórica de anillos:\\
 
