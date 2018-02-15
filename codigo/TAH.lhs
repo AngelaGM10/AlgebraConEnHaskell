@@ -54,7 +54,7 @@ $\forall\,\, a,b,c\,\in\,R.\,\,\,\,(a+b)*c=(a*c)+(b*c)$
 \end{defi}
 
 Una vez tenemos la teoría, pasamos a implementarlo en Haskell. Representaremos la noción de anillo en Haskell mediante una clase. Para
-ello, declaramos la clase $Ring$ sobre un tipo $a$ (es decir, $a$ no está restringido a ningún otro tipo) con las operaciones internas que denotaremos con los símbolos $<+>$ y $<**>$ (nótese que de esta forma no coinciden con ninguna operación previamente definida en Haskell). Representamos el elemento neutro de la suma mediante la constante $zero$ y el de la multiplicación mediante la constante $one$. Asímismo, mediante la función $neg$ representamos el elemento inverso para la suma. Todas ellas varían según el anillo que queramos definir.\\
+ello, declaramos la clase $Ring$ sobre un tipo $a$ (es decir, $a$ no está restringido a ningún otro tipo) con las operaciones internas que denotaremos con los símbolos $<+>$ y $<**>$ (nótese que de esta forma no coinciden con ninguna operación previamente definida en Haskell). Representamos el elemento neutro de la suma mediante la constante $zero$ y el de la multiplicación mediante la constante $one$. Asímismo, mediante la función $neg$ representamos el elemento inverso para la suma, es decir, para cada elemento $x$ del anillo, $neg x$ representará el inverso de $x$ respecto de la suma $<+>$. Todas ellas varían según el anillo que queramos definir.\\
 Para utilizar operaciones que definimos nosotros, (es decir, que no están implementadas en Haskell como puede ser la suma) usamos el comando de Haskell $infixl$, para introducir el símbolo de la operación que vamos a definir.
 
 \begin{code}
@@ -111,7 +111,7 @@ propLeftDist a b c =
  (a <**> (b <+> c) == (a <**> b) <+> (a <**> c), "propLeftDist")
 \end{code}
 
-Para saber si una terna $(a,<+>,<**>)$ es un anillo se necesita una función que se encargue de comprobar que los axiomas anteriores se verifiquen, la estructura que tiene es la siguiente: recibe un elemento de tipo $Ring$ y $Eq$ y devuelve un elemento de tipo Property. Este es un tipo que convierte lo que recibe en una propiedad, es una función importada desde el módulo $Test.QuickCheck$.
+Para saber si una terna $(a,<+>,<**>)$ es un anillo crearemos una propiedad que se encargue de comprobar que los axiomas anteriores se verifiquen, para cada caso particular de una instancia dada. La estructura que tiene es la siguiente: recibe un elemento de tipo $Ring$ y $Eq$ y devuelve un elemento de tipo Property. Este es un tipo que convierte lo que recibe en una propiedad, es una función importada desde el módulo $Test.QuickCheck$.
 
 \begin{code}
 -- | Test para ver si se verifican los axiomas de un anillo.
@@ -143,6 +143,9 @@ instance Ring Integer where
      one    = 1
 
 \end{code}
+
+Se admite esta instancia porque se ha comprobado que se verifican los axiomas para ser un anillo. 
+En caso contrario, proporcionaría un error.
 
 Veamos ahora cómo definir nuevas operaciones en un anillo a partir de
 las propias del anillo. En particular, vamos a definir la diferencia, la
@@ -179,7 +182,9 @@ x <^> y | y < 0     = error "<^>: La entrada debe ser positiva."
 x ~~ y = x == y || neg x == y || x == neg y || neg x == neg y
 \end{code}
 
-Finalmente definimos la multiplicación de un entero por la derecha, la multiplicación de un entero por la izquierda se tiene debido a que la operación $<+>\,$ es commutativa. Esta función al igual que la anterior de potencia recibe un elemento de tipo $Ring$ y devuelve un número entero, que es el tipo $Integer$. Cuando lo que devuelve no tiene ningún tipo especificado significa que no tiene restricción de tipo.
+En la función $sumRing$ hemos usado el comando $foldr x c$, este se usa para aplicar la operación $x$ a los elementos de una lista tomando como elemento de inicio a $c$.\\
+
+Finalmente definimos la multiplicación de un entero por la derecha, la multiplicación de un entero por la izquierda se tiene debido a que la operación $<+>\,$ es commutativa. Esta función al igual que la anterior de potencia recibe un elemento de tipo $Ring$ y devuelve un número entero, que es el tipo $Integer$. Cuando lo que devuelve no tiene ningún tipo especificado significa que no tiene restricción de tipo. 
 
 \begin{code}
 -- |Multiplicación de un entero por la derecha.
