@@ -30,6 +30,7 @@ propMulInv a = a == zero || inv a <**> a == one
 \end{code}
 
 Especificamos la propiedad que han de verificar los ejemplos de cuerpos. Es decir, dada una terna $(A,+,*)$ para una instancia concreta, esta tiene que verificar los axiomas para ser un cuerpo.
+
 \begin{code}
 propField :: (Field a, Eq a) => a -> a -> a -> Property
 propField a b c = if propMulInv a
