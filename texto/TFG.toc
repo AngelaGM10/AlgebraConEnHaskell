@@ -10,9 +10,6 @@
 \contentsline {section}{\numberline {3.1}Anillos}{17}{section.3.1}
 \contentsline {section}{\numberline {3.2}Anillos Conmutativos}{22}{section.3.2}
 \contentsline {section}{\numberline {3.3}Dominio de integridad y Cuerpos}{23}{section.3.3}
-\contentsline {section}{\numberline {3.4}Ideales}{24}{section.3.4}
-\contentsline {chapter}{\numberline {4}Anillos Coherentes}{29}{chapter.4}
-\contentsline {section}{\numberline {4.1}Matrices y Vectores en Haskell}{29}{section.4.1}
-\contentsline {section}{\numberline {4.2}Anillos Coherentes y Fuertemente Discretos}{38}{section.4.2}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{42}{defi.10}
-\contentsline {chapter}{Indice de definiciones}{43}{chapter*.2}
+\contentsline {section}{\numberline {3.4}Ideales}{26}{section.3.4}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{29}{defi.9}
+\contentsline {chapter}{Indice de definiciones}{29}{chapter*.2}

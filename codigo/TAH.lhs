@@ -1,5 +1,6 @@
 
 Antes de empezar tenemos que crear nuestro módulo, todos tienen la misma estructura, se usa el comando de Haskell $module$ seguido del nombre que le queramos dar al módulo. A continuación entre paréntesis introducimos todas las clases y funciones que vamos a definir y que queramos exportar cuando en otro fichero importemos este módulo, seguido del paréntesis escribimos $where$ y finalmente importamos las librerías y módulos que vayamos a necesitar. Para importarlas usamos el comando $import$. \\
+
 Para nuestro primer módulo solo usaremos la conocida librería de Haskell $Data.List$ la cual comprende las operaciones con listas, y $Test.QuickCheck$ esta librería contine las funciones para probar una propiedad e imprimir los resultados.
 
 \begin{code}
@@ -54,7 +55,10 @@ $\forall\,\, a,b,c\,\in\,R.\,\,\,\,(a+b)*c=(a*c)+(b*c)$
 \end{defi}
 
 Una vez tenemos la teoría, pasamos a implementarlo en Haskell. Representaremos la noción de anillo en Haskell mediante una clase. Para
-ello, declaramos la clase $Ring$ sobre un tipo $a$ (es decir, $a$ no está restringido a ningún otro tipo) con las operaciones internas que denotaremos con los símbolos $<+>$ y $<**>$ (nótese que de esta forma no coinciden con ninguna operación previamente definida en Haskell). Representamos el elemento neutro de la suma mediante la constante $zero$ y el de la multiplicación mediante la constante $one$. Asímismo, mediante la función $neg$ representamos el elemento inverso para la suma, es decir, para cada elemento $x$ del anillo, $neg x$ representará el inverso de $x$ respecto de la suma $<+>$. Todas ellas varían según el anillo que queramos definir.\\
+ello, declaramos la clase $Ring$ sobre un tipo $a$ (es decir, $a$ no está restringido a ningún otro tipo) con las operaciones internas que denotaremos con los símbolos $<+>$ y $<**>$ (nótese que de esta forma no coinciden con ninguna operación previamente definida en Haskell). Representamos el elemento neutro de la suma mediante la constante $zero$ y el de la multiplicación mediante la constante $one$.\\
+
+Asímismo, mediante la función $neg$ representamos el elemento inverso para la suma, es decir, para cada elemento $x$ del anillo, $neg x$ representará el inverso de $x$ respecto de la suma $<+>$. Todas ellas varían según el anillo que queramos definir.\\
+
 Para utilizar operaciones que definimos nosotros, (es decir, que no están implementadas en Haskell como puede ser la suma) usamos el comando de Haskell $infixl$, para introducir el símbolo de la operación que vamos a definir.
 
 \begin{code}

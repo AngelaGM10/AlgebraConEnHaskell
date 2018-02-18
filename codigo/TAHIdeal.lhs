@@ -1,5 +1,5 @@
 \begin{code}
--- |Ideales finitamente generados en anillos conmutativos.
+-- |Ideal finitamente generado en un anillo conmutativo.
 
 module TAHIdeal
   ( Ideal(Id)

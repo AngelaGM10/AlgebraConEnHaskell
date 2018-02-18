@@ -5,13 +5,11 @@ En este capítulo daremos una breve introducción a los conceptos de teoría de 
 Comenzamos dando las primeras definiciones y propiedades básicas que tiene un anillo para posteriormente introducir los anillos conmutativos creamos el primer módulo \texttt{TAH}\entrada{TAH}
 
 \section{Anillos Conmutativos}
-Para describir los anillos commutativos necesitamos un nuevo módulo \texttt{TAHCommutative}\entrada{TAHCommutative}
+Para espeficar los anillos commutativos crearemos un nuevo módulo en el que importaremos el módulo anterior, el nuevo módulo será \texttt{TAHCommutative}\entrada{TAHCommutative}
 \section{Dominio de integridad y Cuerpos}
-Dadas las nociones de anillos conmutativos podemos introducir dos conceptos básicos dominio de integridad y cuerpos, comenzamos por el módulo \texttt{TAHIntegralDomain}\entrada{TAHIntegralDomain} Ahora podemos implementar las especificaciones de la noción de cuerpo en el módulo \texttt{TAHCuerpo}\entrada{TAHCuerpo}
+Dada la noción de anillo conmutativo podemos hablar de estructuras algebraicas como dominio de integridad y cuerpo. Comenzamos por el módulo \texttt{TAHIntegralDomain}\entrada{TAHIntegralDomain} Ahora podemos implementar las especificaciones de la noción de cuerpo en el módulo \texttt{TAHField}\entrada{TAHField}
 
 \section{Ideales}
-El concepto de ideales es muy importante en el álgebra conmutativa. Son
-generalizaciones de muchos conceptos de los enteros. Dado que solo consideramos anillos conmutativos, 
-la propiedad multiplicativa de izquierda y derecha son la misma. Veamos su implementación en el módulo \texttt{TAHIdeal}\entrada{TAHIdeal}
-y seguidamente daremos las nociones de unos anillos que son especialmente relevantes para la construcción matemática. Lo veremos implementado en el módulo \texttt{TAHStronlyDiscrete}\entrada{TAHStronglyDiscrete}
+En esta sección introduciremos uno de los conceptos importantes en el álgebra conmutativa, el concepto de ideal. Dado que solo consideramos anillos conmutativos, la propiedad multiplicativa de izquierda y derecha son la misma. Veamos su implementación en el módulo \texttt{TAHIdeal}\entrada{TAHIdeal}
+y seguidamente daremos las noción de un anillo que es especialmente relevante para el álgebra constructiva. Lo veremos implementado en el módulo \texttt{TAHStronlyDiscrete}\entrada{TAHStronglyDiscrete}
 

@@ -10,7 +10,7 @@ import Test.QuickCheck
 import TAHIntegralDomain 
 
 \end{code}
-Para poder implementar la noción de cuerpo, necesitamos importar el módulo anterior $TAHIntegralDomain$, pues si una terna $(A,+,*)$ es un cuerpo por consiguiente es dominio de integridad, y al definir la clase de cuerpo le imponemos la restricción de que sea un dominio de integridad, veamos la definición teórica de cuerpo. 
+Para poder implementar la noción de cuerpo, necesitamos importar el módulo anterior $TAHIntegralDomain$, pues si una terna $(A,+,*)$ es un cuerpo por consiguiente es dominio de integridad, y al definir la clase de cuerpo le imponemos la restricción de que sea un dominio de integridad, veamos la definición teórica de cuerpo. \\
 
 \begin{defi}
 Un cuerpo es un anillo de división conmutativo, es decir, un anillo conmutativo y unitario en el que todo elemento distinto de cero es invertible respecto del producto. Otra forma de definirlo es la siguiente, un cuerpo R es un dominio de integridad tal que para cada elemento $a \neq\, 0$, existe un inverso $a^{-1}$ que verifica la igualdad: $a^{-1}a = 1$.​ 
