@@ -59,7 +59,7 @@ ello, declaramos la clase $Ring$ sobre un tipo $a$ (es decir, $a$ no está restr
 
 Asímismo, mediante la función $neg$ representamos el elemento inverso para la suma, es decir, para cada elemento $x$ del anillo, $neg x$ representará el inverso de $x$ respecto de la suma $<+>$. Todas ellas varían según el anillo que queramos definir.\\
 
-Para utilizar operaciones que definimos nosotros, (es decir, que no están implementadas en Haskell como puede ser la suma) usamos el comando de Haskell $infixl$, para introducir el símbolo de la operación que vamos a definir.
+Para utilizar operaciones que definimos nosotros, (es decir, que no están implementadas en Haskell como puede ser la suma) usamos el operador de Haskell $infixl$. Los operadores $infix$ son en realidad funciones simples, y también se pueden definir mediante ecuaciones. Estos se usan en forma de "símbolos", a diferencia de los identificadores normales que son alfanuméricos. Se puede dar una declaración de fijeza para cualquier operador o constructor de $infix$, esta declaración especifica un nivel de precedencia de 0 a 9 (siendo 9 el más fuerte, se supone que la aplicación normal tiene un nivel de precedencia de 10), e izquierda, derecha o no asociatividad. La asociatividad izquierda se especifica vía $infixl$, esta la usaremos nosotros para introducir el símbolo de la operación que vamos a definir. La fijeza de más de un operador puede especificarse con la misma declaración de fijeza. Si no se proporciona una declaración de fijeza para un operador en particular, su valor predeterminado es $infixl$ 9. Por ello a la suma le daremos 6 y a la multiplicación 7 pues esta última tiene prioridad sobre la suma.
 
 \begin{code}
 infixl 6 <+>

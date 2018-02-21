@@ -11,5 +11,5 @@
 \contentsline {section}{\numberline {3.2}Anillos Conmutativos}{22}{section.3.2}
 \contentsline {section}{\numberline {3.3}Dominio de integridad y Cuerpos}{23}{section.3.3}
 \contentsline {section}{\numberline {3.4}Ideales}{26}{section.3.4}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{31}{defi.9}
-\contentsline {chapter}{Indice de definiciones}{31}{chapter*.2}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{32}{defi.11}
+\contentsline {chapter}{Indice de definiciones}{33}{chapter*.2}
