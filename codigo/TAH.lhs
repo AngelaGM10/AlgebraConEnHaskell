@@ -1,7 +1,7 @@
 
-Antes de empezar tenemos que crear nuestro módulo, todos tienen la misma estructura, se usa el comando de Haskell $module$ seguido del nombre que le queramos dar al módulo. A continuación entre paréntesis introducimos todas las clases y funciones que vamos a definir y que queramos exportar cuando en otro fichero importemos este módulo, seguido del paréntesis escribimos $where$ y finalmente importamos las librerías y módulos que vayamos a necesitar. Para importarlas usamos el comando $import$. \\
+Antes de empezar tenemos que crear nuestro módulo. Todos tienen la misma estructura, se usa el comando de Haskell $module$ seguido del nombre que le queramos dar al módulo. A continuación entre paréntesis introducimos todas las clases y funciones que vamos a definir y que queramos exportar cuando en otro fichero importemos este módulo, seguido del paréntesis escribimos $where$ y finalmente importamos las librerías y módulos que vayamos a necesitar. Para importarlas usamos el comando $import$. \\
 
-Para nuestro primer módulo solo usaremos la conocida librería de Haskell $Data.List$ la cual comprende las operaciones con listas, y $Test.QuickCheck$ esta librería contine las funciones para probar una propiedad e imprimir los resultados.
+Para nuestro primer módulo solo usaremos la conocida librería de Haskell $Data.List$ la cual comprende las operaciones con listas, y $Test.QuickCheck$ que contine las funciones para comprobar una propiedad e imprimir los resultados.
 
 \begin{code}
 module TAH
@@ -20,7 +20,7 @@ import Test.QuickCheck
 
 
 
-Comenzamos con la parte teórica, damos la definición teórica de anillos:\\
+Comenzamos con la parte teórica, damos la definición de anillos:\\
 
 \begin{defi}
 Un anillo es una terna $(R,+,*)$, donde $R$ es un conjunto y $+,*$ son
@@ -57,9 +57,9 @@ $\forall\,\, a,b,c\,\in\,R.\,\,\,\,(a+b)*c=(a*c)+(b*c)$
 Una vez tenemos la teoría, pasamos a implementarlo en Haskell. Representaremos la noción de anillo en Haskell mediante una clase. Para
 ello, declaramos la clase $Ring$ sobre un tipo $a$ (es decir, $a$ no está restringido a ningún otro tipo) con las operaciones internas que denotaremos con los símbolos $<+>$ y $<**>$ (nótese que de esta forma no coinciden con ninguna operación previamente definida en Haskell). Representamos el elemento neutro de la suma mediante la constante $zero$ y el de la multiplicación mediante la constante $one$.\\
 
-Asímismo, mediante la función $neg$ representamos el elemento inverso para la suma, es decir, para cada elemento $x$ del anillo, $neg x$ representará el inverso de $x$ respecto de la suma $<+>$. Todas ellas varían según el anillo que queramos definir.\\
+Asímismo, mediante la función $neg$ representamos el elemento inverso para la suma, es decir, para cada elemento $x$ del anillo, $(neg\,\, x)$ representará el inverso de $x$ respecto de la suma $<+>$. Todas ellas se concretarán para cada anillo particular.\\
 
-Para utilizar operaciones que definimos nosotros, (es decir, que no están implementadas en Haskell como puede ser la suma) usamos el operador de Haskell $infixl$. Los operadores $infix$ son en realidad funciones simples, y también se pueden definir mediante ecuaciones. Estos se usan en forma de "símbolos", a diferencia de los identificadores normales que son alfanuméricos. Se puede dar una declaración de fijeza para cualquier operador o constructor de $infix$, esta declaración especifica un nivel de precedencia de 0 a 9 (siendo 9 el más fuerte, se supone que la aplicación normal tiene un nivel de precedencia de 10), e izquierda, derecha o no asociatividad. La asociatividad izquierda se especifica vía $infixl$, esta la usaremos nosotros para introducir el símbolo de la operación que vamos a definir. La fijeza de más de un operador puede especificarse con la misma declaración de fijeza. Si no se proporciona una declaración de fijeza para un operador en particular, su valor predeterminado es $infixl$ 9. Por ello a la suma le daremos 6 y a la multiplicación 7 pues esta última tiene prioridad sobre la suma.
+Mediante los operadores $infixl$ e $infixr$ se puede establecer el orden de precedencia (de 0 a 9) de una operación, así como la asociatividad de dicha operación ($infixl$ para asociatividad por la izquierda, $infixr$ para asociatividad por la derecha e $infix$ para no asociatividad). En este caso, las declaraciones ($infixl\,\, 6\,\, <+>$ e $infixl\,\, 7\,\, <**>$) hacen referencia a la asociatividad por la izquierda de ambas operaciones, siendo $6$ el nivel de precedencia de $<+>$ y $7$ el nivel de precedencia de $<**>$.
 
 \begin{code}
 infixl 6 <+>
@@ -73,11 +73,11 @@ class Ring a where
    one :: a
 \end{code}
 
-Una vez establecida la clase de los anillos, pasamos a implementar los axiomas de este. En Haskell un tipo es como una etiqueta que posee toda expresión. Esta etiqueta nos dice a que categoría de cosas se ajusta la expresión.\\
+Una vez declarado el tipo y la signatura de las funciones, pasamos a implementar los axiomas de este. En Haskell un tipo es como una etiqueta que posee toda expresión. Esta etiqueta nos dice a que categoría de objetos se ajusta la expresión.\\
 
-Todos los axiomas que tenemos que introducir tienen la misma estructura, recibe elementos que son del tipo $Ring$ y del tipo $Eq$ para devolver elementos del tipo $Bool$ y $String$.\\
+Todos los axiomas que tenemos que introducir tienen la misma estructura, reciben un tipo de la clase $Ring$ y $Eq$ para devolver elementos del tipo $Bool$ y $String$.\\
 
-La clase $Ring$ la acabamos de definir y la clase de tipos $Eq$ proporciona una interfaz para las comparaciones de igualdad. Cualquier tipo que tenga sentido comparar dos valores de ese tipo por igualdad debe ser miembro de la clase $Eq$. El tipo $Bool$ devuelve un booleano con $True$ y $False$, en nuestras funciones es necesario pues necesitamos que nos devuelva $True$ si se verifica el axioma y $False$ en caso contrario. El tipo $String$ es sinónimo del tipo $Char$ este es necesario pues los booleanos son una cadena de carácteres.
+La clase $Ring$ la acabamos de definir y la clase $Eq$ es la clase de los tipos con igualdad. Cualquier tipo que tenga sentido comparar dos valores de ese tipo por igualdad debe ser miembro de la clase $Eq$. El tipo $Bool$ devuelve un booleano con $True$ y $False$, en nuestras funciones es necesario pues necesitamos que nos devuelva $True$ si se verifica el axioma y $False$ en caso contrario. El tipo $String$ es sinónimo del tipo $[Char]$.
 
 \begin{code}
 -- |1. Asociatividad de la suma.
@@ -115,7 +115,7 @@ propLeftDist a b c =
  (a <**> (b <+> c) == (a <**> b) <+> (a <**> c), "propLeftDist")
 \end{code}
 
-Para saber si una terna $(a,<+>,<**>)$ es un anillo crearemos una propiedad que se encargue de comprobar que los axiomas anteriores se verifiquen, para cada caso particular de una instancia dada. La estructura que tiene es la siguiente: recibe un elemento de tipo $Ring$ y $Eq$ y devuelve un elemento de tipo Property. Este es un tipo que convierte lo que recibe en una propiedad, es una función importada desde el módulo $Test.QuickCheck$.
+Para saber si una terna $(a,<+>,<**>)$ es un anillo definimos una propiedad que se encargue de comprobar que los axiomas anteriores se verifiquen, para cada caso particular de una instancia dada. La estructura que tiene es la siguiente: recibe un elemento de tipo $Ring$ y $Eq$ y devuelve un elemento de tipo Property, una función importada desde el módulo $Test.QuickCheck$.
 
 \begin{code}
 -- | Test para ver si se verifican los axiomas de un anillo.
@@ -152,9 +152,7 @@ Se admite esta instancia porque se ha comprobado que se verifican los axiomas pa
 En caso contrario, proporcionaría un error.
 
 Veamos ahora cómo definir nuevas operaciones en un anillo a partir de
-las propias del anillo. En particular, vamos a definir la diferencia, la
-potencia, etc. Estas operaciones se heredan a las instancias de la clase
-anillo y, por tanto, no habría que volver a definirlas para cada anillo
+las propias del anillo. En particular, vamos a definir la diferencia, suma, producto y potencia. Estas operaciones se heredan a las instancias de la clase anillo y, por tanto, no habría que volver a definirlas para cada anillo
 particular. 
 
 En primer lugar, establecemos el orden de prioridad para los símbolos
@@ -186,9 +184,9 @@ x <^> y | y < 0     = error "<^>: La entrada debe ser positiva."
 x ~~ y = x == y || neg x == y || x == neg y || neg x == neg y
 \end{code}
 
-En la función $sumRing$ hemos usado el comando $foldr x c$, este se usa para aplicar la operación $x$ a los elementos de una lista tomando como elemento de inicio a $c$.\\
 
-Finalmente definimos la multiplicación de un entero por la derecha, la multiplicación de un entero por la izquierda se tiene debido a que la operación $<+>\,$ es commutativa. Esta función al igual que la anterior de potencia recibe un elemento de tipo $Ring$ y devuelve un número entero, que es el tipo $Integer$. Cuando lo que devuelve no tiene ningún tipo especificado significa que no tiene restricción de tipo. 
+
+Finalmente hemos definimos la suma la multiplicación de un entero por la derecha. La multiplicación de un entero por la izquierda se tiene debido a que la operación $<+>\,$ es commutativa. Esta función al igual que la anterior de potencia recibe un elemento de tipo $Ring$ y devuelve un número entero, que es el tipo $Integer$.
 
 \begin{code}
 -- |Multiplicación de un entero por la derecha.

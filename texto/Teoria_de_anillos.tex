@@ -1,15 +1,15 @@
 \chapter{Teoría de Anillos en Haskell}
-En este capítulo daremos una breve introducción a los conceptos de teoría de anillos en Haskell para ello haremos uso de los módulos. Un módulo de Haskell es una colección de funciones, tipos y clases de tipos relacionadas entre sí. Un programa Haskell es una colección de módulos donde el módulo principal carga otros módulos y utiliza las funciones definidas en ellos para realizar algo. Así distribuiremos las secciones y partes del código que creeamos necesario en diferentes módulos. Nos centraremos principalmente en las notas sobre cómo definir los conceptos en la programación funcional y teoría de tipos.
+En este capítulo daremos una breve introducción a los conceptos de teoría de anillos en Haskell. Para ello haremos uso de los módulos. Un módulo de Haskell es una colección de funciones, tipos y clases de tipos relacionadas entre sí. Un programa Haskell es una colección de módulos donde el módulo principal carga otros módulos y utiliza las funciones definidas en ellos. Así distribuiremos las secciones y partes del código que creeamos necesario en diferentes módulos. Nos centraremos principalmente en las notas sobre cómo definir los conceptos mediante programación funcional y teoría de tipos.
 
 \section{Anillos}
-Comenzamos dando las primeras definiciones y propiedades básicas que tiene un anillo para posteriormente introducir los anillos conmutativos creamos el primer módulo \texttt{TAH}\entrada{TAH}
+Comenzamos dando las primeras definiciones y propiedades básicas sobre anillos para posteriormente introducir los anillos conmutativos. Creamos el primer módulo \texttt{TAH}\entrada{TAH}
 
 \section{Anillos Conmutativos}
 Para espeficar los anillos commutativos crearemos un nuevo módulo en el que importaremos el módulo anterior, el nuevo módulo será \texttt{TAHCommutative}\entrada{TAHCommutative}
 \section{Dominio de integridad y Cuerpos}
-Dada la noción de anillo conmutativo podemos hablar de estructuras algebraicas como dominio de integridad y cuerpo. Comenzamos por el módulo \texttt{TAHIntegralDomain}\entrada{TAHIntegralDomain} Ahora podemos implementar las especificaciones de la noción de cuerpo en el módulo \texttt{TAHField}\entrada{TAHField}
+Dada la noción de anillo conmutativo podemos hablar de estructuras algebraicas como dominio de integridad y cuerpo. Comenzamos por el módulo \texttt{TAHIntegralDomain}\entrada{TAHIntegralDomain} Ahora podemos implementar la especificación de la noción de cuerpo en el módulo \texttt{TAHField}\entrada{TAHField}
 
 \section{Ideales}
 En esta sección introduciremos uno de los conceptos importantes en el álgebra conmutativa, el concepto de ideal. Dado que solo consideramos anillos conmutativos, la propiedad multiplicativa de izquierda y derecha son la misma. Veamos su implementación en el módulo \texttt{TAHIdeal}\entrada{TAHIdeal}
-y seguidamente daremos las noción de un anillo que es especialmente relevante para el álgebra constructiva. Lo veremos implementado en el módulo \texttt{TAHStronlyDiscrete}\entrada{TAHStronglyDiscrete}
+
 

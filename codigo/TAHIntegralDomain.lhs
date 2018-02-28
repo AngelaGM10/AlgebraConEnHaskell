@@ -8,7 +8,7 @@ module TAHIntegralDomain
 import Test.QuickCheck
 import TAHCommutative
 \end{code}
-Para iniciar este módulo necesitamos importar el módulo $TAHCommutative$ ya que los dominios de integridad que vamos a utilizar son anillos conmutativos, por lo que la clase que vamos a definir parte del tipo $CommutRing$ que como hemos definido antes es el tipo de los anillos conmutativos, damos su definición.\\
+Para iniciar este módulo necesitamos importar el módulo $TAHCommutative$ ya que vamos a definir los dominios de integridad sobre anillos conmutativos, por lo que la clase que vamos a definir parte del tipo $CommutRing$ que como hemos definido antes es el tipo de los anillos conmutativos. Damos su definición.\\
 
 \begin{defi}
 Dado un anillo $(A,+,*)$, un elemento $a \in\, A$ se dice que es un divisor de cero si existe $b \in\, A- \{0\}$ tal que $a*b = 0$.
