@@ -75,7 +75,7 @@ decir, si $I = <a>$, para un cierto $a \in\,\,R$.
 \end{defi}
 \\
 Los anillos como $\mathbb{Z}$ en los cuales todos los ideales son principales se llaman clásicamente 
-dominios de ideales principales. Pero constructivamente esta definición no es adecuada. Sin embargo, estamos considerando anillos conmutativos en los cuales todos los ideales son finitamente generados. Por tanto, estos son representados por un conjunto finito, y esto si podemos implementarlo a nivel computacional.
+dominios de ideales principales. Pero constructivamente esta definición no es adecuada. Sin embargo, nosotros solo queremos considerar anillos en los cuales todos los ideales finitamente generados son principales. Al ser representados por un conjunto finito, podemos implementarlo a nivel computacional. Estos anillos se llaman dominios de Bézout y se considerarán en el siguiente capítulo.
 
 \begin{code}
 isPrincipal :: CommutRing a => Ideal a -> Bool
