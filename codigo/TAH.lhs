@@ -1,4 +1,3 @@
-
 Antes de empezar tenemos que crear nuestro módulo. Todos tienen la misma estructura, se usa el comando de Haskell $module$ seguido del nombre que le queramos dar al módulo. A continuación entre paréntesis introducimos todas las clases y funciones que vamos a definir y que queramos exportar cuando en otro fichero importemos este módulo, seguido del paréntesis escribimos $where$ y finalmente importamos las librerías y módulos que vayamos a necesitar. Para importarlas usamos el comando $import$. \\
 
 Para nuestro primer módulo solo usaremos la conocida librería de Haskell $Data.List$ la cual comprende las operaciones con listas, y $Test.QuickCheck$ que contine las funciones para comprobar una propiedad e imprimir los resultados.
@@ -139,13 +138,13 @@ Ejemplo:\\
 
 \begin{code}
 -- | El anillo de los enteros con la operaciones usuales:
+
 instance Ring Integer where
      (<+>)  = (+)
      (<**>) = (*)
      neg    = negate
      zero   = 0
-     one    = 1
-
+     one    = 1 
 \end{code}
 
 Se admite esta instancia porque se ha comprobado que se verifican los axiomas para ser un anillo. 
@@ -182,6 +181,7 @@ x <^> y | y < 0     = error "<^>: La entrada debe ser positiva."
 --   iguales salvo el signo.
 (~~) :: (Ring a, Eq a) => a -> a -> Bool
 x ~~ y = x == y || neg x == y || x == neg y || neg x == neg y
+
 \end{code}
 
 
