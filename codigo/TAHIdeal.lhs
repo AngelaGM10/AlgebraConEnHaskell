@@ -1,3 +1,4 @@
+
 \begin{code}
 -- |Ideal finitamente generado en un anillo conmutativo.
 
@@ -89,6 +90,11 @@ fromId :: CommutRing a => Ideal a -> [a]
 fromId (Id xs) = xs
 \end{code}
 
+\begin{code}
+type Zint = Integer
+
+--meter ejemplo
+\end{code}
 Ahora veamos algunas operaciones sobre ideales y propiedades fundamentales de ideales, como pueden ser la suma y multiplicación. Por último daremos una función para identificar si dos ideales son el mismo ideal. Para realizar la implementación de estas operaciones, lo haremos solo para ideales finitamente generados.\\
 
 \begin{defi}
