@@ -1,9 +1,13 @@
 \chapter{Anillos Coherentes}\label{sec:coherentHas}
 Todos los anillos en este capítulo son dominios integrales. Uno de los principales objetivos de las siguientes secciones serán demostrar que los diferentes anillos son coherentes. Esto significa que es posible resolver sistemas de ecuaciones en ello. Antes de comenzar introduciremos la noción de anillo fuertemente discreto.
 \section{Anillos Fuertemente Discretos}
-En esta sección nos ayudaremos del módulo de matrices (que se puede encontrar en la documentación de Haskell) para construir en Haskell la noción de anillo discreto y fuertemente discreto con el objetivo de poder resolver sistemas de ecuaciones, lo vemos en el módulo \texttt{TAHStronlyDiscrete}\entrada{TAHStronlyDiscrete} 
+En esta breve sección mostraremos la noción de anillo discreto y fuertemente discreto, lo vemos en el módulo \texttt{TAHStronglyDiscrete}\entrada{TAHStronglyDiscrete} 
 
+\section{Vectores y Matrices}
+En esta sección implementaremos los vectores y matrices como listas para poder construir los módulos siguientes. En Haskell existen ya estas librerías pero solo podemos usarlas si nos restringimos al tipo numérico. Por ello, crearemos este módulo con el fin de generalizar los conceptos para cualquier tipo de anillo. LLamamos a este módulo como \texttt{TAHMatrix}\entrada{TAHMatrix}
 
+\section{Anillos Coherentes}
+En esta sección, nos ayudaremos del módulo de vectores y matrices creado en el capítulo anterior para construir, en Haskell, la noción de anillo coherente con el objetivo de poder resolver sistemas de ecuaciones. Lo vemos en el módulo \texttt{TAHCoherent}\entrada{TAHCoherent} 
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "TFG"

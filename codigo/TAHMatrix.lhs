@@ -1,6 +1,6 @@
 \begin{code}
 -- | Una pequeña librería de matrices simples.
-module TAHMatriz
+module TAHMatrix
   ( Vector(Vec)
   , unVec, lengthVec
   , Matrix(M), matrix
@@ -47,8 +47,8 @@ instance Arbitrary r => Arbitrary (Vector r) where
 
 Para trabajar con vectores y matrices en este módulo, haremos uso de la clase de tipos $'Functor'$ de Haskell. Esta clase de tipos está implementada de la siguiente forma:
 \begin{code}
-class Functor f where
-    fmap :: (a -> b) -> f a -> f b
+-- class Functor f where
+--     fmap :: (a -> b) -> f a -> f b
 \end{code}
 
 Define una función, $fmap$, y no proporciona ninguna implementación por defecto para ella. El tipo de $fmap$ es similar al tipo de $map$. Aquí, $f$ no es un tipo concreto, sino un constructor de tipos que toma un tipo como parámetro. Vemos que $fmap$ toma una función de un tipo a otro y un funtor aplicado a un tipo y devuelve otro funtor aplicado con el otro tipo.\\
@@ -110,7 +110,7 @@ instance Arbitrary r => Arbitrary (Matrix r) where
 Del mismo modo que para vectores, para matrices volveremos a utilizar la clase de tipos $Functor$ para crear matrices en forma de listas.
 \begin{code}
 instance Functor Matrix where
-  fmap f = M . map Vector.(fmap f) . unM
+  fmap f = M . map (fmap f) . unM
 \end{code}
 
 Una vez implementado el tipo de las matrices vamos a crear la función para construir una matriz de dimensión mxn a partir de una lista de vectores, de forma que cada vector es una fila de la matriz (todos de la misma longitud) y la longitud un vector es el número de columnas.

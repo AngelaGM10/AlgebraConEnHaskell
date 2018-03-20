@@ -64,7 +64,7 @@ Mediante los operadores $infixl$ e $infixr$ se puede establecer el orden de prec
 infixl 6 <+>
 infixl 7 <**>
 
-class Ring a where
+class Show a => Ring a where
    (<+>) :: a -> a -> a
    (<**>) :: a -> a -> a
    neg :: a -> a
@@ -138,6 +138,7 @@ Ejemplo:\\
 
 \begin{code}
 -- | El anillo de los enteros con la operaciones usuales:
+--type Zint = Integer
 
 instance Ring Integer where
      (<+>)  = (+)

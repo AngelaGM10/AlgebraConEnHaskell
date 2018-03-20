@@ -18,7 +18,7 @@ Un anillo conmutativo es un anillo $(R, +, *)$ en el que la operación de multip
 
 
 \begin{code}
-class Ring a => CommutRing a
+class (Show a, Ring a) => CommutRing a
 propMulComm :: (CommutRing a, Eq a) => a -> a -> Bool
 propMulComm a b = a <**> b == b <**> a
 \end{code}
@@ -30,4 +30,9 @@ propCommutRing :: (CommutRing a, Eq a) => a -> a -> a -> Property
 propCommutRing a b c = if propMulComm a b 
                                then propRing a b c 
                                else whenFail (print "propMulComm") False
+\end{code}
+
+Un ejemplo de anillo conmutativo es el de los números enteros, el cual definimos sus operaciones en el anterior módulo de anillos. Por tanto añadiendo la instancia a la clase de anillos conmutativos, comprueba que se verifiquen las operaciones necesarias para ser un anillo conmutativo.
+\begin{code}
+instance CommutRing Integer 
 \end{code}

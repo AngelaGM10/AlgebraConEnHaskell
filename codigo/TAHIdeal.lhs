@@ -35,9 +35,9 @@ se denota $<E>$, como la intersección de todos los ideales que contienen a $E$ 
 vacía puesto que $R$ es un ideal que contiene a $E$).
 \end{defi}
 
-Se llama ideal generado por los elementos $e_1,..,e_r$ de un anillo $(A,+,*)$ al conjunto $E = <e_1,..,e_r> := {a_1e_1 + .. + a_re_r | a_1,..a_r \in\,\, A}$. Este conjunto es el ideal de $A$ más pequeño que contiene a los elementos $e_1,..,e_r$. Cualquier elemento x del ideal generado por $E$, es una combinación lineal de los generadores. Es decir, si $x \in\,\, E$, existen coeficientes $\alpha_1,..,\alpha_r$ tales que $x=\alpha_1x_1+..+\alpha_rx_r$.
+Se llama ideal generado por los elementos $e_1,..,e_r$ de un anillo $(A,+,*)$ al conjunto $E = <e_1,..,e_r> := {a_1e_1 + .. + a_re_r | a_1,..a_r \in\,\, A}$. Este conjunto es el ideal de $A$ más pequeño que contiene a los elementos $e_1,..,e_r$. Cualquier elemento x del ideal generado por $E$, es una combinación lineal de los generadores. Es decir, si $x \in\,\, E$, existen coeficientes $\alpha_1,..,\alpha_r$ tales que $x=\alpha_1x_1+..+\alpha_rx_r$.\\
 
-Para el tipo de dato de los Ideales, en anteriores versiones de Haskell podiamos introducir una restricción al tipo que ibamos a definir mediante el constructor $data$, pero actualmente no se puede. Mediante $data$ se define el tipo $Ideal\,\,a$, donde $a$ es un tipo cualquiera que representa los elementos del ideal. El constructor es $Id$ cuyo conjunto es una lista de elementos de $a$ (los generados del ideal).
+Para el tipo de dato de los Ideales, en anteriores versiones de Haskell podiamos introducir una restricción al tipo que ibamos a definir mediante el constructor $data$, pero actualmente no se puede. Mediante $data$ se define el tipo $Ideal\,\,a$, donde $a$ es un tipo cualquiera que representa los elementos del ideal. El constructor es $Id$ cuyo conjunto es una lista de elementos de $a$ (los generados del ideal).\\
 
 Para especificar en Haskell el ideal generado por un conjunto finito $E$, con $data$ crearemos el tipo de dato mediante el constructor $Id$ y el conjunto $E$ se representará por una lista de elementos del anillo. Por ejemplo, en el anillo de los enteros $\mathbb{Z}$, el ideal generado por $<2,5>$ se representará por $(Id\, [2,5])$. Y el ideal canónico cero $<0>$ en cualquier anillo se representará
 por $(Id\, [zero])$, hay dos ideales canónico el cero ideal y todo el anillo R, este último se representará por $(Id\, [one])$.\\
@@ -48,7 +48,7 @@ Los ideales con los que trabajaremos están restringidos a anillos conmutativos.
 -- |Ideales caracterizados por una lista de generadores.
 data Ideal a = Id [a]
 
-instance (CommutRing a, Show a) => Show (Ideal a) where
+instance Show a => Show (Ideal a) where
   show (Id xs) = "<" ++ concat (intersperse "," (map show xs)) ++ ">"
 
 instance (CommutRing a, Arbitrary a, Eq a) => Arbitrary (Ideal a) where
@@ -76,11 +76,17 @@ decir, si $I = <a>$, para un cierto $a \in\,\,R$.
 \end{defi}
 \\
 Los anillos como $\mathbb{Z}$ en los cuales todos los ideales son principales se llaman clásicamente 
-dominios de ideales principales. Pero constructivamente esta definición no es adecuada. Sin embargo, nosotros solo queremos considerar anillos en los cuales todos los ideales finitamente generados son principales. Al ser representados por un conjunto finito, podemos implementarlo a nivel computacional. Estos anillos se llaman dominios de Bézout y se considerarán en el siguiente capítulo.
+dominios de ideales principales. Pero constructivamente esta definición no es adecuada. Sin embargo, nosotros solo queremos considerar anillos en los cuales todos los ideales finitamente generados son principales. Al ser representados por un conjunto finito, podemos implementarlo a nivel computacional. Estos anillos se llaman dominios de Bézout y se considerarán en el siguiente capítulo. Siempre que se pueda añadiremos ejemplos sobre los enteros, haciendo uso de la instancia sobre los enteros especificada en los anteriores módulos.
 
 \begin{code}
 isPrincipal :: CommutRing a => Ideal a -> Bool
 isPrincipal (Id xs) = length xs == 1
+
+--Ejemplos:
+--λ> isPrincipal (Id [2,3])
+--False
+--λ> isPrincipal (Id [4])
+--True
 \end{code}
 
 Mediante la función $from\,\,Id$, definida a continuación, mostramos la lista de los generadores de $(Id\,\,xs)$. 
@@ -88,13 +94,14 @@ Mediante la función $from\,\,Id$, definida a continuación, mostramos la lista 
 \begin{code}
 fromId :: CommutRing a => Ideal a -> [a]
 fromId (Id xs) = xs
+
+--Ejemplos:
+--λ> fromId (Id [3,4])
+--[3,4]
+--λ> fromId (Id [4,5,8,9,2])
+--[4,5,8,9,2]
 \end{code}
 
-\begin{code}
-type Zint = Integer
-
---meter ejemplo
-\end{code}
 Ahora veamos algunas operaciones sobre ideales y propiedades fundamentales de ideales, como pueden ser la suma y multiplicación. Por último daremos una función para identificar si dos ideales son el mismo ideal. Para realizar la implementación de estas operaciones, lo haremos solo para ideales finitamente generados.\\
 
 \begin{defi}
@@ -106,6 +113,12 @@ Está definición es para cualquier ideal, nosotros nos centramos en los ideales
 \begin{code}
 addId :: (CommutRing a, Eq a) => Ideal a -> Ideal a -> Ideal a
 addId (Id xs) (Id ys) = Id (nub (xs ++ ys))
+
+--Ejemplos:
+--λ> addId (Id [2,3]) (Id [4,5])
+-- <2,3,4,5>
+--λ> addId (Id [2,3,4]) (Id [3,4,6,7])
+-- <2,3,4,6,7>
 \end{code}
 
 \begin{defi}
@@ -119,6 +132,12 @@ De igual forma que en la suma, está es la definición general para cualquier id
 mulId :: (CommutRing a, Eq a) => Ideal a -> Ideal a -> Ideal a
 mulId (Id xs) (Id ys) = if zs == [] then zeroIdeal else Id zs
   where zs = nub [ f <**> g | f <- xs, g <- ys, f <**> g /= zero ]
+
+--Ejemplos:
+--λ> mulId (Id [2,3]) (Id [4,5])
+-- <8,10,12,15>
+--λ> mulId (Id [2,3,4]) (Id [3,4,6,7])
+-- <6,8,12,14,9,18,21,16,24,28> 
 \end{code}
  
 A continuación veremos una función cuyo objetivo es es comprobar que el resultado de una operación $‘op’$ sobre dos ideales calcula el ideal correcto. Para ello, la operación debería proporcionar un “testigo” de forma que el ideal calculado tenga los mismos elementos. Es decir, si $z_k$ es un elemento del conjunto de generadores de $(Id\, zs)$, $z_k$ tiene una expresión como combinación lineal de $xs$ e $ys$, cuyos coeficientes vienen dados por $as$ y $bs$, respectivamente. 
@@ -151,4 +170,9 @@ zeroIdealWitnesses :: (CommutRing a) => [a] -> [a] -> (Ideal a, [[a]], [[a]])
 zeroIdealWitnesses xs ys = ( zeroIdeal
                            , [replicate (length xs) zero]
                            , [replicate (length ys) zero])
+
+--Ejemplo:
+--λ> zeroIdealWitnesses [2,3] [4,5]
+--(<0>,[[0,0]],[[0,0]])
+
 \end{code}
