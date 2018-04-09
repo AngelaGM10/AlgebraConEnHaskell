@@ -27,9 +27,7 @@ class Ring a => StronglyDiscrete a where
   member :: a -> Ideal a -> Maybe [a]
 \end{code}
 
-Hemos creado la función $member$ con la cual, mediante el constructor $Maybe$, podemos decidir si el parámetro $a$ es de tipo $Ideal$ o no. En particular, si pertenece, devuelve $(Just as)$ donde $as$ es
-la lista de coeficientes de la expresión de $x$ como combinación
-lineal de los generadores del ideal y, en caso contrario, $Nothing$.\\
+Hemos creado la función $member$ con la cual, mediante el constructor $Maybe$ ($data\,\,Maybe\,a\,\,=\,\,Nothing\,\,|\,\,Just\,a$), podemos decidir si el parámetro $a$ es de tipo $Ideal$ o no. Debido a que hay un parámetro de tipo involucrado en esta definición, llamamos a $Maybe$ un constructor de tipos. Dependiendo de lo que queramos que este tipo contenga cuando un valor no es Nothing. Ningún valor puede tener un tipo que sea simplemente Maybe. Para que sea un tipo real que algún valor pueda tener, tiene que tener todos los parámetros de tipo definidos.\\
 
 Damos a continuación la función para comprobar si un anillo conmutativo es fuertemente discreto.
 \begin{code}
@@ -40,5 +38,5 @@ propStronglyDiscrete x id@(Id xs) = case member x id of
   Nothing -> True
 \end{code}
 
-Explicamos brevemente como funciona $propStronglyDiscrete$. Esta recibe como argumentos un elemento $x$ y $id@(Id \,\,xs)$ con $@$ lo que hacemos es crear una función o guardar un valor en $id$ de forma de que cuando llamemos a $id$ nos estamos refiriendo a $Id\,\, xs$. En primer lugar con $case .. of$ nos preguntamos si $x$ pertenece al ideal generado por $xs$, es decir si $x$ es un elemento del ideal.  Si esto se verifica devuelve $True$ y nuestro anillo es fuertemente discreto.
--- No entiendo bien el just y nothing.
+Explicamos brevemente como funciona $propStronglyDiscrete$. Esta recibe como argumentos un elemento $x$ y $id@(Id \,\,xs)$ con $@$ lo que hacemos es crear una función o guardar un valor en $id$ de forma de que cuando llamemos a $id$ nos estamos refiriendo a $(Id\,\, xs)$. En primer lugar con $case .. of$ nos preguntamos si $x$ pertenece al ideal generado por $xs$, es decir si $x$ es un elemento del ideal.En particular, si pertenece, devuelve $(Just\,\, as)$ donde $as$ es la lista de coeficientes de la expresión de $x$ como combinación lineal de los generadores del ideal y, en caso contrario, $Nothing$. Si esto se verifica devuelve $True$ y nuestro anillo es fuertemente discreto.
+

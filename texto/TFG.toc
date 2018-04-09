@@ -11,3 +11,9 @@
 \contentsline {section}{\numberline {3.2}Anillos Conmutativos}{22}{section.3.2}
 \contentsline {section}{\numberline {3.3}Dominio de integridad y Cuerpos}{23}{section.3.3}
 \contentsline {section}{\numberline {3.4}Ideales}{26}{section.3.4}
+\contentsline {chapter}{\numberline {4}Anillos Coherentes}{33}{chapter.4}
+\contentsline {section}{\numberline {4.1}Anillos Fuertemente Discretos}{33}{section.4.1}
+\contentsline {section}{\numberline {4.2}Vectores y Matrices}{34}{section.4.2}
+\contentsline {section}{\numberline {4.3}Anillos Coherentes}{44}{section.4.3}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{50}{defi.12}
+\contentsline {chapter}{Indice de definiciones}{51}{chapter*.2}

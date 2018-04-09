@@ -35,7 +35,7 @@ se denota $<E>$, como la intersección de todos los ideales que contienen a $E$ 
 vacía puesto que $R$ es un ideal que contiene a $E$).
 \end{defi}
 
-Se llama ideal generado por los elementos $e_1,..,e_r$ de un anillo $(A,+,*)$ al conjunto $E = <e_1,..,e_r> := {a_1e_1 + .. + a_re_r | a_1,..a_r \in\,\, A}$. Este conjunto es el ideal de $A$ más pequeño que contiene a los elementos $e_1,..,e_r$. Cualquier elemento x del ideal generado por $E$, es una combinación lineal de los generadores. Es decir, si $x \in\,\, E$, existen coeficientes $\alpha_1,..,\alpha_r$ tales que $x=\alpha_1x_1+..+\alpha_rx_r$.\\
+Se llama ideal generado por los elementos $e_1,..,e_r$ de un anillo $(A,+,*)$ al conjunto $E = <e_1,..,e_r> := \{a_1e_1 + .. + a_re_r \,\,|\,\, a_1,..a_r \in\,\, A\}$. Este conjunto es el ideal de $A$ más pequeño que contiene a los elementos $e_1,..,e_r$. Cualquier elemento x del ideal generado por $E$, es una combinación lineal de los generadores. Es decir, si $x \in\,\, E$, existen coeficientes $\alpha_1,..,\alpha_r$ tales que $x=\alpha_1x_1+..+\alpha_rx_r$.\\
 
 Para el tipo de dato de los Ideales, en anteriores versiones de Haskell podiamos introducir una restricción al tipo que ibamos a definir mediante el constructor $data$, pero actualmente no se puede. Mediante $data$ se define el tipo $Ideal\,\,a$, donde $a$ es un tipo cualquiera que representa los elementos del ideal. El constructor es $Id$ cuyo conjunto es una lista de elementos de $a$ (los generados del ideal).\\
 
@@ -61,18 +61,16 @@ zeroIdeal :: CommutRing a => Ideal a
 zeroIdeal = Id [zero]
 \end{code}
 
-Al añadir $deriving (Show)$ al final de una declaración de tipo, automáticamente Haskell hace que ese tipo forme parte de la clase de tipos Show, y lo muestra como lo tenga por defecto. Mediante esta instancia modificamos esta presentación especificando como queremos que lo muestre. Por ejemplo, el ideal $(Id\, [2,5])$ se va a mostrar como $<2,5>$.\\  
+Al añadir $deriving (Show)$ al final de una declaración de tipo, automáticamente Haskell hace que ese tipo forme parte de la clase de tipos $Show$, y lo muestra como lo tenga por defecto. Mediante esta instancia modificamos esta presentación especificando como queremos que lo muestre. Por ejemplo, el ideal $(Id\, [2,5])$ se va a mostrar como $<2,5>$.\\  
 
 Para la segunda instancia hemos utilizado la clase $Arbitrary$. Esta proviene de la líbrería $QuickCheck$, proporciona una generación aleatoria y proporciona valores reducidos. Gracias a esta clase, con la segunda instancia podemos generar ideales de forma aleatoria. Esto nos ayudará a comprobar las funciones a verificar para ser un ideal.\\
 
-Vamos a explicar brevemente como funciona la segunda instancia. Comienza generando una lista $xs'$ de elementos cualesquiera del anillo, con $filter$ se filtra y se eliminan los ceros obteniendo la nueva lista $xs$. Si $\,xs\, = \,[]$, se genera el ideal $(Id\, [one])$, todo el anillo; en caso
-contrario, el ideal generado por los elementos de $xs$, sin repeticiones (eliminadas con la función $nub$).\\
+Vamos a explicar brevemente como funciona la segunda instancia. Comienza generando una lista $xs'$ de elementos cualesquiera del anillo, con $filter$ se filtra y se eliminan los ceros obteniendo la nueva lista $xs$. Si $\,xs\, = \,[]$, se genera el ideal $(Id\, [one])$, todo el anillo; en caso contrario, el ideal generado por los elementos de $xs$, sin repeticiones (eliminadas con la función $nub$).\\
 
 Finalmente hemos implementado uno de los ideales canónicos, el ideal cero, $<0>$. A continuación, damos la definición de ideal principal.\\
 
 \begin{defi}
-Un ideal $I \subset R$ se llama principal si se puede generar por un sólo elemento. Es
-decir, si $I = <a>$, para un cierto $a \in\,\,R$.
+Un ideal $I \subset R$ se llama principal si se puede generar por un sólo elemento. Es decir, si $I = <a>$, para un cierto $a \in\,\,R$.
 \end{defi}
 \\
 Los anillos como $\mathbb{Z}$ en los cuales todos los ideales son principales se llaman clásicamente 
@@ -140,7 +138,7 @@ mulId (Id xs) (Id ys) = if zs == [] then zeroIdeal else Id zs
 -- <6,8,12,14,9,18,21,16,24,28> 
 \end{code}
  
-A continuación veremos una función cuyo objetivo es es comprobar que el resultado de una operación $‘op’$ sobre dos ideales calcula el ideal correcto. Para ello, la operación debería proporcionar un “testigo” de forma que el ideal calculado tenga los mismos elementos. Es decir, si $z_k$ es un elemento del conjunto de generadores de $(Id\, zs)$, $z_k$ tiene una expresión como combinación lineal de $xs$ e $ys$, cuyos coeficientes vienen dados por $as$ y $bs$, respectivamente. 
+A continuación veremos una función cuyo objetivo es comprobar que el resultado de una operación $op$ sobre dos ideales calcula el ideal correcto. Para ello, la operación debería proporcionar un “testigo” de forma que el ideal calculado tenga los mismos elementos. Es decir, si $z_k$ es un elemento del conjunto de generadores de $(Id\, zs)$, $z_k$ tiene una expresión como combinación lineal de $xs$ e $ys$, cuyos coeficientes vienen dados por $as$ y $bs$, respectivamente. 
 
 \begin{code}
 -- | Verificar si es correcta la operación entre ideales.

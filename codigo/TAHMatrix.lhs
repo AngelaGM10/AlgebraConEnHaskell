@@ -45,6 +45,8 @@ instance Arbitrary r => Arbitrary (Vector r) where
 
 \end{code}
 
+Explicamos brevemente algunas de las funciones utilizadas en el generador de vectores, con $choose$ se elige de forma aleatoria un número, en nuestro caso, entre 1 y 10. La función $liftM$ nos permite transformar una función en una función correspondiente dentro de otra configuración en nuestro caso en forma de vector y junto con $gen$ que es una función que genera un tipo dado de forma aleatoria en nuestro caso un vector gracias a $liftM$. -----(Esta explicación de funciones no se si dejarla aquí o a la introdución de Haskell)----\\
+
 Para trabajar con vectores y matrices en este módulo, haremos uso de la clase de tipos $'Functor'$ de Haskell. Esta clase de tipos está implementada de la siguiente forma:
 \begin{code}
 -- class Functor f where
@@ -73,6 +75,19 @@ instance Ring r => Ring (Vector r) where
 -}
 \end{code}
 
+Para ver un ejemplo lo haremos con vectores de dimesión $1x3$ en los números enteros.
+\begin{code}
+{- Así no funciona y no sé como meter los enteros para poder hacer el ejemplo.
+instance Ring Integer => Ring (Vector Integer) where
+  (Vec xs) <+> (Vec ys) | length xs == length ys = Vec (zipWith (<+>) xs ys)
+                        | otherwise = error "Los vectores no se pueden sumar porque tienen dimensiones diferentes"
+  (Vec xs) <**> (Vec ys) | length xs == length ys = Vec (zipWith (<**>) xs ys)
+                         | otherwise = error "Los vectores no se pueden multiplicar porque tienen dimensiones diferentes"
+  one  = Vec [1,1,1]
+  zero = Vec [0,0,0]
+-}
+\end{code}
+
 Para acabar con los vectores damos la función que muestra el vector en forma de lista y la que mide la longitud de un vector en ese formato.
 
 \begin{code}
@@ -83,11 +98,11 @@ lengthVec :: Vector r -> Int
 lengthVec = length . unVec
 \end{code}
 
-Una vez dadas las nocines de los vectores podemos comenzar a implementar las nociones de las matrices, notesé que cada fila o columna de una matriz puede verse como un vector. Haciendo uso del tipo $Vector$ implementamos las matrices como un nuevo tipo.
+Una vez dadas las nocines de los vectores podemos comenzar a implementar las nociones de las matrices, notesé que cada fila o columna de una matriz puede verse como un vector. 
 \begin{code}
 -- | Matrices
 newtype Matrix r = M [Vector r]
-  deriving (Eq)
+  deriving (Eq) 
 
 instance Show r => Show (Matrix r) where
   show xs = case unlines (map show (unMVec xs)) of
@@ -106,6 +121,7 @@ instance Arbitrary r => Arbitrary (Matrix r) where
                xs <- gen (n-1)
                return (x:xs)
 \end{code}
+Haciendo uso del tipo $Vector$ implementamos las matrices como un nuevo tipo, el generador de matrices funciona de forma análoga a la de los vectores. Solo que al ser matriz necesitamos una función más, $sequence$. Está evalua cada acción en la secuencia de izquierda a derecha y recopila los resultados, es decir, va a aplicar la acción dada a cada elemento de la lista.\\
 
 Del mismo modo que para vectores, para matrices volveremos a utilizar la clase de tipos $Functor$ para crear matrices en forma de listas.
 \begin{code}
@@ -113,7 +129,7 @@ instance Functor Matrix where
   fmap f = M . map (fmap f) . unM
 \end{code}
 
-Una vez implementado el tipo de las matrices vamos a crear la función para construir una matriz de dimensión mxn a partir de una lista de vectores, de forma que cada vector es una fila de la matriz (todos de la misma longitud) y la longitud un vector es el número de columnas.
+Una vez implementado el tipo de las matrices vamos a crear la función para construir una matriz de dimensión $mxn$ a partir de una lista de vectores, de forma que cada vector es una fila de la matriz (todos de la misma longitud) y la longitud de un vector es el número de columnas.
 \begin{code}
 -- | Matriz mxn.
 matrix :: [[r]] -> Matrix r
@@ -221,7 +237,7 @@ propRightIdentity a = a == a `mulM` identity m
   where m = snd (dimension a)
 \end{code}
 
-A continuación  vamos a trabajar con matrices sobre anillos conmutativos, por ello rsetringiremos la clase $CommutRing$. Realizaremos suma entre filas y columnas, definiremos el concepto de matriz escalar y dado que estas operaciones no afectan a la dimensión daremos funciones para comprobarlo. Una matriz escalar es una matriz diagonal en la que los elementos de la diagonal principal son iguales. 
+A continuación  vamos a trabajar con matrices sobre anillos conmutativos, por ello restringiremos la clase $CommutRing$. Realizaremos suma entre filas y columnas, definiremos el concepto de matriz escalar y dado que estas operaciones no afectan a la dimensión daremos funciones para comprobarlo. Una matriz escalar es una matriz diagonal en la que los elementos de la diagonal principal son iguales. 
 \begin{code}
 -- | Escalar una fila en la matriz.
 scaleMatrix :: CommutRing a => Matrix a -> Int -> a -> Matrix a
@@ -297,32 +313,38 @@ subCol m (Vec xs) x = addCol m (Vec (map neg xs)) x
 
 Gracias a todo lo anterior ahora podemos implementar el método de Gauss-Jordan para poder resolver sistemas $Ax=b$ donde $A$ es una matriz $mxn$ y $b$ es un vector columna de $n$ filas. Para ello exigiremos que las matrices pertenezcan a anillos conmutativos. Comenzaremos por obtener los pivots en cada fila, escalonar la matriz y finalmente hacer el paso de "Jordan" para finalmente conseguir la solución del sistema.
 \begin{code}
--- Multiplicar la fila donde está el pivot y sumarle la fila en la que queremos hacer un 0.
+-- Multiplicar la fila donde está el pivot y sumarle la fila en la que
+-- queremos hacer un 0.
 pivot :: CommutRing a => Matrix a -> a -> Int -> Int -> Matrix a
 pivot m s p t = addRow m (fmap (s <**>) (unM m !! p)) t
 
--- Encontrar el primer cero en las filas debajo del pivot y devolver el valor y el número
--- de la fila en la que está.
+-- Encontrar el primer cero en las filas debajo del pivot y devolver el
+-- valor y el número de la fila en la que está.
 findPivot :: (CommutRing a, Eq a) => Matrix a -> (Int,Int) -> Maybe (a,Int)
-findPivot m (r,c) = safeHead $ filter ((/= zero) . fst) $ drop (r+1) $ zip (head $ drop c $ unMVec $ transpose m) [0..]
+findPivot m (r,c) = safeHead $ filter ((/= zero) . fst) $ drop (r+1) $
+                    zip (head $ drop c $ unMVec $ transpose m) [0..]
   where
   m' = unMVec m
 
   safeHead []     = Nothing
   safeHead (x:xs) = Just x
 
+-- Modificamos las filas para hacer 0 en la columna del pivot.
 fE :: (Field a, Eq a) => Matrix a -> Matrix a
 fE (M [])         = M []
 fE (M (Vec []:_)) = M []
 fE m     = case L.findIndices (/= zero) (map head xs) of
-  (i:is) -> case fE (cancelOut m [ (i,map head xs !! i) | i <- is ] (i,map head xs !! i)) of
+  (i:is) -> case fE (cancelOut
+     m [ (i,map head xs !! i) | i <- is ] (i,map head xs !! i)) of
     ys -> matrix (xs !! i : map (zero :) (unMVec ys))
   []     -> case fE (matrix (map tail xs)) of
     ys -> matrix (map (zero:) (unMVec ys))
   where
   cancelOut :: (Field a, Eq a) => Matrix a -> [(Int,a)] -> (Int,a) -> Matrix a
-  cancelOut m [] (i,_)    = let xs = unMVec m in matrix $ map tail (L.delete (xs !! i) xs)
-  cancelOut m ((t,x):xs) (i,p) = cancelOut (pivot m (neg (x </> p)) i t) xs (i,p)
+  cancelOut m [] (i,_)    = let xs = unMVec m in matrix $
+                                     map tail (L.delete (xs !! i) xs)
+  cancelOut m ((t,x):xs) (i,p) =
+                  cancelOut (pivot m (neg (x </> p)) i t) xs (i,p)
 
   xs = unMVec m
 \end{code}
