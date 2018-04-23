@@ -1,9 +1,8 @@
+Antes de comenzar, importaremos algunas librerías necesarias para construir las matrices. Entre ellas utilizaremos $'Control.Arrow'$, de ella tenemos que excluir la suma $(<+>)$ pues nosotros utilizamos la definida en anillos.
+
 \begin{code}
--- | Una pequeña librería de matrices simples.
 module TAHMatrix
-  ( Vector(Vec)
-  , unVec, lengthVec
-  , Matrix(M), matrix
+  ( Matrix(M), matrix
   , matrixToVector, vectorToMatrix, unMVec, unM, (!!!)
   , identity, propLeftIdentity, propRightIdentity
   , mulM, addM, transpose, isSquareMatrix, dimension
@@ -13,94 +12,20 @@ module TAHMatrix
   ) where
 
 import qualified Data.List as L
-import Data.Function (on)
+
+
 import Control.Monad (liftM)
 import Control.Arrow hiding ((<+>))
 import Test.QuickCheck
 
 import TAHField
-
-import Debug.Trace
-
-\end{code}
-
-Comenzamos por implementar las nocines básicas de los vectores. Creamos un nuevo tipo para definir un vector, usaremos las listas para aplicarlas sobre el tipo $Vector$ y trabajar con ellas como vectores en Haskell:
-\begin{code}
--- | Vectores.
-
-newtype Vector r = Vec [r] deriving (Eq)
-
-instance Show r => Show (Vector r) where
-  show (Vec vs) = show vs
-
--- Generar un vector de longitud 1-10.
-instance Arbitrary r => Arbitrary (Vector r) where
-  arbitrary = do n <- choose (1,10) :: Gen Int
-                 liftM Vec $ gen n
-    where
-    gen 0 = return []
-    gen n = do x <- arbitrary
-               xs <- gen (n-1)
-               return (x:xs)
+import TAHVector
 
 \end{code}
 
-Explicamos brevemente algunas de las funciones utilizadas en el generador de vectores, con $choose$ se elige de forma aleatoria un número, en nuestro caso, entre 1 y 10. La función $liftM$ nos permite transformar una función en una función correspondiente dentro de otra configuración en nuestro caso en forma de vector y junto con $gen$ que es una función que genera un tipo dado de forma aleatoria en nuestro caso un vector gracias a $liftM$. -----(Esta explicación de funciones no se si dejarla aquí o a la introdución de Haskell)----\\
-
-Para trabajar con vectores y matrices en este módulo, haremos uso de la clase de tipos $'Functor'$ de Haskell. Esta clase de tipos está implementada de la siguiente forma:
-\begin{code}
--- class Functor f where
---     fmap :: (a -> b) -> f a -> f b
-\end{code}
-
-Define una función, $fmap$, y no proporciona ninguna implementación por defecto para ella. El tipo de $fmap$ es similar al tipo de $map$. Aquí, $f$ no es un tipo concreto, sino un constructor de tipos que toma un tipo como parámetro. Vemos que $fmap$ toma una función de un tipo a otro y un funtor aplicado a un tipo y devuelve otro funtor aplicado con el otro tipo.\\
-
-En nuestro caso crearemos una instancia con la clase de tipos $Functor$ sobre el constructor $Vector$ con el objetivo de establecer los vectores en forma de lista. Definiremos la función $(fmap\,\,f)$ como tipo vector mediante $Vec$ y mediante aplicaremos $unVec$ (una función que definiremos más adelante) a la lista obtenida tras aplicar la función $(map\,\,f)$.
+Declaramos el nuevo tipo de matrices, la representación de la matriz viene dada en forma de lista de vectores, donde cada vector de la lista representa una fila de la matriz. Daremos también una instancia para que se puedan mostrar. Así como un generador de matrices aleatorio, similar al utilizado en vectores, con el fin de poder comprobar resultados mediante $QuickCheck$.
 
 \begin{code}
-instance Functor Vector where 
-  fmap f = Vec . map f . unVec
-\end{code}
-
-Ahora vamos a definir la suma y multiplicación de vectores sobre un anillo. Estas operaciones tenemos que dejarlas comentadas pues para que funcionen tenemos que asignar el elemento neutro para la suma y producto, pues estamos definiendolo como una instancia de la clase $Ring$. Recordamos que para realizar operaciones con vectores estos tienen que tener la misma dimensión.
-\begin{code}
-{-
-instance Ring r => Ring (Vector r) where
-  (Vec xs) <+> (Vec ys) | length xs == length ys = Vec (zipWith (<+>) xs ys)
-                        | otherwise = error "Los vectores no se pueden sumar porque tienen dimensiones diferentes"
-  (Vec xs) <**> (Vec ys) | length xs == length ys = Vec (zipWith (<**>) xs ys)
-                         | otherwise = error "Los vectores no se pueden multiplicar porque tienen dimensiones diferentes"
-  one  = ?
-  zero = ?
--}
-\end{code}
-
-Para ver un ejemplo lo haremos con vectores de dimesión $1x3$ en los números enteros.
-\begin{code}
-{- Así no funciona y no sé como meter los enteros para poder hacer el ejemplo.
-instance Ring Integer => Ring (Vector Integer) where
-  (Vec xs) <+> (Vec ys) | length xs == length ys = Vec (zipWith (<+>) xs ys)
-                        | otherwise = error "Los vectores no se pueden sumar porque tienen dimensiones diferentes"
-  (Vec xs) <**> (Vec ys) | length xs == length ys = Vec (zipWith (<**>) xs ys)
-                         | otherwise = error "Los vectores no se pueden multiplicar porque tienen dimensiones diferentes"
-  one  = Vec [1,1,1]
-  zero = Vec [0,0,0]
--}
-\end{code}
-
-Para acabar con los vectores damos la función que muestra el vector en forma de lista y la que mide la longitud de un vector en ese formato.
-
-\begin{code}
-unVec :: Vector r -> [r]
-unVec (Vec vs) = vs
-
-lengthVec :: Vector r -> Int
-lengthVec = length . unVec
-\end{code}
-
-Una vez dadas las nocines de los vectores podemos comenzar a implementar las nociones de las matrices, notesé que cada fila o columna de una matriz puede verse como un vector. 
-\begin{code}
--- | Matrices
 newtype Matrix r = M [Vector r]
   deriving (Eq) 
 
@@ -121,15 +46,14 @@ instance Arbitrary r => Arbitrary (Matrix r) where
                xs <- gen (n-1)
                return (x:xs)
 \end{code}
-Haciendo uso del tipo $Vector$ implementamos las matrices como un nuevo tipo, el generador de matrices funciona de forma análoga a la de los vectores. Solo que al ser matriz necesitamos una función más, $sequence$. Está evalua cada acción en la secuencia de izquierda a derecha y recopila los resultados, es decir, va a aplicar la acción dada a cada elemento de la lista.\\
 
-Del mismo modo que para vectores, para matrices volveremos a utilizar la clase de tipos $Functor$ para crear matrices en forma de listas.
+Del mismo modo que para vectores, para matrices volveremos a utilizar la clase de tipos $Functor$ para establecer matrices en forma de listas.
 \begin{code}
 instance Functor Matrix where
   fmap f = M . map (fmap f) . unM
 \end{code}
 
-Una vez implementado el tipo de las matrices vamos a crear la función para construir una matriz de dimensión $mxn$ a partir de una lista de vectores, de forma que cada vector es una fila de la matriz (todos de la misma longitud) y la longitud de un vector es el número de columnas.
+Una vez implementado el tipo de las matrices vamos a definir la función para construir una matriz de dimensión $mxn$ a partir de una lista de listas, de forma que cada lista es una fila de la matriz (todas de la misma longitud) y la longitud de un lista es el número de columnas. Vamos a dar una función para que devuelva la matriz de la forma en que visualmente la vemos, es decir una fila debajo de la otra.
 \begin{code}
 -- | Matriz mxn.
 matrix :: [[r]] -> Matrix r
@@ -141,26 +65,26 @@ matrix xs =
         else error "La dimensión del vector no puede ser distinta al resto"
 \end{code}
 
-Las siguientes funciones son para mostrar una matriz como lista de vectores, y aplicar funciones con este formato sobre ella. Pasar de matrices a vectores y viceversa, así como una función para comprobar que las dimensiones de la matriz son correctas y ninguna es mayor de 10 (Notesé que para esta última función hemos utilizado el símbolo $(!!!)$ que se utiliza en mátematicas para las contradicciones).
+Las siguientes funciones son para mostrar una matriz como lista de vectores, y aplicar funciones con este formato sobre ella. Pasar de matrices a vectores y viceversa, así como una función para obtener una submatriz.
 \begin{code}
--- Mostrar la matriz como lista de vectores.
+-- | Mostrar la matriz como lista de vectores.
 unM :: Matrix r -> [Vector r]
 unM (M xs) = xs
 
--- Aplicar lo anterior a cada vector de la lista.
+-- | Aplicamos la función 'unM' a cada vector de la lista.
 unMVec :: Matrix r -> [[r]]
 unMVec = map unVec . unM
 
--- De vector a matriz.
+-- | De vector a matriz.
 vectorToMatrix :: Vector r -> Matrix r
 vectorToMatrix = matrix . (:[]) . unVec
 
--- De matriz a vector.
+-- | De matriz a vector.
 matrixToVector :: Matrix r -> Vector r
 matrixToVector m | fst (dimension m) == 1 = head (unM m)
-                 | otherwise              = error "No pueden tener dimensiones distintas"
+                 | otherwise = error "No pueden tener dimensiones distintas"
 
--- Comprobar si la dimensión es correcta según los parámetros que hemos establecido.
+-- | Obtener una submatriz.
 (!!!) :: Matrix a -> (Int,Int) -> a
 m !!! (r,c) | r >= 0 && r < rows && c >= 0 && c < cols = unMVec m !! r !! c
             | otherwise = error "!!!: Fuera de los límetes"
@@ -168,8 +92,7 @@ m !!! (r,c) | r >= 0 && r < rows && c >= 0 && c < cols = unMVec m !! r !! c
   (rows,cols) = dimension m 
 \end{code}
 
-Utilizando las funciones anteriores podemos implementar propiedades y operaciones con las matrices. La suma y multiplicación la restringiremos a la clase de los anillos, $Ring$.
-
+Utilizando las funciones anteriores podemos implementar propiedades y operaciones con las matrices. Daremos la dimensión de la matriz, una función que compruebe si la matriz es cuadrada, es decir, que el número de filas coincide con el número de columnas. Y la función para transponer una matriz, es decir, pasar las filas a columnas. Para esta última, utilizaremos la función $'transpose'$ de la librería $Data.List$ que se aplica sobre listas de forma que agrupa los elementos para que las listas de filas estén en la posición de la columna correspondiente.
 \begin{code}
 -- | Dimensión de la matriz.
 dimension :: Matrix r -> (Int, Int)
@@ -178,32 +101,36 @@ dimension (M xs) | null xs   = (0,0)
 
 -- | Comprobar si una matriz es cuadrada.
 isSquareMatrix :: Matrix r -> Bool
-isSquareMatrix (M xs) = all (== length xs) (map lengthVec xs)
+isSquareMatrix (M xs) = all (== l) (map lengthVec xs)
+                        where l = length xs
 
 -- | Transponer la matriz.
 transpose :: Matrix r -> Matrix r
 transpose (M xs) = matrix (L.transpose (map unVec xs))
+\end{code}
+ 
+La suma y multiplicación la restringiremos a la clase de los anillos, $Ring$. La suma de matrices recordamos que da una matriz cuyas entradas son la suma de las entradas correspondientes de las matrices a sumar. Para esta suma lo haremos mediante suma de listas ya que utilizaremos la función $'matrix'$ para mostrar la matriz correspondiente y esta recibe como argumento de entrada una lista de listas.\\
 
+Por otro lado la multiplicación de matrices recordamos que consiste en multiplicar cada fila de la primera matriz por cada columna de la segunda matriz, obteniendo así un elemento en la entrada correspondiente al par de la fila y columna multiplicada. Aquí si podemos utilizar la operación $'mulVec'$ entre vectores pues devuelve un valor no un vector, por tanto obtenemos una lista de listas. Recordamos que para poder realizar multiplicaciones entre matrices el número de columnas de la primera matriz tiene que ser igual al número de filas de la segunda matriz.
+
+\begin{code}
 -- | Suma de matrices.
 addM :: Ring r => Matrix r -> Matrix r -> Matrix r
 addM (M xs) (M ys)
   | dimension (M xs) == dimension (M ys) = m
-  | otherwise = error "Las dimensiones de las matrices no pueden ser distintas"
+  | otherwise = error "Las dimensiones de las matrices son distintas"
   where
-  m = matrix (zipWith (zipWith (<+>)) (map unVec xs) (map unVec ys))
-
+    m = matrix (zipWith (zipWith (<+>)) (map unVec xs) (map unVec ys))
+   
 -- | Multiplicación de matrices.
 mulM :: Ring r => Matrix r -> Matrix r -> Matrix r
 mulM (M xs) (M ys)
   | snd (dimension (M xs)) == fst (dimension (M ys)) = m
-  | otherwise = error "Las dimensiones de las matrices no pueden ser distintas"
+  | otherwise = error "La dimensión de colunmas y filas es distinta"
     where
-    m = matrix [ [ mulVec x y | y <- L.transpose (map unVec ys) ]
-               | x <- map unVec xs ]
-
--- | Multiplicación de Vectores
-mulVec xs ys | length xs == length ys = foldr (<+>) zero $ zipWith (<**>) xs ys
-             | otherwise = error "Las dimensiones de los vectores no pueden ser distintas"
+    m = matrix [ [mulVec x y | y <- unM (transpose (M ys)) ]
+               | x <- unM (M xs) ]
+  
 \end{code}
 
 Para utilizar matrices sobre los anillos debemos implementarlo mediante las instancias, pero hay que tener cuidado pues el tamaño de la matriz debe codificarse al dar el tipo, las dimensiones de las matrices tienen que ser las adecuadas para que la suma y multiplicación no den errores, y tenemos que dar el vector neutro para la suma según la dimensión que vayamos a utilizar. Por estos motivos damos el código comentado.
@@ -214,10 +141,11 @@ instance Ring r => Ring (Matrix r) where
   (<**>) = mul
   neg (Vec xs d) = Vec [ map neg x | x <- xs ] d
   zero  = undefined
+  one = undefined
 -}
 \end{code}
 
-Introducimos ahora las propiedades básicas de la matriz identidad. Estas estarán restringidas a la clase de dominio de integridad, $IntegralDomain$.
+Introducimos las propiedades básicas de la matriz identidad. Estas estarán restringidas a la clase de dominio de integridad, $IntegralDomain$.
 \begin{code}
 -- | Construcción de la matriz identidad nxn.
 identity :: IntegralDomain r => Int -> Matrix r
@@ -227,7 +155,8 @@ identity n = matrix (xs 0)
        | otherwise = (replicate x zero ++ [one] ++
                       replicate (n-x-1) zero) : xs (x+1)
 
--- Propiedades de la multiplicación a izquierda y derecha de la matriz identidad.
+-- Propiedades de la multiplicación a izquierda y derecha de la
+-- matriz identidad.
 propLeftIdentity :: (IntegralDomain r, Eq r) => Matrix r -> Bool
 propLeftIdentity a = a == identity n `mulM` a
   where n = fst (dimension a)
@@ -237,22 +166,30 @@ propRightIdentity a = a == a `mulM` identity m
   where m = snd (dimension a)
 \end{code}
 
-A continuación  vamos a trabajar con matrices sobre anillos conmutativos, por ello restringiremos la clase $CommutRing$. Realizaremos suma entre filas y columnas, definiremos el concepto de matriz escalar y dado que estas operaciones no afectan a la dimensión daremos funciones para comprobarlo. Una matriz escalar es una matriz diagonal en la que los elementos de la diagonal principal son iguales. 
+A continuación  vamos a trabajar con matrices sobre anillos conmutativos, por ello restringiremos a la clase $CommutRing$. Realizaremos operaciones entre filas y columnas, y veremos que estas operaciones no afectan a la dimensión de la matriz. Hacemos esta restricción debido a que uno de los objetivos es poder aplicar el método de Gauss-Jordan, y para ello exigiremos que las matrices pertenezcan a anillos conmutativos, debido a que en el siguiente capítulo necesitaremos estas operaciones con matrices y estamos restringidos a anillos conmutativos. \\
+
+ Damos una breve descripción de la primera operación. El objetivo es multiplicar una fila por un escalar, de forma que la matriz obtenida sea la misma con la fila que queramos modificada como el resultado de multiplicar esta fila por un número o escalar, quedando el resto de filas sin modificar, los argumentos de entrada serán la matriz, el número de la fila que queremos modificar menos 1 (pues la función $(!! r)$ de la librería Data.List selecciona el elemento $r+1$ de la lista, pues es un índice y comienza en 0). Comprobaremos que esta operación no afecta a la dimensión, pues la dimensión de la matriz resultante es la misma que la primera matriz.
+
 \begin{code}
--- | Escalar una fila en la matriz.
+-- | Multiplicar una fila por un escalar en la matriz.
 scaleMatrix :: CommutRing a => Matrix a -> Int -> a -> Matrix a
 scaleMatrix m r s
-  | 0 <= r && r < rows = matrix $ take r m' ++ map (s <**>) (m' !! r) : drop (r+1) m'
-  | otherwise = error "Escala: índice fuera de los límites"
+  | 0 <= r && r < rows = matrix $ take r m' ++
+                         map (s <**>) (m' !! r) : drop (r+1) m'
+  | otherwise = error "La fila escogida es mayor que la dimensión"
   where
   (rows,_) = dimension m
   m'       = unMVec m
 
--- Escalar una matriz no afecta a la dimensión.
+-- La dimensión no varía.
 propScaleDimension :: (Arbitrary r, CommutRing r) => Matrix r -> Int -> r -> Bool
 propScaleDimension m r s = d == dimension (scaleMatrix m (mod r rows) s)
   where d@(rows,_) = dimension m
+\end{code}
 
+La siguiente operación consiste en intercambiar filas, el objetivo de $(swap \,\,m\,\,i\,\,j)$ es dada una matriz $m$ intercambiar las filas $i$ y $j$, de forma que la fila $i$ acabe en la posición de la fila $j$ y viceversa. Comprobamos que no varía de dimensión. Comprobaremos también que si realizamos el mismo intercambio dos veces obtenemos la matriz inicial.
+
+\begin{code}
 -- | Intercambiar dos filas de una matriz.
 swap :: Matrix a -> Int -> Int -> Matrix a
 swap m i j
@@ -267,59 +204,68 @@ swap m i j
   swap' xs i 0     = swap' xs 0 i
   swap' (x:xs) i j = x : swap' xs (i-1) (j-1)
 
--- Intercambiar filas de una matriz no afecta a la dimensión.
+-- Al intercambiar filas de una matriz no varía la dimensión.
 propSwapDimension :: Matrix () -> Int -> Int -> Bool
 propSwapDimension m i j = d == dimension (swap m (mod i r) (mod j r))
   where d@(r,_) = dimension m
 
--- El intercambio es en sí mismo identidad, es decir, intercambiar dos filas ya
--- intercambiadas entre ellas vuelve a estar como al principio.
+-- | El intercambio es en sí mismo identidad.
 propSwapIdentity :: Matrix () -> Int -> Int -> Bool
 propSwapIdentity m i j = m == swap (swap m i' j') i' j'
   where
   d@(r,_) = dimension m
   i'      = mod i r
   j'      = mod j r
+\end{code}
 
-
--- Sumar dos filas de la matriz .
+Mediante la función $(addRow\,\, m\,\, row@(Vec xs)\,\, x)$ realizamos la operación de sumar un vector ($row@(Vec xs)$)  a la fila $x+1$ de una matriz $m$ dada, recordamos que es importante que el vector tenga la misma dimensión que el número de colunmas de la matriz. Verificamos que la dimensión no varía. Seguidamente realizamos la misma operación sobre las columnas, para ello basta transponer la matriz y aplicar la función sobre las filas.
+\begin{code}
+-- | Sumar un vector a una fila de la matriz .
 addRow :: CommutRing a => Matrix a -> Vector a -> Int -> Matrix a
 addRow m row@(Vec xs) x
   | 0 <= x && x < r = matrix $ take x m' ++
                                zipWith (<+>) (m' !! x) xs :
                                drop (x+1) m'
-  | c /= length xs  = error "SumaFila: La longitud de la fila es distinta."
+  | c /= lengthVec row  = error "SumaFila: La longitud de la fila es distinta."
   | otherwise       = error "SumaFila: Error al seleccionar la fila."
     where
     (r,c) = dimension m
     m'    = unMVec m
 
--- Las operaciones de suma entre filas no afectan a la dimensión.
+-- La operación no afectan a la dimensión.
 propAddRowDimension :: (CommutRing a, Arbitrary a)
                     => Matrix a -> Vector a -> Int -> Property
 propAddRowDimension m row@(Vec xs) r =
   length xs == c ==> d == dimension (addRow m row (mod r r'))
   where d@(r',c) = dimension m
 
--- Sumar dos columnas de la matriz.
+-- | Sumar un vector columna a una columna de la matriz.
 addCol :: CommutRing a => Matrix a -> Vector a -> Int -> Matrix a
 addCol m c x = transpose $ addRow (transpose m) c x
+\end{code}
 
--- Restar filas y columnas.
+Finalmente, realizaremos la operación anterior pero esta vez restando un vector, es decir, la matriz resultante mantiene todas las filas menos la fila seleccionada, a la cuál se le resta un vector dado. 
+\begin{code}
+-- Restar un vector fila o columna a una fila o colunma, respectivamente,
+-- de una matriz.
 subRow, subCol :: CommutRing a => Matrix a -> Vector a -> Int -> Matrix a
 subRow m (Vec xs) x = addRow m (Vec (map neg xs)) x
 subCol m (Vec xs) x = addCol m (Vec (map neg xs)) x
 \end{code}
 
-Gracias a todo lo anterior ahora podemos implementar el método de Gauss-Jordan para poder resolver sistemas $Ax=b$ donde $A$ es una matriz $mxn$ y $b$ es un vector columna de $n$ filas. Para ello exigiremos que las matrices pertenezcan a anillos conmutativos. Comenzaremos por obtener los pivots en cada fila, escalonar la matriz y finalmente hacer el paso de "Jordan" para finalmente conseguir la solución del sistema.
+Gracias a todo lo anterior ahora podemos implementar el método de Gauss-Jordan para poder resolver sistemas $Ax=b$ donde $A$ es una matriz $mxn$ y $b$ es un vector columna de $n$ filas. Para ello exigiremos que las matrices pertenezcan a anillos conmutativos. Comenzaremos por obtener los pivotes en cada fila, escalonar la matriz y finalmente hacer el paso de Jordan para finalmente conseguir la solución del sistema. El paso de Jordan consiste en hacer ceros por encima de la diagonal de la matriz cuando previamente se ha obtenido ceros debajo de la diagonal de la matriz, esta primera parte se conoce como aplicar Gauss o realizar el método de Gauss.\\
+
+Para empezar damos las funciones de obtener un 0 en la posición del pivote y la segunda función consiste en localizar el siguiente pivote.
 \begin{code}
--- Multiplicar la fila donde está el pivot y sumarle la fila en la que
--- queremos hacer un 0.
+-- | Multiplicar por el escalar correspondiente  la fila donde está
+-- el pivote y sumarle la fila en la que queremos hacer un 0.
+-- El escalar se elige de forma que al sumar la fila consigamos un 0
+-- en la posición del pivote.
 pivot :: CommutRing a => Matrix a -> a -> Int -> Int -> Matrix a
 pivot m s p t = addRow m (fmap (s <**>) (unM m !! p)) t
 
--- Encontrar el primer cero en las filas debajo del pivot y devolver el
--- valor y el número de la fila en la que está.
+-- | Encontrar el primer cero en las filas debajo del pivot y
+-- devolver el valor y el número de la fila en la que está.
 findPivot :: (CommutRing a, Eq a) => Matrix a -> (Int,Int) -> Maybe (a,Int)
 findPivot m (r,c) = safeHead $ filter ((/= zero) . fst) $ drop (r+1) $
                     zip (head $ drop c $ unMVec $ transpose m) [0..]
@@ -328,8 +274,11 @@ findPivot m (r,c) = safeHead $ filter ((/= zero) . fst) $ drop (r+1) $
 
   safeHead []     = Nothing
   safeHead (x:xs) = Just x
+\end{code}
 
--- Modificamos las filas para hacer 0 en la columna del pivot.
+Con la siguiente función buscamos modificar la fila del pivote de forma que obtengamos el cero en la posición del pivote. Para ello necesitamos que sea un cuerpo pues necesitamos que exista inverso, ya que el valor del escalar al multiplicarse por la fila en la posición del pivote debemos obtener el inverso del pivote para que al sumarlo obtengamos un cero.
+\begin{code}
+-- | Modificamos las filas para hacer 0 en la columna del pivot.
 fE :: (Field a, Eq a) => Matrix a -> Matrix a
 fE (M [])         = M []
 fE (M (Vec []:_)) = M []
@@ -349,13 +298,14 @@ fE m     = case L.findIndices (/= zero) (map head xs) of
   xs = unMVec m
 \end{code}
 
-Para seguir calculando la forma escalonada necesitamos que nuestras matrices pertenezca a un cuerpo.
+Para calcular la forma escalonada seguimos necesitando que los elementos de las matrices pertenezca a un cuerpo. Primero aplicamos Gauss, es decir, obtenemos ceros por debajo de la diagonal.
 \begin{code}
 -- | Calcular la forma escalonada de un sistema Ax = b.
 forwardElim :: (Field a, Eq a) => (Matrix a,Vector a) -> (Matrix a,Vector a)
 forwardElim (m,v) = fE m' (0,0)
   where
-  -- fE coge la matriz a escalonar y la fila y columnas correspondientes.
+  -- fE toma como argumento de entrada la matriz a escalonar y
+  --la posición del pivote.
   fE :: (Field a, Eq a) => Matrix a -> (Int,Int) -> (Matrix a,Vector a)
   fE (M []) _  = error "forwardElim: La matriz dada es vacía."
   fE m rc@(r,c)
@@ -365,11 +315,12 @@ forwardElim (m,v) = fE m' (0,0)
       (matrix *** Vec) $ unzip $ map (init &&& last) $ unMVec m
 
     | m !!! rc == zero   = case findPivot m rc of
-      -- Si el pivot de la fila pivot es cero entonces intercambiamos la fila pivot
-      -- por la primera fila con elemento no nulo en la columna del pivot.
+      -- Si el pivot de la fila pivot es cero entonces intercambiamos la
+      -- fila pivot por la primera fila con elemento no nulo en la columna
+      -- del pivot.
       Just (_,r') -> fE (swap m r r') rc
-      -- Si todos los elementos de la columna pivot son cero entonces nos movemos
-      -- a la siguiente columna por la derecha.
+      -- Si todos los elementos de la columna pivot son cero entonces nos
+      -- movemos a la siguiente columna por la derecha.
       Nothing     -> fE m (r,c+1)
 
     | m !!! rc /= one    =
@@ -379,16 +330,20 @@ forwardElim (m,v) = fE m' (0,0)
     | otherwise          = case findPivot m rc of
       -- Hacer 0 el primer elemento distinto de cero en la fila pivot.
       Just (v,r') -> fE (pivot m (neg v) r r') (r,c)
-      -- Si todos los elementos en la columna pivot son 0 entonces nos vemos a la
-      -- fila de abajo y hacia la columna de la derecha.
+      -- Si todos los elementos en la columna pivot son 0 entonces nos
+      --  vemos a la fila de abajo y hacia la columna de la derecha.
       Nothing     -> fE m (r+1,c+1)
 
   (mr,mc) = dimension m
 
-  -- Combina A y b una matriz donde la última columna es b.
+  -- Divide la matriz en A y b, donde b es la última columna de la matriz
+  -- y A el resto de la matriz.
   m' = matrix $ [ r ++ [x] | (r,x) <- zip (unMVec m) (unVec v) ]
+\end{code}
 
+En segundo lugar aplicamos el paso de Jordan que consiste en obtener ceros por encima de la diagonal. Para aplicar el método de Gauss-Jordan es necesario aplicar antes el paso de Gauss y después el de Jordan.
 
+\begin{code}
 -- | Realizar el paso "Jordan" en la eliminación de Gauss-Jordan. Esto es hacer que cada
 -- elemento encima de la diagonal sea cero.
 
@@ -402,9 +357,14 @@ jordan (m, Vec ys) = case L.unzip (jordan' (zip (unMVec m) ys) (r-1)) of
   jordan' xs c =
     jordan' [ (take c x ++ zero : drop (c+1) x, v <-> x !! c <**> snd (last xs))
             | (x,v) <- init xs ] (c-1) ++ [last xs]
+\end{code}
 
+Finalmente, podemos realizar el método de Gauss-Jordan, con el objetivo de resolver un sistema de ecuaciones de la forma $Ax=b$, primero obtenemos la matriz con solo la diagonal que es la obtenida tras aplicar Gauss y luego Jordan esto lo obtenemos con la función de denotaremos $gaussElim$. \\
 
--- | Eliminación por Gauss-Jordan: Dados A y B resuelve Ax=B.
+Con la función que denotaremos $gaussElimCorrect$ recibe la partición de la matriz $A$ y la matriz $b$ con ella comprobamos que las dimensiones de ambas son correctas de esta forma hemos obtenido la solución del sistema, ya que en la diagonal nos ha quedado nuestro vector de incógnitas con coeficiente igual a 1 y en $b$ se encuentra los valores de nuestras incógnitas.
+
+\begin{code}
+-- | Eliminación por Gauss-Jordan: Dados A y b resuelve Ax=b.
 gaussElim :: (Field a, Eq a, Show a) => (Matrix a, Vector a) -> (Matrix a, Vector a)
 gaussElim = jordan . forwardElim
 

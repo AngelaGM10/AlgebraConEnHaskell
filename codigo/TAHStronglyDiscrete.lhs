@@ -27,7 +27,7 @@ class Ring a => StronglyDiscrete a where
   member :: a -> Ideal a -> Maybe [a]
 \end{code}
 
-Hemos creado la función $member$ con la cual, mediante el constructor $Maybe$ ($data\,\,Maybe\,a\,\,=\,\,Nothing\,\,|\,\,Just\,a$), podemos decidir si el parámetro $a$ es de tipo $Ideal$ o no. Debido a que hay un parámetro de tipo involucrado en esta definición, llamamos a $Maybe$ un constructor de tipos. Dependiendo de lo que queramos que este tipo contenga cuando un valor no es Nothing. Ningún valor puede tener un tipo que sea simplemente Maybe. Para que sea un tipo real que algún valor pueda tener, tiene que tener todos los parámetros de tipo definidos.\\
+Hemos creado la función $member$ con la cual, mediante el constructor $Maybe$ podemos decidir si el parámetro $a$ es de tipo $Ideal$ o no.\\
 
 Damos a continuación la función para comprobar si un anillo conmutativo es fuertemente discreto.
 \begin{code}

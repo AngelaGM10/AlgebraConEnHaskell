@@ -1,0 +1,9 @@
+\chapter{Vectores y Matrices}\label{sec:matrixHas}
+En este capítulo implementaremos los vectores y matrices como listas para poder construir los módulos siguientes. En Haskell existen ya estas librerías pero solo podemos usarlas si nos restringimos al tipo numérico. Por ello, crearemos este módulo con el fin de generalizar los conceptos para cualquier tipo de anillo.
+
+\section{Vectores}
+ Lo vemos en el módulo \texttt{TAHVector}\entrada{TAHVector} 
+
+\section{Matrices}
+Una vez dadas las nocines de los vectores podemos comenzar a implementar las nociones de las matrices, notesé que cada fila o columna de una matriz puede verse como un vector. 
+ Lo vemos en el módulo \texttt{TAHMatrix}\entrada{TAHMatrix} 
