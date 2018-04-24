@@ -2,7 +2,7 @@
 En este capítulo implementaremos los vectores y matrices como listas para poder construir los módulos siguientes. En Haskell existen ya estas librerías pero solo podemos usarlas si nos restringimos al tipo numérico. Por ello, crearemos este módulo con el fin de generalizar los conceptos para cualquier tipo de anillo.
 
 \section{Vectores}
-Antes de introducir las matrices tenemos que especificar ciertas operaciones y funciones sobre los vectores, pues las filas de las matrices serán vectores, así tendremos la matriz como lista de listas. Damos los conceptos necesarios en el en el módulo \texttt{TAHVector}\entrada{TAHVector} 
+Antes de introducir las matrices tenemos que especificar ciertas operaciones y funciones sobre los vectores, pues las filas de las matrices serán vectores, así tendremos la matriz como lista de listas. Damos los conceptos necesarios en el módulo \texttt{TAHVector}\entrada{TAHVector} 
 
 \section{Matrices}
 Una vez dadas las funciones y operaciones de los vectores podemos comenzar a implementar las matrices, notesé que cada fila o columna de una matriz puede verse como un vector. Nuestra idea es dar las matrices como una lista de listas de forma que las listas sean las filas de la matriz que serán vectores. El objetivo de esta sección es implementar el método de Gauss-Jordan con el fin de poder resolver sistemas de la forma $Ax=b$. Lo vemos en el módulo \texttt{TAHMatrix}\entrada{TAHMatrix} 

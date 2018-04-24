@@ -8,28 +8,33 @@ import TAHCommutative
 import TAHIdeal
 \end{code}
 
-Para desarrollar esta pequeña sección, importamos los módulos TAHConmutative y TAHIdeal. Veamos antes unas definiciones teóricas.
+Para desarrollar esta pequeña sección, importamos los módulos TAHConmutative y TAHIdeal. Veamos antes unas definiciones teóricas.\\
 
 \begin{defi}
 Un anillo se llama discreto si la igualdad es decidible.
 \end{defi}\\
 
-Todos los anillos que consideremos serán discretos. Pero hay muchos ejemplos de anillos que no son discretos. Por ejemplo, $\mathbb{R}$ no es discreto ya que es no es posible decidir si dos números irracionales son iguales en tiempo finito.
+Todos los anillos que consideremos serán discretos. Pero hay muchos ejemplos de anillos que no son discretos. Por ejemplo, $\mathbb{R}$ no es discreto ya que no es posible decidir si dos números irracionales son iguales en tiempo finito.\\
 
 \begin{defi}
-Un anillo es fuertemente discreto si podemos decidir que un elemento de un ideal es decidible.
+Un anillo es fuertemente discreto si la pertenencia a un ideal es decidible.
 \end{defi}
 
-Para introducir este concepto crearemos una clase restringida a la clase de tipo $Ring$:
+Para introducir este concepto definimos una clase restringida a la clase de tipo $Ring$:
 
 \begin{code}
 class Ring a => StronglyDiscrete a where
   member :: a -> Ideal a -> Maybe [a]
 \end{code}
 
-Hemos creado la función $member$ con la cual, mediante el constructor $Maybe$ podemos decidir si el parámetro $a$ es de tipo $Ideal$ o no.\\
+A diferencia de la clase de anillos ($Ring$), donde para ver si es un conjunto es un anillo o no, tenia que satisfacer los axiomas de un anillo. Esto consistía en verificar ciertas propiedades que tenia que cumplir, para este caso no tenemos axiomas o propiedades que podemos utilizar para comprobar si se trata de una anillo fuertemente discreto o no.\\
 
-Damos a continuación la función para comprobar si un anillo conmutativo es fuertemente discreto.
+Mediante la función $member$ pretendemos comprobar si un anillo es fuertemente discreto o no. Esta función no está definida aún. Pues al igual que los axiomas de un anillo, los cuales son distintos según el tipo de anillo sobre el que estamos trabajando, con nuestra función $member$ ocurre algo similar. Para cada anillo $member$ se define acorde al tipo de anillo que recibe.\\
+
+El objetivo de esta función es decidir si un elemento del anillo pertene al ideal, por ello hacemos uso del constructor $(Maybe\,\,[a])$. En el caso de que no pertenezca al ideal no ocurre nada, $member$ devolverá $Nothing$. Por otro lado, si un elemento pertenece a un ideal, significa que podemos escribir dicho elemento mediante una combinación lineal de los generadores del ideal. Por ello, si el elemento pertenece al ideal, $member$ nos devolverá la lista con los coeficientes de los generadores del ideal al que nuestro elemento pertenece. Por este motivo, el tipo que devuelve es $(Maybe\,\, [a])$ donde $[a]$ es la lista de los coeficientes de los generadores del ideal al cuál pertenece el elemento.\\
+
+Para verificar que $member$ funciona correctamente especificamos una función que denotaremos $(propStronglyDiscrete\,\,x\,\,id@(Id xs))$, esta devolverá un booleano, $True$ cuando $member$ haya funcionado bien y $False$ cuando no haya devuelto lo esperado. En caso de que no pertenezca al ideal y devuelva $Nothing$ significa que funciona correctamente luego obtendremos un $True$. Si $x$ pertenece al ideal generado por $xs$ entonces comprobará que la lista de coeficientes que $member$ a devuelto al multiplicarla por la lista de generadores del ideal, $xs$, la suma resultante es $x$ y entonces devolverá un $True$.
+
 \begin{code}
 propStronglyDiscrete :: (CommutRing a, StronglyDiscrete a, Eq a)
                      => a -> Ideal a -> Bool                  
@@ -38,5 +43,4 @@ propStronglyDiscrete x id@(Id xs) = case member x id of
   Nothing -> True
 \end{code}
 
-Explicamos brevemente como funciona $propStronglyDiscrete$. Esta recibe como argumentos un elemento $x$ y $id@(Id \,\,xs)$ con $@$ lo que hacemos es crear una función o guardar un valor en $id$ de forma de que cuando llamemos a $id$ nos estamos refiriendo a $(Id\,\, xs)$. En primer lugar con $case .. of$ nos preguntamos si $x$ pertenece al ideal generado por $xs$, es decir si $x$ es un elemento del ideal.En particular, si pertenece, devuelve $(Just\,\, as)$ donde $as$ es la lista de coeficientes de la expresión de $x$ como combinación lineal de los generadores del ideal y, en caso contrario, $Nothing$. Si esto se verifica devuelve $True$ y nuestro anillo es fuertemente discreto.
 
