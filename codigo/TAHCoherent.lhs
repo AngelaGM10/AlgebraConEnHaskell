@@ -18,7 +18,7 @@ import TAHMatrix
 \end{code}
 
 \begin{defi}
-Un anillo R es coherente si todo ideal generado finitamente es finito. Esto significa que dado una matriz $M \in\, R^{1\times n}$ existe una matriz $L \in\,\mathbb{R}^{n\times m}$ para $m \in\, \mathbb{N}$ tal que $ML=0$ y
+Un anillo R es coherente si dada una matriz $M \in\, R^{1\times n}$ existe una matriz $L \in\,\mathbb{R}^{n\times m}$ para $m \in\, \mathbb{N}$ tal que $ML=0$ y
 \begin{center}
 $MX = 0 \Leftrightarrow \exists Y \in\, R^{m\times 1}.\,\, X = LY$
 \end{center}

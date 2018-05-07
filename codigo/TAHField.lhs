@@ -47,3 +47,5 @@ infixl 7 </>
 (</>) :: Field a => a -> a -> a
 x </> y = x <**> inv y
 \end{code}
+
+

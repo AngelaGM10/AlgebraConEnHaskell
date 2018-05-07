@@ -33,3 +33,8 @@ propIntegralDomain a b c = if propZeroDivisors a b
                               then propCommutRing a b c 
                               else whenFail (print "propZeroDivisors") False
 \end{code}
+
+Un ejemplo de dominio de integridad es el de los números enteros, el cual definimos sus operaciones en el anterior módulo de anillos. Por tanto añadiendo la instancia a la clase de dominio de integridad, comprueba que se verifiquen las operaciones necesarias para ser un dominio de integridad.
+\begin{code}
+instance IntegralDomain Integer 
+\end{code}
