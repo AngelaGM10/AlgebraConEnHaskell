@@ -4,8 +4,6 @@ module TAHCoherent
   , propCoherent, isSolution
   , solveMxN, propSolveMxN
   , solveWithIntersection
-  , solveGeneralEquation, propSolveGeneralEquation
-  , solveGeneral, propSolveGeneral
   ) where
 
 import Test.QuickCheck
@@ -13,29 +11,54 @@ import Test.QuickCheck
 import TAHIntegralDomain
 import TAHIdeal
 import TAHStronglyDiscrete
+import TAHVector
 import TAHMatrix
+
 
 \end{code}
 
 \begin{defi}
-Un anillo R es coherente si dada una matriz $M \in\, R^{1\times n}$ existe una matriz $L \in\,\mathbb{R}^{n\times m}$ para $m \in\, \mathbb{N}$ tal que $ML=0$ y
+Un anillo R es coherente si dado un vector $M \in\, R^{1\times n}$ existe una matriz $L \in\,\mathbb{R}^{n\times m}$ para $m \in\, \mathbb{N}$ tal que $ML=0$ y
 \begin{center}
-$MX = 0 \Leftrightarrow \exists Y \in\, R^{m\times 1}.\,\, X = LY$
+$MX = 0 \Leftrightarrow \exists Y \in\, R^{m\times 1}\,$ tal que $\, X = LY$
 \end{center}
+es decir, si dado $ \,\, \[ M = \left( \begin{array}{rccc}
+                      m_1 & m_2 & \cdots & m_n 
+                    \end{array} \right) \] $, 
+existe una matriz $\, \[ L = \left( \begin{array}{cccc}
+       l_{11} & l_{12} & \cdots & l_{1m}\\ 
+       l_{21} & l_{22} & \cdots & l_{2m}\\
+       \vdots & \vdots & \ddots & \vdots\\
+       l_{n1} & l_{n2} & \cdots & l_{nm}
+      \end{array} \right) \]\,\,$ tal que\\
+$ML=0\,$ y $\,MX = 0  \Leftrightarrow \exists \[ Y^{m\times 1}\left( \begin{array}{c}
+                                                                     m_1 & m_2 & \cdots & m_n 
+                                                                      \end{array} \right) \]$ 
+
+ACABAR
 \end{defi}
 
 De esta forma es posible calcular un conjunto de generadores para soluciones
-de ecuaciones en un anillo coherente. En otras palabras, el conjunto de soluciones para $MX = 0$ esta generado finitamente. Comenzamos por establecer la clase de los anillos coherentes:
+de ecuaciones en un anillo coherente. En otras palabras, el conjunto de soluciones para $MX = 0$ esta generado finitamente.\\
+
+La propiedad de la coherencia es bastante difícil de implementar
+en Haskell. El contenido que se puede implementar es que es posible calcular
+la matriz $L$ dada $M$ tal que $ML\, =\, 0$.\\
+
+En esta sección todos los anillos de los que partimos son dominios de integridad, por lo que al construir la clase de los anillos coherentes haremos una restricción a la clase de $IntegralDomain$. Introducimos la clase de anillos coherentes:
 
 \begin{code}
 class IntegralDomain a => Coherent a where
   solve :: Vector a -> Matrix a
 \end{code}
 
-Damos funciones para comprobar soluciones y resolver sistemas de ecuaciones sobre anillos conmutativos, para ello usaremos recursión.
+Al igual que ocurría con $member$ en el anterior capítulo, aquí $solve$ es una función que no tiene una especificación concreta. El objetivo de esta función es comprobar que dado un vector $M$ exista una matriz $L$ que cumpla las condiciones de la definición de anillo coherente. Es decir, $solve$ recibe un vector $M \in\, R^{1\times n}$ y devolverá una matriz $L \in\,\mathbb{R}^{n\times m}$ de forma que al multiplicar ambos el vector resultante sea un vector fila de ceros.\\
+
+Para verificar que una especificación concreta de $solve$ es correcta especificamos unas funciones para realizar dicha comprobación. La función que denotaremos $\,propCoherent\,$ es la encargada de comprobar que la multiplicación de $M$ por $L$ sea nula. Para ello, se ayuda de una segunda función que denotaremos por $isSolution$, esta comprueba que el vector que se obtiene tras la multiplicación de $ML$ es un vector de ceros.
 
 \begin{code}
--- | Test para comprobar que la segunda matriz es una solución de la primera.
+-- | Test para comprobar que la multiplicación del vector M por la matriz
+--   encontrada por solve (la matriz L) sea un vector de ceros.
 isSolution :: (CommutRing a, Eq a) => Matrix a -> Matrix a -> Bool
 isSolution m sol = all (==zero) (concat (unMVec (m `mulM` sol)))
 
@@ -43,7 +66,71 @@ propCoherent :: (Coherent a, Eq a) => Vector a -> Bool
 propCoherent m = isSolution (vectorToMatrix m) (solve m)
 \end{code}
 
-Con la siguiente función podemos resolver de forma recursiva todos los subsistemas para obtener mediante recursión la solución $X$. Si la solución calculada es de hecho una solución del siguiente conjunto de ecuaciones, entonces no hace nada. Gracias a esto resolvemos los problemas que tienen muchas filas idénticas en el sistema, como [[1,1], [1,1]].
+\begin{prop}
+En un anillo coherente es posible resolver un sistema $MX = 0$ donde $M\, \in \,\,\mathbb{R}^{r\times n}\,$ y $X\, \in \,\,\mathbb{R}^{n\times 1}\,$. Es decir, 
+\begin{equation}
+\[ \left( \begin{array}{cccc}
+    m_{11} & m_{12} & \cdots & m_{1n}\\ 
+    m_{21} & m_{22} & \cdots & m_{2n}\\
+    \vdots & \vdots & \ddots & \vdots\\
+    m_{r1} & m_{r2} & \cdots & m_{rn}
+   \end{array} \right) \left( \begin{array}{c}
+                              x_1 \\
+                              x_2 \\
+                              \vdots \\
+                              x_n 
+                             \end{array} \right) = \left( \begin{array}{c}
+                                                           0 \\
+                                                           \vdots \\
+                                                           0 
+                                                           \end{array} \right)_{r\times 1} \]
+\end{equation}
+\end{prop}
+
+\begin{dem}
+Sean $M_{i}\,\in\,\,\mathbb{R}^{1\times n}\,$, $  M_{i} = \left( \begin{array}{ccc}
+                                                        m_{i1} & \cdots & m_{in}
+                                                      \end{array} \right)  $ las filas de M.\\ 
+Por coherencia es posible resolver $M_1X=0$ y obtener un $L_1\,\in\,\,\mathbb{R}^{n\times p_1}\,$ tal que
+\begin{equation*}
+\[\left( \begin{array}{ccc}
+            m_{11} & \cdots & m_{1n}
+         \end{array} \right)  \left( \begin{array}{c}
+                              x_1 \\
+                              x_2 \\
+                              \vdots \\
+                              x_n 
+                             \end{array} \right) = 0 \,\,\Leftrightarrow\,\, \exists\,\, \left( \begin{array}{ccc}
+                                                                                                 y_{11} & \cdots & y_{1p_1}
+                                                                                                 \end{array} \right)_{p_1\times 1}\,\, tal\,\, que \]\\
+\[ \left( \begin{array}{c}
+        x_1 \\
+        x_2 \\
+        \vdots \\
+        x_n 
+       \end{array} \right) =  \left( \begin{array}{cccc}
+                                     {l_1}_{11} & {l_1}_{12} & \cdots & {l_1}_{1p_1}\\ 
+                                     {l_1}_{21} & {l_1}_{22} & \cdots & {l_1}_{2p_1}\\
+                                     \vdots & \vdots & \ddots & \vdots\\
+                                     {l_1}_{n1} & {l_1}_{n2} & \cdots & {l_1}_{np_1}
+                                     \end{array} \right)  \left( \begin{array}{ccc}
+                                                                  y_{11} & \cdots & y_{1p_1}
+                                                                 \end{array} \right)\]
+\end{equation}
+De esta forma, $M_2X=0$ y como $X=L_1Y  \,\,\Rightarrow\,\, M_2L_1Y=0$.\\
+Por coherencia, obtenemos una nueva matriz $L_2\,\in\,\,\mathbb{R}^{p_1\times p_2}\,$ tal que 
+\begin{equation*}
+M_1X\,=\,M_2X\,=\,0 \,\,\Leftrightarrow\,\,  
+\left\{ \begin{array}{ll} 
+\exists\,\, Y\,\in\,\,\mathbb{R}^{p_1\times 1}\,\, /\,\, X\,=\,L_1Y\, , \, M_2L_1Y\,=\,0\\
+\exists\,\, Z\,\in\,\,\mathbb{R}^{p_2\times 1}\,\, /\,\, X\,=\,L_1L_2Z 
+\end{array}
+\end{equation}
+Iterando este método la solución $X=L_1L_2\cdots L_rZ\,$ con $\,L_i\,\in\,\,\mathbb{R}^{p_{i-1}\times p_i}\,$, $\,p_0\,=\,n\,$ y $\,Z\,\in\,\,\mathbb{R}^{p_{m}\times 1}\,$ puede ser calculada.
+
+\end{dem}
+
+La proposición anterior nos muestra la forma de resolver mediante recursión un sistema $MX=0$, veamos como hacerlo en Haskell. Siguiendo la prueba de la proposición anterior, comenzamos a aplicar coherencia con la primera fila de la matriz $M$ y así vamos obteniendo por coherencia una nueva matriz en cada iteración hasta obtener la solución de $X$. Con una segunda función, que denotaremos $propSolveMxN$ comprobaremos que para esta instancia en concreto de solve, la matriz $L$ que ha encontrado verifica la propiedad de $ML=0$.
 
 \begin{code}
 solveMxN :: (Coherent a, Eq a) => Matrix a -> Matrix a
@@ -57,24 +144,103 @@ solveMxN (M (l:ls)) = solveMxN' (solve l) ls
     where m2 = solve (matrixToVector (mulM (vectorToMatrix x) m1))
 
 
--- | Test para comprobar que la solución de un sistema MxN obtenido con $solveMxN$ es de hecho una solución del sistema. 
+-- |Test para comprobar que esta especificación de solve devuelve
+--  un vector de ceros.
 propSolveMxN :: (Coherent a, Eq a) => Matrix a -> Bool
 propSolveMxN m = isSolution m (solveMxN m)
 
 \end{code}
 
-Vemos como funciona $solveMxN$ con más detalle. Toma una matriz de entrada y selecciona el primer vector (o la primera fila de la matriz) para aplicar $solveMxN'$. Esta toma dos matrices de entrada, veamos el caso de $(solveMxN'\,\, m1\,\, (x:xs))$, comprobamos que la matriz $m1$ es solución de $x$. En esta caso, resolvemos con $(solveMxN' m1 xs)$ aplicando la recursión. En caso contrario, multiplicamos la matriz $m1$ por la matriz $x$, la matriz resultante la transformamos en vector y aplicamos $solve$ sobre ella. A continuación se aplica $solveMxN'$ sobre la matriz resultante tras aplicar solve al vector obtenido  y sobre $xs$.\\
+Ahora consideraremos la intersección de dos ideales finitamente generados en anillos coherentes. Esto proporciona otra forma de caracterizar los anillos coherentes en términos de intersección de ideales.
 
-Si hay un algoritmo para calcular un conjunto de generadores finitamente generados para
-la intersección de dos ideales finitamente generados entonces el anillo es coherente.\\
+\begin{prop}
+La intersección de dos ideales finitamente generados en un anillo coherente $R$ está finitamente generada.\\[7pt]
+\end{prop}
 
-$Prueba$: 
-Cogemos el vector a  resolver, $[x1,...,xn]$, y una función $(int)$ que calcule la intersección de dos ideales.\\
-Si $[x_1, ..., x_n]\,\, `int`\,\,[ y_1, ..., y_m] = [ z_1, ..., z_l]$.\\
-Entonces $(int)$ debería devolver $us$ y $vs$ tales que:\\
-$z_k = n_k1 * x_1 + ... + u_kn * x_n = u_k1 * y_1 + ... + n_km * y_m$\\
 
-Así podemos obtener una solución del sistema mediante la intersección.
+\begin{dem}
+Sean $\,I=<a_1,\cdots,a_n>\,$ y $\,J=<b_1,\cdots,b_m>\,$ dos ideales finitamente generados en $R$. Consideramos el sistema $AX-BY=0$, donde 
+$A = \left( \begin{array}{ccc}
+      a_1 & \cdots & a_n
+    \end{array} \right)$ y $B = \left( \begin{array}{ccc}
+                                        b_1 & \cdots & b_m
+                                       \end{array} \right)$ son vectores filas.\\[8pt]
+Como el anillo es coherente, entonces es posible calcular un número finito de generadores $\,\{(X_1,Y_1), \cdots,(X_p,Y_p)\}\,$ de la solución.\\[8pt]
+Esto es,
+\begin{equation*}
+\begin{array}{ccc}
+AX_1=BY_1 \\
+\vdots\\
+AX_p=BY_p
+\end{array}
+\end{equation}
+Si $\,\alpha \,\in\,\,I\cap J\, \Rightarrow\,\,\alpha \,\in\,\, I\,\, ,\,\,\alpha \,\in\,\, J$. Esto es,
+\begin{equation*}
+\begin{array}{ccc}
+\exists\,\,x_i,y_i\,\, /\,\,\alpha =a_1x_1+\cdots + a_nx_n\,\, , \,\,\alpha =b_1y_1+\cdots + b_my_m\\[10pt]
+\Rightarrow\,\, a_1x_1+\cdots + a_nx_n\,=\,b_1y_1+\cdots + b_my_m
+\end{array}
+\end{equation}
+estos son exactamente los generadores dados anteriormente.\\[15pt]
+Por tanto, un conjunto de generadores para la intersección es $\,\{AX_1,\cdots ,AX_p\}\,$ y otro conjunto de generadores es $\, \{BY_1,\cdots ,BY_p\}$
+\end{dem}
+
+De hecho, esta afirmación se puede probar en la otra dirección también. La siguiente proposición es la más importante en esta sección y todas las pruebas de coherencia se basarán en esta.
+
+\begin{prop}
+Si $R$ es un dominio de integridad tal que la intersección de dos ideales finitamente generados está finitamente generada, entonces $R$ es coherente.\\[7pt]
+\end{prop}
+
+\begin{dem}
+Lo probaremos mediante inducción en la longitud del sistema a resolver. Primero consideramos $\,ax=0$. Aquí la solución es trivial. Suponemos cierto que es posible resolver un sistema en 
+$\,(n-1)\,$ variables y consideramos el caso con $\,n\,\geq \,2\,$ variables:
+\begin{equation*}
+a_1x_1+\cdots +a_nx_n=0
+\end{equation}
+Si $\,a_1=0\,$ un conjunto de soluciones del sistema está generado por $\,(1,0,\cdots ,0)\,$, pero también es posible usar la hipótesis de inducción y obtener los generadores $\,\{ v_{i2},\cdots ,v_{in}\}\,$ para el sistema con $\,x_2,\cdots ,x_n\,$ y las soluciones del sistema con $\,n\,$ incógnitas están generadas por $\, (0,v_{i2},\cdots ,v_{in}) \,$ y $\,(1,0,\cdots ,0)\,$.\\
+
+Si $\,a_1\neq 0\,$ el conjunto $\, (0,v_{i2},\cdots ,v_{in}) \,$ de soluciones puede obtenerse también por hipótesis de inducción. Además, por hipótesis es posible encontrar $\, t_1,\cdots ,t_p\,$ tales que
+\begin{equation*}
+<a_1>\cap <-a_2,\cdots ,-a_n>\,=\,< t_1,\cdots ,t_p>
+\end{equation} 
+donde $t_i\,=\,a_1w_{i1}\,=\,-a_2w_{i2}-\cdots -a_nw_{in}$.\\
+Luego, si $\,a_1x_1+\cdots +a_nx_n\,=\,0\,\,\,\Rightarrow\,\, 
+a_1x_1\,=\,-a_2x_2,\cdots ,-a_nx_n\,$.\\
+También tenemos $\,u_i\,$ tal que
+\begin{equation*}
+a_1x_1\,=\,-a_2x_2,\cdots ,-a_nx_n\,=\,\sum^p_{i=1} u_it_i
+\end{equation} 
+Por tanto se tiene que 
+\begin{equation*}
+a_1x_1\,=\,\sum^p_{i=1} u_it_i\,=\,\sum^p_{i=1} u_ia_1w_{i1} \,\,\Rightarrow\,\, x_1\,=\,\sum^p_{i=1} u_iw_{i1}
+\end{equation} 
+De forma análoga,
+\begin{equation*}
+-a_2x_2,\cdots ,-a_nx_n\,=\,\sum^p_{i=1} u_it_i\,=\,\sum^p_{i=1} u_i(-a_2w_{i2}-\cdots -a_nw_{in})
+\end{equation} 
+Reorganizando nos queda
+\begin{equation*}
+a_2(x_2 - \sum^p_{i=1} u_iw_{i2} ) + \cdots + a_n(x_n - \sum^p_{i=1} u_iw_{in} ) = 0
+\end{equation} 
+Luego, obtenemos $\,(w_{i1},\cdots ,w_{in})\,$ y $\, (0,v_{i2},\cdots ,v_{in}) \,$ que generan el módulo de la solución.
+\end{dem}
+
+Esto proporciona un método para probar que los anillos son coherentes. Ahora vamos a ver como calcular la intersección de los ideales finitamente generados. Esto implicará que el anillo es coherente. También muestra que la coherencia de
+los anillos se puede caracterizar solo en términos de la intersección finita de
+ideales finitamente generados.
+
+
+Algo que vale la pena enfatizar aquí es la dependencia de los coeficientes de la intersección. Estos se obtienen de dos ideales finitamente generados $\,I=<x_1,\cdots ,x_n>\,$ y $\,J=<y_1,\cdots ,y_m>\,$ las funciones que calculan la intersección también deben dar un conjunto de coeficientes. Si la intersección $\,I\cap J\,=\,<z_1,\cdots ,z_l>\,$ entonces la función debe dar $\,u_{ij}\,$ y $\,v_{ij}\,$ tales que
+\begin{equation*}
+\begin{array}{lcc}
+z_k\,=\,u_{k1}x_1+ \cdots +u_{kn}x_n\\
+\hspace{15pt} =\,v_{k1}y_1+ \cdots +v_{km}y_m
+\end{array}
+\end{equation}
+Nótese que solo da los coeficientes en una dirección, es decir, si $\,x\,\in\,I\cap J\,$ entonces $\,x\,\in\,I\,$ y $\,x\,\in\,J\,$.\\
+
+Vamos a dar un algoritmo para obtener una solución del sistema mediante la intersección, basándonos en las propocisiones anteriores.
+
 \begin{code}
 solveWithIntersection :: (IntegralDomain a, Eq a)
                       => Vector a
@@ -90,9 +256,10 @@ solveWithIntersection (Vec xs) int = transpose $ matrix $ solveInt xs
     let (Id ts,us,vs) = (Id [x]) `int` (Id [neg y])
     in [ u ++ v | (u,v) <- zip us vs ]
   solveInt (x:xs)
-    | x == zero             = (one : replicate (length xs) zero) : (map (zero:) $ solveInt xs)
+    | x == zero =
+       (one:replicate (length xs) zero):(map (zero:) $ solveInt xs)
     | isSameIdeal int as bs = s ++ m'
-    | otherwise             = error "solveInt: No se puede calcular la intersección"
+    | otherwise = error "solveInt: No se puede calcular la intersección"
       where
       as            = Id [x]
       bs            = Id (map neg xs)
@@ -107,76 +274,5 @@ solveWithIntersection (Vec xs) int = transpose $ matrix $ solveInt xs
 
 \end{code}
 
-De este código destacamos la función $solveInt$, vamos a explicar brevemente como funciona. Es una función recursiva, obviando los casos base, dada una lista $(x:xs)$ hay 3 casos por orden de prioridad. En primer lugar si x es 0 ejecuta las órdenes de añadir la lista que comienza por 1 seguida de tantos ceros como longitud de la lista $xs$ y esta pequeña lista se añade al comienzo de la segunda lista formada por añadir un 0 a la solución obtenida mediante recursión de la lista $xs$ con $(solveInt\,\, xs)$. En segundo lugar, en el caso de que $x$ sea distinto de 0, aplicamos $isSameIdeal$ para comprobar que la intersección se pueda hacer si resulta ser $True$ aplicamos la concatenación de la lista $s$ con $m'$. Donde $s$ se obtiene a partir de la intersección del ideal $<x>$ y del ideal obtenido tras aplicar $neg$ a cada elemento de $xs$ y $m'$ es la lista tras añadir 0 a cada lista de la matriz $m$.\\
 
-Dentro de los anillos anillos coherentes, encontramos los anillos coherentes fuertemente discretos. Restringiendo la clase de anillos a la clase de fuertemente discreto, esto nos permite una facilidad mayor a la hora de resolver sistemas. Puesto que, si un anillo es fuertemente discreto y coherente entonces podemos resolver cualquier ecuación del tipo $AX=b$.
-
-\begin{code}
-solveGeneralEquation :: (Coherent a, StronglyDiscrete a) => Vector a -> a -> Maybe (Matrix a)
-solveGeneralEquation v@(Vec xs) b =
-  let sol = solve v
-  in case b `member` (Id xs) of
-    Just as -> Just $ transpose (M (replicate (length (head (unMVec sol))) (Vec as)))
-                      `addM` sol
-    Nothing -> Nothing
-
-
-propSolveGeneralEquation :: (Coherent a, StronglyDiscrete a, Eq a)
-                         => Vector a
-                         -> a
-                         -> Bool
-propSolveGeneralEquation v b = case solveGeneralEquation v b of
-  Just sol -> all (==b) $ concat $ unMVec $ vectorToMatrix v `mulM` sol
-  Nothing  -> True
-\end{code}
-
-La primera función, $solveGeneralEquation$ calcula una solución general. Para ello toma un vector $(Vec xs)$ el cuál se llamará $v$ gracias al $@$ y el vector solución $b$. A continuación llamamos $sol$ a $solve v$, de esta forma pasamos de vector a matriz gracias a $solve$. Seguidamente comprobamos si $b$ pertenece al ideal de $xs$ en ese caso guardamos en as 
-
---explicar el just y nothing---
-
-Con la siguiente función comprobaremos si la solución obtenida anteriormente ($sol$) es correcta. Para ello comprobaremos que al realizar la multiplicación de nuestra matriz A por la solución obtenida coincide componente a componente con el vector solución $b$.
-
-\begin{code}
-isSolutionB v sol b = all (==b) $ concat $ unMVec $ vectorToMatrix v `mulM` sol
-\end{code}
-
-Ahora vamos a resolver sistemas lineales generales de la forma $AX = B$.
-\begin{code}
-solveGeneral :: (Coherent a, StronglyDiscrete a, Eq a)
-             => Matrix a   -- A
-             -> Vector a   -- B
-             -> Maybe (Matrix a, Matrix a)  -- (L,X0)
-solveGeneral (M (l:ls)) (Vec (a:as)) =
-  case solveGeneral' (solveGeneralEquation l a) ls as [(l,a)] of
-    Just x0 -> Just (solveMxN (M (l:ls)), x0)
-    Nothing -> Nothing
-  where
-  -- Calculamos una nueva solución de forma inductiva y verificamos que la nueva solución
-  -- satisface todas las ecuaciones anteriores.
-  solveGeneral' Nothing _ _ _              = Nothing
-  solveGeneral' (Just m) [] [] old         = Just m
-  solveGeneral' (Just m) (l:ls) (a:as) old =
-    if isSolutionB l m a
-       then solveGeneral' (Just m) ls as old
-       else case solveGeneralEquation (matrixToVector (vectorToMatrix l `mulM` m)) a of
-         Just m' -> let m'' = m `mulM` m'
-                    in if all (\(x,y) -> isSolutionB x m'' y) old
-                          then solveGeneral' (Just m'') ls as ((l,a):old)
-                          else Nothing
-         Nothing -> Nothing
-  solveGeneral' _ _ _ _ = error "solveGeneral: Error en la entrada"
-\end{code}
-
-De $solveGeneral$ explicaremos con detalle como funciona $solveGeneral'$ ---Explicar hay mucho Nothing y Just---
-
-
-Con la siguiente propiedad, comprobaremos que la solución es correcta. Primero tenemos que comprobar que las filas de $A$ (se presentará en código por $m$) son de la misma longitud que $b$. Después, multiplicamos la matriz $A$ con la matriz solución $X$ y vemos si coincide componente a componente con el vector solución $b$. Devolviendo al final un $True$.
-\begin{code}
-propSolveGeneral :: (Coherent a, StronglyDiscrete a, Eq a) => Matrix a -> Vector a -> Property
-propSolveGeneral m b = length (unM m) == length (unVec b) ==> case solveGeneral m b of
-  Just (l,x) -> all (==b) (unM (transpose (m `mulM` x))) &&
-                isSolution m l
-  Nothing -> True
-
-\end{code}
 

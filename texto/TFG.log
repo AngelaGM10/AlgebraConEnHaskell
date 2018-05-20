@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.2)  24 APR 2018 20:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.2)  20 MAY 2018 13:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -652,6 +652,8 @@ Package: parskip 2001/04/09 non-zero parskip adjustments
 )
 \c@theorem=\count144
 \c@defi=\count145
+\c@prop=\count146
+\c@dem=\count147
 
 (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
@@ -667,9 +669,9 @@ Package ifvtex Info: VTeX not detected.
 (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count146
-\Gm@cntv=\count147
-\c@Gm@tempcnt=\count148
+\Gm@cnth=\count148
+\Gm@cntv=\count149
+\c@Gm@tempcnt=\count150
 \Gm@bindingoffset=\dimen164
 \Gm@wd@mp=\dimen165
 \Gm@odd@mp=\dimen166
@@ -712,8 +714,8 @@ Package tocloft Info: The document has chapter divisions on input line 44.
 \cftbeforefigskip=\skip78
 \cftfigindent=\skip79
 \cftfignumwidth=\skip80
-\c@lofdepth=\count149
-\c@lotdepth=\count150
+\c@lofdepth=\count151
+\c@lotdepth=\count152
 \cftbeforelottitleskip=\skip81
 \cftafterlottitleskip=\skip82
 \cftbeforetabskip=\skip83
@@ -756,10 +758,10 @@ Package minitoc Info: I0031
 
 \openout5 = `TFG.mtc0'.
 
-\c@mtc=\count151
-\c@minitocdepth=\count152
-\c@ptc=\count153
-\c@parttocdepth=\count154
+\c@mtc=\count153
+\c@minitocdepth=\count154
+\c@ptc=\count155
+\c@parttocdepth=\count156
 \ptcindent=\skip88
 Package minitoc Info: I0010
 (minitoc)             The english language is selected.
@@ -827,13 +829,13 @@ Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
 \@linkdim=\dimen172
-\Hy@linkcounter=\count155
-\Hy@pagecounter=\count156
+\Hy@linkcounter=\count157
+\Hy@pagecounter=\count158
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count157
+\Hy@SavedSpaceFactor=\count159
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -852,7 +854,7 @@ Package hyperref Info: Plain pages OFF on input line 4458.
 Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks OFF on input line 4694.
-\c@Hy@tempcnt=\count158
+\c@Hy@tempcnt=\count160
 
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
@@ -860,7 +862,7 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5041.
 \XeTeXLinkMargin=\dimen173
-\Fld@menulength=\count159
+\Fld@menulength=\count161
 \Field@Width=\dimen174
 \Fld@charsize=\dimen175
 Package hyperref Info: Hyper figures OFF on input line 6295.
@@ -872,17 +874,17 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6320.
 Package hyperref Info: PDF/A mode OFF on input line 6325.
 LaTeX Info: Redefining \ref on input line 6365.
 LaTeX Info: Redefining \pageref on input line 6369.
-\Hy@abspage=\count160
-\c@Item=\count161
-\c@Hfootnote=\count162
+\Hy@abspage=\count162
+\c@Item=\count163
+\c@Hfootnote=\count164
 )
 
 Package hyperref Message: Driver: hpdftex.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
-\Fld@listcount=\count163
-\c@bookmark@seq@number=\count164
+\Fld@listcount=\count165
+\c@bookmark@seq@number=\count166
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
@@ -903,14 +905,14 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \f@ncyO@orf=\skip98
 )
 (./definiciones.tex
-\c@Def=\count165
+\c@Def=\count167
 
 
 Package amsthm Warning: Unknown theoremstyle `teorema' on input line 86.
 
-\c@Teo=\count166
-\c@nota=\count167
-\c@Prop=\count168
+\c@Teo=\count168
+\c@nota=\count169
+\c@Prop=\count170
 )
 \@indexfile=\write6
 \openout6 = `TFG.idx'.
@@ -925,30 +927,30 @@ LaTeX Info: Redefining \% on input line 23.
 ))
 \openout1 = `TFG.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Checking defaults for mTT/cmtt/m/n on input line 151.
-LaTeX Font Info:    Try loading font information for mTT+cmtt on input line 151
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for mTT/cmtt/m/n on input line 154.
+LaTeX Font Info:    Try loading font information for mTT+cmtt on input line 154
 .
  (/usr/share/texlive/texmf-dist/tex/latex/mdwtools/mTTcmtt.fd
 File: mTTcmtt.fd 1996/05/25 1.1 Handing of the cmtt font
 )
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 151.
-LaTeX Font Info:    ... okay on input line 151.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 151.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 154.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
@@ -956,21 +958,21 @@ File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-LaTeX Info: Redefining \. on input line 151.
-LaTeX Info: Redefining \% on input line 151.
+LaTeX Info: Redefining \. on input line 154.
+LaTeX Info: Redefining \% on input line 154.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count169
+\scratchcounter=\count171
 \scratchdimen=\dimen176
 \scratchbox=\box62
-\nofMPsegments=\count170
-\nofMParguments=\count171
+\nofMPsegments=\count172
+\nofMParguments=\count173
 \everyMPshowfont=\toks48
-\MPscratchCnt=\count172
+\MPscratchCnt=\count174
 \MPscratchDim=\dimen177
-\MPnumerator=\count173
-\makeMPintoPDFobject=\count174
+\MPnumerator=\count175
+\makeMPintoPDFobject=\count176
 \everyMPtoPDFconversion=\toks49
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -1022,12 +1024,12 @@ ABD: EveryShipout initializing macros
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@minilofdepth=\count175
-\c@minilotdepth=\count176
-\c@partlofdepth=\count177
-\c@partlotdepth=\count178
-\c@sectlofdepth=\count179
-\c@sectlotdepth=\count180
+\c@minilofdepth=\count177
+\c@minilotdepth=\count178
+\c@partlofdepth=\count179
+\c@partlotdepth=\count180
+\c@sectlofdepth=\count181
+\c@sectlotdepth=\count182
 Package minitoc(hints) Info: I0049
 (minitoc(hints))             ==> You requested the hints option. 
 (minitoc(hints))             Some hints are eventually given below.
@@ -1056,20 +1058,20 @@ Package minitoc(hints) Warning: W0023
 (minitoc(hints))                of loading the ``hyperref'' package.
 
 \AtBeginShipoutBox=\box63
-Package hyperref Info: Link coloring ON on input line 151.
+Package hyperref Info: Link coloring ON on input line 154.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count181
+\c@section@level=\count183
 )
-LaTeX Info: Redefining \ref on input line 151.
-LaTeX Info: Redefining \pageref on input line 151.
-LaTeX Info: Redefining \nameref on input line 151.
+LaTeX Info: Redefining \ref on input line 154.
+LaTeX Info: Redefining \pageref on input line 154.
+LaTeX Info: Redefining \nameref on input line 154.
 Package minitoc Info: I0024
-(minitoc)             PREPARING MINITOCS FROM TFG.toc on input line 154.
+(minitoc)             PREPARING MINITOCS FROM TFG.toc on input line 157.
 Package minitoc Info: I0033
 (minitoc)             Writing TFG.mtc1.
 \openout5 = `TFG.mtc1'.
@@ -1099,7 +1101,7 @@ Package minitoc Info: I0033
 \openout5 = `TFG.mtc7'.
 
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 158.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 161.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
@@ -1107,149 +1109,149 @@ File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 <sello.png, id=31, 803.0pt x 702.625pt>
 File: sello.png Graphic file (type png)
  <use sello.png>
-Package pdftex.def Info: sello.png used on input line 162.
+Package pdftex.def Info: sello.png used on input line 165.
 (pdftex.def)             Requested size: 195.10097pt x 170.71652pt.
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 168.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 171.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 173.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 173.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 173.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 173.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 173.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 173.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 173.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 173.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 173.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 173.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 173.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 170.
+(babel)             in language  on input line 173.
  [1
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./sello.png>]
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 176.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 179.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 176
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 179
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 176
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 179
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 176
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 179
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 176.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 179.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 176
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 179
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 183.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 186.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 183.
+(babel)             in language  on input line 186.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 183.
+(babel)             in language  on input line 186.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 183.
+(babel)             in language  on input line 186.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 183.
+(babel)             in language  on input line 186.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 183.
+(babel)             in language  on input line 186.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 183.
+(babel)             in language  on input line 186.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 183.
+(babel)             in language  on input line 186.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 183.
+(babel)             in language  on input line 186.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 183.
+(babel)             in language  on input line 186.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 183.
+(babel)             in language  on input line 186.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 183.
+(babel)             in language  on input line 186.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 183.
+(babel)             in language  on input line 186.
  [2]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 205.
+(babel)             in language  on input line 208.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 205.
+(babel)             in language  on input line 208.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 205.
+(babel)             in language  on input line 208.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 205.
+(babel)             in language  on input line 208.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 205.
+(babel)             in language  on input line 208.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 205.
+(babel)             in language  on input line 208.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 205.
+(babel)             in language  on input line 208.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 205.
+(babel)             in language  on input line 208.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 205.
+(babel)             in language  on input line 208.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 205.
+(babel)             in language  on input line 208.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 205.
+(babel)             in language  on input line 208.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 205.
+(babel)             in language  on input line 208.
  [3]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 213.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 213.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 213.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 213.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 213.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 213.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 213.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 213.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 213.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 213.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 213.
+(babel)             in language  on input line 216.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 213.
+(babel)             in language  on input line 216.
  [4]
 (./licencia/licenciaCC.tex
 Overfull \hbox (10.5874pt too wide) in paragraph at lines 1--4
@@ -1293,54 +1295,54 @@ LaTeX Font Info:    Try loading font information for T1+cmtt on input line 68.
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ))
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 220.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 220.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 220.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 220.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 220.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 220.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 220.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 220.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 220.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 220.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 220.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 217.
+(babel)             in language  on input line 220.
  [5 <./licencia/deed.png> <./licencia/deed-eu.png> <./licencia/deed_002.png>]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 219.
+(babel)             in language  on input line 222.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 219.
+(babel)             in language  on input line 222.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 219.
+(babel)             in language  on input line 222.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 219.
+(babel)             in language  on input line 222.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 219.
+(babel)             in language  on input line 222.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 219.
+(babel)             in language  on input line 222.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 219.
+(babel)             in language  on input line 222.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 219.
+(babel)             in language  on input line 222.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 219.
+(babel)             in language  on input line 222.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 219.
+(babel)             in language  on input line 222.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 219.
+(babel)             in language  on input line 222.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 219.
+(babel)             in language  on input line 222.
  [6
 
 ] (./TFG.toc
@@ -1351,29 +1353,29 @@ LaTeX Info: Redefining \% on input line 1.
 \openout7 = `TFG.toc'.
 
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 220.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 220.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 220.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 220.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 220.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 220.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 220.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 220.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 220.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 220.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 220.
+(babel)             in language  on input line 223.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 220.
+(babel)             in language  on input line 223.
 
 [7]
 \openout2 = `Programacion_funcional_con_Haskell.aux'.
@@ -1438,32 +1440,32 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 33.
  [9]))
-LaTeX Info: Redefining \. on input line 222.
-LaTeX Info: Redefining \% on input line 222.
+LaTeX Info: Redefining \. on input line 225.
+LaTeX Info: Redefining \% on input line 225.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 222.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 222.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 222.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 222.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 222.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 222.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 222.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 222.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 222.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 222.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 222.
+(babel)             in language  on input line 225.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 222.
+(babel)             in language  on input line 225.
  [10]
 \openout2 = `Como_Empezar.aux'.
 
@@ -1867,32 +1869,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--134
  []
 
 (../codigo/ICH.lhs))
-LaTeX Info: Redefining \. on input line 224.
-LaTeX Info: Redefining \% on input line 224.
+LaTeX Info: Redefining \. on input line 227.
+LaTeX Info: Redefining \% on input line 227.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 227.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 224.
+(babel)             in language  on input line 227.
  [16]
 \openout2 = `Teoria_de_anillos.aux'.
 
@@ -2180,32 +2182,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--27
  []
 
 ) (../codigo/TAHField.lhs
-LaTeX Info: Redefining \. on input line 12.
-LaTeX Info: Redefining \% on input line 12.
+LaTeX Info: Redefining \. on input line 5.
+LaTeX Info: Redefining \% on input line 5.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 12.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 12.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 12.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 12.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 12.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 12.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 12.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 12.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 12.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 12.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 12.
+(babel)             in language  on input line 5.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 12.
+(babel)             in language  on input line 5.
  [24]
 Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
@@ -2218,32 +2220,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
-LaTeX Info: Redefining \. on input line 48.
-LaTeX Info: Redefining \% on input line 48.
+LaTeX Info: Redefining \. on input line 39.
+LaTeX Info: Redefining \% on input line 39.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 39.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 39.
 [25]) (../codigo/TAHIdeal.lhs
 Underfull \hbox (badness 10000) in paragraph at lines 18--19
 
@@ -2264,38 +2266,38 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
-
+LaTeX Info: Redefining \. on input line 28.
+LaTeX Info: Redefining \% on input line 28.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 28.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 28.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 28.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 28.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 28.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 28.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 28.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 28.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 28.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 28.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 28.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 28.
+[26]
 Underfull \hbox (badness 10000) in paragraph at lines 30--31
 
  []
 
-LaTeX Info: Redefining \. on input line 36.
-LaTeX Info: Redefining \% on input line 36.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 36.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 36.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 36.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 36.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 36.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 36.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 36.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 36.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 36.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 36.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 36.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 36.
-[26]
+
 Underfull \hbox (badness 10000) in paragraph at lines 38--39
 
  []
@@ -2310,32 +2312,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--44
 
  []
 
-LaTeX Info: Redefining \. on input line 62.
-LaTeX Info: Redefining \% on input line 62.
+LaTeX Info: Redefining \. on input line 56.
+LaTeX Info: Redefining \% on input line 56.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 62.
+(babel)             in language  on input line 56.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 62.
+(babel)             in language  on input line 56.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 62.
+(babel)             in language  on input line 56.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 62.
+(babel)             in language  on input line 56.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 62.
+(babel)             in language  on input line 56.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 62.
+(babel)             in language  on input line 56.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 62.
+(babel)             in language  on input line 56.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 62.
+(babel)             in language  on input line 56.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 62.
+(babel)             in language  on input line 56.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 62.
+(babel)             in language  on input line 56.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 62.
+(babel)             in language  on input line 56.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 62.
+(babel)             in language  on input line 56.
 [27]
 Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
@@ -2370,7 +2372,33 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-(/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-3.def
+LaTeX Info: Redefining \. on input line 79.
+LaTeX Info: Redefining \% on input line 79.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 79.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 79.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 79.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 79.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 79.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 79.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 79.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 79.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 79.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 79.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 79.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 79.
+[28] (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-3.def
 File: uni-3.def 2013/05/13 UCS: Unicode data U+0300..U+03FF
 )
 
@@ -2387,33 +2415,6 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-LaTeX Info: Redefining \. on input line 86.
-LaTeX Info: Redefining \% on input line 86.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 86.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 86.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 86.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 86.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 86.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 86.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 86.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 86.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 86.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 86.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 86.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 86.
-[28]
 
 ../codigo/TAHIdeal.lhs:86: LaTeX Error: Command \textlambda unavailable in enco
 ding T1.
@@ -2504,32 +2505,32 @@ File: omsppl.fd
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/it' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 123.
-LaTeX Info: Redefining \. on input line 128.
-LaTeX Info: Redefining \% on input line 128.
+LaTeX Info: Redefining \. on input line 124.
+LaTeX Info: Redefining \% on input line 124.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 124.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 124.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 124.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 124.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 124.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 124.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 124.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 124.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 124.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 124.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 124.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 128.
+(babel)             in language  on input line 124.
  [29]
 
 ../codigo/TAHIdeal.lhs:135: LaTeX Error: Command \textlambda unavailable in enc
@@ -2601,32 +2602,32 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 ))
-LaTeX Info: Redefining \. on input line 226.
-LaTeX Info: Redefining \% on input line 226.
+LaTeX Info: Redefining \. on input line 229.
+LaTeX Info: Redefining \% on input line 229.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 226.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 226.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 226.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 226.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 226.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 226.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 226.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 226.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 226.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 226.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 226.
+(babel)             in language  on input line 229.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 226.
+(babel)             in language  on input line 229.
  [31]
 \openout2 = `Vectores_y_Matrices.aux'.
 
@@ -2694,439 +2695,887 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 46--47
-
- []
-
-LaTeX Info: Redefining \. on input line 49.
-LaTeX Info: Redefining \% on input line 49.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 49.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 49.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 49.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 49.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 49.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 49.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 49.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 49.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 49.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 49.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 49.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 49.
-[34]
-
-../codigo/TAHVector.lhs:67: LaTeX Error: Command \textlambda unavailable in enc
+../codigo/TAHVector.lhs:50: LaTeX Error: Command \textlambda unavailable in enc
 oding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.67 --位> sumVec (Vec [2,3]) (Vec [4,5])
-                                         
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-../codigo/TAHVector.lhs:69: LaTeX Error: Command \textlambda unavailable in enc
-oding T1.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.69 --位> mulVec (Vec [2,3]) (Vec [4,5])
-                                         
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-LaTeX Info: Redefining \. on input line 87.
-LaTeX Info: Redefining \% on input line 87.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 87.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 87.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 87.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 87.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 87.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 87.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 87.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 87.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 87.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 87.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 87.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 87.
-[35]
-
-../codigo/TAHVector.lhs:96: LaTeX Error: Command \textlambda unavailable in enc
-oding T1.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 --位> unVec (Vec [2,3])
+l.50 --位> unVec (Vec [2,3])
                             
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHVector.lhs:98: LaTeX Error: Command \textlambda unavailable in enc
+../codigo/TAHVector.lhs:52: LaTeX Error: Command \textlambda unavailable in enc
 oding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.98 --位> lengthVec (Vec [3,4,5])
+l.52 --位> lengthVec (Vec [3,4,5])
                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
+LaTeX Info: Redefining \. on input line 57.
+LaTeX Info: Redefining \% on input line 57.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 57.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 57.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 57.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 57.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 57.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 57.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 57.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 57.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 57.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 57.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 57.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 57.
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 62--63
+
+ []
+
+
+../codigo/TAHVector.lhs:84: LaTeX Error: Command \textlambda unavailable in enc
+oding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.84 --位> sumVec (Vec [2,3]) (Vec [4,5])
+                                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHVector.lhs:86: LaTeX Error: Command \textlambda unavailable in enc
+oding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.86 --位> mulVec (Vec [2,3]) (Vec [4,5])
+                                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
 ) (../codigo/TAHMatrix.lhs
-LaTeX Info: Redefining \. on input line 22.
-LaTeX Info: Redefining \% on input line 22.
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 22.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 22.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 22.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 22.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 22.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 22.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 22.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 22.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 22.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 22.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 22.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 22.
+(babel)             in language  on input line 1.
+ [35]
+LaTeX Info: Redefining \. on input line 34.
+LaTeX Info: Redefining \% on input line 34.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 34.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 34.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 34.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 34.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 34.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 34.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 34.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 34.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 34.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 34.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 34.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 34.
  [36]
-LaTeX Info: Redefining \. on input line 59.
-LaTeX Info: Redefining \% on input line 59.
+
+../codigo/TAHMatrix.lhs:69: LaTeX Error: Command \textlambda unavailable in enc
+oding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.69 -- 位> unM (M [Vec [2,3], Vec [3,4]])
+                                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:75: LaTeX Error: Command \textlambda unavailable in enc
+oding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.75 -- 位> unMVec (M [Vec [2,3], Vec [3,4]])
+                                             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+LaTeX Info: Redefining \. on input line 77.
+LaTeX Info: Redefining \% on input line 77.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 59.
+(babel)             in language  on input line 77.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 59.
+(babel)             in language  on input line 77.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 59.
+(babel)             in language  on input line 77.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 59.
+(babel)             in language  on input line 77.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 59.
+(babel)             in language  on input line 77.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 59.
+(babel)             in language  on input line 77.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 59.
+(babel)             in language  on input line 77.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 59.
+(babel)             in language  on input line 77.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 59.
+(babel)             in language  on input line 77.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 59.
+(babel)             in language  on input line 77.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 59.
+(babel)             in language  on input line 77.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 59.
- [37]
-LaTeX Info: Redefining \. on input line 98.
-LaTeX Info: Redefining \% on input line 98.
+(babel)             in language  on input line 77.
+[37]
+
+../codigo/TAHMatrix.lhs:83: LaTeX Error: Command \textlambda unavailable in enc
+oding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.83 -- 位> vectorToMatrix (Vec [2,3,4])
+                                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:91: LaTeX Error: Command \textlambda unavailable in enc
+oding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.91 ... matrixToVector (M [Vec [2,3], Vec [4,5]])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:93: LaTeX Error: Command \textlambda unavailable in enc
+oding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.93 -- 位> matrixToVector (M [Vec [2,3]])
+                                          
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:104: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.104 ...,4], Vec [4,5,6], Vec [7,8,9]]) !!! (2,3)
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:106: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.106 ...,4], Vec [4,5,6], Vec [7,8,9]]) !!! (1,2)
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:108: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.108 ...,4], Vec [4,5,6], Vec [7,8,9]]) !!! (0,1)
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+LaTeX Info: Redefining \. on input line 118.
+LaTeX Info: Redefining \% on input line 118.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 118.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 98.
- [38]
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+(babel)             in language  on input line 118.
+[38]
+
+../codigo/TAHMatrix.lhs:119: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.119 ... [Vec [2,3,4], Vec [4,5,6], Vec [7,8,9]])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:127: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.127 ... [Vec [2,3,4], Vec [4,5,6], Vec [7,8,9]])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:129: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.129 ...uareMatrix (M [Vec [2,3,4], Vec [4,5,6]])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:137: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.137 ... transpose (M [Vec [2,3,4], Vec [4,5,6]])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 
  []
 
-LaTeX Info: Redefining \. on input line 133.
-LaTeX Info: Redefining \% on input line 133.
+LaTeX Info: Redefining \. on input line 155.
+LaTeX Info: Redefining \% on input line 155.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 155.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 155.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 155.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 155.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 155.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 155.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 155.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 155.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 155.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 155.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 155.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 133.
+(babel)             in language  on input line 155.
 [39]
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
 
- []
+../codigo/TAHMatrix.lhs:157: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
 
-LaTeX Info: Redefining \. on input line 169.
-LaTeX Info: Redefining \% on input line 169.
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.157 ... [4,5,6]]) (M [Vec [1,0,2], Vec [1,2,3]])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:160: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.160 ... [2,3,4], Vec [4,5,6]]) (M [Vec [1,0,2]])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:173: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...ec [4,5]]) (M [Vec [1,0,2], Vec [1,2,3]])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:176: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.176 ... [4,5,6]]) (M [Vec [1,0,2], Vec [1,2,3]])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:189: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.189 ...> fmap (<+> 2) (M [Vec [2,3], Vec [4,5]])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+LaTeX Info: Redefining \. on input line 201.
+LaTeX Info: Redefining \% on input line 201.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 169.
+(babel)             in language  on input line 201.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 169.
+(babel)             in language  on input line 201.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 169.
+(babel)             in language  on input line 201.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 169.
+(babel)             in language  on input line 201.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 169.
+(babel)             in language  on input line 201.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 169.
+(babel)             in language  on input line 201.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 169.
+(babel)             in language  on input line 201.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 169.
+(babel)             in language  on input line 201.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 169.
+(babel)             in language  on input line 201.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 169.
+(babel)             in language  on input line 201.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 169.
+(babel)             in language  on input line 201.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 169.
+(babel)             in language  on input line 201.
 [40]
-LaTeX Info: Redefining \. on input line 207.
-LaTeX Info: Redefining \% on input line 207.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 207.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 207.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 207.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 207.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 207.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 207.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 207.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 207.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 207.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 207.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 207.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 207.
- [41]
-LaTeX Info: Redefining \. on input line 247.
-LaTeX Info: Redefining \% on input line 247.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 247.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 247.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 247.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 247.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 247.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 247.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 247.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 247.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 247.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 247.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 247.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 247.
- [42]
-Underfull \hbox (badness 10000) in paragraph at lines 255--256
+
+../codigo/TAHMatrix.lhs:204: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.204 -- 位> identity 3
+                       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 257--258
-
- []
-
-LaTeX Info: Redefining \. on input line 281.
-LaTeX Info: Redefining \% on input line 281.
+LaTeX Info: Redefining \. on input line 236.
+LaTeX Info: Redefining \% on input line 236.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 281.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 281.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 281.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 281.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 281.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 281.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 281.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 281.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 281.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 281.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 281.
+(babel)             in language  on input line 236.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 281.
+(babel)             in language  on input line 236.
+[41]
+
+../codigo/TAHMatrix.lhs:236: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.236 ...caleMatrix (M [Vec [2,3], Vec [4,5]]) 1 5
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:265: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.265 ...(M [Vec [2,3], Vec [4,5], Vec [6,7]]) 0 1
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+LaTeX Info: Redefining \. on input line 282.
+LaTeX Info: Redefining \% on input line 282.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 282.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 282.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 282.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 282.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 282.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 282.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 282.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 282.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 282.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 282.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 282.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 282.
+[42]
+
+../codigo/TAHMatrix.lhs:302: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.302 ...], Vec [4,5], Vec [6,7]]) (Vec [10,15]) 1
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:319: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.319 ...Vec [4,5], Vec [6,7]]) (Vec [10,15,10]) 1
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+LaTeX Info: Redefining \. on input line 323.
+LaTeX Info: Redefining \% on input line 323.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 323.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 323.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 323.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 323.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 323.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 323.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 323.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 323.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 323.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 323.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 323.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 323.
 [43]
-LaTeX Info: Redefining \. on input line 327.
-LaTeX Info: Redefining \% on input line 327.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 327.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 327.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 327.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 327.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 327.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 327.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 327.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 327.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 327.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 327.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 327.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 327.
- [44]
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
+
+../codigo/TAHMatrix.lhs:334: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.334 ...Vec [4,5], Vec [6,7]]) (Vec [10,15,10]) 1
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:338: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.338 ...Vec [4,5], Vec [6,7]]) (Vec [10,15,10]) 1
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
 
  []
 
-LaTeX Info: Redefining \. on input line 366.
-LaTeX Info: Redefining \% on input line 366.
+
+Underfull \hbox (badness 10000) in paragraph at lines 347--348
+
+ []
+
+LaTeX Info: Redefining \. on input line 356.
+LaTeX Info: Redefining \% on input line 356.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 366.
+(babel)             in language  on input line 356.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 366.
+(babel)             in language  on input line 356.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 366.
+(babel)             in language  on input line 356.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 366.
+(babel)             in language  on input line 356.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 366.
+(babel)             in language  on input line 356.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 366.
+(babel)             in language  on input line 356.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 366.
+(babel)             in language  on input line 356.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 366.
+(babel)             in language  on input line 356.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 366.
+(babel)             in language  on input line 356.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 366.
+(babel)             in language  on input line 356.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 366.
+(babel)             in language  on input line 356.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 366.
-[45]))
-LaTeX Info: Redefining \. on input line 228.
-LaTeX Info: Redefining \% on input line 228.
+(babel)             in language  on input line 356.
+[44]
+
+../codigo/TAHMatrix.lhs:360: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.360 ...3,4], Vec [4,5,6], Vec [4,8,9]]) (-2) 0 1
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:378: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.378 ...[1,3,4], Vec [0,5,6], Vec [0,8,9]]) (0,0)
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:381: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.381 ...[1,3,4], Vec [0,5,6], Vec [0,8,9]]) (0,1)
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:386: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.386 ...[1,3,4], Vec [0,0,6], Vec [0,8,9]]) (0,1)
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+LaTeX Info: Redefining \. on input line 400.
+LaTeX Info: Redefining \% on input line 400.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 228.
+(babel)             in language  on input line 400.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 228.
+(babel)             in language  on input line 400.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 228.
+(babel)             in language  on input line 400.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 228.
+(babel)             in language  on input line 400.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 228.
+(babel)             in language  on input line 400.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 228.
+(babel)             in language  on input line 400.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 228.
+(babel)             in language  on input line 400.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 228.
+(babel)             in language  on input line 400.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 228.
+(babel)             in language  on input line 400.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 228.
+(babel)             in language  on input line 400.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 228.
+(babel)             in language  on input line 400.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 228.
+(babel)             in language  on input line 400.
+[45]
+LaTeX Info: Redefining \. on input line 446.
+LaTeX Info: Redefining \% on input line 446.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 446.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 446.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 446.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 446.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 446.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 446.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 446.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 446.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 446.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 446.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 446.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 446.
  [46]
+Underfull \hbox (badness 10000) in paragraph at lines 477--478
+
+ []
+
+LaTeX Info: Redefining \. on input line 484.
+LaTeX Info: Redefining \% on input line 484.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 484.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 484.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 484.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 484.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 484.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 484.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 484.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 484.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 484.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 484.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 484.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 484.
+[47]))
+LaTeX Info: Redefining \. on input line 231.
+LaTeX Info: Redefining \% on input line 231.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 231.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 231.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 231.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 231.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 231.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 231.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 231.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 231.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 231.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 231.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 231.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 231.
+ [48]
 \openout2 = `Anillos_coherentes.aux'.
 
  (./Anillos_coherentes.tex
@@ -3179,7 +3628,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 21.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 21.
-[47
+[49
 
 
 
@@ -3193,191 +3642,860 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
 
+) (../codigo/TAHCoherent.lhs
+LaTeX Info: Redefining \. on input line 5.
+LaTeX Info: Redefining \% on input line 5.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 5.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 5.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 5.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 5.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 5.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 5.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 5.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 5.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 5.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 5.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 5.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 5.
+ [50]
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--35
+../codigo/TAHCoherent.lhs:25: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 es decir, si dado $ \,\, \[
+                                 M = \left( \begin{array}{rccc}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+../codigo/TAHCoherent.lhs:27: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.27                     \end{array} \right) \]
+                                                $,
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+../codigo/TAHCoherent.lhs:27: LaTeX Error: \begin{defi} on input line 20 ended 
+by \end{equation*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27                     \end{array} \right) \]
+                                                $,
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+../codigo/TAHCoherent.lhs:27: Missing $ inserted.
+<inserted text> 
+                $
+l.27                     \end{array} \right) \]
+                                                $,
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+../codigo/TAHCoherent.lhs:34: Missing $ inserted.
+<inserted text> 
+                $
+l.34 $ML=0\,$ y $\,MX = 0  \Leftrightarrow
+                                           \exists \[ Y^{m\times 1}\left( \b...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+../codigo/TAHCoherent.lhs:34: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.34 ...,$ y $\,MX = 0  \Leftrightarrow \exists \[
+                                                   Y^{m\times 1}\left( \begi...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+../codigo/TAHCoherent.lhs:35: Extra alignment tab has been changed to \cr.
+<recently read> \endtemplate 
+                             
+l.35 ...                                     m_1 &
+                                                   m_2 & \cdots & m_n
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+../codigo/TAHCoherent.lhs:35: Extra alignment tab has been changed to \cr.
+<recently read> \endtemplate 
+                             
+l.35 ...                               m_1 & m_2 &
+                                                   \cdots & m_n
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+../codigo/TAHCoherent.lhs:35: Extra alignment tab has been changed to \cr.
+<recently read> \endtemplate 
+                             
+l.35 ...                      m_1 & m_2 & \cdots &
+                                                   m_n
+You have given more \span or & marks than there were
+in the preamble to the \halign or \valign now in progress.
+So I'll assume that you meant to type \cr instead.
+
+../codigo/TAHCoherent.lhs:36: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.36 ...                    \end{array} \right) \]
+                                                  $
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+../codigo/TAHCoherent.lhs:36: LaTeX Error: \begin{document} ended by \end{equat
+ion*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 ...                    \end{array} \right) \]
+                                                  $
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+../codigo/TAHCoherent.lhs:36: Missing $ inserted.
+<inserted text> 
+                $
+l.36 ...                    \end{array} \right) \]
+                                                  $
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+../codigo/TAHCoherent.lhs:36: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.36 ...                    \end{array} \right) \]
+                                                  $
+Things are pretty mixed up, but I think the worst is over.
+
+../codigo/TAHCoherent.lhs:37: Missing $ inserted.
+<inserted text> 
+                $
+l.37 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+../codigo/TAHCoherent.lhs:39: LaTeX Error: \begin{document} ended by \end{defi}
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.39 \end{defi}
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+../codigo/TAHCoherent.lhs:39: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.39 \end{defi}
+               
+Things are pretty mixed up, but I think the worst is over.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 41--43
 
  []
 
-LaTeX Info: Redefining \. on input line 43.
-LaTeX Info: Redefining \% on input line 43.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 43.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 43.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 43.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 43.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 43.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 43.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 43.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 43.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 43.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 43.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 43.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 43.
-[48]) (../codigo/TAHCoherent.lhs
-LaTeX Info: Redefining \. on input line 40.
-LaTeX Info: Redefining \% on input line 40.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 40.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 40.
- [49]
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--47
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 68--70
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--76
-
- []
-
-LaTeX Info: Redefining \. on input line 76.
-LaTeX Info: Redefining \% on input line 76.
+LaTeX Info: Redefining \. on input line 49.
+LaTeX Info: Redefining \% on input line 49.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 49.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 49.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 49.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 49.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 49.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 49.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 49.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 49.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 49.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 49.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 49.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 76.
-[50]
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
-
- []
-
-LaTeX Info: Redefining \. on input line 111.
-LaTeX Info: Redefining \% on input line 111.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 111.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 111.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 111.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 111.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 111.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 111.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 111.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 111.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 111.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 111.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 111.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 111.
+(babel)             in language  on input line 49.
 [51]
-LaTeX Info: Redefining \. on input line 144.
-LaTeX Info: Redefining \% on input line 144.
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
+
+ []
+
+
+Overfull \hbox (35.892pt too wide) in paragraph at lines 57--58
+\T1/ppl/m/n/12 unas fun-cio-nes pa-ra rea-li-zar di-cha com-pro-ba-ci髇. La fun
+-ci髇 que de-no-ta-re-mos $ \OML/zplm/m/it/12 propCoherent $
+ []
+
+
+../codigo/TAHCoherent.lhs:72: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.72 \[
+        \left( \begin{array}{cccc}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+../codigo/TAHCoherent.lhs:86: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.86 ...        \end{array} \right)_{r\times 1} \]
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+../codigo/TAHCoherent.lhs:86: LaTeX Error: \begin{equation} on input line 71 en
+ded by \end{equation*}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.86 ...        \end{array} \right)_{r\times 1} \]
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHCoherent.lhs:87: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.87 \end{equation}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHCoherent.lhs:87: LaTeX Error: \begin{prop} on input line 69 ended 
+by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.87 \end{equation}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+../codigo/TAHCoherent.lhs:87: Missing $ inserted.
+<inserted text> 
+                $
+l.87 \end{equation}
+                   
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+../codigo/TAHCoherent.lhs:87: Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.87 \end{equation}
+                   
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+
+../codigo/TAHCoherent.lhs:88: LaTeX Error: \begin{document} ended by \end{prop}
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.88 \end{prop}
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+../codigo/TAHCoherent.lhs:88: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.88 \end{prop}
+               
+Things are pretty mixed up, but I think the worst is over.
+
+
+../codigo/TAHCoherent.lhs:96: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.96 \[
+       \left( \begin{array}{ccc}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+../codigo/TAHCoherent.lhs:105: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.105 ... \right)_{p_1\times 1}\,\, tal\,\, que \]
+                                                  \\
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+LaTeX Info: Redefining \. on input line 105.
+LaTeX Info: Redefining \% on input line 105.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 144.
+(babel)             in language  on input line 105.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 144.
- [52]))
-LaTeX Info: Redefining \. on input line 230.
-LaTeX Info: Redefining \% on input line 230.
+(babel)             in language  on input line 105.
+[52]
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
+
+ []
+
+
+../codigo/TAHCoherent.lhs:119: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.119 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHCoherent.lhs:119: LaTeX Error: \begin{dem} on input line 90 ended 
+by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.119 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+../codigo/TAHCoherent.lhs:119: Missing $ inserted.
+<inserted text> 
+                $
+l.119 \end{equation}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+../codigo/TAHCoherent.lhs:119: Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.119 \end{equation}
+                    
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+../codigo/TAHCoherent.lhs:128: Missing \right. inserted.
+<inserted text> 
+                \right .
+l.128 \end{equation}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+../codigo/TAHCoherent.lhs:128: LaTeX Error: \begin{equation*} on input line 122
+ ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.128 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHCoherent.lhs:131: LaTeX Error: \begin{document} ended by \end{dem}
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.131 \end{dem}
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+../codigo/TAHCoherent.lhs:131: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.131 \end{dem}
+               
+Things are pretty mixed up, but I think the worst is over.
+
+LaTeX Info: Redefining \. on input line 150.
+LaTeX Info: Redefining \% on input line 150.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 230.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 230.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 230.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 230.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 230.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 230.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 230.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 230.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 230.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 230.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 230.
+(babel)             in language  on input line 150.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 230.
- [53] (./TFG.bbl
+(babel)             in language  on input line 150.
+[53]
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+
+../codigo/TAHCoherent.lhs:176: LaTeX Error: \begin{equation*} on input line 170
+ ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.176 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHCoherent.lhs:183: LaTeX Error: \begin{equation*} on input line 178
+ ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.183 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
+
+ []
+
+LaTeX Info: Redefining \. on input line 199.
+LaTeX Info: Redefining \% on input line 199.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 199.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 199.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 199.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 199.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 199.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 199.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 199.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 199.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 199.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 199.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 199.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 199.
+[54]
+
+../codigo/TAHCoherent.lhs:199: LaTeX Error: \begin{equation*} on input line 197
+ ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.199 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 199--201
+
+ []
+
+
+../codigo/TAHCoherent.lhs:205: LaTeX Error: \begin{equation*} on input line 203
+ ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.205 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHCoherent.lhs:212: LaTeX Error: \begin{equation*} on input line 210
+ ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.212 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHCoherent.lhs:216: LaTeX Error: \begin{equation*} on input line 214
+ ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.216 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHCoherent.lhs:220: LaTeX Error: \begin{equation*} on input line 218
+ ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.220 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHCoherent.lhs:224: LaTeX Error: \begin{equation*} on input line 222
+ ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.224 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+LaTeX Info: Redefining \. on input line 233.
+LaTeX Info: Redefining \% on input line 233.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 233.
+[55]
+
+../codigo/TAHCoherent.lhs:239: LaTeX Error: \begin{equation*} on input line 234
+ ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.239 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--241
+
+ []
+
+LaTeX Info: Redefining \. on input line 274.
+LaTeX Info: Redefining \% on input line 274.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 274.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 274.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 274.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 274.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 274.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 274.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 274.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 274.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 274.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 274.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 274.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 274.
+[56]) (../codigo/TAHCoherentSD.lhs
+LaTeX Info: Redefining \. on input line 42.
+LaTeX Info: Redefining \% on input line 42.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 42.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 42.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 42.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 42.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 42.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 42.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 42.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 42.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 42.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 42.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 42.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 42.
+ [57]
+../codigo/TAHCoherentSD.lhs:76: FancyVerb Error:
+  Extraneous input `-}\end{}' between \end{code} and line end
+.
+\FV@Error ... {FancyVerb Error:
+\space \space #1
+}
+                                                  
+l.76 \end{code}-}
+                 
+This input will be discarded. Type <return> to continue.
+
+LaTeX Info: Redefining \. on input line 84.
+LaTeX Info: Redefining \% on input line 84.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 84.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 84.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 84.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 84.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 84.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 84.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 84.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 84.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 84.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 84.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 84.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 84.
+[58]
+../codigo/TAHCoherentSD.lhs:92: FancyVerb Error:
+  Extraneous input `-}\end{}' between \end{code} and line end
+.
+\FV@Error ... {FancyVerb Error:
+\space \space #1
+}
+                                                  
+l.92 \end{code}-}
+                 
+This input will be discarded. Type <return> to continue.
+
+))
+LaTeX Info: Redefining \. on input line 233.
+LaTeX Info: Redefining \% on input line 233.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 233.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 233.
+ [59] (./TFG.bbl
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 Package babel Info: Redefining spanish shorthand <<
@@ -3404,7 +4522,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 1.
- [54
+ [60
 
 
 ]) (./TFG.ind
@@ -3432,7 +4550,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 1.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 1.
- [55]
+ [61]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 7.
 Package babel Info: Redefining spanish shorthand >>
@@ -3457,7 +4575,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 7.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 7.
- [56
+ [62
 
 
 ])
@@ -3477,39 +4595,46 @@ Package minitoc(hints) Warning: W0024
 (minitoc(hints))                Some hints have been written 
 (minitoc(hints))                in the TFG.log file.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 257.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 257.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 260.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 260.
 (./TFG.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
  (./Programacion_funcional_con_Haskell.aux) (./Como_Empezar.aux)
 (./Teoria_de_anillos.aux) (./Vectores_y_Matrices.aux) (./Anillos_coherentes.aux
 ))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 257.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 257.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 257.
- ) 
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 260.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 260.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 260.
+ )
+(\end occurred inside a group at level 2)
+
+### simple group (level 2) entered at line 85 ({)
+### simple group (level 1) entered at line 47 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 28460 strings out of 494891
- 508109 string characters out of 6179039
- 620601 words of memory out of 5000000
- 30846 multiletter control sequences out of 15000+600000
- 29728 words of font info for 68 fonts, out of 8000000 for 9000
+ 28502 strings out of 494891
+ 508423 string characters out of 6179039
+ 623779 words of memory out of 5000000
+ 30860 multiletter control sequences out of 15000+600000
+ 33399 words of font info for 79 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
- 62i,12n,104p,1279b,647s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/angela-ubuntu/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk>{
-/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/up
-lb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on TFG.pdf (56 pages, 352018 bytes).
+ 62i,12n,104p,1206b,643s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/angela-ubuntu/.texmf-var/fonts/pk/ljfour/jknappen/ec/ec
+tt1200.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/m
+athpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb
+8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on TFG.pdf (62 pages, 375053 bytes).
 PDF statistics:
- 492 PDF objects out of 1000 (max. 8388607)
- 307 compressed objects within 4 object streams
- 90 named destinations out of 1000 (max. 500000)
+ 535 PDF objects out of 1000 (max. 8388607)
+ 344 compressed objects within 4 object streams
+ 104 named destinations out of 1000 (max. 500000)
  129 words of extra memory for PDF output out of 10000 (max. 10000000)
 
