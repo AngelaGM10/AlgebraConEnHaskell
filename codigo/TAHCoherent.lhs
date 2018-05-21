@@ -16,26 +16,59 @@ import TAHMatrix
 
 
 \end{code}
-
+\vspace{3mm}
 \begin{defi}
-Un anillo R es coherente si dado un vector $M \in\, R^{1\times n}$ existe una matriz $L \in\,\mathbb{R}^{n\times m}$ para $m \in\, \mathbb{N}$ tal que $ML=0$ y
+Un anillo R es coherente si dado un vector $\,M \in\, \mathbb{R}^{1\times n}\,$ existe una matriz $\,L \in\,\mathbb{R}^{n\times m}\,$ para $\,m \in\, \mathbb{N}\,$ tal que $\,ML=0\,$ y
 \begin{center}
-$MX = 0 \Leftrightarrow \exists Y \in\, R^{m\times 1}\,$ tal que $\, X = LY$
+$MX = 0 \Leftrightarrow \exists \,\,Y\, \in\, \mathbb{R}^{m\times 1}\,$ tal que $\, X = LY$
 \end{center}
-es decir, si dado $ \,\, \[ M = \left( \begin{array}{rccc}
-                      m_1 & m_2 & \cdots & m_n 
-                    \end{array} \right) \] $, 
-existe una matriz $\, \[ L = \left( \begin{array}{cccc}
+esto es,
+\begin{equation*}
+\begin{array}{ccc}
+\[ \left( \begin{array}{rccc}
+    m_1 & m_2 & \cdots & m_n 
+   \end{array} \right) \left( \begin{array}{cccc}
        l_{11} & l_{12} & \cdots & l_{1m}\\ 
        l_{21} & l_{22} & \cdots & l_{2m}\\
        \vdots & \vdots & \ddots & \vdots\\
        l_{n1} & l_{n2} & \cdots & l_{nm}
-      \end{array} \right) \]\,\,$ tal que\\
-$ML=0\,$ y $\,MX = 0  \Leftrightarrow \exists \[ Y^{m\times 1}\left( \begin{array}{c}
-                                                                     m_1 & m_2 & \cdots & m_n 
-                                                                      \end{array} \right) \]$ 
+      \end{array} \right) = \left( \begin{array}{rccc}
+                             0 & \cdots & 0 
+                             \end{array} \right)_{1\times m}  \]\,\,\,\, y\\
 
-ACABAR
+\[\left( \begin{array}{rccc}
+          m_1 & m_2 & \cdots & m_n
+         \end{array} \right)  \left( \begin{array}{c}
+                              x_1 \\
+                              x_2 \\
+                              \vdots \\
+                              x_n 
+                             \end{array} \right) = 0 \,\,\Leftrightarrow\,\, \exists\,\, 
+\left( \begin{array}{c}
+        y_1 \\
+        y_2 \\
+        \vdots \\
+        y_m 
+\end{array} \right) \,\,\,\, tal\,\, que\] \\
+\[ \left( \begin{array}{c}
+        x_1 \\
+        x_2 \\
+        \vdots \\
+        x_n 
+       \end{array} \right) =  \left( \begin{array}{cccc}
+                                     l_{11} & l_{12} & \cdots & l_{1m}\\ 
+                                     l_{21} & l_{22} & \cdots & l_{2m}\\
+                                     \vdots & \vdots & \ddots & \vdots\\
+                                     l_1{n1} & l_{n2} & \cdots & l_{nm}
+                                     \end{array} \right)  \left( \begin{array}{c}
+                                                                  y_1 \\
+                                                                  y_2 \\
+                                                                  \vdots \\
+                                                                  y_m
+                                                                 \end{array} \right)\]
+
+\end{array}
+\end{equation}
 \end{defi}
 
 De esta forma es posible calcular un conjunto de generadores para soluciones
@@ -54,7 +87,8 @@ class IntegralDomain a => Coherent a where
 
 Al igual que ocurría con $member$ en el anterior capítulo, aquí $solve$ es una función que no tiene una especificación concreta. El objetivo de esta función es comprobar que dado un vector $M$ exista una matriz $L$ que cumpla las condiciones de la definición de anillo coherente. Es decir, $solve$ recibe un vector $M \in\, R^{1\times n}$ y devolverá una matriz $L \in\,\mathbb{R}^{n\times m}$ de forma que al multiplicar ambos el vector resultante sea un vector fila de ceros.\\
 
-Para verificar que una especificación concreta de $solve$ es correcta especificamos unas funciones para realizar dicha comprobación. La función que denotaremos $\,propCoherent\,$ es la encargada de comprobar que la multiplicación de $M$ por $L$ sea nula. Para ello, se ayuda de una segunda función que denotaremos por $isSolution$, esta comprueba que el vector que se obtiene tras la multiplicación de $ML$ es un vector de ceros.
+Para verificar que una especificación concreta de $solve$ es correcta especificamos unas funciones para realizar dicha comprobación. La función que denotaremos\\
+$\,propCoherent\,$ es la encargada de comprobar que la multiplicación de $M$ por $L$ sea nula. Para ello, se ayuda de una segunda función que denotaremos por $isSolution$, esta comprueba que el vector que se obtiene tras la multiplicación de $ML$ es un vector de ceros.
 
 \begin{code}
 -- | Test para comprobar que la multiplicación del vector M por la matriz
@@ -65,6 +99,7 @@ isSolution m sol = all (==zero) (concat (unMVec (m `mulM` sol)))
 propCoherent :: (Coherent a, Eq a) => Vector a -> Bool
 propCoherent m = isSolution (vectorToMatrix m) (solve m)
 \end{code}
+\vspace{3mm}
 
 \begin{prop}
 En un anillo coherente es posible resolver un sistema $MX = 0$ donde $M\, \in \,\,\mathbb{R}^{r\times n}\,$ y $X\, \in \,\,\mathbb{R}^{n\times 1}\,$. Es decir, 
@@ -93,16 +128,20 @@ Sean $M_{i}\,\in\,\,\mathbb{R}^{1\times n}\,$, $  M_{i} = \left( \begin{array}{c
                                                       \end{array} \right)  $ las filas de M.\\ 
 Por coherencia es posible resolver $M_1X=0$ y obtener un $L_1\,\in\,\,\mathbb{R}^{n\times p_1}\,$ tal que
 \begin{equation*}
-\[\left( \begin{array}{ccc}
+\[ \left( \begin{array}{ccc}
             m_{11} & \cdots & m_{1n}
-         \end{array} \right)  \left( \begin{array}{c}
-                              x_1 \\
-                              x_2 \\
-                              \vdots \\
-                              x_n 
-                             \end{array} \right) = 0 \,\,\Leftrightarrow\,\, \exists\,\, \left( \begin{array}{ccc}
-                                                                                                 y_{11} & \cdots & y_{1p_1}
-                                                                                                 \end{array} \right)_{p_1\times 1}\,\, tal\,\, que \]\\
+          \end{array} \right)  \left( \begin{array}{c}
+                                       x_1 \\
+                                       x_2 \\
+                                      \vdots \\
+                                       x_n 
+                                      \end{array} \right) = 0 \,\,\Leftrightarrow\,\, \exists\,\, 
+\left( \begin{array}{c}
+       y_1 \\
+       y_2 \\ 
+       \vdots \\
+       y_{p_1}
+       \end{array} \right)\,\, tal\,\, que \]
 \[ \left( \begin{array}{c}
         x_1 \\
         x_2 \\
@@ -113,12 +152,15 @@ Por coherencia es posible resolver $M_1X=0$ y obtener un $L_1\,\in\,\,\mathbb{R}
                                      {l_1}_{21} & {l_1}_{22} & \cdots & {l_1}_{2p_1}\\
                                      \vdots & \vdots & \ddots & \vdots\\
                                      {l_1}_{n1} & {l_1}_{n2} & \cdots & {l_1}_{np_1}
-                                     \end{array} \right)  \left( \begin{array}{ccc}
-                                                                  y_{11} & \cdots & y_{1p_1}
+                                     \end{array} \right) \left( \begin{array}{c}
+                                                                 y_1 \\
+                                                                 y_2 \\ 
+                                                                 \vdots \\
+                                                                 y_{p_1}
                                                                  \end{array} \right)\]
 \end{equation}
-De esta forma, $M_2X=0$ y como $X=L_1Y  \,\,\Rightarrow\,\, M_2L_1Y=0$.\\
-Por coherencia, obtenemos una nueva matriz $L_2\,\in\,\,\mathbb{R}^{p_1\times p_2}\,$ tal que 
+\textit{De esta forma, $M_2X=0$ y como $X=L_1Y  \,\,\Rightarrow\,\, M_2L_1Y=0$.\\
+Por coherencia, obtenemos una nueva matriz $L_2\,\in\,\,\mathbb{R}^{p_1\times p_2}\,$ tal que}
 \begin{equation*}
 M_1X\,=\,M_2X\,=\,0 \,\,\Leftrightarrow\,\,  
 \left\{ \begin{array}{ll} 
@@ -126,7 +168,7 @@ M_1X\,=\,M_2X\,=\,0 \,\,\Leftrightarrow\,\,
 \exists\,\, Z\,\in\,\,\mathbb{R}^{p_2\times 1}\,\, /\,\, X\,=\,L_1L_2Z 
 \end{array}
 \end{equation}
-Iterando este método la solución $X=L_1L_2\cdots L_rZ\,$ con $\,L_i\,\in\,\,\mathbb{R}^{p_{i-1}\times p_i}\,$, $\,p_0\,=\,n\,$ y $\,Z\,\in\,\,\mathbb{R}^{p_{m}\times 1}\,$ puede ser calculada.
+\textit{Iterando este método la solución $X=L_1L_2\cdots L_rZ\,$ con $\,L_i\,\in\,\,\mathbb{R}^{p_{i-1}\times p_i}\,$, $\,p_0\,=\,n\,$ y $\,Z\,\in\,\,\mathbb{R}^{p_{m}\times 1}\,$ puede ser calculada.}
 
 \end{dem}
 
@@ -152,6 +194,7 @@ propSolveMxN m = isSolution m (solveMxN m)
 \end{code}
 
 Ahora consideraremos la intersección de dos ideales finitamente generados en anillos coherentes. Esto proporciona otra forma de caracterizar los anillos coherentes en términos de intersección de ideales.
+\vspace{3mm}
 
 \begin{prop}
 La intersección de dos ideales finitamente generados en un anillo coherente $R$ está finitamente generada.\\[7pt]
@@ -182,10 +225,11 @@ Si $\,\alpha \,\in\,\,I\cap J\, \Rightarrow\,\,\alpha \,\in\,\, I\,\, ,\,\,\alph
 \end{array}
 \end{equation}
 estos son exactamente los generadores dados anteriormente.\\[15pt]
-Por tanto, un conjunto de generadores para la intersección es $\,\{AX_1,\cdots ,AX_p\}\,$ y otro conjunto de generadores es $\, \{BY_1,\cdots ,BY_p\}$
+Por tanto, un conjunto de generadores para la intersección es $\,\{AX_1,\cdots ,AX_p\}\,$ y otro conjunto de generadores es $\, \{BY_1,\cdots ,BY_p\}$.
 \end{dem}
 
 De hecho, esta afirmación se puede probar en la otra dirección también. La siguiente proposición es la más importante en esta sección y todas las pruebas de coherencia se basarán en esta.
+\vspace{3mm}
 
 \begin{prop}
 Si $R$ es un dominio de integridad tal que la intersección de dos ideales finitamente generados está finitamente generada, entonces $R$ es coherente.\\[7pt]
@@ -237,7 +281,7 @@ z_k\,=\,u_{k1}x_1+ \cdots +u_{kn}x_n\\
 \hspace{15pt} =\,v_{k1}y_1+ \cdots +v_{km}y_m
 \end{array}
 \end{equation}
-Nótese que solo da los coeficientes en una dirección, es decir, si $\,x\,\in\,I\cap J\,$ entonces $\,x\,\in\,I\,$ y $\,x\,\in\,J\,$.\\
+Nótese que solo devuelve los coeficientes en una dirección, es decir, si $\,x\,\in\,I\cap J\,$ entonces $\,x\,\in\,I\,$ y $\,x\,\in\,J\,$.\\
 
 Vamos a dar un algoritmo para obtener una solución del sistema mediante la intersección, basándonos en las propocisiones anteriores.
 
@@ -261,16 +305,16 @@ solveWithIntersection (Vec xs) int = transpose $ matrix $ solveInt xs
     | isSameIdeal int as bs = s ++ m'
     | otherwise = error "solveInt: No se puede calcular la intersección"
       where
-      as            = Id [x]
-      bs            = Id (map neg xs)
+      as = Id [x]
+      bs = Id (map neg xs)
 
       -- Calculamos al intersección de <x1> y <-x2,...,-xn>
       (Id ts,us,vs) = as `int` bs
-      s             = [ u ++ v | (u,v) <- zip us vs ]
+      s  = [ u ++ v | (u,v) <- zip us vs ]
 
       -- Resuelve <0,x2,...,xn> recursivamente
-      m             = solveInt xs
-      m'            = map (zero:) m
+      m  = solveInt xs
+      m' = map (zero:) m
 
 \end{code}
 
