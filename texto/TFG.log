@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.2)  21 MAY 2018 13:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.2)  28 MAY 2018 23:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3686,7 +3686,7 @@ or  <return>  to continue without it.
 ../codigo/TAHCoherent.lhs:37: Missing \endgroup inserted.
 <inserted text> 
                 \endgroup 
-l.37 ...       \end{array} \right)_{1\times m}  \]
+l.37 ...       \end{array} \right)_{1\times r}  \]
                                                   \,\,\,\, y\\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3702,7 +3702,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.37 ...       \end{array} \right)_{1\times m}  \]
+l.37 ...       \end{array} \right)_{1\times r}  \]
                                                   \,\,\,\, y\\
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3711,7 +3711,7 @@ or  <return>  to continue without it.
 ../codigo/TAHCoherent.lhs:37: Missing $ inserted.
 <inserted text> 
                 $
-l.37 ...       \end{array} \right)_{1\times m}  \]
+l.37 ...       \end{array} \right)_{1\times r}  \]
                                                   \,\,\,\, y\\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3722,7 +3722,7 @@ my insertion and my current dilemma will both disappear.
 ../codigo/TAHCoherent.lhs:37: Missing } inserted.
 <inserted text> 
                 }
-l.37 ...       \end{array} \right)_{1\times m}  \]
+l.37 ...       \end{array} \right)_{1\times r}  \]
                                                   \,\,\,\, y\\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3733,14 +3733,14 @@ my insertion and my current dilemma will both disappear.
 ../codigo/TAHCoherent.lhs:37: Missing \cr inserted.
 <inserted text> 
                 \cr 
-l.37 ...       \end{array} \right)_{1\times m}  \]
+l.37 ...       \end{array} \right)_{1\times r}  \]
                                                   \,\,\,\, y\\
 I'm guessing that you meant to end an alignment here.
 
 ../codigo/TAHCoherent.lhs:37: Missing $ inserted.
 <inserted text> 
                 $
-l.37 ...       \end{array} \right)_{1\times m}  \]
+l.37 ...       \end{array} \right)_{1\times r}  \]
                                                   \,\,\,\, y\\
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -3748,7 +3748,7 @@ you left one out. Proceed, with fingers crossed.
 ../codigo/TAHCoherent.lhs:37: Missing } inserted.
 <inserted text> 
                 }
-l.37 ...       \end{array} \right)_{1\times m}  \]
+l.37 ...       \end{array} \right)_{1\times r}  \]
                                                   \,\,\,\, y\\
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -3914,43 +3914,43 @@ l.72 \end{defi}
 Things are pretty mixed up, but I think the worst is over.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--76
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
  []
 
-LaTeX Info: Redefining \. on input line 76.
-LaTeX Info: Redefining \% on input line 76.
+LaTeX Info: Redefining \. on input line 75.
+LaTeX Info: Redefining \% on input line 75.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 75.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 75.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 75.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 75.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 75.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 75.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 75.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 75.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 75.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 75.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 75.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 76.
+(babel)             in language  on input line 75.
 [51]
-Underfull \hbox (badness 10000) in paragraph at lines 77--80
+Underfull \hbox (badness 10000) in paragraph at lines 76--79
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
 
  []
 
@@ -4156,10 +4156,15 @@ l.161 \end{equation}
 The `$' that I just saw supposedly matches a previous `$$'.
 So I shall assume that you typed `$$' both times.
 
-../codigo/TAHCoherent.lhs:170: Missing \right. inserted.
+../codigo/TAHCoherent.lhs:168: Double subscript.
+l.168 X=L_1_
+            {(n\times p_1)}Y_{(p_1\times 1)} \\
+I treat `x_1_2' essentially like `x_1{}_2'.
+
+../codigo/TAHCoherent.lhs:171: Missing \right. inserted.
 <inserted text> 
                 \right .
-l.170 \end{equation}
+l.171 \end{equation}
                     
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -4168,179 +4173,187 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-../codigo/TAHCoherent.lhs:170: LaTeX Error: \begin{equation*} on input line 164
+../codigo/TAHCoherent.lhs:171: LaTeX Error: \begin{equation*} on input line 166
  ended by \end{equation}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.170 \end{equation}
+l.171 \end{equation}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHCoherent.lhs:173: LaTeX Error: \begin{document} ended by \end{dem}
+../codigo/TAHCoherent.lhs:174: LaTeX Error: \begin{document} ended by \end{dem}
 .
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.173 \end{dem}
+l.174 \end{dem}
                
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-../codigo/TAHCoherent.lhs:173: Extra \endgroup.
+../codigo/TAHCoherent.lhs:174: Extra \endgroup.
 <recently read> \endgroup 
                           
-l.173 \end{dem}
+l.174 \end{dem}
                
 Things are pretty mixed up, but I think the worst is over.
 
-LaTeX Info: Redefining \. on input line 182.
-LaTeX Info: Redefining \% on input line 182.
+LaTeX Info: Redefining \. on input line 177.
+LaTeX Info: Redefining \% on input line 177.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 177.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 182.
+(babel)             in language  on input line 177.
 [53]
-Underfull \hbox (badness 10000) in paragraph at lines 200--201
+Underfull \hbox (badness 10000) in paragraph at lines 201--202
 
  []
 
 
-../codigo/TAHCoherent.lhs:219: LaTeX Error: \begin{equation*} on input line 213
+../codigo/TAHCoherent.lhs:220: LaTeX Error: \begin{equation*} on input line 214
  ended by \end{equation}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.219 \end{equation}
+l.220 \end{equation}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHCoherent.lhs:226: LaTeX Error: \begin{equation*} on input line 221
+../codigo/TAHCoherent.lhs:227: LaTeX Error: \begin{equation*} on input line 222
  ended by \end{equation}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.226 \end{equation}
+l.227 \end{equation}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-LaTeX Info: Redefining \. on input line 233.
-LaTeX Info: Redefining \% on input line 233.
+LaTeX Info: Redefining \. on input line 230.
+LaTeX Info: Redefining \% on input line 230.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 233.
+(babel)             in language  on input line 230.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 233.
+(babel)             in language  on input line 230.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 233.
+(babel)             in language  on input line 230.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 233.
+(babel)             in language  on input line 230.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 233.
+(babel)             in language  on input line 230.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 233.
+(babel)             in language  on input line 230.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 233.
+(babel)             in language  on input line 230.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 233.
+(babel)             in language  on input line 230.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 233.
+(babel)             in language  on input line 230.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 233.
+(babel)             in language  on input line 230.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 233.
+(babel)             in language  on input line 230.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 233.
+(babel)             in language  on input line 230.
 [54]
-Underfull \hbox (badness 10000) in paragraph at lines 235--236
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
 
 
-../codigo/TAHCoherent.lhs:243: LaTeX Error: \begin{equation*} on input line 241
+../codigo/TAHCoherent.lhs:244: LaTeX Error: \begin{equation*} on input line 242
  ended by \end{equation}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.243 \end{equation}
+l.244 \end{equation}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 243--245
+Underfull \hbox (badness 10000) in paragraph at lines 244--246
 
  []
 
 
-../codigo/TAHCoherent.lhs:249: LaTeX Error: \begin{equation*} on input line 247
+../codigo/TAHCoherent.lhs:250: LaTeX Error: \begin{equation*} on input line 248
  ended by \end{equation}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.249 \end{equation}
+l.250 \end{equation}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHCoherent.lhs:256: LaTeX Error: \begin{equation*} on input line 254
- ended by \end{equation}.
+Underfull \hbox (badness 10000) in paragraph at lines 250--252
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.256 \end{equation}
+ []
+
+../codigo/TAHCoherent.lhs:260: Missing \right. inserted.
+<inserted text> 
+                \right .
+l.260 \end{equation}
                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
 
-../codigo/TAHCoherent.lhs:260: LaTeX Error: \begin{equation*} on input line 258
+Overfull \hbox (41.6949pt too wide) detected at line 260
+\OML/zplm/m/it/12 Si   x[]\OT1/ppl/m/n/12 , []  , \OML/zplm/m/it/12 x[]   []   
+ \OMS/zplm/m/n/12 )   []
+ []
+
+
+../codigo/TAHCoherent.lhs:260: LaTeX Error: \begin{equation*} on input line 252
  ended by \end{equation}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
@@ -4409,82 +4422,196 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHCoherent.lhs:283: LaTeX Error: \begin{equation*} on input line 278
+../codigo/TAHCoherent.lhs:273: LaTeX Error: \begin{equation*} on input line 271
  ended by \end{equation}.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.283 \end{equation}
+l.273 \end{equation}
                     
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 283--285
+../codigo/TAHCoherent.lhs:278: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.278 \(
+        x_2-\sum^p_{i=1}u_iw_{i2},\cdots ,x_n-\sum^p_{i=1}u_iw_{in}\) \,\,\,...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+../codigo/TAHCoherent.lhs:278: Missing $ inserted.
+<inserted text> 
+                $
+l.278 ...textrm{es combinación lineal de}\\[12pt]
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+../codigo/TAHCoherent.lhs:282: LaTeX Error: \begin{equation*} on input line 275
+ ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.282 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHCoherent.lhs:291: LaTeX Error: \begin{equation*} on input line 284
+ ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.291 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHCoherent.lhs:294: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.294 \[
+         \left( \begin{array}{c}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+../codigo/TAHCoherent.lhs:320: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.320 \end{equation}
+                    
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+../codigo/TAHCoherent.lhs:320: LaTeX Error: \begin{equation*} on input line 293
+ ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.320 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (32.35326pt too wide) in paragraph at lines 320--322
+\T1/ppl/m/it/12 Luego, ob-te-ne-mos $ \OT1/zplm/m/n/12 (\OML/zplm/m/it/12 w[]\O
+T1/ppl/m/n/12 , []  , \OML/zplm/m/it/12 w[]\OT1/zplm/m/n/12 )\OT1/ppl/m/n/12 , 
+[]  , \OT1/zplm/m/n/12 (\OML/zplm/m/it/12 w[]\OT1/ppl/m/n/12 , []  , \OML/zplm/
+m/it/12 w[]\OT1/zplm/m/n/12 ) $ \T1/ppl/m/it/12 y $  \OT1/zplm/m/n/12 (\OT1/ppl
+/m/n/12 0, \OML/zplm/m/it/12 v[]\OT1/ppl/m/n/12 , []  , \OML/zplm/m/it/12 v[]\O
+T1/zplm/m/n/12 )\OT1/ppl/m/n/12 , []  , \OT1/zplm/m/n/12 (\OT1/ppl/m/n/12 0, \O
+ML/zplm/m/it/12 v[]\OT1/ppl/m/n/12 , []  , \OML/zplm/m/it/12 v[]\OT1/zplm/m/n/1
+2 )  $
+ []
+
+LaTeX Info: Redefining \. on input line 327.
+LaTeX Info: Redefining \% on input line 327.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 327.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 327.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 327.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 327.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 327.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 327.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 327.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 327.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 327.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 327.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 327.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 327.
+[56]
+
+../codigo/TAHCoherent.lhs:335: LaTeX Error: \begin{equation*} on input line 330
+ ended by \end{equation}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.335 \end{equation}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 335--337
 
  []
 
-LaTeX Info: Redefining \. on input line 307.
-LaTeX Info: Redefining \% on input line 307.
+LaTeX Info: Redefining \. on input line 370.
+LaTeX Info: Redefining \% on input line 370.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 370.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 370.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 370.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 370.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 370.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 370.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 370.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 370.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 370.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 370.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 307.
+(babel)             in language  on input line 370.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 307.
-[56]) (../codigo/TAHCoherentSD.lhs
+(babel)             in language  on input line 370.
+[57]) (../codigo/TAHCoherentSD.lhs
 Underfull \hbox (badness 10000) in paragraph at lines 18--19
 
  []
 
-LaTeX Info: Redefining \. on input line 21.
-LaTeX Info: Redefining \% on input line 21.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 21.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 21.
-[57]
 
 ../codigo/TAHCoherentSD.lhs:24: LaTeX Error: \begin{equation*} on input line 22
  ended by \end{equation}.
@@ -4512,59 +4639,59 @@ l.30 ...e tiene que obtener los coeficientes $\,w_
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-LaTeX Info: Redefining \. on input line 61.
-LaTeX Info: Redefining \% on input line 61.
+LaTeX Info: Redefining \. on input line 31.
+LaTeX Info: Redefining \% on input line 31.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 61.
+(babel)             in language  on input line 31.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 61.
+(babel)             in language  on input line 31.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 61.
+(babel)             in language  on input line 31.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 61.
+(babel)             in language  on input line 31.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 61.
+(babel)             in language  on input line 31.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 61.
+(babel)             in language  on input line 31.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 61.
+(babel)             in language  on input line 31.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 61.
+(babel)             in language  on input line 31.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 61.
+(babel)             in language  on input line 31.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 61.
+(babel)             in language  on input line 31.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 61.
+(babel)             in language  on input line 31.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 61.
+(babel)             in language  on input line 31.
 [58]
-LaTeX Info: Redefining \. on input line 107.
-LaTeX Info: Redefining \% on input line 107.
+LaTeX Info: Redefining \. on input line 73.
+LaTeX Info: Redefining \% on input line 73.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 73.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 73.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 73.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 73.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 73.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 73.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 73.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 73.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 73.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 73.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 73.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 73.
  [59]))
 LaTeX Info: Redefining \. on input line 233.
 LaTeX Info: Redefining \% on input line 233.
@@ -4678,11 +4805,11 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 260.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 260.
  ) 
 Here is how much of TeX's memory you used:
- 28504 strings out of 494891
- 508434 string characters out of 6179039
- 625779 words of memory out of 5000000
- 30860 multiletter control sequences out of 15000+600000
- 33399 words of font info for 79 fonts, out of 8000000 for 9000
+ 28506 strings out of 494891
+ 508460 string characters out of 6179039
+ 626779 words of memory out of 5000000
+ 30862 multiletter control sequences out of 15000+600000
+ 35193 words of font info for 81 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
  62i,14n,104p,1206b,641s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/angela-ubuntu/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk>{
@@ -4696,7 +4823,7 @@ azo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on TFG.pdf (62 pages, 377017 bytes).
+Output written on TFG.pdf (62 pages, 380467 bytes).
 PDF statistics:
  537 PDF objects out of 1000 (max. 8388607)
  346 compressed objects within 4 object streams
