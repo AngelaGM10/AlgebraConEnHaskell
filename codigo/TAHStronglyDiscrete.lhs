@@ -27,11 +27,9 @@ class Ring a => StronglyDiscrete a where
   member :: a -> Ideal a -> Maybe [a]
 \end{code}
 
-El objetivo de esta función es decidir si un elemento del anillo pertene al ideal, por ello hacemos uso del constructor $(Maybe\,\,[a])$. En el caso de que no pertenezca al ideal, $member$ devolverá $Nothing$. Por otro lado, si un elemento pertenece a un ideal, significa que podemos escribir dicho elemento mediante una combinación lineal de los generadores del ideal.\\
+El objetivo de este método es decidir si un elemento del anillo pertene al ideal, por ello hacemos uso del constructor $(Maybe\,\,[a])$. En el caso de que no pertenezca al ideal, $member$ devolverá $Nothing$. Por otro lado, si un elemento pertenece a un ideal, significa que podemos escribir dicho elemento mediante una combinación lineal de los generadores del ideal. Por ello, si el elemento pertenece al ideal, $member$ nos devolverá la lista con los coeficientes de los generadores del ideal al que nuestro elemento pertenece.\\
 
-Por ello, si el elemento pertenece al ideal, $member$ nos devolverá la lista con los coeficientes de los generadores del ideal al que nuestro elemento pertenece. Por este motivo, el tipo que devuelve es $(Maybe\,\, [a])$ donde $[a]$ es la lista de los coeficientes de los generadores del ideal al cuál pertenece el elemento.\\
-
-Para verificar que una especificación concreta de $member$ es correcta especificamos una función que denotaremos $(propStronglyDiscrete\,\,x\,\,id@(Id xs))$, esta devolverá un booleano, $True$ cuando $member$ haya funcionado bien y $False$ cuando no haya devuelto lo esperado. En caso de que no pertenezca al ideal y devuelva $Nothing$ significa que funciona correctamente luego obtendremos un $True$. Si $x$ pertenece al ideal generado por $xs$ entonces comprobará que la lista de coeficientes que $member$ a devuelto al multiplicarla por la lista de generadores del ideal, $xs$, la suma resultante es $x$ y entonces devolverá un $True$.
+Para verificar que una especificación concreta de $member$ es correcta definimos una función que denotaremos $(propStronglyDiscrete\,\,x\,\,id@(Id xs))$, esta devolverá un booleano, $True$ cuando $member$ haya funcionado bien y $False$ cuando no haya devuelto lo esperado. En caso de que no pertenezca al ideal y devuelva $Nothing$ significa que funciona correctamente luego obtendremos un $True$. Si $x$ pertenece al ideal generado por $xs$ entonces comprobará que la lista de coeficientes que $member$ ha devuelto al multiplicarla por la lista de generadores del ideal, $xs$, la suma resultante es $x$ y entonces devolverá un $True$.
 
 \begin{code}
 propStronglyDiscrete :: (CommutRing a, StronglyDiscrete a, Eq a)

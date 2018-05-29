@@ -15,7 +15,7 @@ import TAHCoherent
 
 \end{code}
 
-Para decidir si un elemento pertenece a un ideal, hay un método constructivo. Si $\,x\,\in\,<x_1,\cdots ,x_n>\,$ también debería de dar los coeficientes, pues si $\,x\,$ pertenece a un ideal entonces este se puede escribir como combinación lineal de los generadores del ideal, sean $\,w_i\,$ los coeficientes de estos generadores. Entonces, podemos escribir $\,x\,$ como combinación lineal, $\,x = \sum_i w_ix_i\,$.\\
+Si $\,x\,\in\,<x_1,\cdots ,x_n>\,$ entonces existen unos coeficientes  $\,w_i\,$ de forma que $\,x\,$ puede escribir como combinación lineal de los generadores del ideal. Entonces, podemos escribir $\,x\,$ como $\,x = \sum_i w_ix_i\,$.\\
 
 \begin{prop}
 Si $R$ es un dominio de integridad fuertemente discreto y coherente entonces es posible resolver sistemas lineales arbitrarios. Dado $\,MX=A\,$ es posible calcular $\,X_0\,$ y $\,L\,$ tal que $\,ML=0\,$ y 
@@ -25,9 +25,11 @@ MX=A\,\, \Leftrightarrow \,\,\exists\,\,Y\,\,/\,\,X=LY+X_0
 \end{prop}
 
 \begin{dem}
-Por coherencia, podemos calcular la matriz $\,L\,$ del sistema $\,MX=0\,$ mediante la proposición 1. La solución particular $\,X_0\,$ puede calcularse utilizando el mismo método. \\
+Por coherencia, podemos calcular la matriz $\,L\,$ del sistema $\,MX=0\,$ mediante la proposición 1. La solución particular $\,X_0\,$ puede calcularse utilizando el siguiente método que utilizaremos para encontrar la solución de $\,X\,$: \\
 
-El caso base es cuando $\,M\,$ solo tiene una fila, aquí es trivial ya que $R$ es fuertemente discreto.Esto es, si $\,M=(x_1,\cdots ,x_n)\,$ y $\,A = (a)\,$ entonces decidir si pertenece al ideal o no, se verifica si $\,a\,\in\,<x_1,\cdots ,x_n> entonces se tiene que obtener los coeficientes $\,w_i\,$ tales que $\,a=x_1w_1 + \cdots + x_nw_n\,$.
+El caso base es cuando $\,M\,$ solo tiene una fila, aquí es trivial ya que $R$ es fuertemente discreto. Esto es, si $\,M=(m_1,\cdots ,m_n)\,$ y $\,A = (a)\,$ entonces resolver $\,MX=A\,$ es decidir si $\,(a)\,$ pertenece al ideal $\,<m_1,\cdots ,m_n>\,$ o no.\\
+Si $\,a\,\in\,<m_1,\cdots ,m_n>\,$ entonces se tiene que obtener los coeficientes $\,w_i\,$ tales que\\
+$a=m_1w_1 + \cdots + m_nw_n\,$. Por tanto, $\,(w_1,\cdots ,w_n)\,$ es solución.
 \end{dem}
 
 Mediante la función que denotaremos $\,solveGeneralEquation\,$ obtendremos el primer paso para calcular la solución de un sistema del tipo $\,AX=b\,$, partiendo de que estamos en un anillo fuertemente discreto. Esta función recibe el vector $\,v\,$ y la solución $\,b\,$. Aplicamos $\,solve\,$ sobre dicho vector para encontrar la matriz $\,L\,$ para verificar que se trata de un anillo coherente. Después con $\,member\,$ se generará la lista de coeficientes de la combinación lineal. Finalmente se suman ambas.

@@ -99,7 +99,7 @@ propCoherent :: (Coherent a, Eq a) => Vector a -> Bool
 propCoherent m = isSolution (vectorToMatrix m) (solve m)
 \end{code}
 \vspace{3mm}
-Empezaremos por resolver sistemas de ecuaciones homogéneos sobre un anillo coherente. Nuestro objetivo es encontrar todas las posibles soluciones del sistema homogéneo, solo que esta vez tenemos una matriz $\,M\,$ y no un vector.
+Empezaremos por resolver sistemas de ecuaciones homogéneos sobre un anillo coherente. Nuestro objetivo es encontrar todas las posibles soluciones del sistema homogéneo, solo que esta vez tenemos una matriz $\,M\,$ y no un vector.\\
 
 \begin{prop}
 En un anillo coherente $\,R\,$ es posible resolver un sistema $MX = \vec{0}$ donde $M\, \in \,\,R^{r\times n}\,$ y $X\, \in \,\,R^{n\times 1}\,$. Es decir, 
@@ -170,7 +170,6 @@ Y={L_2}_{(p_1\times p_2)}Z_{(p_2\times 1)}
 \end{array} \Rightarrow\,\,X={L_1}_{(n\times p_1)}{L_2}_{(p_1\times p_2)}Z_{(p_2\times 1)} 
 \end{equation}
 \textit{Iterando este método la solución $X=L_1L_2\cdots L_rZ\,$ con $\,L_i\,\in\,\,R^{p_{i-1}\times p_i}\,$, $\,p_0\,=\,n\,$ y $\,Z\,\in\,\,R^{p_{m}\times 1}\,$ puede ser calculada.}
-
 \end{dem}
 
 La proposición anterior nos muestra la forma de resolver mediante recursión un sistema $\,MX=\vec{0}\,$, veamos como hacerlo en Haskell. Siguiendo la prueba de la proposición anterior, comenzamos a aplicar coherencia con la primera fila de la matriz $\,M\,$ y así vamos obteniendo por coherencia una nueva matriz en cada iteración hasta obtener la solución del sistema de ecuaciones. Mediante la función $\,solveMxN\,$ calcula la matriz obtenida por recursión $\,L_1L_2\cdots L_r\,$. Con una segunda función, que denotaremos $propSolveMxN$ comprobaremos que la matriz obtenida por $\,solveMxN\,$ al multiplicarla por la matriz dada $\,M\,$ es solución del sistema homogéneo es decir el resultado de la multiplicación esun vector de ceros.
@@ -204,11 +203,7 @@ La intersección de dos ideales finitamente generados en un anillo coherente $R$
 
 \begin{dem}
 Sean $\,I=<a_1,\cdots,a_n>\,$ y $\,J=<b_1,\cdots,b_m>\,$ dos ideales finitamente generados en $R$. Consideramos el sistema $AX-BY=0$, donde 
-$A = \left( \begin{array}{ccc}
-      a_1 & \cdots & a_n
-    \end{array} \right)$ y $B = \left( \begin{array}{ccc}
-                                        b_1 & \cdots & b_m
-                                       \end{array} \right)$ son vectores filas.\\[8pt]
+$A = \left( a_1 & \cdots & a_n \right)$ y $B = \left(b_1 & \cdots & b_m \right)$ son vectores filas.\\[8pt]
 Como el anillo es coherente, entonces es posible calcular un número finito de generadores $\,\{(X_1,Y_1), \cdots,(X_p,Y_p)\}\,$ de la solución.\\[8pt]
 Esto es,
 \begin{equation*}
@@ -218,14 +213,57 @@ AX_1=BY_1 \\
 AX_p=BY_p
 \end{array}
 \end{equation}
-Si $\,\alpha \,\in\,\,I\cap J\, \Rightarrow\,\,\alpha \,\in\,\, I\,\, ,\,\,\alpha \,\in\,\, J$. Esto es,
+y si $\,(x_1,\cdots ,x_n),(y_1,\cdots ,y_m)\,$ verifican
+\begin{equation}
+A\left( \begin{array}{ccc}
+    x_1\\
+    \vdots\\
+    x_n
+    \end{array} \right) = B\left( \begin{array}{ccc}
+    y_1\\
+    \vdots\\
+    y_m
+    \end{array} \right)
+\end{equation}
+
+Entonces se tiene,
+\begin{equation}
+\exists\,\, \lambda_1,\cdots ,\lambda_p \,:\,\,\left( \begin{array}{cc}
+                                               x_1\\
+                                               \vdots\\
+                                               x_n
+                                               \end{array} \right) = \lambda_1X_1+\cdots +\lambda_pX_p 
+\end{equation}
+\begin{equation}
+\exists\,\, \mu_1,\cdots ,\mu_p \,:\,\,\left( \begin{array}{ccc}
+                                               y_1\\
+                                               \vdots\\
+                                               y_m
+                                               \end{array} \right) = \mu_1Y_1+\cdots +\mu_pY_p
+\end{equation}
+Si $\,z \,\in\,\,I\cap J\, \Rightarrow\,\,\exists\,\,\alpha_1,\cdots ,\alpha_n,\beta_1,\cdots ,\beta_m\,\in\,\,R\,$ tales que
 \begin{equation*}
-\begin{array}{ccc}
-\exists\,\,x_i,y_i\,\, /\,\,\alpha =a_1x_1+\cdots + a_nx_n\,\, , \,\,\alpha =b_1y_1+\cdots + b_my_m\\[10pt]
-\Rightarrow\,\, a_1x_1+\cdots + a_nx_n\,=\,b_1y_1+\cdots + b_my_m
+\begin{array}{ll}
+z=\alpha_1a_1+\cdots +\alpha_na_n=\beta_1b_1+\cdots +\beta_mb_m\\[15pt]
+=\left( a_1,\cdots ,a_n\right)\left( \begin{array}{ccc}
+                           \alpha_1\\
+                           \vdots\\
+                           \alpha_n
+                           \end{array} \right)=\left( b_1,\cdots ,b_m\right)\left( \begin{array}{ccc}
+                           \beta_1\\
+                           \vdots\\
+                           \beta_m
+                           \end{array} \right)
+\end{array}
+\end{equation} 
+son soluciones del sistema (5.2).\\[8pt]
+De (5.2),(5.3) y (5.4) se tiene que
+\begin{equation*}
+\begin{array}{cc}
+\left( a_1,\cdots ,a_n\right) \left( \lambda_1X_1+\cdots +\lambda_pX_p\right) \,\,=\,\,\left( b_1,\cdots ,b_m\right)\left( \mu_1Y_1+\cdots +\mu_pY_p\right)\\[15pt]
+=\lambda_1AX_1+\cdots +\lambda_pAX_p\,=\,\mu_1BY_1+\cdots +\mu_pBY_p
 \end{array}
 \end{equation}
-estos son exactamente los generadores dados anteriormente.\\[15pt]
 Por tanto, un conjunto de generadores para la intersección es $\,\{AX_1,\cdots ,AX_p\}\,$ y otro conjunto de generadores es $\, \{BY_1,\cdots ,BY_p\}$.
 \end{dem}
 
@@ -242,22 +280,25 @@ $\,(n-1)\,$ variables y consideramos el caso con $\,n\,\geq \,2\,$ variables:
 \begin{equation*}
 a_1x_1+\cdots +a_nx_n=0
 \end{equation}
-Si $\,a_1=0\,$ un conjunto de soluciones del sistema está generado por $\,(1,0,\cdots ,0)\,$, pero también es posible usar la hipótesis de inducción y obtener los generadores $\,\{v_{i2},\cdots ,v_{in}\}\,$ para el sistema con $\,x_2,\cdots ,x_n\,$ y las soluciones del sistema con $\,n\,$ incógnitas están generadas por $\,(0,v_{12},\cdots ,v_{1n}),\cdots ,(0,v_{s2},\cdots ,v_{sn}) \,$ y $\,(1,0,\cdots ,0)\,$.\\
+Si $\,a_1=0\,$ un conjunto de soluciones del sistema está generado por $\,(1,0,\cdots ,0)\,$, pero también es posible usar la hipótesis de inducción y obtener los generadores $\,\{ (v_{i2},\cdots ,v_{in})\}\,$ para el sistema con $\,x_2,\cdots ,x_n\,$ y las soluciones del sistema con $\,n\,$ incógnitas están generadas por $\,\{ (1,0,\cdots ,0), (0,v_{12},\cdots ,v_{1n}),\cdots ,(0,v_{s2},\cdots ,v_{sn}) \}\,$.\\
 
-Si $\,a_1\neq 0\,$ el conjunto de generadores $\,(0,v_{12},\cdots ,v_{1n}),\cdots ,(0,v_{s2},\cdots ,v_{sn})\,$ de las soluciones puede obtenerse también por hipótesis de inducción. Además, por hipótesis es posible encontrar $\, t_1,\cdots ,t_p\,$ tales que
+Si $\,a_1\neq 0\,$ el conjunto de generadores $\,\{ (0,v_{12},\cdots ,v_{1n}),\cdots ,(0,v_{s2},\cdots ,v_{sn})\}\,$ de las soluciones puede obtenerse también por hipótesis de inducción. Además, por hipótesis es posible encontrar $\, t_1,\cdots ,t_p\,$ tales que
 \begin{equation*}
 <a_1>\cap <-a_2,\cdots ,-a_n>\,=\,< t_1,\cdots ,t_p>
 \end{equation} 
 donde $t_i\,=\,a_1w_{i1}\,=\,-a_2w_{i2}-\cdots -a_nw_{in}$.\\
 \begin{equation*}
 Si\,\,\,x_1,\cdots ,x_n\,\,\,\textrm{es solución}\,\,\,\Rightarrow\,\,
-\left\{ \begin{array}{lll}
 a_1x_1+\cdots +a_nx_n\,=\,0\,\,\,\Rightarrow\,\, 
 a_1x_1\,=\,-a_2x_2-\cdots -a_nx_n\,\,\Rightarrow\,\,\\
+
+\left\{ \begin{array}{lll}
 a_1x_1\,\,\in\,\,< t_1,\cdots ,t_p>\,\,\,\,y\\
 -a_2x_2-\cdots -a_nx_n\,\,\in\,\,< t_1,\cdots ,t_p>
-\end{array}
+\end{array}\\
 \end{equation}
+\vspace{2mm}
+
 Por lo que existen unos $\,u_i\,$ tales que
 \begin{equation*}
 a_1x_1\,=\,-a_2x_2,\cdots ,-a_nx_n\,=\,\sum^p_{i=1} u_it_i
@@ -275,8 +316,8 @@ Reorganizando nos queda
 \begin{equation*}
 \begin{array}{llll}
 a_2(x_2 - \sum^p_{i=1} u_iw_{i2} ) + \cdots + a_n(x_n - \sum^p_{i=1} u_iw_{in} ) = 0\,\,\Rightarrow\\[12pt]
-\(x_2-\sum^p_{i=1}u_iw_{i2},\cdots ,x_n-\sum^p_{i=1}u_iw_{in}\) \,\,\,\textrm{es combinación lineal de}\\[12pt]
-(0,v_{12},\cdots ,v_{1n}),\cdots ,(0,v_{s2},\cdots ,v_{sn})\,\,\,  \textrm{que recordamos que son los generadores}\\[12pt]
+\left( x_2-\sum^p_{i=1}u_iw_{i2},\cdots ,x_n-\sum^p_{i=1}u_iw_{in}\right) \,\,\,\textrm{es combinación lineal de}\\[12pt]
+\{ (0,v_{12},\cdots ,v_{1n}),\cdots ,(0,v_{s2},\cdots ,v_{sn})\} \,\,\,  \textrm{que recordamos que son los generadores}\\[12pt]
 \textrm{de las soluciones de}\,\,\, a_2x_2+\cdots + a_nx_n=0
 \end{array}
 \end{equation} 
@@ -318,22 +359,13 @@ Esto es,
                                    v_sn 
                                    \end{array} \right)
 \end{equation}
-Luego, obtenemos $\,(w_{11},\cdots ,w_{1n}),\cdots ,(w_{r1},\cdots ,w_{rn})\,$ y $\, \,(0,v_{12},\cdots ,v_{1n}),\cdots ,(0,v_{s2},\cdots ,v_{sn}) \, \,$ que generan el conjunto de las solución.
+Luego, obtenemos $\,\{ (w_{11},\cdots ,w_{1n}),\cdots ,(w_{r1},\cdots ,w_{rn})\}\,$ y \\
+$\{ (0,v_{12},\cdots ,v_{1n}),\cdots ,(0,v_{s2},\cdots ,v_{sn})\} \, \,$ que generan el conjunto de las soluciones.
 \end{dem}
 
 Esto proporciona un método para probar que los anillos son coherentes. Ahora vamos a ver como calcular la intersección de los ideales finitamente generados. Esto implicará que el anillo es coherente. También muestra que la coherencia de
 los anillos se puede caracterizar solo en términos de la intersección finita de
-ideales finitamente generados.
-
-
-Algo que vale la pena enfatizar aquí es la dependencia de los coeficientes de la intersección. Estos se obtienen de dos ideales finitamente generados $\,I=<x_1,\cdots ,x_n>\,$ y $\,J=<y_1,\cdots ,y_m>\,$ las funciones que calculan la intersección también deben dar un conjunto de coeficientes. Si la intersección $\,I\cap J\,=\,<z_1,\cdots ,z_l>\,$ entonces la función debe dar $\,u_{ij}\,$ y $\,v_{ij}\,$ tales que
-\begin{equation*}
-\begin{array}{lcc}
-z_k\,=\,u_{k1}x_1+ \cdots +u_{kn}x_n\\
-\hspace{15pt} =\,v_{k1}y_1+ \cdots +v_{km}y_m
-\end{array}
-\end{equation}
-Nótese que solo devuelve los coeficientes en una dirección, es decir, si $\,x\,\in\,I\cap J\,$ entonces $\,x\,\in\,I\,$ y $\,x\,\in\,J\,$.\\
+ideales finitamente generados.\\
 
 Vamos a dar un algoritmo para obtener una solución del sistema mediante la intersección, basándonos en las propocisiones anteriores.
 
