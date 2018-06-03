@@ -15,7 +15,7 @@ import TAHCoherent
 
 \end{code}
 
-Si $\,x\,\in\,<x_1,\cdots ,x_n>\,$ entonces existen unos coeficientes  $\,w_i\,$ de forma que $\,x\,$ puede escribir como combinación lineal de los generadores del ideal. Entonces, podemos escribir $\,x\,$ como $\,x = \sum_i w_ix_i\,$.\\
+Al estar en un anillo fuertemente discreto, la pertenencia al ideal es decidible de forma constructiva. Por lo que, si $\,x\,\in\,<x_1,\cdots ,x_n>\,$ entonces existen unos coeficientes  $\,w_i\,$ de forma que $\,x\,$ puede escribir como combinación lineal de los generadores del ideal. Entonces, podemos escribir $\,x\,$ como $\,x = \sum_i w_ix_i\,$.\\
 
 \begin{prop}
 Si $R$ es un dominio de integridad fuertemente discreto y coherente entonces es posible resolver sistemas lineales arbitrarios. Dado $\,MX=A\,$ es posible calcular $\,X_0\,$ y $\,L\,$ tal que $\,ML=0\,$ y 
@@ -47,23 +47,19 @@ solveGeneralEquation v@(Vec xs) b =
     Nothing -> Nothing
 
 
+isSolutionB v sol b =
+  all (==b) $ concat $ unMVec $ vectorToMatrix v `mulM` sol
+
+
 -- | Comprueba que al multiplicar el vector v por la
---   matriz generada por solve se obtiene el vector b
+--   matriz generada por solveGeneralEquation se obtiene el vector b
 propSolveGeneralEquation :: (Coherent a, StronglyDiscrete a, Eq a)
                          => Vector a
                          -> a
                          -> Bool
 propSolveGeneralEquation v b = case solveGeneralEquation v b of
-  Just sol -> all (==b) $ concat $ unMVec $ vectorToMatrix v `mulM` sol
+  Just sol -> isSolutionB v sol b
   Nothing  -> True
-\end{code}
-
-
-Con la siguiente función comprobaremos si la matriz solución obtenida con $\,solve\,$ ($sol$) es correcta. Para ello comprobaremos que al realizar la multiplicación del vector $\,v\,$ por la matriz obtenida con $\,solve\,$ coincide componente a componente con el vector solución $b$.
-
-\begin{code}
-isSolutionB v sol b =
-  all (==b) $ concat $ unMVec $ vectorToMatrix v `mulM` sol
 \end{code}
 
 Ahora vamos a resolver sistemas lineales generales de la forma $AX = b$.

@@ -18,9 +18,9 @@ import TAHMatrix
 \end{code}
 \vspace{3mm}
 \begin{defi}
-Un anillo R es coherente si dado un vector $\,\vec{m} \in\, R^{1\times n}\,$ existe una matriz $\,L \in\,R^{n\times r}\,$ para $\,r \in\, \mathbb{N}\,$ tal que $\,ML=\vec{0}\,$ y
+Un anillo R es coherente si dado un vector $\,\vec{m} \in\, R^{1\times n}\,$ existe una matriz $\,L \in\,R^{n\times r}\,$ para $\,r \in\, \mathbb{N}\,$ tal que $\,\vec{m}L=\vec{0}\,$ y
 \begin{center}
-$MX = 0 \Leftrightarrow \exists \,\,Y\, \in\, R^{r\times 1}\,$ tal que $\, X = LY$
+$\vec{m}\vec{X} = 0 \Leftrightarrow \exists \,\,\vec{Y}\, \in\, R^{r\times 1}\,$ tal que $\, \vec{X} = L\vec{Y}$
 \end{center}
 esto es,
 \begin{equation*}
@@ -59,7 +59,7 @@ esto es,
                                      l_{11} & l_{12} & \cdots & l_{1r}\\ 
                                      l_{21} & l_{22} & \cdots & l_{2r}\\
                                      \vdots & \vdots & \ddots & \vdots\\
-                                     l_1{n1} & l_{n2} & \cdots & l_{nr}
+                                     l_{n1} & l_{n2} & \cdots & l_{nr}
                                      \end{array} \right)  \left( \begin{array}{c}
                                                                   y_1 \\
                                                                   y_2 \\
@@ -87,7 +87,7 @@ class IntegralDomain a => Coherent a where
 Al igual que ocurría con $member$ en el anterior capítulo, aquí $solve$ es una función que no tiene una definición concreta. El objetivo de esta función es que dado un vector $\,\vec{m}\,\in\,R^n$ devuelva una matriz $L \in\,R^{n\times r}$ de forma que al multiplicar ambos el vector resultante sea un vector fila de ceros.\\
 
 Para verificar que una definición concreta de $solve$ es correcta especificamos unas funciones para realizar dicha comprobación. La función que denotaremos\\
-$\,propCoherent\,$ es la encargada de comprobar que la multiplicación de $M$ por $L$ sea nula. Para ello, se ayuda de una segunda función que denotaremos por $isSolution$, esta comprueba que el vector que se obtiene tras la multiplicación de $ML$ es un vector de ceros.
+$\,propCoherent\,$ es la encargada de comprobar que la multiplicación de $\vec{m}$ por $L$ sea nula. Para ello, se ayuda de una segunda función que denotaremos por $isSolution$, esta comprueba que el vector que se obtiene tras la multiplicación de $\vec{m}L$ es un vector de ceros.
 
 \begin{code}
 -- | Test para comprobar que la multiplicación del vector M por la matriz
@@ -102,7 +102,7 @@ propCoherent m = isSolution (vectorToMatrix m) (solve m)
 Empezaremos por resolver sistemas de ecuaciones homogéneos sobre un anillo coherente. Nuestro objetivo es encontrar todas las posibles soluciones del sistema homogéneo, solo que esta vez tenemos una matriz $\,M\,$ y no un vector.\\
 
 \begin{prop}
-En un anillo coherente $\,R\,$ es posible resolver un sistema $MX = \vec{0}$ donde $M\, \in \,\,R^{r\times n}\,$ y $X\, \in \,\,R^{n\times 1}\,$. Es decir, 
+En un anillo coherente $\,R\,$ es posible resolver un sistema $M\vec{X} = \vec{0}$ donde $M\, \in \,\,R^{r\times n}\,$ y $\vec{X}\, \in \,\,R^{n\times 1}\,$. Es decir, 
 \begin{equation}
 \[ \left( \begin{array}{cccc}
     m_{11} & m_{12} & \cdots & m_{1n}\\ 
@@ -123,10 +123,10 @@ En un anillo coherente $\,R\,$ es posible resolver un sistema $MX = \vec{0}$ don
 \end{prop}
 
 \begin{dem}
-Sean $\vec{m_{i}}\,\in\,\,R^n\,$, $  \vec{m_{i}} = \left( \begin{array}{ccc}
+Sean $\vec{m_{i}}\,\in\,\,R^{1\times n}\,$, $  \vec{m_{i}} = \left( \begin{array}{ccc}
                                                         m_{i1} & \cdots & m_{in}
                                                       \end{array} \right)  $ las filas de M.\\ 
-Por coherencia es posible resolver $\vec{m_{1}}X=0$ y obtener un $L_1\,\in\,\,R^{n\times p_1}\,$ tal que
+Por coherencia es posible resolver $\vec{m_{1}}\vec{X}=0$ y obtener un $L_1\,\in\,\,R^{n\times p_1}\,$ tal que
 \begin{equation*}
 \[ \left( \begin{array}{ccc}
             m_{11} & \cdots & m_{1n}
@@ -159,20 +159,20 @@ Por coherencia es posible resolver $\vec{m_{1}}X=0$ y obtener un $L_1\,\in\,\,R^
                                                                  y_{p_1}
                                                                  \end{array} \right)\]
 \end{equation}
-\textit{Si imponemos, $\, \vec{m_{2}}X=0\,$ , como $\,X=L_1Y  \,\,\Rightarrow\,\,  \vec{m_{2}}L_1Y=0\,$.\\
-Por coherencia sobre $\,Y\,$ se tiene que $ \vec{m_{2}}L_1Y=0\,\,\Leftrightarrow\,\,\exists\,\,Z\,\in\,\,R^{p_2\times 1}\,$ tal que $\,Y=L_2Z\,$ obtenemos la nueva matriz $L_2\,\in\,\,R^{p_1\times p_2}\,$.}\\
+\textit{Si imponemos, $\, \vec{m_{2}}\vec{X}=0\,$ , como $\,\vec{X}=L_1\vec{Y}  \,\,\Rightarrow\,\,  \vec{m_{2}}L_1\vec{Y}=0\,$.\\
+Por coherencia sobre $\,\vec{Y}\,$ existe  $L_2\,\in\,\,R^{p_1\times p_2}\,$ tal que $\, \vec{m_{2}}L_1\vec{Y}=0\,\,\Leftrightarrow\,\,\exists\,\,\vec{Z}\,\in\,\,R^{p_2\times 1}\,$ tal que $\,\vec{Y}=L_2\vec{Z}\,$.}\\
 \vspace{15pt}
 \textit{Por tanto, nos queda que}
 \begin{equation*}
 \left\{ \begin{array}{ll}
-X=L_1_{(n\times p_1)}Y_{(p_1\times 1)} \\
-Y={L_2}_{(p_1\times p_2)}Z_{(p_2\times 1)}
-\end{array} \Rightarrow\,\,X={L_1}_{(n\times p_1)}{L_2}_{(p_1\times p_2)}Z_{(p_2\times 1)} 
+\vec{X}=L_1_{(n\times p_1)}\vec{Y}_{(p_1\times 1)} \\
+\vec{Y}={L_2}_{(p_1\times p_2)}\vec{Z}_{(p_2\times 1)}
+\end{array} \Rightarrow\,\,\vec{X}={L_1}_{(n\times p_1)}{L_2}_{(p_1\times p_2)}\vec{Z}_{(p_2\times 1)} 
 \end{equation}
-\textit{Iterando este método la solución $X=L_1L_2\cdots L_rZ\,$ con $\,L_i\,\in\,\,R^{p_{i-1}\times p_i}\,$, $\,p_0\,=\,n\,$ y $\,Z\,\in\,\,R^{p_{m}\times 1}\,$ puede ser calculada.}
+\textit{Iterando este método la solución $\vec{X}=L_1L_2\cdots L_r\vec{Z}\,$ con $\,L_i\,\in\,\,R^{p_{i-1}\times p_i}\,$, $\,p_0\,=\,n\,$ y $\,\vec{Z}\,\in\,\,R^{p_{m}\times 1}\,$ puede ser calculada.}
 \end{dem}
 
-La proposición anterior nos muestra la forma de resolver mediante recursión un sistema $\,MX=\vec{0}\,$, veamos como hacerlo en Haskell. Siguiendo la prueba de la proposición anterior, comenzamos a aplicar coherencia con la primera fila de la matriz $\,M\,$ y así vamos obteniendo por coherencia una nueva matriz en cada iteración hasta obtener la solución del sistema de ecuaciones. Mediante la función $\,solveMxN\,$ calcula la matriz obtenida por recursión $\,L_1L_2\cdots L_r\,$. Con una segunda función, que denotaremos $propSolveMxN$ comprobaremos que la matriz obtenida por $\,solveMxN\,$ al multiplicarla por la matriz dada $\,M\,$ es solución del sistema homogéneo es decir el resultado de la multiplicación esun vector de ceros.
+La proposición anterior nos muestra la forma de resolver mediante recursión un sistema $\,M\vec{X}=\vec{0}\,$, veamos como hacerlo en Haskell. Siguiendo la prueba de la proposición anterior, comenzamos a aplicar coherencia con la primera fila de la matriz $\,M\,$ y así vamos obteniendo por coherencia una nueva matriz en cada iteración hasta obtener la solución del sistema de ecuaciones. Mediante la función $\,solveMxN\,$ calcula la matriz obtenida por recursión $\,L_1L_2\cdots L_r\,$. Con una segunda función, que denotaremos $propSolveMxN$ comprobaremos que la matriz obtenida por $\,solveMxN\,$ al multiplicarla por la matriz dada $\,M\,$ es solución del sistema homogéneo es decir el resultado de la multiplicación es un vector de ceros.
 
 \begin{code}
 solveMxN :: (Coherent a, Eq a) => Matrix a -> Matrix a
@@ -245,7 +245,7 @@ Si $\,z \,\in\,\,I\cap J\, \Rightarrow\,\,\exists\,\,\alpha_1,\cdots ,\alpha_n,\
 \begin{equation*}
 \begin{array}{ll}
 z=\alpha_1a_1+\cdots +\alpha_na_n=\beta_1b_1+\cdots +\beta_mb_m\\[15pt]
-=\left( a_1,\cdots ,a_n\right)\left( \begin{array}{ccc}
+\Rightarrow \,\,\left( a_1,\cdots ,a_n\right)\left( \begin{array}{ccc}
                            \alpha_1\\
                            \vdots\\
                            \alpha_n
@@ -267,7 +267,7 @@ De (5.2),(5.3) y (5.4) se tiene que
 Por tanto, un conjunto de generadores para la intersección es $\,\{AX_1,\cdots ,AX_p\}\,$ y otro conjunto de generadores es $\, \{BY_1,\cdots ,BY_p\}$.
 \end{dem}
 
-La proposición anterior también se puede probar en la otra dirección. A continuación daremos una proposición importante en la teoría de anillos coherentes, con ella podemos probar si un anillo $R$ es coherente.
+A continuación daremos una proposición importante en la teoría de anillos coherentes, con ella podemos probar si un anillo $R$ es coherente.
 \vspace{3mm}
 
 \begin{prop}
@@ -280,9 +280,9 @@ $\,(n-1)\,$ variables y consideramos el caso con $\,n\,\geq \,2\,$ variables:
 \begin{equation*}
 a_1x_1+\cdots +a_nx_n=0
 \end{equation}
-Si $\,a_1=0\,$ un conjunto de soluciones del sistema está generado por $\,(1,0,\cdots ,0)\,$, pero también es posible usar la hipótesis de inducción y obtener los generadores $\,\{ (v_{i2},\cdots ,v_{in})\}\,$ para el sistema con $\,x_2,\cdots ,x_n\,$ y las soluciones del sistema con $\,n\,$ incógnitas están generadas por $\,\{ (1,0,\cdots ,0), (0,v_{12},\cdots ,v_{1n}),\cdots ,(0,v_{s2},\cdots ,v_{sn}) \}\,$.\\
+Si $\,a_1=0\,$, un conjunto de soluciones del sistema está generado por $\,(1,0,\cdots ,0)\,$, pero también es posible usar la hipótesis de inducción y obtener los generadores $\,\{ (v_{i2},\cdots ,v_{in})\}\,$ para el sistema con $\,x_2,\cdots ,x_n\,$ y las soluciones del sistema con $\,n\,$ incógnitas están generadas por $\,\{ (1,0,\cdots ,0), (0,v_{12},\cdots ,v_{1n}),\cdots ,(0,v_{s2},\cdots ,v_{sn}) \}\,$.\\
 
-Si $\,a_1\neq 0\,$ el conjunto de generadores $\,\{ (0,v_{12},\cdots ,v_{1n}),\cdots ,(0,v_{s2},\cdots ,v_{sn})\}\,$ de las soluciones puede obtenerse también por hipótesis de inducción. Además, por hipótesis es posible encontrar $\, t_1,\cdots ,t_p\,$ tales que
+Si $\,a_1\neq 0\,$, el conjunto de generadores $\,\{ (0,v_{12},\cdots ,v_{1n}),\cdots ,(0,v_{s2},\cdots ,v_{sn})\}\,$ de las soluciones puede obtenerse también por hipótesis de inducción. Además, por hipótesis es posible encontrar $\, t_1,\cdots ,t_p\,$ tales que
 \begin{equation*}
 <a_1>\cap <-a_2,\cdots ,-a_n>\,=\,< t_1,\cdots ,t_p>
 \end{equation} 
@@ -321,7 +321,7 @@ a_2(x_2 - \sum^p_{i=1} u_iw_{i2} ) + \cdots + a_n(x_n - \sum^p_{i=1} u_iw_{in} )
 \textrm{de las soluciones de}\,\,\, a_2x_2+\cdots + a_nx_n=0
 \end{array}
 \end{equation} 
-Existen unos coeficientes $\,\alpha_i\,$ con $i = 1,\cdots ,s$ tales que
+Finalmente, tenemos que existen unos coeficientes $\,\alpha_i\,$ con $i = 1,\cdots ,s$ tales que podemos escribir lo anterior como
 \begin{equation*}
 \begin{array}{cccc}
 x_1 = \sum^p_{i=1} u_iw_{i1}\\[12pt]
@@ -363,7 +363,7 @@ Luego, obtenemos $\,\{ (w_{11},\cdots ,w_{1n}),\cdots ,(w_{r1},\cdots ,w_{rn})\}
 $\{ (0,v_{12},\cdots ,v_{1n}),\cdots ,(0,v_{s2},\cdots ,v_{sn})\} \, \,$ que generan el conjunto de las soluciones.
 \end{dem}
 
-Esto proporciona un método para probar que los anillos son coherentes. Ahora vamos a ver como calcular la intersección de los ideales finitamente generados. Esto implicará que el anillo es coherente. También muestra que la coherencia de
+Esto proporciona un método para probar que los anillos son coherentes. Ahora vamos a ver cómo calcular la intersección de los ideales finitamente generados. Esto implicará que el anillo es coherente. También muestra que la coherencia de
 los anillos se puede caracterizar solo en términos de la intersección finita de
 ideales finitamente generados.\\
 
@@ -377,8 +377,7 @@ solveWithIntersection :: (IntegralDomain a, Eq a)
 solveWithIntersection (Vec xs) int = transpose $ matrix $ solveInt xs
   where
   solveInt []     = error "solveInt: No puede resolver un sistema vacío"
-  solveInt [x]    = [[zero]] -- Caso base, podría ser [x,y] también...
-                             -- Este no daría la solución trivial
+  solveInt [x]    = [[zero]] -- Caso base
   solveInt [x,y]  | x == zero || y == zero = [[zero,zero]]
                   | otherwise =
     let (Id ts,us,vs) = (Id [x]) `int` (Id [neg y])
@@ -402,5 +401,8 @@ solveWithIntersection (Vec xs) int = transpose $ matrix $ solveInt xs
 
 \end{code}
 
-
+---Revisar--------------
+La función $\,(solveWithIntersection\,\, (Vec xs)\,\, int)\,$ recibe como argumento de entrada el vector a resolver $\,\vec{X}\,$ así como la intersección de dos ideales finitamente generados en forma de terna $\, (Ideal a,[[a]],[[a]]))\,$ de forma que $\,(Ideal\,\,a)\,$ son los generadores del ideal intersección, las otras dos listas de listas contienen los coeficientes correspondiente a cada uno de los dos ideales de los que se obtiene la intersección. Es decir, como $\,(Ideal\,\,a)\,$ es el resultado de interseccionar estos dos ideales, si un elemento pertenece a la intersección, este puede escribirse como combinación lineal de cada uno de los dos ideales.
+Recordamos que $\,isSameIdeal\,$ se encarga de comprobar que las que recibe verifican lo anterior con respecto a la terna que recibe.
+De esta forma, obtenemos la intersección de dos ideales finitamente generados, por lo que podemos calcular la solución recursivamente. Hasta obtener la matriz formada por los generadores de la solución.
 
