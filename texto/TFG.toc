@@ -17,6 +17,6 @@
 \contentsline {chapter}{\numberline {5}Anillos Coherentes}{49}{chapter.5}
 \contentsline {section}{\numberline {5.1}Anillos Fuertemente Discretos}{49}{section.5.1}
 \contentsline {section}{\numberline {5.2}Anillos Coherentes}{50}{section.5.2}
-\contentsline {section}{\numberline {5.3}Anillos Coherentes y Fuertemente Discretos }{58}{section.5.3}
+\contentsline {section}{\numberline {5.3}Anillos Coherentes y Fuertemente Discretos }{59}{section.5.3}
 \contentsline {chapter}{Bibliograf\IeC {\'\i }a}{62}{dem.4}
 \contentsline {chapter}{Indice de definiciones}{63}{chapter*.2}

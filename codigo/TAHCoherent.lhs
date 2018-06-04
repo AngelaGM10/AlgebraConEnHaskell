@@ -367,7 +367,7 @@ Esto proporciona un método para probar que los anillos son coherentes. Ahora va
 los anillos se puede caracterizar solo en términos de la intersección finita de
 ideales finitamente generados.\\
 
-Vamos a dar un algoritmo para obtener una solución del sistema mediante la intersección, basándonos en las propocisiones anteriores.
+Vamos a dar un algoritmo para obtener una solución del sistema mediante la intersección, basándonos en las propocisión anterior.
 
 \begin{code}
 solveWithIntersection :: (IntegralDomain a, Eq a)
@@ -385,11 +385,19 @@ solveWithIntersection (Vec xs) int = transpose $ matrix $ solveInt xs
   solveInt (x:xs)
     | x == zero =
        (one:replicate (length xs) zero):(map (zero:) $ solveInt xs)
+     -- Aquí si x=0 tenemos el primer generador (1,0,..,0) como primer
+     -- elemento de la matriz que devuelve.
+     -- Con map resolvemos el resto de xs añadiendo delante 0, para
+     -- conseguir los generadores (0,v_i1,..,v_in). Finalmente nos
+     -- queda: [[1,0,..,0],[0,v_11,..,v_1n],[0,v_s1,..,v_sn]]
+
     | isSameIdeal int as bs = s ++ m'
+     --Este es el caso x /= 0, aquí resolvemos por intersección
+
     | otherwise = error "solveInt: No se puede calcular la intersección"
       where
-      as = Id [x]
-      bs = Id (map neg xs)
+      as = Id [x]              -- a_1x_1
+      bs = Id (map neg xs)     -- -a_2x_2-..-a_nx_n
 
       -- Calculamos al intersección de <x1> y <-x2,...,-xn>
       (Id ts,us,vs) = as `int` bs
@@ -401,8 +409,9 @@ solveWithIntersection (Vec xs) int = transpose $ matrix $ solveInt xs
 
 \end{code}
 
----Revisar--------------
-La función $\,(solveWithIntersection\,\, (Vec xs)\,\, int)\,$ recibe como argumento de entrada el vector a resolver $\,\vec{X}\,$ así como la intersección de dos ideales finitamente generados en forma de terna $\, (Ideal a,[[a]],[[a]]))\,$ de forma que $\,(Ideal\,\,a)\,$ son los generadores del ideal intersección, las otras dos listas de listas contienen los coeficientes correspondiente a cada uno de los dos ideales de los que se obtiene la intersección. Es decir, como $\,(Ideal\,\,a)\,$ es el resultado de interseccionar estos dos ideales, si un elemento pertenece a la intersección, este puede escribirse como combinación lineal de cada uno de los dos ideales.
-Recordamos que $\,isSameIdeal\,$ se encarga de comprobar que las que recibe verifican lo anterior con respecto a la terna que recibe.
-De esta forma, obtenemos la intersección de dos ideales finitamente generados, por lo que podemos calcular la solución recursivamente. Hasta obtener la matriz formada por los generadores de la solución.
+La función $\,(solveWithIntersection\,\, (Vec xs)\,\, int)\,$ recibe como argumento de entrada el vector a resolver $\,\vec{X}\,$ así como la intersección de dos ideales finitamente generados en forma de terna $\, (Ideal a,[[a]],[[a]]))\,$ de forma que $\,(Ideal\,\,a)\,$ son los generadores del ideal intersección, las otras dos listas de listas contienen los coeficientes correspondiente a cada uno de los dos ideales de los que se obtiene la intersección. Es decir, como $\,(Ideal\,\,a)\,$ es el resultado de interseccionar estos dos ideales, si un elemento pertenece a la intersección, este puede escribirse como combinación lineal de cada uno de los dos ideales.\\
+
+Para el caso en el que $\,a_1\neq=0\,$, aplicamos $\,(isSameIdeal\,\, int\,\, as\,\, bs)\,$. Recordamos que esta función devuelve un booleano cuando se verifica lo comentado anteriormente. De esta forma, si $\,isSameIdeal\,$ devuelve $\,True\,$ se realiza la intersección de los generadores que se obtienen de la intersección de los dos ideales, junto con los generadores de la solución obtenida al resolver $\,a_2x_2+..+a_nx_n\,$.\\
+
+De esta forma, obtenemos la intersección de dos ideales finitamente generados, por lo que podemos calcular la solución recursivamente. Hasta obtener la matriz formada por los generadores de la solución. Que es la matriz que devuelve $\,(solveWithIntersection\,\, (Vec xs)\,\, int)\,$.
 
