@@ -31,6 +31,7 @@ El objetivo de este método es decidir si un elemento del anillo pertene al idea
 
 Para verificar que una especificación concreta de $member$ es correcta definimos una función que denotaremos $(propStronglyDiscrete\,\,x\,\,id@(Id xs))$, esta devolverá un booleano, $True$ cuando $member$ haya funcionado bien y $False$ cuando no haya devuelto lo esperado. En caso de que no pertenezca al ideal y devuelva $Nothing$ significa que funciona correctamente luego obtendremos un $True$. Si $x$ pertenece al ideal generado por $xs$ entonces comprobará que la lista de coeficientes que $member$ ha devuelto al multiplicarla por la lista de generadores del ideal, $xs$, la suma resultante es $x$ y entonces devolverá un $True$.
 
+\index{\texttt{propStronglyDiscrete}}
 \begin{code}
 propStronglyDiscrete :: (CommutRing a, StronglyDiscrete a, Eq a)
                      => a -> Ideal a -> Bool                  

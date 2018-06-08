@@ -15,6 +15,7 @@ import TAHField
 Para comenzar este módulo, necesitaremos hacer uso de librerías de Haskell como $Control.Monad$ para utilizar ciertas funciones que nos ayuden a construir nuestros vectores. Daremos más detalle cuando la utilicemos.
 
 Comenzamos por implementar las nociones básicas de los vectores. Creamos un nuevo tipo para definir un vector, usaremos las listas para trabajr con los vectores en Haskell. Daremos también una función para generar vectores de forma aleatoria, para poder comprobar resultados mediante $QuickCheck$.
+
 \begin{code}
 -- | Vectores.
 
@@ -38,7 +39,8 @@ instance Arbitrary r => Arbitrary (Vector r) where
 Explicamos brevemente algunas de las funciones utilizadas en el generador de vectores. Con $choose$ se elige de forma aleatoria un número, en nuestro caso, entre 1 y 10. La función $liftM$ nos permite transformar una función en una función correspondiente dentro de otra configuración en nuestro caso en forma de vector y junto con $gen$ generamos un tipo dado de forma aleatoria en nuestro caso del tipo vector.\\
 
 Damos la función que muestra el vector en forma de lista y la que mide la longitud de un vector en ese formato. Acompañamos de ejemplos para mostrar los resultados que se obtienen.
-
+\index{\texttt{unVec}}
+\index{\texttt{lengthVec}}
 \begin{code}
 unVec :: Vector r -> [r]
 unVec (Vec vs) = vs
@@ -69,6 +71,8 @@ instance Functor Vector where
 \end{code}
 
 Veamos las operaciones de suma y multiplicación de vectores sobre anillos, para ello restringimos a los anillos conmutativos de forma general. La multiplicación de vectores es el producto escalar de ambos. Añadimos unos ejemplos sobre los números enteros.
+\index{\texttt{sumVec}}
+\index{\texttt{mulVec}}
 \begin{code}
 sumVec:: Ring a => Vector a -> Vector a -> Vector a
 sumVec (Vec xs) (Vec ys)

@@ -80,6 +80,13 @@ Todos los axiomas que tenemos que introducir tienen la misma estructura, reciben
 
 La clase $Ring$ la acabamos de definir y la clase $Eq$ es la clase de los tipos con igualdad. Cualquier tipo que tenga sentido comparar dos valores de ese tipo por igualdad debe ser miembro de la clase $Eq$. El tipo $Bool$ devuelve un booleano con $True$ y $False$, en nuestras funciones es necesario pues necesitamos que nos devuelva $True$ si se verifica el axioma y $False$ en caso contrario. El tipo $String$ es sinónimo del tipo $[Char]$.
 
+\index{\texttt{propAddAssoc}}
+\index{\texttt{propAddIdentity}}
+\index{\texttt{propAddInv}}
+\index{\texttt{propAddComm}}
+\index{\texttt{propMulIdentity}}
+\index{\texttt{propRightDist}}
+\index{\texttt{propLeftDist}}
 \begin{code}
 -- |1. Asociatividad de la suma.
 propAddAssoc :: (Ring a, Eq a) => a -> a -> a -> (Bool,String)
@@ -117,7 +124,7 @@ propLeftDist a b c =
 \end{code}
 
 Para saber si una terna $(a,<+>,<**>)$ es un anillo definimos una propiedad que se encargue de comprobar que los axiomas anteriores se verifiquen, para cada caso particular de una instancia dada. La estructura que tiene es la siguiente: recibe un elemento de tipo $Ring$ y $Eq$ y devuelve un elemento de tipo Property, una función importada desde el módulo $Test.QuickCheck$.
-
+\index{\texttt{propRing}}
 \begin{code}
 -- | Test para ver si se verifican los axiomas de un anillo.
 propRing :: (Ring a, Eq a) => a -> a -> a -> Property
@@ -138,6 +145,7 @@ anillo. Por ejemplo, el anillo de los números enteros $\mathbb{Z}$, en
 Haskell es el tipo $Integer$, con la suma y la multiplicación.
 Ejemplo:\\
 
+\index{\texttt{instance Ring Integer}}
 \begin{code}
 -- | El anillo de los enteros con la operaciones usuales:
 --type Zint = Integer
@@ -150,6 +158,7 @@ instance Ring Integer where
      one    = 1 
 \end{code}
 
+
 Se admite esta instancia porque se ha comprobado que se verifican los axiomas para ser un anillo. 
 En caso contrario, proporcionaría un error.
 
@@ -159,6 +168,11 @@ particular.
 
 En primer lugar, establecemos el orden de prioridad para los símbolos
 que vamos a utilizar para denotar las operaciones.
+\index{\texttt{<->}}
+\index{\texttt{sumRing}}
+\index{\texttt{productRing}}
+\index{\texttt{Potencia}}
+\index{\texttt{Relación de semi-igualdad}}
 
 \begin{code}
 infixl 8 <^>
@@ -169,17 +183,21 @@ infixl 7 <**
 -- | Diferencia.
 (<->) :: Ring a => a -> a -> a
 a <-> b = a <+> neg b
+
 -- | Suma de una lista de elementos.
 sumRing :: Ring a => [a] -> a
 sumRing = foldr (<+>) zero
+
 -- | Producto de una lista de elementos.
 productRing :: Ring a => [a] -> a
 productRing = foldr (<**>) one
+
 -- | Potencia.
 (<^>) :: Ring a => a -> Integer -> a
 x <^> 0 = one
 x <^> y | y < 0     = error "<^>: La entrada debe ser positiva."
         | otherwise = x <**> x <^> (y-1)
+
 -- | Relación de semi-igualdad: dos elementos son semi-iguales si son
 --   iguales salvo el signo.
 (~~) :: (Ring a, Eq a) => a -> a -> Bool
@@ -190,7 +208,7 @@ x ~~ y = x == y || neg x == y || x == neg y || neg x == neg y
 
 
 Finalmente hemos definimos la suma la multiplicación de un entero por la derecha. La multiplicación de un entero por la izquierda se tiene debido a que la operación $<+>\,$ es commutativa. Esta función al igual que la anterior de potencia recibe un elemento de tipo $Ring$ y devuelve un número entero, que es el tipo $Integer$.
-
+\index{\texttt{Mult. por la derecha (<**)}}
 \begin{code}
 -- |Multiplicación de un entero por la derecha.
 (<**) :: Ring a => a -> Integer -> a

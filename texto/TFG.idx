@@ -1,3 +1,79 @@
 \indexentry{\texttt{cuadrado}|hyperpage}{9}
 \indexentry{\texttt{cubo}|hyperpage}{10}
 \indexentry{\texttt{suma}|hyperpage}{10}
+\indexentry{\texttt{propAddAssoc}|hyperpage}{20}
+\indexentry{\texttt{propAddIdentity}|hyperpage}{20}
+\indexentry{\texttt{propAddInv}|hyperpage}{20}
+\indexentry{\texttt{propAddComm}|hyperpage}{20}
+\indexentry{\texttt{propMulIdentity}|hyperpage}{20}
+\indexentry{\texttt{propRightDist}|hyperpage}{20}
+\indexentry{\texttt{propLeftDist}|hyperpage}{20}
+\indexentry{\texttt{propRing}|hyperpage}{20}
+\indexentry{\texttt{instance Ring Integer}|hyperpage}{21}
+\indexentry{\texttt{<->}|hyperpage}{21}
+\indexentry{\texttt{sumRing}|hyperpage}{21}
+\indexentry{\texttt{productRing}|hyperpage}{21}
+\indexentry{\texttt{Potencia}|hyperpage}{21}
+\indexentry{\texttt{Relaci\IeC {\'o}n de semi-igualdad}|hyperpage}{21}
+\indexentry{\texttt{Mult. por la derecha (<**)}|hyperpage}{22}
+\indexentry{\texttt{propMulComm}|hyperpage}{23}
+\indexentry{\texttt{propCommutRing}|hyperpage}{23}
+\indexentry{\texttt{instance CommutRing Integer}|hyperpage}{23}
+\indexentry{\texttt{propZeroDivisors}|hyperpage}{24}
+\indexentry{\texttt{propIntegralDomain}|hyperpage}{24}
+\indexentry{\texttt{instance IntegralDomain Integer}|hyperpage}{24}
+\indexentry{\texttt{propMulInv}|hyperpage}{25}
+\indexentry{\texttt{propField}|hyperpage}{26}
+\indexentry{\texttt{</>}|hyperpage}{26}
+\indexentry{\texttt{zeroIdeal}|hyperpage}{28}
+\indexentry{\texttt{isPrincipal}|hyperpage}{29}
+\indexentry{\texttt{fromId}|hyperpage}{29}
+\indexentry{\texttt{addId}|hyperpage}{30}
+\indexentry{\texttt{mulId}|hyperpage}{30}
+\indexentry{\texttt{isSameIdeal}|hyperpage}{31}
+\indexentry{\texttt{unVec}|hyperpage}{34}
+\indexentry{\texttt{lengthVec}|hyperpage}{34}
+\indexentry{\texttt{sumVec}|hyperpage}{35}
+\indexentry{\texttt{mulVec}|hyperpage}{35}
+\indexentry{\texttt{matrix}|hyperpage}{37}
+\indexentry{\texttt{unM}|hyperpage}{37}
+\indexentry{\texttt{unMVec}|hyperpage}{37}
+\indexentry{\texttt{vectorToMatrix }|hyperpage}{37}
+\indexentry{\texttt{matrixToVector}|hyperpage}{37}
+\indexentry{\texttt{Posici\IeC {\'o}n (i+1,j+1)}|hyperpage}{37}
+\indexentry{\texttt{dimension}|hyperpage}{38}
+\indexentry{\texttt{isSquareMatrix}|hyperpage}{38}
+\indexentry{\texttt{transpose}|hyperpage}{38}
+\indexentry{\texttt{addM}|hyperpage}{39}
+\indexentry{\texttt{mulM}|hyperpage}{39}
+\indexentry{\texttt{identity}|hyperpage}{40}
+\indexentry{\texttt{propLeftIdentity}|hyperpage}{40}
+\indexentry{\texttt{propRightIdentity}|hyperpage}{40}
+\indexentry{\texttt{scaleMatrix}|hyperpage}{41}
+\indexentry{\texttt{propScaleDimension}|hyperpage}{41}
+\indexentry{\texttt{swap}|hyperpage}{42}
+\indexentry{\texttt{propSwapDimension}|hyperpage}{42}
+\indexentry{\texttt{propSwapIdentity}|hyperpage}{42}
+\indexentry{\texttt{addRow}|hyperpage}{43}
+\indexentry{\texttt{propAddRowDimension}|hyperpage}{43}
+\indexentry{\texttt{addCol}|hyperpage}{43}
+\indexentry{\texttt{subRow}|hyperpage}{43}
+\indexentry{\texttt{subCol}|hyperpage}{43}
+\indexentry{\texttt{pivot}|hyperpage}{44}
+\indexentry{\texttt{findPivot}|hyperpage}{44}
+\indexentry{\texttt{fE}|hyperpage}{45}
+\indexentry{\texttt{forwardElim}|hyperpage}{46}
+\indexentry{\texttt{jordan}|hyperpage}{47}
+\indexentry{\texttt{gaussElim}|hyperpage}{48}
+\indexentry{\texttt{gaussElimCorrect}|hyperpage}{48}
+\indexentry{\texttt{propStronglyDiscrete}|hyperpage}{52}
+\indexentry{\texttt{isSolution}|hyperpage}{54}
+\indexentry{\texttt{propCoherent}|hyperpage}{54}
+\indexentry{\texttt{solveMxN}|hyperpage}{56}
+\indexentry{\texttt{propSolveMxN}|hyperpage}{56}
+\indexentry{\texttt{solveWithIntersection}|hyperpage}{59}
+\indexentry{\texttt{solveGeneralEquation}|hyperpage}{62}
+\indexentry{\texttt{isSolutionB}|hyperpage}{62}
+\indexentry{\texttt{propSolveGeneralEquation}|hyperpage}{62}
+\indexentry{\texttt{solveGeneral}|hyperpage}{62}
+\indexentry{\texttt{propSolveGeneral}|hyperpage}{63}

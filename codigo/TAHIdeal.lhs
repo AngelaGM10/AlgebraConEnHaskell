@@ -43,7 +43,7 @@ Para especificar en Haskell el ideal generado por un conjunto finito $E$, con $d
 por $(Id\, [zero])$, hay dos ideales canónico el cero ideal y todo el anillo R, este último se representará por $(Id\, [one])$.\\
 
 Los ideales con los que trabajaremos están restringidos a anillos conmutativos. Para aplicar dicha restricción, lo haremos en cada definición de instancia o función, quedando explicito que usaremos los anillos conmutativos con la clase definida anteriormente como $CommutRing$.
-
+\index{\texttt{zeroIdeal}}
 \begin{code}
 -- |Ideales caracterizados por una lista de generadores.
 data Ideal a = Id [a]
@@ -75,7 +75,7 @@ Un ideal $I \subset R$ se llama principal si se puede generar por un sólo eleme
 \\
 Los anillos como $\mathbb{Z}$ en los cuales todos los ideales son principales se llaman clásicamente 
 dominios de ideales principales. Pero constructivamente esta definición no es adecuada. Sin embargo, nosotros solo queremos considerar anillos en los cuales todos los ideales finitamente generados son principales. Al ser representados por un conjunto finito, podemos implementarlo a nivel computacional. Estos anillos se llaman dominios de Bézout y se considerarán en el siguiente capítulo. Siempre que se pueda añadiremos ejemplos sobre los enteros, haciendo uso de la instancia sobre los enteros especificada en los anteriores módulos.
-
+\index{\texttt{isPrincipal}}
 \begin{code}
 isPrincipal :: CommutRing a => Ideal a -> Bool
 isPrincipal (Id xs) = length xs == 1
@@ -88,7 +88,7 @@ isPrincipal (Id xs) = length xs == 1
 \end{code}
 
 Mediante la función $from\,\,Id$, definida a continuación, mostramos la lista de los generadores de $(Id\,\,xs)$. 
-
+\index{\texttt{fromId}}
 \begin{code}
 fromId :: CommutRing a => Ideal a -> [a]
 fromId (Id xs) = xs
@@ -107,6 +107,7 @@ Si $I$ y $J$ son ideales de un anillo $(R,+,*)$, se llama suma de ideales al con
 \end{defi}
 
 Está definición es para cualquier ideal, nosotros nos centramos en los ideales finitamente generados. La suma de ideales finitamente generados es también un ideal finitamente generado y esta puede obtenerse a partir de los generadores de ambos ideales, es decir, $I\,+\,J\,\,=\,<I\,\cup\,J>.
+\index{\texttt{addId}}
 
 \begin{code}
 addId :: (CommutRing a, Eq a) => Ideal a -> Ideal a -> Ideal a
@@ -124,6 +125,7 @@ Si $I$ y $J$ son ideales de un anillo $(R,+,*)$, se llama producto al conjunto $
 \end{defi}
 
 De igual forma que en la suma, está es la definición general para cualquier ideal. Centrándonos en los ideales finitamente generados, el producto de ideales finitamente generados es también un ideal finitamente generado y este se obtiene de igual forma que para cualquier ideal, solo que el producto es entre ideales finitamente generados.
+\index{\texttt{mulId}}
 
 \begin{code}
 -- | Multiplicación de ideales.
@@ -139,6 +141,7 @@ mulId (Id xs) (Id ys) = if zs == [] then zeroIdeal else Id zs
 \end{code}
  
 A continuación veremos una función cuyo objetivo es comprobar que el resultado de una operación $op$ sobre dos ideales calcula el ideal correcto. Para ello, la operación debería proporcionar un “testigo” de forma que el ideal calculado tenga los mismos elementos. Es decir, si $z_k$ es un elemento del conjunto de generadores de $(Id\, zs)$, $z_k$ tiene una expresión como combinación lineal de $xs$ e $ys$, cuyos coeficientes vienen dados por $as$ y $bs$, respectivamente. 
+\index{\texttt{isSameIdeal}}
 
 \begin{code}
 -- | Verificar si es correcta la operación entre ideales.

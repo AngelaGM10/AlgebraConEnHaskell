@@ -18,22 +18,24 @@ import TAHCoherent
 Al estar en un anillo fuertemente discreto, la pertenencia al ideal es decidible de forma constructiva. Por lo que, si $\,x\,\in\,<x_1,\cdots ,x_n>\,$ entonces existen unos coeficientes  $\,w_i\,$ de forma que $\,x\,$ puede escribir como combinación lineal de los generadores del ideal. Entonces, podemos escribir $\,x\,$ como $\,x = \sum_i w_ix_i\,$.\\
 
 \begin{prop}
-Si $R$ es un dominio de integridad fuertemente discreto y coherente entonces es posible resolver sistemas lineales arbitrarios. Dado $\,MX=A\,$ es posible calcular $\,X_0\,$ y $\,L\,$ tal que $\,ML=0\,$ y 
+Si $R$ es un dominio de integridad fuertemente discreto y coherente entonces es posible resolver sistemas lineales arbitrarios. Dado $\,M\vec{X}=\vec{b}\,$ es posible calcular $\,\vec{X_0}\,$ y $\,L\,$ tal que $\,ML=\vec{0}\,$ y 
 \begin{equation*}
-MX=A\,\, \Leftrightarrow \,\,\exists\,\,Y\,\,/\,\,X=LY+X_0
+M\vec{X}=\vec{b}\,\, \Leftrightarrow \,\,\exists\,\,\vec{Y}\,\,/\,\,\vec{X}=L\vec{Y}+\vec{X_0}
 \end{equation} 
 \end{prop}
 
 \begin{dem}
-Por coherencia, podemos calcular la matriz $\,L\,$ del sistema $\,MX=0\,$ mediante la proposición 1. La solución particular $\,X_0\,$ puede calcularse utilizando el siguiente método que utilizaremos para encontrar la solución de $\,X\,$: \\
+Por coherencia, podemos calcular la matriz $\,L\,$ del sistema $\,M\vec{X}=\vec{0}\,$ mediante la proposición 1. La solución particular $\,\vec{X_0}\,$ puede calcularse utilizando el siguiente método que utilizaremos para encontrar la solución de $\,\vec{X}\,$: \\
 
-El caso base es cuando $\,M\,$ solo tiene una fila, aquí es trivial ya que $R$ es fuertemente discreto. Esto es, si $\,M=(m_1,\cdots ,m_n)\,$ y $\,A = (a)\,$ entonces resolver $\,MX=A\,$ es decidir si $\,(a)\,$ pertenece al ideal $\,<m_1,\cdots ,m_n>\,$ o no.\\
-Si $\,a\,\in\,<m_1,\cdots ,m_n>\,$ entonces se tiene que obtener los coeficientes $\,w_i\,$ tales que\\
-$a=m_1w_1 + \cdots + m_nw_n\,$. Por tanto, $\,(w_1,\cdots ,w_n)\,$ es solución.
+El caso base es cuando $\,M\,$ solo tiene una fila, la denotamos $\,\vec{m}\,$. Aquí es trivial ya que $R$ es fuertemente discreto. Esto es, si $\,\vec{m}=(m_1,\cdots ,m_n)\,$ y $\,\vec{b} = (b)\,$ entonces resolver $\,\vec{m}X=(b)\,$ es decidir si $\,(b)\,$ pertenece al ideal $\,<m_1,\cdots ,m_n>\,$ o no.\\
+Si $\,b\,\in\,<m_1,\cdots ,m_n>\,$ entonces se tiene que obtener los coeficientes $\,w_i\,$ tales que\\
+$b=m_1w_1 + \cdots + m_nw_n\,$. Por tanto, $\,(w_1,\cdots ,w_n)\,$ es solución.
 \end{dem}
 
-Mediante la función que denotaremos $\,solveGeneralEquation\,$ obtendremos el primer paso para calcular la solución de un sistema del tipo $\,AX=b\,$, partiendo de que estamos en un anillo fuertemente discreto. Esta función recibe el vector $\,v\,$ y la solución $\,b\,$. Aplicamos $\,solve\,$ sobre dicho vector para encontrar la matriz $\,L\,$ para verificar que se trata de un anillo coherente. Después con $\,member\,$ se generará la lista de coeficientes de la combinación lineal. Finalmente se suman ambas.
-
+Mediante la función que denotaremos $\,solveGeneralEquation\,$ obtendremos el primer paso para calcular la solución de un sistema del tipo $\,M\vec{X}=\vec{b}\,$, partiendo de que estamos en un anillo fuertemente discreto. Esta función recibe el vector $\,v\,$ y la solución $\,b\,$. Aplicamos $\,solve\,$ sobre dicho vector para encontrar la matriz $\,L\,$ para verificar que se trata de un anillo coherente. Después con $\,member\,$ se generará la lista de coeficientes de la combinación lineal. Finalmente se suman ambas.
+\index{\texttt{solveGeneralEquation}}
+\index{\texttt{isSolutionB}}
+\index{\texttt{propSolveGeneralEquation}}
 \begin{code}
 solveGeneralEquation :: (Coherent a, StronglyDiscrete a) =>
                         Vector a -> a -> Maybe (Matrix a)
@@ -46,7 +48,8 @@ solveGeneralEquation v@(Vec xs) b =
         -- Suma a L a los coeficientes de la comb. lineal de b
     Nothing -> Nothing
 
-
+ 
+isSolutionB :: (CommutRing a, Eq a) => Vector a -> Matrix a -> a -> Bool
 isSolutionB v sol b =
   all (==b) $ concat $ unMVec $ vectorToMatrix v `mulM` sol
 
@@ -62,11 +65,13 @@ propSolveGeneralEquation v b = case solveGeneralEquation v b of
   Nothing  -> True
 \end{code}
 
-Ahora vamos a resolver sistemas lineales generales de la forma $AX = b$.
+La función $\,isSolutionB\,$ es similar a $\,isSolution\,$. Ambas tienen el mismo objetivo, comprobar que la solución del sistema obtenida es correcta. Solo que una es para sistemas no homogéneos y la otra es para sistemas homogéneos, respectivamente.\\
 
+Ahora vamos a resolver sistemas lineales generales de la forma $\,M\vec{X}=\vec{b}\,$.
+\index{\texttt{solveGeneral}}
 \begin{code}
 solveGeneral :: (Coherent a, StronglyDiscrete a, Eq a)
-             => Matrix a   -- A
+             => Matrix a   -- M
              -> Vector a   -- b
              -> Maybe (Matrix a, Matrix a)  -- (L,X0)
 solveGeneral (M (l:ls)) (Vec (a:as)) =
@@ -91,8 +96,12 @@ solveGeneral (M (l:ls)) (Vec (a:as)) =
   solveGeneral' _ _ _ _ = error "solveGeneral: Error en la entrada"
 \end{code}
 
-Finalmente, con la siguiente propiedad comprobaremos que la solución es correcta. Primero tenemos que comprobar que las filas de $\,A\,$ (se representará en código por $\,m\,$) son de la misma longitud que $\,b\,$. Después, multiplicamos la matriz $\,A\,$ con la matriz solución $\,X\,$ y vemos si coincide componente a componente con el vector $b$.
+Las dos funciones anteriores, $\,solveGeneralEquation\,$ y $\,solveGeneral\,$ también son similares. La diferencia es que $\,solveGeneralEquation\,$ resuelve un sistema de la forma $\,\vec{m}\vec{X}=(b)\,$, es decir, para el caso en el que $M$ es un vector y no una matriz. Mientras que $\,solveGeneral\,$ nos permite calcular la solución de un sistema $M\vec{X} = \vec{b}$ donde M es una matriz. Ambas funciones están basadas en la proposición 4, solo que cada una es un caso de la prueba 4.\\
 
+La función $\,solveGeneral\,$ consiste en obtener el sistema de generadores de la solución. Para ello con $\,solveGeneralEquation\,$ conseguimos un generador de la solución, a partir del cuál se comprueba que sea un generador para todas las ecuaciones del sistema.\\
+
+Finalmente, con la siguiente propiedad comprobaremos que la solución es correcta. Primero tenemos que comprobar que las filas de $\,M\,$ son de la misma longitud que $\,\vec{b}\,$. Después, multiplicamos la matriz $\,M\,$ con la matriz solución y vemos si coincide componente a componente con el vector $\,\vec{b}\,$.
+\index{\texttt{propSolveGeneral}}
 \begin{code}
 propSolveGeneral :: (Coherent a, StronglyDiscrete a, Eq a) =>
                     Matrix a -> Vector a -> Property

@@ -14,10 +14,11 @@ Para iniciar este módulo necesitamos importar el módulo $TAHCommutative$ ya qu
 Dado un anillo $(A,+,*)$, un elemento $a \in\, A$ se dice que es un divisor de cero si existe $b \in\, A- \{0\}$ tal que $a*b = 0$.
 Un anillo A se dice dominio de integridad, si el único divisor de cero es $0$. Es decir, $\forall\,\, a,b\,\in\,R.\,\,\, a*b = 0 \Rightarrow \,\, a = 0 \,\,or\,\, b = 0$
 \end{defi}
-
+\index{\texttt{propZeroDivisors}}
 \begin{code}
 -- | Definición de dominio de integridad.
 class CommutRing a => IntegralDomain a
+
 -- | Un dominio de integridad es un anillo cuyo único divisor de cero es 0.
 propZeroDivisors :: (IntegralDomain a, Eq a) => a -> a -> Bool
 propZeroDivisors a b = if a <**> b == zero then
@@ -26,7 +27,7 @@ propZeroDivisors a b = if a <**> b == zero then
 Como ocurría con los axiomas de los anillos, la función $propZeroDivisors$ requiere que los elementos que recibe sean de la clase de tipo $IntegralDomain$ y de tipo $Eq$ pues estamos definiendo operaciones en las que se tiene que dar una igualdad, y devuelva un valor booleano, por ello el elemento de salida es de tipo $Bool$.\\
 
 Para determinar si un anillo es un dominio de integridad usaremos la siguiente propiedad, esta tal y como ocurre con las anteriores propiedades, se encarga de comprobar que para cualquier instancia que demos se cumplan los axiomas que tiene que verificar, en este caso, para ser un  dominio de integridad:
-
+\index{\texttt{propIntegralDomain}}
 \begin{code}
 propIntegralDomain :: (IntegralDomain a, Eq a) => a -> a -> a -> Property
 propIntegralDomain a b c = if propZeroDivisors a b
@@ -35,6 +36,7 @@ propIntegralDomain a b c = if propZeroDivisors a b
 \end{code}
 
 Un ejemplo de dominio de integridad es el de los números enteros, el cual definimos sus operaciones en el anterior módulo de anillos. Por tanto añadiendo la instancia a la clase de dominio de integridad, comprueba que se verifiquen las operaciones necesarias para ser un dominio de integridad.
+\index{\texttt{instance IntegralDomain Integer}}
 \begin{code}
 instance IntegralDomain Integer 
 \end{code}

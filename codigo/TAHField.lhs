@@ -19,18 +19,19 @@ Un cuerpo es un anillo de división conmutativo, es decir, un anillo conmutativo
 Esta segunda definición es la que usaremos para la implementación. La primera definición es la más común a nivel de teoría algebraica, y para aquellos familiarizados con conceptos básicos de álgebra, conocen la definición de cuerpo como la primera que hemos dado.\\ 
 
 En Haskell especificamos el inverso de cada elemento mediante la función $inv$. La función $propMulInv$ esta restringida a la clase de tipo $Field$ pues requerimos que sea cuerpo y al tipo $Eq$ pues se tiene que dar la igualdad.
-
+\index{\texttt{propMulInv}}
 \begin{code}
 -- | Definición de cuerpo.
 class IntegralDomain a => Field a where
   inv :: a -> a
+
 -- | Propiedad de los inversos.
 propMulInv :: (Field a, Eq a) => a -> Bool
 propMulInv a = a == zero || inv a <**> a == one
 \end{code}
 
 Especificamos la propiedad que han de verificar los ejemplos de cuerpos. Es decir, dada una terna $(A,+,*)$ para una instancia concreta, esta tiene que verificar los axiomas para ser un cuerpo.
-
+\index{\texttt{propField}}
 \begin{code}
 propField :: (Field a, Eq a) => a -> a -> a -> Property
 propField a b c = if propMulInv a
@@ -39,7 +40,7 @@ propField a b c = if propMulInv a
 \end{code}
 
 En un cuerpo se puede definir la división. Para poder dar dicha definición establecemos el orden de prioridad para el símbolo de la división.
-
+\index{\texttt{</>}}
 \begin{code}
 infixl 7 </>
 
@@ -49,3 +50,20 @@ x </> y = x <**> inv y
 \end{code}
 
 
+\begin{code}
+-- | El anillo de los reales con las operaciones usuales es cuerpo:
+
+instance Ring Double where
+     (<+>)  = (+)
+     (<**>) = (*)
+     neg a  = 1/a
+     zero   = 0
+     one    = 1 
+
+instance CommutRing Double 
+
+instance IntegralDomain Double
+
+instance Field Double where
+    inv a = 1/a
+\end{code}
