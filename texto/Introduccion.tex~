@@ -1,0 +1,9 @@
+\chapter{Introducción}\label{sec:introHas}
+
+Este trabajo tiene como objetivo implementar conceptos de álgebra constructiva en Haskell. Desde la noción más simple de anillo hasta la complejidad de un anillo coherente. El camino a seguir consiste en desarrollar los siguientes puntos:
+\begin{itemize}
+\item Familiarización con las funciones predefinidas en Haskell. Aquí aportaremos las funciones básicas de Haskell con el fin de facilitar la lectura del código. Pues muchas de ellas son utilizadas a lo largo del trabajo. Todas ellas y más las podemos encontrar en la librería \href{http://hackage.haskell.org/package/base-4.11.1.0/docs/Data-List.html}{\texttt{Data.List}} de Haskell.
+
+\item Anillos en Haskell. Comenzaremos introduciendo la noción de anillo, para posteriormente incluir los anillos conmutativos, dominio de integridad, cuerpos e ideales.
+
+\end{itemize}

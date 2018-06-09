@@ -35,6 +35,11 @@ Anders Mörtberg.
      {Constructive Algebra in Functional Programming and Type Theory}.
 \newblock Technical report, University of Gothenburg, 2010.
 
+\bibitem{datalist}
+\newblock
+\href{http://hackage.haskell.org/package/base-4.11.1.0/docs/Data-List.html}{\texttt{Data.List}}
+\newblock Technical report, hackage.haskell.org, 2018.
+
 \bibitem{Algebra-15}
 Juan González-Meneses.
 \newblock
@@ -47,6 +52,12 @@ Juan González-Meneses.
   \href{https://hackage.haskell.org/package/matrix-0.3.6.1/docs/Data-Matrix.html}
                        {Data.Matrix}.
 \newblock Technical report, hackage.haskell.org, 2018.
+
+\bibitem{gauss}
+Manuel Jesus Gago Vargas
+\newblock,
+  \href{http://euclides.us.es/da/apuntes/alige/alige-I-1.pdf}{Sistemas de ecuaciones lineales}.
+\newblock Technical report, Univ. de Sevilla, 2015.
 
 \bibitem{tipos}
 \newblock
@@ -67,11 +78,37 @@ Thierry Coquand.
   {Coherent Ring}.
 \newblock Technical report, University of Gothenburg, 2010.
 
+\bibitem{wikihaskell}
+Wikipedia
+\newblock
+  \href{https://es.wikipedia.org/wiki/Haskell}
+                       {Haskell}.
+\newblock Technical report, wikipedia.org, 2018
+
+\bibitem{haskell8}
+\newblock
+  \href{https://www.haskell.org/}
+        {Página Oficial de Haskell}.
+\newblock Technical report, haskell.org, 2018
+
+\bibitem{haskell8}
+\newblock
+  \href{https://www.haskell.org/ghc/download_ghc_8_0_2.html}
+        {Haskell 8.02}.
+\newblock Technical report, haskell.org, 2018
+
 \bibitem{wiki}
 \newblock
   \href{https://wiki.haskell.org/}
   {The Haskell Programming Language}.
 \newblock Technical report, wiki.haskell.org, 2018
+
+\bibitem{wikiubuntu}
+Wikipedia
+\newblock
+  \href{https://es.wikipedia.org/wiki/Ubuntu}
+                       {Ubuntu}.
+\newblock Technical report, wikipedia.org, 2018
 
 \bibitem{ubuntu}
 \newblock
@@ -79,17 +116,31 @@ Thierry Coquand.
   {Ubuntu 16.04}.
 \newblock Technical report, ubuntu.com, 2018
 
+\bibitem{wikigithub}
+Wikipedia
+\newblock
+  \href{https://es.wikipedia.org/wiki/GitHub}
+                       {GitHub}.
+\newblock Technical report, wikipedia.org, 2018
+
 \bibitem{github}
 \newblock
   \href{https://github.com/}
-  {Github}.
+  {Página Oficial de Github}.
 \newblock Technical report, github.com, 2018
 
-\bibitem{haskell8}
+\bibitem{wikiemacs}
+Wikipedia
 \newblock
-  \href{https://www.haskell.org/ghc/download_ghc_8_0_2.html}
-        {Haskell 8.02}.
-\newblock Technical report, haskell.org, 2018
+  \href{https://es.wikipedia.org/wiki/Emacs#GNU_Emacs}
+        {Emacs}.
+\newblock Technical report, wikipedia.org, 2018
+
+\bibitem{emacsdown}
+\newblock
+  \href{https://www.gnu.org/software/emacs/}
+        {Página Oficial de GNU Emacs}.
+\newblock Technical report, gnu.org, 2018
 
 \bibitem{emacs}
 \newblock
@@ -100,13 +151,20 @@ Thierry Coquand.
 \bibitem{latex}
 \newblock
   \href{https://www.latex-project.org/}
-        {Documentación sobre LaTeX}.
+        {Página Oficial de LaTeX}.
 \newblock Technical report, latex-project.org, 2018
+
+\bibitem{wikilatex}
+Wikipedia
+\newblock
+  \href{https://es.wikipedia.org/wiki/LaTeX}
+        {LaTeX}.
+\newblock Technical report, wikipedia.org, 2018
 
 \bibitem{bibliolatex}
 \newblock
-  \href{http://minisconlatex.blogspot.com/2011/03/bibliografia.html}
-        {Bibligrafía en LaTeX}.
+  \href{http://minisconlatex.blogspot.com/2011/04/como-escribir-una-tesis-con-latex.html}
+        {Cómo escribir una tesis en LaTeX}
 \newblock Technical report, minisconlatex.blogspot.com, 2011
 
 \end{thebibliography}

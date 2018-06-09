@@ -40,6 +40,7 @@
 \usetikzlibrary{shapes,trees}
 %añadidos por mi:
 \usepackage{parskip}
+\usepackage{cite} % para contraer referencias
 
 \newtheorem{theorem}{Teorema}
 \newtheorem{defi}{Definición}
@@ -222,6 +223,8 @@ every picture/.append style={
 \tableofcontents
 \newpage
 
+\include{Introduccion}
+
 \include{Programacion_funcional_con_Haskell}
 
 \include{Como_Empezar}
@@ -232,7 +235,16 @@ every picture/.append style={
 
 \include{Anillos_coherentes}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%  Apéndice                                                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\appendix
+\chapter{Más cosas}\label{aped.A}
+Aún faltan cosas por decir.
+
+\chapter{Y más cosas aún}\label{aped.B}
+Y más cosas aún.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %%  Bibliografía                                                            %%
