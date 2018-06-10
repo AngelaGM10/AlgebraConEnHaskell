@@ -25,7 +25,7 @@ M\vec{X}=\vec{b}\,\, \Leftrightarrow \,\,\exists\,\,\vec{Y}\,\,/\,\,\vec{X}=L\ve
 \end{prop}
 
 \begin{dem}
-Por coherencia, podemos calcular la matriz $\,L\,$ del sistema $\,M\vec{X}=\vec{0}\,$ mediante la proposición 1. La solución particular $\,\vec{X_0}\,$ puede calcularse utilizando el siguiente método que utilizaremos para encontrar la solución de $\,\vec{X}\,$: \\
+Por coherencia, podemos calcular la matriz $\,L\,$ del sistema $\,M\vec{X}=\vec{0}\,$ mediante la proposición (\ref{prop1}). La solución particular $\,\vec{X_0}\,$ puede calcularse utilizando el siguiente método que utilizaremos para encontrar la solución de $\,\vec{X}\,$: \\
 
 El caso base es cuando $\,M\,$ solo tiene una fila, la denotamos $\,\vec{m}\,$. Aquí es trivial ya que $R$ es fuertemente discreto. Esto es, si $\,\vec{m}=(m_1,\cdots ,m_n)\,$ y $\,\vec{b} = (b)\,$ entonces resolver $\,\vec{m}X=(b)\,$ es decidir si $\,(b)\,$ pertenece al ideal $\,<m_1,\cdots ,m_n>\,$ o no.\\
 Si $\,b\,\in\,<m_1,\cdots ,m_n>\,$ entonces se tiene que obtener los coeficientes $\,w_i\,$ tales que\\

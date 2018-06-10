@@ -102,7 +102,7 @@ propCoherent m = isSolution (vectorToMatrix m) (solve m)
 \vspace{3mm}
 Empezaremos por resolver sistemas de ecuaciones homogéneos sobre un anillo coherente. Nuestro objetivo es encontrar todas las posibles soluciones del sistema homogéneo, solo que esta vez tenemos una matriz $\,M\,$ y no un vector.\\
 
-\begin{prop}
+\begin{prop}\label{prop1}
 En un anillo coherente $\,R\,$ es posible resolver un sistema $M\vec{X} = \vec{0}$ donde $M\, \in \,\,R^{r\times n}\,$ y $\vec{X}\, \in \,\,R^{n\times 1}\,$. Es decir, 
 \begin{equation}
 \[ \left( \begin{array}{cccc}
@@ -216,7 +216,7 @@ AX_p=BY_p
 \end{array}
 \end{equation}
 y si $\,(x_1,\cdots ,x_n),(y_1,\cdots ,y_m)\,$ verifican
-\begin{equation}
+\begin{equation}\label{axby}
 A\left( \begin{array}{ccc}
     x_1\\
     \vdots\\
@@ -229,14 +229,14 @@ A\left( \begin{array}{ccc}
 \end{equation}
 
 Entonces se tiene,
-\begin{equation}
+\begin{equation}\label{lambda}
 \exists\,\, \lambda_1,\cdots ,\lambda_p \,:\,\,\left( \begin{array}{cc}
                                                x_1\\
                                                \vdots\\
                                                x_n
                                                \end{array} \right) = \lambda_1X_1+\cdots +\lambda_pX_p 
 \end{equation}
-\begin{equation}
+\begin{equation}\label{mu}
 \exists\,\, \mu_1,\cdots ,\mu_p \,:\,\,\left( \begin{array}{ccc}
                                                y_1\\
                                                \vdots\\
@@ -258,8 +258,8 @@ z=\alpha_1a_1+\cdots +\alpha_na_n=\beta_1b_1+\cdots +\beta_mb_m\\[15pt]
                            \end{array} \right)
 \end{array}
 \end{equation} 
-son soluciones del sistema (5.2).\\[8pt]
-De (5.2),(5.3) y (5.4) se tiene que
+son soluciones del sistema (\ref{axby}).\\[8pt]
+De (\ref{axby}),(\ref{lambda}) y (\ref{mu}) se tiene que
 \begin{equation*}
 \begin{array}{cc}
 \left( a_1,\cdots ,a_n\right) \left( \lambda_1X_1+\cdots +\lambda_pX_p\right) \,\,=\,\,\left( b_1,\cdots ,b_m\right)\left( \mu_1Y_1+\cdots +\mu_pY_p\right)\\[15pt]
