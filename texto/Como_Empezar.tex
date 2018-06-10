@@ -1,62 +1,67 @@
-\chapter{Como empezar con Emacs en Ubuntu}
+\chapter{Como empezar con Emacs en Ubuntu}\label{aped.A}
 
 En este capítulo se hace una breve explicación de conceptos básicos para empezar a redactar un documento a LaTeX en Emacs y con Haskell a la vez, así como ir actualizando los archivos junto con la plataforma Github. Comenzaremos explicando como realizar la instalación de Ubuntu 16.04 en un PC con windows 10.\\
 
 \section{Instalar Ubuntu 16.04 junto a windows 10}
 
 Para realizar la instalación de Ubuntu junto a windows necesitaremos los siguientes programas:\\
+\begin{itemize}
 
-+ \href{https://rufus.akeo.ie/?locale=es_ES}{Rufus-2.17}\\
+\item \href{https://rufus.akeo.ie/?locale=es_ES}{Rufus-2.17}\\
 
-+ \href{https://www.ubuntu.com/download/desktop}{Ubuntu 16.04}\\
+\item \href{https://www.ubuntu.com/download/desktop}{Ubuntu 16.04}\\
 
+\end{itemize}
 También necesitaremos un pen drive para usarlo de instalador.\\
 
-\textbf{Paso 1:}\\
+\begin{itemize}
+\item \textbf{Paso 1:}\\
 Descargamos Ubuntu 16.04 y rufus-2.17 desde sus respectivas web (o enlaces dados anteriormente).\\
 Necesitamos saber que tipo tiene nuestro disco duro, esto lo podemos ver haciendo click derecho sobre el icono de windows (abajo izquierda) y le damos a administrador de equipos -> administrador de discos, y nos aparecerá nuestro disco duro con todas sus subparticiones internas, en el general nos pondrá si es NTFS o MBR.\\
 
-\textbf{Paso 2:}\\
-Conectamos el pen al PC y abrimos el programa rufus, el propio programa reconocerá el pen, sino en la pestaña de dispositivo marcamos el pen.\\
+\item \textbf{Paso 2:}\\
+\begin{itemize}
+\item Conectamos el pen al PC y abrimos el programa rufus, el propio programa reconocerá el pen, sino en la pestaña de dispositivo marcamos el pen.
 
-En Tipo de partición si nuestro disco es NTFS marcamos GPT para UEFI, en caso contrario uno de los otros dos MBR.\\
+\item En Tipo de partición si nuestro disco es NTFS marcamos GPT para UEFI, en caso contrario uno de los otros dos MBR.
 
-En la parte de opciones de formateo marcamos (aunque deben de venir marcadas):\\
+\item En la parte de opciones de formateo marcamos (aunque deben de venir marcadas): Formateo rápido
 
-- Formateo rápido\\
+\item Crear disco de arranque con -> seleccionamos imagen ISO y con hacemos click en el icono de la derecha para adjuntar la imagen ISO de Ubuntu que hemos descargado anteriormente.
 
-- Crear disco de arranque con -> seleccionamos imagen ISO y con hacemos click en el icono de la derecha para adjuntar la imagen ISO de Ubuntu que hemos descargado anteriormente.\\
+\item Añadir etiquetas extendidas e iconos.
 
-- Añadir etiquetas extendidas e iconos.\\
+\item Seleccionamos empezar.
+\end{itemize}
 
-Y le damos a empezar.\\
-
-
-\textbf{Paso 3:}\\
+\item \textbf{Paso 3:}\\
 Dejamos el pen conectado al PC y reiniciamos el ordenador, al reiniciar justo antes de que cargue pulsamos F2 (o F1 según el PC) para acceder a la bios del PC y aqui nos vamos a la zona de arranque de cada sistema (esto cada bios es diferente) y tenemos que colocar el pen en la primera posición que en esta debe estar windows de esta forma iniciamos con el pen y comenzamos a instalar Ubuntu, seguimos los pasos solo tenemos que marcar España cuando nos lo pida y dar el espacio que queramos a Ubuntu con unos 40 GB sobra, el propio Ubuntu se encarga de hacer la partición del disco duro.\\
 
-\textbf{Paso 4:}\\
+\item \textbf{Paso 4:}\\
 Una vez instalado Ubuntu, nos vamos al icono naranjita que se llama software de Ubuntu y actualizamos.\\
 
 Tras realizar todos estos pasos, cuando iniciemos el PC nos debe dar a elegir entre iniciar con Ubuntu o con Windows 10. Recomiendo buscar en youtube un video tutorial de como instalar Ubuntu junto a windows 10.\\
-
+\end{itemize}
 
 \section{Iniciar un Capítulo}
 
-\textbf{Paso 1:}\\
+El editor de Emacs podemos descargarlo de su página web ([]), la instalación es muy sencilla y guiada. Del mismo modo, instalamos Haskell 8.0.2 ([]) en dicho enlace viene los pasos a seguir. Una vez tenemos ambos programas instalados, procedemos a iniciar un capítulo en Haskell literario.
+\begin{itemize}
+
+\item \textbf{Paso 1:}\\
 Abrimos el directorio desde Emacs con \fbox{Ctrl+x+d} y accedemos a la carpeta de texto para crear el archivo nuevo .tex sin espacios.\\
 
-\textbf{Paso 2:}\\
+\item \textbf{Paso 2:}\\
 Hacemos lo mismo pero en la carpeta código y guardamos el archivo con la abreviatura que hemos usado en el .tex, el archivo lo guardamos como .lhs para tener ahí el código necesario de Haskell. \\
 
-\textbf{Paso 3:}\\
+\item \textbf{Paso 3:}\\
 Al acabar el capitulo hay que actualizar el trabajo para que se quede guardado, para ello nos vamos a archivo que contiene todo el trabajo que en nuestro caso se llama 'TFG.tex' importante coger el de la extensión .tex, nos vamos a la zona donde incluimos los capitulos y usamos el comando de LaTeX con el nombre que le dimos en la carpeta de texto:\\
 
 \fbox{\ include\{'nombre sin el .tex'\}}\\
 
+\end{itemize}
 
-
-\section{Abreviaciones de Emacs:}\\
+\chapter{Abreviaciones de Emacs}\label{aped.B}\\
 
 La tecla ctrl se denominara C y la tecla alt M, son las teclas mas utilizadas, pues bien ahora explicamos los atajos más importantes y seguiremos la misma nomenclatura de la guía para las teclas:\\
 
@@ -111,7 +116,7 @@ Y después ejecutando el siguiente comando con el id de emacs:\\
 Escribimos \fbox{shell} y damos enter. \\
 
 
-\section{Push and Pull de Github con Emacs}
+\chapter{Push and Pull de Github con Emacs}\label{aped.C}
 
 Vamos a mostrar como subir y actualizar los archivos en la web de Github desde la Consola (o Terminal), una vez configurado el pc de forma que guarde nuestro usuario y contraseña de Github. Lo primero que debemos hacer es abrir la Consola:\\
 
@@ -132,11 +137,6 @@ Para descargar los archivos hacemos lo mismo cambiando el último paso por:\\
 
 \fbox{git pull origin master}\\
 
-
-
-
-El contenido de este capítulo se encuentra en el módulo \texttt{ICH} 
-\entrada{ICH}.
 
 %%% Local Variables:
 %%% mode: latex

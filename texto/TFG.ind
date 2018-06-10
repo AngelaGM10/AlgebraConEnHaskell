@@ -1,83 +1,83 @@
 \begin{theindex}
 
-  \item \texttt{<->}, \hyperpage{25}
-  \item \texttt{</>}, \hyperpage{30}
-  \item \texttt{Mult. por la derecha (<**)}, \hyperpage{26}
-  \item \texttt{Posici\IeC {\'o}n (i+1,j+1)}, \hyperpage{41}
-  \item \texttt{Potencia}, \hyperpage{25}
-  \item \texttt{Relaci\IeC {\'o}n de semi-igualdad}, \hyperpage{25}
-  \item \texttt{addCol}, \hyperpage{47}
-  \item \texttt{addId}, \hyperpage{34}
-  \item \texttt{addM}, \hyperpage{43}
-  \item \texttt{addRow}, \hyperpage{47}
+  \item \texttt{<->}, \hyperpage{21}
+  \item \texttt{</>}, \hyperpage{26}
+  \item \texttt{Mult. por la derecha (<**)}, \hyperpage{22}
+  \item \texttt{Posici\IeC {\'o}n (i+1,j+1)}, \hyperpage{37}
+  \item \texttt{Potencia}, \hyperpage{21}
+  \item \texttt{Relaci\IeC {\'o}n de semi-igualdad}, \hyperpage{21}
+  \item \texttt{addCol}, \hyperpage{43}
+  \item \texttt{addId}, \hyperpage{30}
+  \item \texttt{addM}, \hyperpage{39}
+  \item \texttt{addRow}, \hyperpage{43}
   \item \texttt{cuadrado}, \hyperpage{13}
   \item \texttt{cubo}, \hyperpage{14}
-  \item \texttt{dimension}, \hyperpage{42}
-  \item \texttt{fE}, \hyperpage{49}
-  \item \texttt{findPivot}, \hyperpage{48}
-  \item \texttt{forwardElim}, \hyperpage{50}
-  \item \texttt{fromId}, \hyperpage{33}
-  \item \texttt{gaussElimCorrect}, \hyperpage{52}
-  \item \texttt{gaussElim}, \hyperpage{52}
-  \item \texttt{identity}, \hyperpage{44}
-  \item \texttt{instance CommutRing Integer}, \hyperpage{27}
-  \item \texttt{instance IntegralDomain Integer}, \hyperpage{28}
-  \item \texttt{instance Ring Integer}, \hyperpage{25}
-  \item \texttt{isPrincipal}, \hyperpage{33}
-  \item \texttt{isSameIdeal}, \hyperpage{35}
-  \item \texttt{isSolutionB}, \hyperpage{66}
-  \item \texttt{isSolution}, \hyperpage{58}
-  \item \texttt{isSquareMatrix}, \hyperpage{42}
-  \item \texttt{jordan}, \hyperpage{51}
-  \item \texttt{lengthVec}, \hyperpage{38}
-  \item \texttt{matrixToVector}, \hyperpage{41}
-  \item \texttt{matrix}, \hyperpage{41}
-  \item \texttt{mulId}, \hyperpage{34}
-  \item \texttt{mulM}, \hyperpage{43}
-  \item \texttt{mulVec}, \hyperpage{39}
-  \item \texttt{pivot}, \hyperpage{48}
-  \item \texttt{productRing}, \hyperpage{25}
-  \item \texttt{propAddAssoc}, \hyperpage{24}
-  \item \texttt{propAddComm}, \hyperpage{24}
-  \item \texttt{propAddIdentity}, \hyperpage{24}
-  \item \texttt{propAddInv}, \hyperpage{24}
-  \item \texttt{propAddRowDimension}, \hyperpage{47}
-  \item \texttt{propCoherent}, \hyperpage{58}
-  \item \texttt{propCommutRing}, \hyperpage{27}
-  \item \texttt{propField}, \hyperpage{30}
-  \item \texttt{propIntegralDomain}, \hyperpage{28}
-  \item \texttt{propLeftDist}, \hyperpage{24}
-  \item \texttt{propLeftIdentity}, \hyperpage{44}
-  \item \texttt{propMulComm}, \hyperpage{27}
-  \item \texttt{propMulIdentity}, \hyperpage{24}
-  \item \texttt{propMulInv}, \hyperpage{29}
-  \item \texttt{propRightDist}, \hyperpage{24}
-  \item \texttt{propRightIdentity}, \hyperpage{44}
-  \item \texttt{propRing}, \hyperpage{24}
-  \item \texttt{propScaleDimension}, \hyperpage{45}
-  \item \texttt{propSolveGeneralEquation}, \hyperpage{66}
-  \item \texttt{propSolveGeneral}, \hyperpage{67}
-  \item \texttt{propSolveMxN}, \hyperpage{60}
-  \item \texttt{propStronglyDiscrete}, \hyperpage{56}
-  \item \texttt{propSwapDimension}, \hyperpage{46}
-  \item \texttt{propSwapIdentity}, \hyperpage{46}
-  \item \texttt{propZeroDivisors}, \hyperpage{28}
-  \item \texttt{scaleMatrix}, \hyperpage{45}
-  \item \texttt{solveGeneralEquation}, \hyperpage{66}
-  \item \texttt{solveGeneral}, \hyperpage{66}
-  \item \texttt{solveMxN}, \hyperpage{60}
-  \item \texttt{solveWithIntersection}, \hyperpage{63}
-  \item \texttt{subCol}, \hyperpage{47}
-  \item \texttt{subRow}, \hyperpage{47}
-  \item \texttt{sumRing}, \hyperpage{25}
-  \item \texttt{sumVec}, \hyperpage{39}
+  \item \texttt{dimension}, \hyperpage{38}
+  \item \texttt{fE}, \hyperpage{45}
+  \item \texttt{findPivot}, \hyperpage{44}
+  \item \texttt{forwardElim}, \hyperpage{46}
+  \item \texttt{fromId}, \hyperpage{29}
+  \item \texttt{gaussElimCorrect}, \hyperpage{48}
+  \item \texttt{gaussElim}, \hyperpage{48}
+  \item \texttt{identity}, \hyperpage{40}
+  \item \texttt{instance CommutRing Integer}, \hyperpage{23}
+  \item \texttt{instance IntegralDomain Integer}, \hyperpage{24}
+  \item \texttt{instance Ring Integer}, \hyperpage{21}
+  \item \texttt{isPrincipal}, \hyperpage{29}
+  \item \texttt{isSameIdeal}, \hyperpage{31}
+  \item \texttt{isSolutionB}, \hyperpage{62}
+  \item \texttt{isSolution}, \hyperpage{54}
+  \item \texttt{isSquareMatrix}, \hyperpage{38}
+  \item \texttt{jordan}, \hyperpage{47}
+  \item \texttt{lengthVec}, \hyperpage{34}
+  \item \texttt{matrixToVector}, \hyperpage{37}
+  \item \texttt{matrix}, \hyperpage{37}
+  \item \texttt{mulId}, \hyperpage{30}
+  \item \texttt{mulM}, \hyperpage{39}
+  \item \texttt{mulVec}, \hyperpage{35}
+  \item \texttt{pivot}, \hyperpage{44}
+  \item \texttt{productRing}, \hyperpage{21}
+  \item \texttt{propAddAssoc}, \hyperpage{20}
+  \item \texttt{propAddComm}, \hyperpage{20}
+  \item \texttt{propAddIdentity}, \hyperpage{20}
+  \item \texttt{propAddInv}, \hyperpage{20}
+  \item \texttt{propAddRowDimension}, \hyperpage{43}
+  \item \texttt{propCoherent}, \hyperpage{54}
+  \item \texttt{propCommutRing}, \hyperpage{23}
+  \item \texttt{propField}, \hyperpage{26}
+  \item \texttt{propIntegralDomain}, \hyperpage{24}
+  \item \texttt{propLeftDist}, \hyperpage{20}
+  \item \texttt{propLeftIdentity}, \hyperpage{40}
+  \item \texttt{propMulComm}, \hyperpage{23}
+  \item \texttt{propMulIdentity}, \hyperpage{20}
+  \item \texttt{propMulInv}, \hyperpage{25}
+  \item \texttt{propRightDist}, \hyperpage{20}
+  \item \texttt{propRightIdentity}, \hyperpage{40}
+  \item \texttt{propRing}, \hyperpage{20}
+  \item \texttt{propScaleDimension}, \hyperpage{41}
+  \item \texttt{propSolveGeneralEquation}, \hyperpage{62}
+  \item \texttt{propSolveGeneral}, \hyperpage{63}
+  \item \texttt{propSolveMxN}, \hyperpage{56}
+  \item \texttt{propStronglyDiscrete}, \hyperpage{52}
+  \item \texttt{propSwapDimension}, \hyperpage{42}
+  \item \texttt{propSwapIdentity}, \hyperpage{42}
+  \item \texttt{propZeroDivisors}, \hyperpage{24}
+  \item \texttt{scaleMatrix}, \hyperpage{41}
+  \item \texttt{solveGeneralEquation}, \hyperpage{62}
+  \item \texttt{solveGeneral}, \hyperpage{62}
+  \item \texttt{solveMxN}, \hyperpage{56}
+  \item \texttt{solveWithIntersection}, \hyperpage{59}
+  \item \texttt{subCol}, \hyperpage{43}
+  \item \texttt{subRow}, \hyperpage{43}
+  \item \texttt{sumRing}, \hyperpage{21}
+  \item \texttt{sumVec}, \hyperpage{35}
   \item \texttt{suma}, \hyperpage{14}
-  \item \texttt{swap}, \hyperpage{46}
-  \item \texttt{transpose}, \hyperpage{42}
-  \item \texttt{unMVec}, \hyperpage{41}
-  \item \texttt{unM}, \hyperpage{41}
-  \item \texttt{unVec}, \hyperpage{38}
-  \item \texttt{vectorToMatrix }, \hyperpage{41}
-  \item \texttt{zeroIdeal}, \hyperpage{32}
+  \item \texttt{swap}, \hyperpage{42}
+  \item \texttt{transpose}, \hyperpage{38}
+  \item \texttt{unMVec}, \hyperpage{37}
+  \item \texttt{unM}, \hyperpage{37}
+  \item \texttt{unVec}, \hyperpage{34}
+  \item \texttt{vectorToMatrix }, \hyperpage{37}
+  \item \texttt{zeroIdeal}, \hyperpage{28}
 
 \end{theindex}
