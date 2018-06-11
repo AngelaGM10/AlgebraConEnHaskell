@@ -10,8 +10,6 @@
   \item \texttt{addId}, \hyperpage{30}
   \item \texttt{addM}, \hyperpage{39}
   \item \texttt{addRow}, \hyperpage{43}
-  \item \texttt{cuadrado}, \hyperpage{13}
-  \item \texttt{cubo}, \hyperpage{14}
   \item \texttt{dimension}, \hyperpage{38}
   \item \texttt{fE}, \hyperpage{45}
   \item \texttt{findPivot}, \hyperpage{44}
@@ -71,7 +69,6 @@
   \item \texttt{subRow}, \hyperpage{43}
   \item \texttt{sumRing}, \hyperpage{21}
   \item \texttt{sumVec}, \hyperpage{35}
-  \item \texttt{suma}, \hyperpage{14}
   \item \texttt{swap}, \hyperpage{42}
   \item \texttt{transpose}, \hyperpage{38}
   \item \texttt{unMVec}, \hyperpage{37}

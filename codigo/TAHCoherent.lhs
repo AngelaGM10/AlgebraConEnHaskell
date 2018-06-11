@@ -84,10 +84,10 @@ class IntegralDomain a => Coherent a where
   solve :: Vector a -> Matrix a
 \end{code}
 
-Al igual que ocurría con $member$ en el anterior capítulo, aquí $solve$ es una función que no tiene una definición concreta. El objetivo de esta función es que dado un vector $\,\vec{m}\,\in\,R^n$ devuelva una matriz $L \in\,R^{n\times r}$ de forma que al multiplicar ambos el vector resultante sea un vector fila de ceros.\\
+Al igual que ocurría con \texttt{member} en el anterior capítulo, aquí $solve$ es una función que no tiene una definición concreta. El objetivo de esta función es que dado un vector $\,\vec{m}\,\in\,R^n$ devuelva una matriz $L \in\,R^{n\times r}$ de forma que al multiplicar ambos el vector resultante sea un vector fila de ceros.\\
 
-Para verificar que una definición concreta de $solve$ es correcta especificamos unas funciones para realizar dicha comprobación. La función que denotaremos\\
-$\,propCoherent\,$ es la encargada de comprobar que la multiplicación de $\vec{m}$ por $L$ sea nula. Para ello, se ayuda de una segunda función que denotaremos por $isSolution$, esta comprueba que el vector que se obtiene tras la multiplicación de $\vec{m}L$ es un vector de ceros.
+Para verificar que una definición concreta de \texttt{solve} es correcta especificamos unas funciones para realizar dicha comprobación. La función que denotaremos\\
+\texttt{propCoherent} es la encargada de comprobar que la multiplicación de $\vec{m}$ por $L$ sea nula. Para ello, se ayuda de una segunda función que denotaremos por \texttt{isSolution}, esta comprueba que el vector que se obtiene tras la multiplicación de $\vec{m}L$ es un vector de ceros.
 \index{\texttt{isSolution}}
 \index{\texttt{propCoherent}}
 \begin{code}
@@ -173,7 +173,7 @@ Por coherencia sobre $\,\vec{Y}\,$ existe  $L_2\,\in\,\,R^{p_1\times p_2}\,$ tal
 \textit{Iterando este método la solución $\vec{X}=L_1L_2\cdots L_r\vec{Z}\,$ con $\,L_i\,\in\,\,R^{p_{i-1}\times p_i}\,$, $\,p_0\,=\,n\,$ y $\,\vec{Z}\,\in\,\,R^{p_{m}\times 1}\,$ puede ser calculada.}
 \end{dem}
 
-La proposición anterior nos muestra la forma de resolver mediante recursión un sistema $\,M\vec{X}=\vec{0}\,$, veamos como hacerlo en Haskell. Siguiendo la prueba de la proposición anterior, comenzamos a aplicar coherencia con la primera fila de la matriz $\,M\,$ y así vamos obteniendo por coherencia una nueva matriz en cada iteración hasta obtener la solución del sistema de ecuaciones. Mediante la función $\,solveMxN\,$ calcula la matriz obtenida por recursión $\,L_1L_2\cdots L_r\,$. Con una segunda función, que denotaremos $propSolveMxN$ comprobaremos que la matriz obtenida por $\,solveMxN\,$ al multiplicarla por la matriz dada $\,M\,$ es solución del sistema homogéneo es decir el resultado de la multiplicación es un vector de ceros.
+La proposición anterior nos muestra la forma de resolver mediante recursión un sistema $\,M\vec{X}=\vec{0}\,$, veamos como hacerlo en Haskell. Siguiendo la prueba de la proposición anterior, comenzamos a aplicar coherencia con la primera fila de la matriz $\,M\,$ y así vamos obteniendo por coherencia una nueva matriz en cada iteración hasta obtener la solución del sistema de ecuaciones. Mediante la función \texttt{solveMxN} calcula la matriz obtenida por recursión $\,L_1L_2\cdots L_r\,$. Con una segunda función, que denotaremos \texttt{propSolveMxN} comprobaremos que la matriz obtenida por \texttt{solveMxN} al multiplicarla por la matriz dada $\,M\,$ es solución del sistema homogéneo es decir el resultado de la multiplicación es un vector de ceros.
 \index{\texttt{solveMxN}}
 \index{\texttt{propSolveMxN}}
 \begin{code}
@@ -411,10 +411,10 @@ solveWithIntersection (Vec xs) int = transpose $ matrix $ solveInt xs
 
 \end{code}
 
-La función $\,(solveWithIntersection\,\, (Vec xs)\,\, int)\,$ recibe como argumento de entrada el vector a resolver $\,\vec{X}\,$ así como la intersección de dos ideales finitamente generados en forma de terna $\, (Ideal\, a,[[a]],[[a]]))\,$ de forma que $\,(Ideal\,\,a)\,$ son los generadores del ideal intersección, las otras dos listas de listas contienen los coeficientes correspondiente a cada uno de los dos ideales de los que se obtiene la intersección. Es decir, como $\,(Ideal\,\,a)\,$ es el resultado de interseccionar estos dos ideales, si un elemento pertenece a la intersección, este puede escribirse como combinación lineal de cada uno de los dos ideales.\\
+La función \texttt{(solveWithIntersection\,\, (Vec xs)\,\, int)} recibe como argumento de entrada el vector a resolver $\,\vec{X}\,$ así como la intersección de dos ideales finitamente generados en forma de terna \texttt{(Ideal a,[[a]],[[a]]))} de forma que \texttt{(Ideal a)} son los generadores del ideal intersección, las otras dos listas de listas contienen los coeficientes correspondiente a cada uno de los dos ideales de los que se obtiene la intersección. Es decir, como \texttt{(Ideal\,\,a)} es el resultado de interseccionar estos dos ideales, si un elemento pertenece a la intersección, este puede escribirse como combinación lineal de cada uno de los dos ideales.\\
 
-Para el caso en el que $\,a_1\neq0\,$, aplicamos $\,(isSameIdeal\,\, int\,\, as\,\, bs)\,$. Recordamos que esta función devuelve un booleano cuando se verifica lo comentado anteriormente. De esta forma, si $\,isSameIdeal\,$ devuelve $\,True\,$ se realiza la intersección de los generadores que se obtienen de la intersección de los dos ideales, junto con los generadores de la solución obtenida al resolver $\,a_2x_2+..+a_nx_n\,$.\\
+Para el caso en el que $\,a_1\neq0\,$, aplicamos \texttt{(isSameIdeal int as bs)}. Recordamos que esta función devuelve un booleano cuando se verifica lo comentado anteriormente. De esta forma, si \texttt{isSameIdeal} devuelve \texttt{True} se realiza la intersección de los generadores que se obtienen de la intersección de los dos ideales, junto con los generadores de la solución obtenida al resolver $\,a_2x_2+..+a_nx_n\,$.\\
 
-De esta forma, obtenemos la intersección de dos ideales finitamente generados, por lo que podemos calcular la solución recursivamente. Hasta obtener la matriz formada por los generadores de la solución. Que es la matriz que devuelve \\
-$\,(solveWithIntersection\,\, (Vec xs)\,\, int)\,$.
+De esta forma, obtenemos la intersección de dos ideales finitamente generados, por lo que podemos calcular la solución recursivamente. Hasta obtener la matriz formada por los generadores de la solución. Que es la matriz que
+\texttt{(solveWithIntersection (Vec xs) int)} devuelve.
 

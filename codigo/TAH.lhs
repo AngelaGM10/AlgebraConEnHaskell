@@ -1,8 +1,8 @@
 \\
 
-Antes de empezar tenemos que crear nuestro módulo. Todos tienen la misma estructura, se usa el comando de Haskell $module$ seguido del nombre que le queramos dar al módulo. A continuación entre paréntesis introducimos todas las clases y funciones que vamos a definir y que queramos exportar cuando en otro fichero importemos este módulo, seguido del paréntesis escribimos $where$ y finalmente importamos las librerías y módulos que vayamos a necesitar. Para importarlas usamos el comando $import$. \\
+Antes de empezar tenemos que crear nuestro módulo. Todos tienen la misma estructura, se usa el comando de Haskell \texttt{module} seguido del nombre que le queramos dar al módulo. A continuación entre paréntesis introducimos todas las clases y funciones que vamos a definir y que queramos exportar cuando en otro fichero importemos este módulo, seguido del paréntesis escribimos \texttt{where} y finalmente importamos las librerías y módulos que vayamos a necesitar. Para importarlas usamos el comando \texttt{import}. \\
 
-Para nuestro primer módulo solo usaremos la conocida librería de Haskell $Data.List$ la cuál comprende las operaciones con listas, y $Test.QuickCheck$ que contine las funciones para comprobar una propiedad e imprimir los resultados.
+Para nuestro primer módulo solo usaremos la conocida librería de Haskell \texttt{Data.List} la cuál comprende las operaciones con listas, y \texttt{Test.QuickCheck} que contine las funciones para comprobar una propiedad e imprimir los resultados.
 
 \begin{code}
 module TAH
@@ -56,11 +56,11 @@ $\forall\,\, a,b,c\,\in\,R.\,\,\,\,(a+b)*c=(a*c)+(b*c)$
 \end{defi}
 
 Una vez tenemos la teoría, pasamos a implementarlo en Haskell. Representaremos la noción de anillo en Haskell mediante una clase. Para
-ello, declaramos la clase $Ring$ sobre un tipo $a$ (es decir, $a$ no está restringido a ningún otro tipo) con las operaciones internas que denotaremos con los símbolos $<+>$ y $<**>$ (nótese que de esta forma no coinciden con ninguna operación previamente definida en Haskell). Representamos el elemento neutro de la suma mediante la constante $zero$ y el de la multiplicación mediante la constante $one$.\\
+ello, declaramos la clase \texttt{Ring} sobre un tipo \texttt{a} (es decir, \texttt{a} no está restringido a ningún otro tipo) con las operaciones internas que denotaremos con los símbolos \texttt{<+>} y \texttt{<**>} (nótese que de esta forma no coinciden con ninguna operación previamente definida en Haskell). Representamos el elemento neutro de la suma mediante la constante \texttt{zero} y el de la multiplicación mediante la constante \texttt{one}.\\
 
-Asímismo, mediante la función $neg$ representamos el elemento inverso para la suma, es decir, para cada elemento $x$ del anillo, $(neg\,\, x)$ representará el inverso de $x$ respecto de la suma $<+>$. Todas ellas se concretarán para cada anillo particular.\\
+Asímismo, mediante la función \texttt{neg} representamos el elemento inverso para la suma, es decir, para cada elemento \texttt{x} del anillo, \texttt{(neg x)} representará el inverso de \texttt{x} respecto de la suma \texttt{<+>}. Todas ellas se concretarán para cada anillo particular.\\
 
-Mediante los operadores $infixl$ e $infixr$ se puede establecer el orden de precedencia (de 0 a 9) de una operación, así como la asociatividad de dicha operación ($infixl$ para asociatividad por la izquierda, $infixr$ para asociatividad por la derecha e $infix$ para no asociatividad). En este caso, las declaraciones ($infixl\,\, 6\,\, <+>$ e $infixl\,\, 7\,\, <**>$) hacen referencia a la asociatividad por la izquierda de ambas operaciones, siendo $6$ el nivel de precedencia de $<+>$ y $7$ el nivel de precedencia de $<**>$.
+Mediante los operadores \texttt{infixl} e \texttt{infixr} se puede establecer el orden de precedencia (de 0 a 9) de una operación, así como la asociatividad de dicha operación (\texttt{infixl} para asociatividad por la izquierda, \texttt{infixr} para asociatividad por la derecha e \texttt{infix} para no asociatividad). En este caso, las declaraciones (\texttt{infixl 6 <+>} e \texttt{infixl 7 <**>}) hacen referencia a la asociatividad por la izquierda de ambas operaciones, siendo \texttt{6} el nivel de precedencia de \texttt{<+>} y \texttt{7} el nivel de precedencia de \texttt{<**>}.
 
 \begin{code}
 infixl 6 <+>
@@ -76,9 +76,9 @@ class Show a => Ring a where
 
 Una vez declarado el tipo y la signatura de las funciones, pasamos a implementar los axiomas de este. En Haskell un tipo es como una etiqueta que posee toda expresión. Esta etiqueta nos dice a que categoría de objetos se ajusta la expresión.\\
 
-Todos los axiomas que tenemos que introducir tienen la misma estructura, reciben un tipo de la clase $Ring$ y $Eq$ para devolver elementos del tipo $Bool$ y $String$.\\
+Todos los axiomas que tenemos que introducir tienen la misma estructura, reciben un tipo de la clase \texttt{Ring} y \texttt{Eq} para devolver elementos del tipo \texttt{Bool} y \texttt{String}.\\
 
-La clase $Ring$ la acabamos de definir y la clase $Eq$ es la clase de los tipos con igualdad. Cualquier tipo que tenga sentido comparar dos valores de ese tipo por igualdad debe ser miembro de la clase $Eq$. El tipo $Bool$ devuelve un booleano con $True$ y $False$, en nuestras funciones es necesario pues necesitamos que nos devuelva $True$ si se verifica el axioma y $False$ en caso contrario. El tipo $String$ es sinónimo del tipo $[Char]$.
+La clase \texttt{Ring} la acabamos de definir y la clase \texttt{Eq} es la clase de los tipos con igualdad. Cualquier tipo que tenga sentido comparar dos valores de ese tipo por igualdad debe ser miembro de la clase \texttt{Eq}. El tipo \texttt{Bool} devuelve un booleano con \texttt{True} y \texttt{False}, en nuestras funciones es necesario pues necesitamos que nos devuelva \texttt{True} si se verifica el axioma y \texttt{False} en caso contrario. El tipo \texttt{String} es sinónimo del tipo \texttt{[Char]}.
 
 \index{\texttt{propAddAssoc}}
 \index{\texttt{propAddIdentity}}
@@ -123,7 +123,7 @@ propLeftDist a b c =
  (a <**> (b <+> c) == (a <**> b) <+> (a <**> c), "propLeftDist")
 \end{code}
 
-Para saber si una terna $(a,<+>,<**>)$ es un anillo definimos una propiedad que se encargue de comprobar que los axiomas anteriores se verifiquen, para cada caso particular de una instancia dada. La estructura que tiene es la siguiente: recibe un elemento de tipo $Ring$ y $Eq$ y devuelve un elemento de tipo Property, una función importada desde el módulo $Test.QuickCheck$.
+Para saber si una terna $(a,<+>,<**>)$ es un anillo definimos una propiedad que se encargue de comprobar que los axiomas anteriores se verifiquen, para cada caso particular de una instancia dada. La estructura que tiene es la siguiente: recibe un elemento de tipo \texttt{Ring} y \texttt{Eq} y devuelve un elemento de tipo \texttt{Property}, una función importada desde el módulo \texttt{Test.QuickCheck}.
 \index{\texttt{propRing}}
 \begin{code}
 -- | Test para ver si se verifican los axiomas de un anillo.
@@ -142,7 +142,7 @@ propRing a b c = whenFail (print errorMsg) cond
 Veamos algunos ejemplos de anillos. Para ello, mediante instancias,
 especificamos las operaciones que dotan al conjunto de estructura de
 anillo. Por ejemplo, el anillo de los números enteros $\mathbb{Z}$, en
-Haskell es el tipo $Integer$, con la suma y la multiplicación.
+Haskell es el tipo \texttt{Integer}, con la suma y la multiplicación.
 Ejemplo:\\
 
 \index{\texttt{instance Ring Integer}}
@@ -207,7 +207,7 @@ x ~~ y = x == y || neg x == y || x == neg y || neg x == neg y
 
 
 
-Finalmente hemos definimos la suma la multiplicación de un entero por la derecha. La multiplicación de un entero por la izquierda se tiene debido a que la operación $<+>\,$ es commutativa. Esta función al igual que la anterior de potencia recibe un elemento de tipo $Ring$ y devuelve un número entero, que es el tipo $Integer$.
+Finalmente hemos definimos la suma la multiplicación de un entero por la derecha. La multiplicación de un entero por la izquierda se tiene debido a que la operación \texttt{<+>} es conmutativa. Esta función al igual que la anterior de potencia recibe un elemento de la clase \texttt{Ring} y devuelve un número entero, que es el tipo \texttt{Integer}.
 \index{\texttt{Mult. por la derecha (<**)}}
 \begin{code}
 -- |Multiplicación de un entero por la derecha.

@@ -4,10 +4,52 @@ En este capítulo se hace una breve introducción a la programación funcional e
 Haskell suficiente para entender su aplicación en los siguientes
 capítulos. Para una introducción más amplia se pueden consultar los apuntes de
 la asignatura de Informática de 1º del Grado en Matemáticas
-(\cite{Alonso-15b}). Incluiremos las funciones que vamos a utilizar predefinidas en Haskell, estas pertenecen a la librería \texttt{Data.List}(\cite{datalist}).
+(\cite{Alonso-15b}). Las funciones predefinidas en Haskell que vamos a utilizar en los siguientes capítulos pertenecen a la librería \href{http://hackage.haskell.org/package/base-4.11.1.0/docs/Data-List.html}{\texttt{Data.List}} de Haskell.\\
 
-El contenido de este capítulo se encuentra en el módulo \texttt{PFH} 
-\entrada{PFH}.
+Con la programación puramente funcional no ejecutamos órdenes, sino más bien, definimos como son las cosas. Lo único que puede hacer una función es calcular y devolver algo como resultado. Al definir una función se le asocia un tipo que determina el comportamiento de la función, esto permite al compilador razonar acerca de el comportamiento, y nos permite ver si una función es correcta o no antes de ejecutarla. De esta forma podemos construir funciones más complejas uniendo funciones simples.\\
+
+Haskell es un lenguaje tipificado estáticamente. Esto significa que el compilador sabe que trozos del código se corresponde con números enteros, con cadenas de texto, etc. Gracias a esto muchos de los errores los detectamos en tiempo de compilación.\\
+
+Vamos a explicar brevemente los conceptos importantes para entender mejor la programación funcional que utiliza Haskell:
+
+\begin{itemize}
+
+\item \textbf{Funciones de orden superior}
+
+Las funciones de Haskell pueden tomar funciones como parámetros y devolver funciones como resultado. Una función que hace ambas cosas o alguna de ellas se llama función de orden superior. Es decir, si una función toma como argumento a otra función o devuelve una función como resultado se dice que es una función de orden superior. Por ejemplo, las funciones \texttt{foldr}, \texttt{filter} y \texttt{zipWith} son funciones de orden superior, todas ellas toman a otra función como argumento.\\
+
+\item \textbf{Tipos}
+
+Cada función en Haskell tiene asociada un tipo. Al programar la función no es necesario especificar el tipo, pues Haskell lo identifica solo. Es conveniente especificar el tipo sobre el que queremos utilizar la función, para que al crear nuevas funciones no tengamos problemas de tipos, o que los problemas sean más faciles de identificar.\\
+
+Un tipo en Haskell es como un conjunto de elementos que tienen algo en común o una categoría. Por ejemplo el grupo de los números enteros \mathbb{Z} se representa por el tipo \texttt{Int}. Los tipos más conocidos de Haskell son: \texttt{Integer}, \texttt{Int}, \texttt{Char}, \texttt{Bool}, \texttt{Double} y \texttt{Float}.\\
+
+\item  \textbf{Clases de tipos}
+
+Las clases de tipos son una especie de interfaz que define algún tipo de comportamiento. Si un tipo es miembro de una clase de tipos, significa que ese tipo soporta e implementa el comportamiento que define la clase de tipos. Cada clase tiene unas propiedades que se aplican a los elementos que se utilizan estando en dicha clase. Por ejemplo: \texttt{Eq}, \texttt{Show} y \texttt{Ord} son las clases más conocidas.\\
+
+Podemos crear nuevas clases de tipos escribiendo \texttt{class Ring a where}, la nueva clase de tipo que hemos definido se llama \texttt{Ring}. La \texttt{a} es la variable de tipo, esta representará el tipo sobre el que se trabajará en la clase \texttt{Ring}. No tiene porque llamarse \texttt{a}, solo debe ser una palabra en minúsculas. Debajo del \texttt{where} definimos varias funciones. No es obligatorio implementar los cuerpos de las funciones, solo debemos especificar las declaraciones de tipo de las funciones.\\
+
+\item \textbf{Restricciones de clases de tipos}
+
+Para concretar sobre que propiedades queremos trabajar se puede restringir una clase dentro de otra. Por ejemplo, la función \texttt{group} tiene el siguiente tipo:
+\begin{center}
+\texttt{group :: Eq a => [a] -> [[a]]}
+\end{center}
+Aquí vemos que \texttt{group} tiene la propiedad de la igualdad \texttt{==}, porque la hereda de la clase \texttt{Eq} porque con el símbolo \texttt{=>} es el que indica que estamos restringiendo a una clase. Sin embargo la función \texttt{elem} con el siguiente tipo:
+\begin{center}
+\texttt{elem :: (Foldable t, Eq a) => a -> t a -> Bool}
+\end{center}
+Esta restringida a dos clases, de esta forma la función \texttt{elem} tiene las propiedades de ambas clases.\\ 
+
+\item \textbf{Instancias}
+
+Un tipo puede ser una instancia de una clase si soporta el comportamiento de la clase. Por ejemplo:  El tipo \texttt{Int} es una instancia de la clase \texttt{Eq}, ya que la clase de tipos\texttt{Eq} define el comportamiento de cosas que se pueden equiparar, y los números enteros pueden equipararse.\\
+
+También podemos utilizar instancias sobre las clases que hayamos creado. Al declarar una instancia, estamos declarando el tipo sobre el que la clase va a actuar bajo los atributos que se definan. Las funciones que se definan y estén restringidas a la nueva clase, verificará los atributos de esta clase.
+
+\end{itemize}
+
 
 %%% Local Variables:
 %%% mode: latex

@@ -12,9 +12,9 @@ import Test.QuickCheck
 import TAHField
 
 \end{code}
-Para comenzar este módulo, necesitaremos hacer uso de librerías de Haskell como $Control.Monad$ para utilizar ciertas funciones que nos ayuden a construir nuestros vectores. Daremos más detalle cuando la utilicemos.
+Para comenzar este módulo, necesitaremos hacer uso de librerías de Haskell como \texttt{Control.Monad} para utilizar ciertas funciones que nos ayuden a construir nuestros vectores. Daremos más detalle cuando la utilicemos.
 
-Comenzamos por implementar las nociones básicas de los vectores. Creamos un nuevo tipo para definir un vector, usaremos las listas para trabajr con los vectores en Haskell. Daremos también una función para generar vectores de forma aleatoria, para poder comprobar resultados mediante $QuickCheck$.
+Comenzamos por implementar las nociones básicas de los vectores. Creamos un nuevo tipo para definir un vector, usaremos las listas para trabajr con los vectores en Haskell. Daremos también una función para generar vectores de forma aleatoria, para poder comprobar resultados mediante \texttt{QuickCheck}.
 
 \begin{code}
 -- | Vectores.
@@ -36,7 +36,7 @@ instance Arbitrary r => Arbitrary (Vector r) where
 
 \end{code}
 
-Explicamos brevemente algunas de las funciones utilizadas en el generador de vectores. Con $choose$ se elige de forma aleatoria un número, en nuestro caso, entre 1 y 10. La función $liftM$ nos permite transformar una función en una función correspondiente dentro de otra configuración en nuestro caso en forma de vector y junto con $gen$ generamos un tipo dado de forma aleatoria en nuestro caso del tipo vector.\\
+Explicamos brevemente algunas de las funciones utilizadas en el generador de vectores. Con \texttt{choose} se elige de forma aleatoria un número, en nuestro caso, entre 1 y 10. La función \texttt{liftM} nos permite transformar una función en una función correspondiente dentro de otra configuración en nuestro caso en forma de vector y junto con \texttt{gen} generamos un tipo dado de forma aleatoria en nuestro caso del tipo vector.\\
 
 Damos la función que muestra el vector en forma de lista y la que mide la longitud de un vector en ese formato. Acompañamos de ejemplos para mostrar los resultados que se obtienen.
 \index{\texttt{unVec}}
@@ -55,15 +55,15 @@ lengthVec = length . unVec
 --   3
 \end{code}
 
-Para trabajar con vectores, haremos uso de la clase de tipos $Functor$ de Haskell. Esta clase de tipos está implementada de la siguiente forma:
+Para trabajar con vectores, haremos uso de la clase de tipos \texttt{Functor} de Haskell. Esta clase de tipos está implementada de la siguiente forma:
 \begin{code}
 -- class Functor f where
 --     fmap :: (a -> b) -> f a -> f b
 \end{code}
 
-Define una función, $fmap$, y no proporciona ninguna implementación por defecto. El tipo de $fmap$ es similar al tipo de $map$. Aquí, $f$ no es un tipo concreto, sino un constructor de tipos que toma un tipo como parámetro. Vemos que $fmap$ toma una función de un tipo a otro, un funtor aplicado a un tipo y devuelve otro funtor aplicado con el otro tipo.\\
+Define una función, $\texttt{fmap}, y no proporciona ninguna implementación por defecto. El tipo de \texttt{fmap} es similar al tipo de \texttt{map}. Aquí, \texttt{f} no es un tipo concreto, sino un constructor de tipos que toma un tipo como parámetro. Vemos que \texttt{fmap} toma una función de un tipo a otro, un funtor aplicado a un tipo y devuelve otro funtor aplicado con el otro tipo.\\
 
-En nuestro caso crearemos una instancia con la clase de tipos $Functor$ sobre el constructor $Vector$ con el objetivo de aplicar una función $f$ sobre un vector. Definiremos la función $(fmap\,\,f)$ de forma que devuelva un vector con la función $f$ aplicada a cada componente del vector.
+En nuestro caso crearemos una instancia con la clase de tipos \texttt{Functor} sobre el constructor \texttt{Vector} con el objetivo de aplicar una función \texttt{f} sobre un vector. Definiremos la función \texttt{(fmap f)} de forma que devuelva un vector con la función \texttt{f} aplicada a cada componente del vector.
 
 \begin{code}
 instance Functor Vector where 

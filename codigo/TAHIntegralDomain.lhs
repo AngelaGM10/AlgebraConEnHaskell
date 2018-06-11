@@ -8,7 +8,7 @@ module TAHIntegralDomain
 import Test.QuickCheck
 import TAHCommutative
 \end{code}
-Para iniciar este módulo necesitamos importar el módulo $TAHCommutative$ ya que vamos a definir los dominios de integridad sobre anillos conmutativos, por lo que la clase que vamos a definir parte del tipo $CommutRing$ que como hemos definido antes es el tipo de los anillos conmutativos. Damos su definición.\\
+Para iniciar este módulo necesitamos importar el módulo \texttt{TAHCommutative} ya que vamos a definir los dominios de integridad sobre anillos conmutativos, por lo que la clase que vamos a definir parte del tipo \texttt{CommutRing} que como hemos definido antes es el tipo de los anillos conmutativos. Damos su definición.\\
 
 \begin{defi}
 Dado un anillo $(A,+,*)$, un elemento $a \in\, A$ se dice que es un divisor de cero si existe $b \in\, A- \{0\}$ tal que $a*b = 0$.
@@ -24,7 +24,7 @@ propZeroDivisors :: (IntegralDomain a, Eq a) => a -> a -> Bool
 propZeroDivisors a b = if a <**> b == zero then
                               a == zero || b == zero else True
 \end{code}
-Como ocurría con los axiomas de los anillos, la función $propZeroDivisors$ requiere que los elementos que recibe sean de la clase de tipo $IntegralDomain$ y de tipo $Eq$ pues estamos definiendo operaciones en las que se tiene que dar una igualdad, y devuelva un valor booleano, por ello el elemento de salida es de tipo $Bool$.\\
+Como ocurría con los axiomas de los anillos, la función \texttt{propZeroDivisors} requiere que los elementos que recibe sean de la clase de tipo \texttt{IntegralDomain} y de tipo \texttt{Eq} pues estamos definiendo operaciones en las que se tiene que dar una igualdad, y devuelva un valor booleano, por ello el elemento de salida es de tipo \texttt{Bool}.\\
 
 Para determinar si un anillo es un dominio de integridad usaremos la siguiente propiedad, esta tal y como ocurre con las anteriores propiedades, se encarga de comprobar que para cualquier instancia que demos se cumplan los axiomas que tiene que verificar, en este caso, para ser un  dominio de integridad:
 \index{\texttt{propIntegralDomain}}

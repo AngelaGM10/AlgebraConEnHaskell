@@ -9,7 +9,7 @@ import Test.QuickCheck
 import TAH
 \end{code}
 
-En este módulo introducimos el concepto de anillo conmutativo. Aquí hemos importado el módulo $TAH$ con el comando $import$, para poder usar las clases y funciones definidas en dicho módulo. Visto desde el punto de vista de la programación funcional,un anillo conmutativo es una subclase de la clase $Ring$. Solo necesitaremos una función para definirlo. Damos primero su definición.\\
+En este módulo introducimos el concepto de anillo conmutativo. Aquí hemos importado el módulo \texttt{TAH} con el comando \texttt{import}, para poder usar las clases y funciones definidas en dicho módulo. Visto desde el punto de vista de la programación funcional,un anillo conmutativo es una subclase de la clase \texttt{Ring}. Solo necesitaremos una función para definirlo. Damos primero su definición.\\
 
 \begin{defi}
 Un anillo conmutativo es un anillo $(R, +, *)$ en el que la operación de multiplicación $*$ es conmutativa, es decir,

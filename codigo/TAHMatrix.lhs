@@ -20,9 +20,9 @@ import TAHField
 import TAHVector
 
 \end{code}
-Antes de comenzar, hemos importado algunas librerías necesarias para construir las matrices. Entre ellas utilizaremos $Control.Arrow$, de ella tenemos que excluir la suma $(<+>)$ pues nosotros utilizamos la definida en anillos.
+Antes de comenzar, hemos importado algunas librerías necesarias para construir las matrices. Entre ellas utilizaremos \texttt{Control.Arrow}, de ella tenemos que excluir la suma \texttt{(<+>)} pues nosotros utilizamos la definida en anillos.
 
-Declaramos el nuevo tipo de matrices, la representación de la matriz viene dada en forma de lista de vectores, donde cada vector de la lista representa una fila de la matriz. Daremos también una instancia para que se puedan mostrar. Así como un generador de matrices aleatorio, similar al utilizado en vectores, con el fin de poder comprobar resultados mediante $QuickCheck$.
+Declaramos el nuevo tipo de matrices, la representación de la matriz viene dada en forma de lista de vectores, donde cada vector de la lista representa una fila de la matriz. Daremos también una instancia para que se puedan mostrar. Así como un generador de matrices aleatorio, similar al utilizado en vectores, con el fin de poder comprobar resultados mediante \texttt{QuickCheck}.
 
 \begin{code}
 newtype Matrix r = M [Vector r]
@@ -47,7 +47,7 @@ instance Arbitrary r => Arbitrary (Matrix r) where
 \end{code}
 
 
-Una vez implementado el tipo de las matrices vamos a definir la función para construir una matriz de dimensión $mxn$ a partir de una lista de listas, de forma que cada lista es una fila de la matriz (todas de la misma longitud) y la longitud de una lista es el número de columnas. Vamos a dar una función para que devuelva la matriz de la forma en que visualmente la vemos, es decir una fila debajo de la otra.
+Una vez implementado el tipo de las matrices vamos a definir la función para construir una matriz de dimensión $m\times n$ a partir de una lista de listas, de forma que cada lista es una fila de la matriz (todas de la misma longitud) y la longitud de una lista es el número de columnas. Vamos a dar una función para que devuelva la matriz de la forma en que visualmente la vemos, es decir una fila debajo de la otra.
 \index{\texttt{matrix}}
 \begin{code}
 -- | Matriz mxn.
@@ -115,7 +115,7 @@ m !!! (i,j) | i >= 0 && i < rows && j >= 0 && j < cols = unMVec m !! i !! j
 --    3
 \end{code}
 
-Utilizando las funciones anteriores podemos implementar propiedades y operaciones con las matrices. Daremos la dimensión de la matriz, una función que compruebe si la matriz es cuadrada, es decir, que el número de filas coincide con el número de columnas. Y la función para transponer una matriz, es decir, pasar las filas a columnas. Para esta última, utilizaremos la función $transpose$ de la librería $Data.List$ que se aplica sobre listas de forma que agrupa los elementos para que las listas que son filas estén en la posición de la columna correspondiente.
+Utilizando las funciones anteriores podemos implementar propiedades y operaciones con las matrices. Daremos la dimensión de la matriz, una función que compruebe si la matriz es cuadrada, es decir, que el número de filas coincide con el número de columnas. Y la función para transponer una matriz, es decir, pasar las filas a columnas. Para esta última, utilizaremos la función \texttt{transpose} de la librería \texttt{Data.List} que se aplica sobre listas de forma que agrupa los elementos para que las listas que son filas estén en la posición de la columna correspondiente.
 \index{\texttt{dimension}}
 \index{\texttt{isSquareMatrix}}
 \index{\texttt{transpose}}
@@ -149,9 +149,9 @@ transpose (M xs) = matrix (L.transpose (map unVec xs))
 --    [4,6]
 \end{code}
  
-Recordamos que la suma de matrices da una matriz cuyas entradas son la suma de las entradas correspondientes de las matrices a sumar. Para esta suma lo haremos mediante suma de listas ya que utilizaremos la función $\,matrix\,$ para mostrar la matriz correspondiente y esta recibe como argumento de entrada una lista de listas.\\
+Recordamos que la suma de matrices da una matriz cuyas entradas son la suma de las entradas correspondientes de las matrices a sumar. Para esta suma lo haremos mediante suma de listas ya que utilizaremos la función \texttt{matrix} para mostrar la matriz correspondiente y esta recibe como argumento de entrada una lista de listas.\\
 
-Por otro lado la multiplicación de matrices recordamos que consiste en multiplicar cada fila de la primera matriz por cada columna de la segunda matriz, obteniendo así un elemento en la entrada correspondiente a la fila y columna. Aquí si podemos utilizar la operación $\,mulVec\,$ entre vectores pues devuelve un valor que no es un vector, por tanto obtenemos una lista de vectores. Recordamos que para poder realizar multiplicaciones entre matrices el número de columnas de la primera matriz tiene que ser igual al número de filas de la segunda matriz.
+Por otro lado la multiplicación de matrices recordamos que consiste en multiplicar cada fila de la primera matriz por cada columna de la segunda matriz, obteniendo así un elemento en la entrada correspondiente a la fila y columna. Aquí si podemos utilizar la operación \texttt{mulVec} entre vectores pues devuelve un valor que no es un vector, por tanto obtenemos una lista de vectores. Recordamos que para poder realizar multiplicaciones entre matrices el número de columnas de la primera matriz tiene que ser igual al número de filas de la segunda matriz.
 \index{\texttt{addM}}
 \index{\texttt{mulM}}
 \begin{code}
@@ -188,19 +188,19 @@ mulM (M xs) (M ys)
 
 \end{code}
 
-Del mismo modo que para vectores, para matrices volveremos a utilizar la clase de tipos $Functor$ para establecer matrices en forma de listas.
+Del mismo modo que para vectores, para matrices volveremos a utilizar la clase de tipos \texttt{Functor} para establecer matrices en forma de listas.
 \begin{code}
 instance Functor Matrix where
   fmap f = M . map (fmap f) . unM
 \end{code}
 
-Veamos un ejemplo sobre los números enteros de $(fmap\,\,f)$, sumar 2 a una matriz:
+Veamos un ejemplo sobre los números enteros de \texttt{(fmap f)}, sumar 2 a una matriz:
 \begin{code}
 -- λ> fmap (<+> 2) (M [Vec [2,3], Vec [4,5]])
 --    [4,5]
 --    [6,7]
 \end{code}
-Introducimos las propiedades básicas de la matriz identidad. Estas estarán restringidas a la clase de dominio de integridad, $IntegralDomain$.
+Introducimos las propiedades básicas de la matriz identidad. Estas estarán restringidas a la clase de dominio de integridad, \texttt{IntegralDomain}.
 \index{\texttt{identity}}
 \index{\texttt{propLeftIdentity}}
 \index{\texttt{propRightIdentity}}
@@ -232,7 +232,7 @@ propRightIdentity a = a == a `mulM` identity m
 
 A continuación  vamos a trabajar con matrices sobre anillos conmutativos, al igual que hicimos con los vectores. Realizaremos operaciones entre filas y columnas, y veremos que estas operaciones no afectan a la dimensión de la matriz. Hacemos esta restricción debido a en el siguiente capítulo necesitaremos estas operaciones con matrices y estaremos restringidos a anillos conmutativos. \\
 
- Damos una breve descripción de la primera operación. El objetivo es multiplicar una fila por un escalar, de forma que la matriz obtenida tenga la fila que queramos modificar como el resultado de multiplicar esta fila por un número o escalar, quedando el resto de filas sin modificar. Los argumentos de entrada serán la matriz, el número de la fila que queremos modificar menos 1 (pues la función $(!!\,\,r)$ de la librería Data.List selecciona el elemento $r+1$ de la lista, pues es un índice y comienza en 0). Comprobaremos que esta operación no afecta a la dimensión, pues la dimensión de la matriz resultante es la misma que la primera matriz.
+ Damos una breve descripción de la primera operación. El objetivo es multiplicar una fila por un escalar, de forma que la matriz obtenida tenga la fila que queramos modificar como el resultado de multiplicar esta fila por un número o escalar, quedando el resto de filas sin modificar. Los argumentos de entrada serán la matriz, el número de la fila que queremos modificar menos 1 (pues la función \texttt{(!! r)} de la librería \texttt{Data.List} selecciona el elemento \texttt{r+1} de la lista, pues es un índice y comienza en 0). Comprobaremos que esta operación no afecta a la dimensión, pues la dimensión de la matriz resultante es la misma que la primera matriz.
 \index{\texttt{scaleMatrix}}
 \index{\texttt{propScaleDimension}}
 \begin{code}
@@ -258,7 +258,7 @@ propScaleDimension m r s = d == dimension (scaleMatrix m (mod r rows) s)
   where d@(rows,_) = dimension m
 \end{code}
 
-La siguiente operación consiste en intercambiar filas, el objetivo de $(swap \,\,m\,\,i\,\,j)$ es dada una matriz $m$ intercambiar las filas $i$ y $j$, de forma que la fila $i$ acabe en la posición de la fila $j$ y viceversa. Comprobamos que no varía de dimensión. Comprobaremos también que si realizamos el mismo intercambio dos veces obtenemos la matriz inicial.
+La siguiente operación consiste en intercambiar filas, el objetivo de \texttt{(swap m i j)} es dada una matriz \texttt{m} intercambiar las filas \texttt{i} y \texttt{j}, de forma que la fila \texttt{i} acabe en la posición de la fila \texttt{j} y viceversa. Comprobamos que no varía de dimensión. Comprobaremos también que si realizamos el mismo intercambio dos veces obtenemos la matriz inicial.
 \index{\texttt{swap}}
 \index{\texttt{propSwapDimension}}
 \index{\texttt{propSwapIdentity}}
@@ -298,7 +298,7 @@ propSwapIdentity m i j = m == swap (swap m i' j') i' j'
   j'      = mod j r
 \end{code}
 
-Mediante la función $(addRow\,\, m\,\, row@(Vec xs)\,\, x)$ realizamos la operación de sumar un vector ($row@(Vec xs)$)  a la fila $x+1$ de una matriz $m$ dada. Recordamos que es importante que el vector tenga la misma dimensión que el número de colunmas de la matriz. Verificamos que la dimensión no varía. Seguidamente realizamos la misma operación sobre las columnas. Para ello basta transponer la matriz y aplicar la función sobre las filas.
+Mediante la función \texttt{(addRow m row@(Vec xs) x)} realizamos la operación de sumar un vector \texttt{(row@(Vec xs))}  a la fila \texttt{x+1} de una matriz \texttt{m} dada. Recordamos que es importante que el vector tenga la misma dimensión que el número de colunmas de la matriz. Verificamos que la dimensión no varía. Seguidamente realizamos la misma operación sobre las columnas. Para ello basta transponer la matriz y aplicar la función sobre las filas.
 \index{\texttt{addRow}}
 \index{\texttt{propAddRowDimension}}
 \index{\texttt{addCol}}
@@ -367,7 +367,7 @@ Gracias a todo lo anterior ahora podemos implementar el método de Gauss-Jordan 
 
 Comenzaremos por obtener los pivotes en cada fila, escalonar la matriz y finalmente hacer el paso de Jordan para finalmente conseguir la solución del sistema. El paso de Jordan consiste en hacer ceros por encima de la diagonal de la matriz cuando previamente se ha obtenido ceros debajo de la diagonal de la matriz, esta primera parte se conoce como aplicar Gauss o aplicar el método de Gauss o escalonar una matriz.\\
 
-Para empezar damos las funciones para obtener un 0 en las posiciones de debajo del pivote y la segunda función consiste en localizar el siguiente pivote, comenzando la búsqueda desde una entrada fijada de la matriz. Por ejemplo, dada una matriz $3x3$ $findPivot\,\,m\,\,(0,1)$, nos devolverá el primer cero que aparezca en la columna 2 comenzando desde la fila 2, es decir, mirará las posiciones (2,2) y (2,3). Recordemos que en el algoritmo el índice empieza en 0, por lo que miraría las posiciones (1,1) y (1,2).
+Para empezar damos las funciones para obtener un 0 en las posiciones de debajo del pivote y la segunda función consiste en localizar el siguiente pivote, comenzando la búsqueda desde una entrada fijada de la matriz. Por ejemplo, dada una matriz $3\times 3$ \texttt{findPivot m (0,1)}, nos devolverá el primer cero que aparezca en la columna 2 comenzando desde la fila 2, es decir, mirará las posiciones \texttt{(2,2)} y \texttt{(2,3)}. Recordemos que en el algoritmo el índice empieza en 0, por lo que miraría las posiciones \texttt{(1,1)} y \texttt{(1,2)}.
 \index{\texttt{pivot}}
 \index{\texttt{findPivot}}
 \begin{code}
@@ -537,9 +537,9 @@ jordan (m, Vec ys) = case L.unzip (jordan' (zip (unMVec m) ys) (r-1)) of
 
 \end{code}
 
-Finalmente, podemos realizar el método de Gauss-Jordan, con el objetivo de resolver un sistema de ecuaciones de la forma $A\vec{x}=\vec{b}$. Primero obtenemos la matriz con solo la diagonal que es la obtenida tras aplicar Gauss-Jordan esto lo obtenemos con la función que denotaremos $gaussElim$. \\
+Finalmente, podemos realizar el método de Gauss-Jordan, con el objetivo de resolver un sistema de ecuaciones de la forma $A\vec{x}=\vec{b}$. Primero obtenemos la matriz con solo la diagonal que es la obtenida tras aplicar Gauss-Jordan esto lo obtenemos con la función que denotaremos \texttt{gaussElim}. \\
 
-La última función que denotaremos $gaussElimCorrect$, recibe la partición de la matriz $A$ y el vector columna $\vec{b}$. Con ella comprobamos dos cosas. La primera que la dimensión de las filas de la matriz $A$ coincida con la dimensión del vector $\vec{b}$ y que $A$ sea una matriz cuadrada. Una vez se cumple esto lo siguiente que comprueba es que el vector que se obtiene de $gaussElim$ al multiplicarlo por la matriz $A$ coincide con el vector $\vec{b}$.
+La última función que denotaremos \texttt{gaussElimCorrect}, recibe la partición de la matriz $A$ y el vector columna $\vec{b}$. Con ella comprobamos dos cosas. La primera que la dimensión de las filas de la matriz $A$ coincida con la dimensión del vector $\vec{b}$ y que $A$ sea una matriz cuadrada. Una vez se cumple esto lo siguiente que comprueba es que el vector que se obtiene de \texttt{gaussElim} al multiplicarlo por la matriz $A$ coincide con el vector $\vec{b}$.
 \index{\texttt{gaussElim}}
 \index{\texttt{gaussElimCorrect}}
 \begin{code}

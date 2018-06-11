@@ -8,7 +8,7 @@ import TAHCommutative
 import TAHIdeal
 \end{code}
 
-Para desarrollar esta pequeña sección, importamos los módulos TAHConmutative y TAHIdeal. Veamos antes unas definiciones teóricas.\\
+Para desarrollar esta pequeña sección, importamos los módulos \texttt{TAHConmutative} y \texttt{TAHIdeal}. Veamos antes unas definiciones teóricas.\\
 
 \begin{defi}
 Un anillo se llama discreto si la igualdad es decidible.
@@ -27,9 +27,9 @@ class Ring a => StronglyDiscrete a where
   member :: a -> Ideal a -> Maybe [a]
 \end{code}
 
-El objetivo de este método es decidir si un elemento del anillo pertene al ideal, por ello hacemos uso del constructor $(Maybe\,\,[a])$. En el caso de que no pertenezca al ideal, $member$ devolverá $Nothing$. Por otro lado, si un elemento pertenece a un ideal, significa que podemos escribir dicho elemento mediante una combinación lineal de los generadores del ideal. Por ello, si el elemento pertenece al ideal, $member$ nos devolverá la lista con los coeficientes de los generadores del ideal al que nuestro elemento pertenece.\\
+El objetivo de este método es decidir si un elemento del anillo pertene al ideal, por ello hacemos uso del constructor \texttt{(Maybe\,\,[a])}. En el caso de que no pertenezca al ideal, \texttt{member} devolverá \texttt{Nothing}. Por otro lado, si un elemento pertenece a un ideal, significa que podemos escribir dicho elemento mediante una combinación lineal de los generadores del ideal. Por ello, si el elemento pertenece al ideal, \texttt{member} nos devolverá la lista con los coeficientes de los generadores del ideal al que nuestro elemento pertenece.\\
 
-Para verificar que una especificación concreta de $member$ es correcta definimos una función que denotaremos $(propStronglyDiscrete\,\,x\,\,id@(Id xs))$, esta devolverá un booleano, $True$ cuando $member$ haya funcionado bien y $False$ cuando no haya devuelto lo esperado. En caso de que no pertenezca al ideal y devuelva $Nothing$ significa que funciona correctamente luego obtendremos un $True$. Si $x$ pertenece al ideal generado por $xs$ entonces comprobará que la lista de coeficientes que $member$ ha devuelto al multiplicarla por la lista de generadores del ideal, $xs$, la suma resultante es $x$ y entonces devolverá un $True$.
+Para verificar que una especificación concreta de \texttt{member} es correcta definimos una función que denotaremos \texttt{(propStronglyDiscrete\,\,x\,\,id@(Id xs))}, esta devolverá un booleano, \texttt{True} cuando \texttt{member} haya funcionado bien y \texttt{False} cuando no haya devuelto lo esperado. En caso de que no pertenezca al ideal y devuelva \texttt{Nothing} significa que funciona correctamente luego obtendremos un \texttt{True}. Si \texttt{x} pertenece al ideal generado por \texttt{xs} entonces comprobará que la lista de coeficientes que \texttt{member} ha devuelto al multiplicarla por la lista de generadores del ideal, \texttt{xs}, la suma resultante es \texttt{x} y entonces devolverá un \texttt{True}.
 
 \index{\texttt{propStronglyDiscrete}}
 \begin{code}

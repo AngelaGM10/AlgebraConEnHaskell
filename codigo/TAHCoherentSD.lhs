@@ -32,7 +32,7 @@ Si $\,b\,\in\,<m_1,\cdots ,m_n>\,$ entonces se tiene que obtener los coeficiente
 $b=m_1w_1 + \cdots + m_nw_n\,$. Por tanto, $\,(w_1,\cdots ,w_n)\,$ es solución.
 \end{dem}
 
-Mediante la función que denotaremos $\,solveGeneralEquation\,$ obtendremos el primer paso para calcular la solución de un sistema del tipo $\,M\vec{X}=\vec{b}\,$, partiendo de que estamos en un anillo fuertemente discreto. Esta función recibe el vector $\,v\,$ y la solución $\,b\,$. Aplicamos $\,solve\,$ sobre dicho vector para encontrar la matriz $\,L\,$ para verificar que se trata de un anillo coherente. Después con $\,member\,$ se generará la lista de coeficientes de la combinación lineal. Finalmente se suman ambas.
+Mediante la función que denotaremos \texttt{solveGeneralEquation} obtendremos el primer paso para calcular la solución de un sistema del tipo $\,M\vec{X}=\vec{b}\,$, partiendo de que estamos en un anillo fuertemente discreto. Esta función recibe el vector $\,v\,$ y la solución $\,b\,$. Aplicamos \texttt{solve} sobre dicho vector para encontrar la matriz $\,L\,$ para verificar que se trata de un anillo coherente. Después con \texttt{member} se generará la lista de coeficientes de la combinación lineal. Finalmente se suman ambas.
 \index{\texttt{solveGeneralEquation}}
 \index{\texttt{isSolutionB}}
 \index{\texttt{propSolveGeneralEquation}}
@@ -65,7 +65,7 @@ propSolveGeneralEquation v b = case solveGeneralEquation v b of
   Nothing  -> True
 \end{code}
 
-La función $\,isSolutionB\,$ es similar a $\,isSolution\,$. Ambas tienen el mismo objetivo, comprobar que la solución del sistema obtenida es correcta. Solo que una es para sistemas no homogéneos y la otra es para sistemas homogéneos, respectivamente.\\
+La función \texttt{isSolutionB} es similar a \texttt{isSolution}. Ambas tienen el mismo objetivo, comprobar que la solución del sistema obtenida es correcta. Solo que una es para sistemas no homogéneos y la otra es para sistemas homogéneos, respectivamente.\\
 
 Ahora vamos a resolver sistemas lineales generales de la forma $\,M\vec{X}=\vec{b}\,$.
 \index{\texttt{solveGeneral}}
@@ -96,9 +96,9 @@ solveGeneral (M (l:ls)) (Vec (a:as)) =
   solveGeneral' _ _ _ _ = error "solveGeneral: Error en la entrada"
 \end{code}
 
-Las dos funciones anteriores, $\,solveGeneralEquation\,$ y $\,solveGeneral\,$ también son similares. La diferencia es que $\,solveGeneralEquation\,$ resuelve un sistema de la forma $\,\vec{m}\vec{X}=(b)\,$, es decir, para el caso en el que $M$ es un vector y no una matriz. Mientras que $\,solveGeneral\,$ nos permite calcular la solución de un sistema $M\vec{X} = \vec{b}$ donde M es una matriz. Ambas funciones están basadas en la proposición 4, solo que cada una es un caso de la prueba 4.\\
+Las dos funciones anteriores, \texttt{solveGeneralEquation} y \texttt{solveGeneral} también son similares. La diferencia es que \texttt{solveGeneralEquation} resuelve un sistema de la forma $\,\vec{m}\vec{X}=(b)\,$, es decir, para el caso en el que $M$ es un vector y no una matriz. Mientras que \texttt{solveGeneral} nos permite calcular la solución de un sistema $M\vec{X} = \vec{b}$ donde M es una matriz. Ambas funciones están basadas en la proposición 4, solo que cada una es un caso de la prueba 4.\\
 
-La función $\,solveGeneral\,$ consiste en obtener el sistema de generadores de la solución. Para ello con $\,solveGeneralEquation\,$ conseguimos un generador de la solución, a partir del cuál se comprueba que sea un generador para todas las ecuaciones del sistema.\\
+La función \texttt{solveGeneral} consiste en obtener el sistema de generadores de la solución. Para ello con \texttt{solveGeneralEquation} conseguimos un generador de la solución, a partir del cuál se comprueba que sea un generador para todas las ecuaciones del sistema.\\
 
 Finalmente, con la siguiente propiedad comprobaremos que la solución es correcta. Primero tenemos que comprobar que las filas de $\,M\,$ son de la misma longitud que $\,\vec{b}\,$. Después, multiplicamos la matriz $\,M\,$ con la matriz solución y vemos si coincide componente a componente con el vector $\,\vec{b}\,$.
 \index{\texttt{propSolveGeneral}}
