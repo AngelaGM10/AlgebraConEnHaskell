@@ -20,7 +20,7 @@ import TAHField
 import TAHVector
 
 \end{code}
-Antes de comenzar, hemos importado algunas librerías necesarias para construir las matrices. Entre ellas utilizaremos \texttt{Control.Arrow}, de ella tenemos que excluir la suma \texttt{(<+>)} pues nosotros utilizamos la definida en anillos.
+Antes de comenzar, hemos importado algunas librerías necesarias para construir las matrices. Entre ellas utilizaremos \texttt{Control.Arrow}, de ella tenemos que excluir la suma \texttt{(<+>)} pues nosotros utilizamos la definida en anillos. Esta librería es necesaria para el uso de la función \texttt{&&&}.
 
 Declaramos el nuevo tipo de matrices, la representación de la matriz viene dada en forma de lista de vectores, donde cada vector de la lista representa una fila de la matriz. Daremos también una instancia para que se puedan mostrar. Así como un generador de matrices aleatorio, similar al utilizado en vectores, con el fin de poder comprobar resultados mediante \texttt{QuickCheck}.
 
@@ -55,9 +55,10 @@ matrix :: [[r]] -> Matrix r
 matrix xs = 
   let m = fromIntegral $ length xs
       n = fromIntegral $ length (head xs)
-  in if length (filter (\x -> fromIntegral (length x) == n) xs) == length xs 
+  in if
+    length (filter (\x -> fromIntegral (length x) == n) xs) == length xs 
         then M (map Vec xs)
-        else error "La dimensión del vector no puede ser distinta al resto"
+        else error "La dimensión del vector es distinta al resto"
 \end{code}
 
 Las siguientes funciones son para mostrar una matriz como lista de vectores, y aplicar funciones con este formato sobre ella. Pasar de matrices a vectores y viceversa, así como una función para obtener el elemento en la posición $(i,j)$.
@@ -230,7 +231,7 @@ propRightIdentity a = a == a `mulM` identity m
   where m = snd (dimension a)
 \end{code}
 
-A continuación  vamos a trabajar con matrices sobre anillos conmutativos, al igual que hicimos con los vectores. Realizaremos operaciones entre filas y columnas, y veremos que estas operaciones no afectan a la dimensión de la matriz. Hacemos esta restricción debido a en el siguiente capítulo necesitaremos estas operaciones con matrices y estaremos restringidos a anillos conmutativos. \\
+A continuación  vamos a trabajar con matrices sobre anillos conmutativos, al igual que hicimos con los vectores. Realizaremos operaciones entre filas y columnas, y veremos que estas operaciones no afectan a la dimensión de la matriz. Hacemos esta restricción debido a que en el siguiente capítulo necesitaremos estas operaciones con matrices y estaremos restringidos a anillos conmutativos. \\
 
  Damos una breve descripción de la primera operación. El objetivo es multiplicar una fila por un escalar, de forma que la matriz obtenida tenga la fila que queramos modificar como el resultado de multiplicar esta fila por un número o escalar, quedando el resto de filas sin modificar. Los argumentos de entrada serán la matriz, el número de la fila que queremos modificar menos 1 (pues la función \texttt{(!! r)} de la librería \texttt{Data.List} selecciona el elemento \texttt{r+1} de la lista, pues es un índice y comienza en 0). Comprobaremos que esta operación no afecta a la dimensión, pues la dimensión de la matriz resultante es la misma que la primera matriz.
 \index{\texttt{scaleMatrix}}
@@ -367,7 +368,7 @@ Gracias a todo lo anterior ahora podemos implementar el método de Gauss-Jordan 
 
 Comenzaremos por obtener los pivotes en cada fila, escalonar la matriz y finalmente hacer el paso de Jordan para finalmente conseguir la solución del sistema. El paso de Jordan consiste en hacer ceros por encima de la diagonal de la matriz cuando previamente se ha obtenido ceros debajo de la diagonal de la matriz, esta primera parte se conoce como aplicar Gauss o aplicar el método de Gauss o escalonar una matriz.\\
 
-Para empezar damos las funciones para obtener un 0 en las posiciones de debajo del pivote y la segunda función consiste en localizar el siguiente pivote, comenzando la búsqueda desde una entrada fijada de la matriz. Por ejemplo, dada una matriz $3\times 3$ \texttt{findPivot m (0,1)}, nos devolverá el primer cero que aparezca en la columna 2 comenzando desde la fila 2, es decir, mirará las posiciones \texttt{(2,2)} y \texttt{(2,3)}. Recordemos que en el algoritmo el índice empieza en 0, por lo que miraría las posiciones \texttt{(1,1)} y \texttt{(1,2)}.
+Para empezar damos las funciones para obtener un 0 en las posiciones de debajo del pivote y la segunda función consiste en localizar el siguiente pivote, comenzando la búsqueda desde una entrada fijada de la matriz. Por ejemplo, dada una matriz $3x3$ la función \texttt{(findPivot m (0,1))}, nos devolverá el primer cero que aparezca en la columna 2 comenzando desde la fila 2, es decir, mirará las posiciones \texttt{(2,2)} y \texttt{(2,3)}. Recordemos que en el algoritmo el índice empieza en 0, por lo que miraría las posiciones \texttt{(1,1)} y \texttt{(1,2)}.
 \index{\texttt{pivot}}
 \index{\texttt{findPivot}}
 \begin{code}
@@ -387,7 +388,8 @@ pivot m s p t = addRow m (fmap (s <**>) (unM m !! p)) t
 -- | Encontrar el primer cero que aparezca la columna c empezando
 --   desde la fila r y devolve el valor del pivote y el número de
 --   la fila en la que está.
-findPivot :: (CommutRing a, Eq a) => Matrix a -> (Int,Int) -> Maybe (a,Int)
+findPivot :: (CommutRing a, Eq a) =>
+                 Matrix a -> (Int,Int) -> Maybe (a,Int)
 findPivot m (r,c) = safeHead $ filter ((/= zero) . fst) $ drop (r+1) $
                     zip (head $ drop c $ unMVec $ transpose m) [0..]
   where
@@ -399,17 +401,20 @@ findPivot m (r,c) = safeHead $ filter ((/= zero) . fst) $ drop (r+1) $
 -- Ejemplos:
 -- λ> findPivot (M [Vec [1,3,4], Vec [0,5,6], Vec [0,8,9]]) (0,0)
 --    Nothing
--- Devuelve Nothing porque en la primera columna y la primera fila no hay 0
+-- Devuelve Nothing porque en la primera columna y la primera fila
+-- no hay 0
+
 -- λ> findPivot (M [Vec [1,3,4], Vec [0,5,6], Vec [0,8,9]]) (0,1)
 --    Just (5,1)
 -- Devuelve (5,1) porque 5 es el primer valor distinto de cero comenzando
 -- desde la fila 1  (sin contar la propia fila 1) hacia abajo siguiendo
 -- la columna 2.
+
 -- λ> findPivot (M [Vec [1,3,4], Vec [0,0,6], Vec [0,8,9]]) (0,1)
 --    Just (8,2)
--- Al colocar un 0 en la posición donde antes teníamos un 5 vemos como ahora
--- nos devuelve el primer valor distinto de cero que aparezca en la columna
--- 2 empezando desde la fila 1 (sin contar la propia fila 1)
+-- Al colocar un 0 en la posición donde antes teníamos un 5 vemos como
+-- ahora nos devuelve el primer valor distinto de cero que aparezca en la
+-- columna 2 empezando desde la fila 1 (sin contar la propia fila 1)
 \end{code}
 
 Con la siguiente función buscamos escalonar la matriz de forma que todo lo que quede debajo de la diagonal sean ceros. Para ello necesitamos que sea un cuerpo pues necesitamos que exista inverso, ya que el valor del escalar al multiplicarse por la fila en la posición del pivote se corresponde con el inverso del pivote para que al sumarlo obtengamos un cero.
@@ -422,11 +427,13 @@ fE (M (Vec []:_)) = M []
 fE m     = case L.findIndices (/= zero) (map head xs) of
   (i:is) -> case fE (cancelOut
      m [ (i,map head xs !! i) | i <- is ] (i,map head xs !! i)) of
-    ys -> matrix (xs !! i : map (zero :) (unMVec ys))
+                 ys -> matrix (xs !! i : map (zero :) (unMVec ys))
+
   []     -> case fE (matrix (map tail xs)) of
-    ys -> matrix (map (zero:) (unMVec ys))
+                 ys -> matrix (map (zero:) (unMVec ys))
   where
-  cancelOut :: (Field a, Eq a) => Matrix a -> [(Int,a)] -> (Int,a) -> Matrix a
+  cancelOut :: (Field a, Eq a) =>
+                        Matrix a -> [(Int,a)] -> (Int,a) -> Matrix a
   cancelOut m [] (i,_)    = let xs = unMVec m in matrix $
                                      map tail (L.delete (xs !! i) xs)
   cancelOut m ((t,x):xs) (i,p) =
@@ -435,11 +442,6 @@ fE m     = case L.findIndices (/= zero) (map head xs) of
   xs = unMVec m
 
 --Ejemplos:
---λ>  fE (M [Vec [2,3,4], Vec [4,5,6], Vec [7,8,9]])
---[2.0,3.0,4.0]
---[0.0,6.5,8.0]
---[0.0,0.0,16.013824884792626]
-
 --λ> fE (M [Vec [1,3,4], Vec [0,0,6], Vec [0,8,9]])
 --[1.0,3.0,4.0]
 --[0.0,8.0,9.0]
@@ -447,15 +449,16 @@ fE m     = case L.findIndices (/= zero) (map head xs) of
 
 --λ> fE (M [Vec [1,0,2], Vec [2,-1,3], Vec [4,1,8]])
 --[1.0,0.0,2.0]
---[0.0,-1.0,4.0]
---[0.0,0.0,4.5]
+--[0.0,-1.0,-1.0]
+--[0.0,0.0,-1.0]
 \end{code}
 
 Para calcular la forma escalonada para resolver un sistema $\,A\vec{x} = \vec{b}\,$, seguimos necesitando que los elementos de las matrices pertenezca a un cuerpo. Primero aplicamos Gauss, es decir, obtenemos ceros por debajo de la diagonal. Aplicando las operaciones al vector $\vec{b}$ también. De esta forma se queda el sistema preparado para resolver de abajo a arriba cada incógnita. Además, con esta función dejamos los pivotes con unos, para facilitar la solución del sistema.
 \index{\texttt{forwardElim}}
 \begin{code}
 -- | Calcular la forma escalonada de un sistema Ax = b.
-forwardElim :: (Field a, Eq a) => (Matrix a,Vector a) -> (Matrix a,Vector a)
+forwardElim :: (Field a, Eq a) =>
+                    (Matrix a,Vector a) -> (Matrix a,Vector a)
 forwardElim (m,v) = fE m' (0,0)
   where
   -- fE toma como argumento de entrada la matriz a escalonar y
@@ -501,6 +504,11 @@ forwardElim (m,v) = fE m' (0,0)
 -- [0.0,0.0,1.0]
 -- ,[4.0,0.75,0.8333333333333333])
 
+--λ> forwardElim (M [Vec [1,0,2], Vec [2,1,-3], Vec [4,1,8]],Vec [4,5,6])
+--([1.0,0.0,2.0]
+--[0.0,1.0,-7.0]
+--[0.0,0.0,1.0]
+--,[4.0,-3.0,-1.0])
 
 \end{code}
 
@@ -522,18 +530,17 @@ jordan (m, Vec ys) = case L.unzip (jordan' (zip (unMVec m) ys) (r-1)) of
             v <-> x !! c <**> snd (last xs))
             | (x,v) <- init xs ] (c-1) ++ [last xs]
 --Ejemplos:
---λ> jordan (M [Vec [1,3,4], Vec [0,1,1.125], Vec [0,0,1]],Vec [4,0.75,0.84])
--- ([1.0,0.0,0.0]
--- [0.0,1.0,0.0]
--- [0.0,0.0,1.0]
--- ,[4.481964329257672,1.8082010582010584,0.84])
+--jordan (M [Vec [1,0,2], Vec [2,1,-3], Vec [4,1,8]],Vec [4,5,6])
+--([1.0,0.0,0.0]
+--[2.0,1.0,0.0]
+--[4.0,1.0,8.0]
+--,[-8.0,23.0,6.0])
 --
---λ> jordan (M [Vec [1,3,4], Vec [1,0,6], Vec [0,8,9]],Vec [4,5,6])
--- ([1.0,0.0,0.0]
--- [1.0,0.0,0.0]
--- [0.0,8.0,9.0]
--- ,[4.107965009208104,5.027777777777778,6.0])
-
+--jordan (M [Vec [1,0,2], Vec [0,1,-7], Vec [0,0,1]], Vec [4.0,-3.0,-1.0])
+--([1.0,0.0,0.0]
+--[0.0,1.0,0.0]
+--[0.0,0.0,1.0]
+--,[6.0,-10.0,-1.0])
 
 \end{code}
 
@@ -554,4 +561,18 @@ gaussElimCorrect m@(a,b) =
   fst (dimension a) == lengthVec b && isSquareMatrix a ==>
   matrixToVector (transpose
   (a `mulM` transpose (M [snd (gaussElim m)]))) == b
+
+--Ejemplo:
+--λ> gaussElim (M [Vec [1,0,2], Vec [2,1,-3], Vec [4,1,8]],Vec [4,5,6])
+--([1.0,0.0,0.0]
+--[0.0,1.0,0.0]
+--[0.0,0.0,1.0]
+--,[6.0,-10.0,-1.0])
+
+--λ> gaussElim (M [Vec [2,7,3], Vec [1,3,4], Vec [1,4,3]],Vec [-7,3,-2])
+--([1.0,0.0,0.0]
+--[-0.0,1.0,0.0]
+--[0.0,0.0,1.0]
+--,[4.0,-3.0,2.0])
+
 \end{code}

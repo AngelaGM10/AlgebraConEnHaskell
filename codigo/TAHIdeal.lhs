@@ -18,12 +18,12 @@ import TAHCommutative
 Para desarrollar está sección importamos el módulo \texttt{TAHConmutative}.\\
 
 \begin{defi}
-Sea $(R,+,*)$ un anillo. Un ideal de $R$ es un subconjunto $I \subset\, R$ tal que\\
+Sea $(R,+,*)$ un anillo. Un ideal de $R$ es un subconjunto $I \subset\, R$ tal que
+\begin{enumerate}
+\item $(I, +)$ es un subgrupo de $(R, +)$.
 
-1. $(I, +)$ es un subgrupo de $(R, +)$.\\
-
-2. $RI \subset\, I$.\\
-
+\item $RI \subset\, I$.
+\end{enumerate}
 Es decir, $\forall\,\, a \in\, A \forall\, b \in\, I, ab \in\, I$.
 \end{defi}
 
@@ -37,11 +37,11 @@ vacía puesto que $R$ es un ideal que contiene a $E$).
 
 Se llama ideal generado por los elementos $e_1,..,e_r$ de un anillo $(A,+,*)$ al conjunto $E = <e_1,..,e_r> := \{a_1e_1 + .. + a_re_r \,\,|\,\, a_1,..a_r \in\,\, A\}$. Este conjunto es el ideal de $A$ más pequeño que contiene a los elementos $e_1,..,e_r$. Cualquier elemento x del ideal generado por $E$, es una combinación lineal de los generadores. Es decir, si $x \in\,\, E$, existen coeficientes $\alpha_1,..,\alpha_r$ tales que $x=\alpha_1x_1+..+\alpha_rx_r$.\\
 
-Para el tipo de dato de los Ideales, en anteriores versiones de Haskell podiamos introducir una restricción al tipo que ibamos a definir mediante el constructor \texttt{data}, pero actualmente no se puede. Mediante \texttt{data} se define el tipo \texttt{Ideal a}, donde \texttt{a} es un tipo cualquiera que representa los elementos del ideal. El constructor es \texttt{Id} cuyo conjunto es una lista de elementos de \texttt{a} (los generados del ideal).\\
+Para el tipo de dato de los ideales, en anteriores versiones de Haskell podiamos introducir una restricción al tipo que ibamos a definir mediante el constructor \texttt{data}, pero actualmente no se puede. Mediante \texttt{data} se define el tipo \texttt{Ideal a}, donde \texttt{a} es un tipo cualquiera que representa los elementos del ideal. El constructor es \texttt{Id} cuyo conjunto es una lista de elementos de \texttt{a} (los generadores del ideal).\\
 
-Para especificar en Haskell el ideal generado por un conjunto finito $E$, con \texttt{data} crearemos el tipo de dato mediante el constructor \texttt{Id} y el conjunto $E$ se representará por una lista de elementos del anillo. Por ejemplo, en el anillo de los enteros $\mathbb{Z}$, el ideal generado por $<2,5>$ se representará por \texttt{(Id\, [2,5])}. Y el ideal canónico cero \texttt{<0>} en cualquier anillo se representará por \texttt{(Id [zero])}, hay dos ideales canónicos, el cero ideal y todo el anillo R, este último se representará por \texttt{(Id [one])}.\\
+Para especificar en Haskell el ideal generado por un conjunto finito $E$, con \texttt{data} crearemos el tipo de dato mediante el constructor \texttt{Id} y el conjunto $E$ se representará por una lista de elementos del anillo. Por ejemplo, en el anillo de los enteros $\mathbb{Z}$, el ideal generado por $<2,5>$ se representará por \texttt{(Id\, [2,5])}. Y el ideal canónico cero <0> en cualquier anillo se representará por \texttt{(Id [zero])}, hay dos ideales canónicos, el cero ideal y todo el anillo R, este último se representará por \texttt{(Id [one])}.\\
 
-Los ideales con los que trabajaremos están restringidos a anillos conmutativos. Para aplicar dicha restricción, lo haremos en cada definición de instancia o función, quedando explicito que usaremos los anillos conmutativos con la clase definida anteriormente como \texttt{CommutRing}.
+Los ideales con los que trabajaremos están restringidos a anillos conmutativos. Para aplicar dicha restricción, lo haremos en cada definición de instancia o función, quedando explícito que usaremos los anillos conmutativos con la clase definida anteriormente como \texttt{CommutRing}.
 \index{\texttt{zeroIdeal}}
 \begin{code}
 -- |Ideales caracterizados por una lista de generadores.
@@ -51,9 +51,10 @@ instance Show a => Show (Ideal a) where
   show (Id xs) = "<" ++ concat (intersperse "," (map show xs)) ++ ">"
 
 instance (CommutRing a, Arbitrary a, Eq a) => Arbitrary (Ideal a) where
-  arbitrary = do xs' <- arbitrary
-                 let xs = filter (/= zero) xs'
-                 if xs == [] then return (Id [one]) else return (Id (nub xs))
+  arbitrary =
+      do xs' <- arbitrary
+         let xs = filter (/= zero) xs'
+         if xs == [] then return (Id [one]) else return (Id (nub xs))
 
 -- | El ideal cero.
 zeroIdeal :: CommutRing a => Ideal a
@@ -62,7 +63,7 @@ zeroIdeal = Id [zero]
 
 Al añadir \texttt{deriving (Show)} al final de una declaración de tipo, automáticamente Haskell hace que ese tipo forme parte de la clase de tipos \texttt{Show}, y lo muestra como lo tenga por defecto. Mediante esta instancia modificamos esta presentación especificando como queremos que lo muestre. Por ejemplo, el ideal \texttt{(Id [2,5])} se va a mostrar como \texttt{<2,5>}.\\  
 
-Para la segunda instancia hemos utilizado la clase \texttt{Arbitrary}. Esta proviene de la líbrería \texttt{QuickCheck}, proporciona una generación aleatoria y proporciona valores reducidos. Gracias a esta clase, con la segunda instancia podemos generar ideales de forma aleatoria. Esto nos ayudará a comprobar las funciones a verificar para ser un ideal.\\
+Para la segunda instancia hemos utilizado la clase \texttt{Arbitrary}. Esta proviene de la librería \texttt{QuickCheck}, proporciona una generación aleatoria y proporciona valores reducidos. Gracias a esta clase, con la segunda instancia podemos generar ideales de forma aleatoria. Esto nos ayudará a comprobar las funciones a verificar para ser un ideal.\\
 
 Vamos a explicar brevemente como funciona la segunda instancia. Comienza generando una lista \texttt{xs'} de elementos cualesquiera del anillo, con \texttt{filter} se filtra y se eliminan los ceros obteniendo la nueva lista \texttt{xs}. Si \texttt{xs = []}, se genera el ideal \texttt{(Id\, [one])}, todo el anillo; en caso contrario, el ideal generado por los elementos de \texttt{xs}, sin repeticiones (eliminadas con la función \texttt{nub}).\\
 
@@ -73,7 +74,7 @@ Un ideal $I \subset R$ se llama principal si se puede generar por un sólo eleme
 \end{defi}
 \\
 Los anillos como $\mathbb{Z}$ en los cuales todos los ideales son principales se llaman clásicamente 
-dominios de ideales principales. Pero constructivamente esta definición no es adecuada. Sin embargo, nosotros solo queremos considerar anillos en los cuales todos los ideales finitamente generados son principales. Al ser representados por un conjunto finito, podemos implementarlo a nivel computacional. Estos anillos se llaman dominios de Bézout y se considerarán en el siguiente capítulo. Siempre que se pueda añadiremos ejemplos sobre los enteros, haciendo uso de la instancia sobre los enteros especificada en los anteriores módulos.
+dominios de ideales principales. Siempre que se pueda añadiremos ejemplos sobre los enteros, haciendo uso de la instancia sobre los enteros especificada en los anteriores módulos.
 \index{\texttt{isPrincipal}}
 \begin{code}
 isPrincipal :: CommutRing a => Ideal a -> Bool
@@ -102,7 +103,7 @@ fromId (Id xs) = xs
 Ahora veamos algunas operaciones sobre ideales y propiedades fundamentales de ideales, como pueden ser la suma y multiplicación. Por último daremos una función para identificar si dos ideales son el mismo ideal. Para realizar la implementación de estas operaciones, lo haremos solo para ideales finitamente generados.\\
 
 \begin{defi}
-Si $I$ y $J$ son ideales de un anillo $(R,+,*)$, se llama suma de ideales al conjunto $I\,\, +\,\, J = \{a+b\,\, |\,\, a\,\, \in\,\, I, b\in\,\, J\}$.La suma de ideales también es un ideal.
+Si $I$ y $J$ son ideales de un anillo $(R,+,*)$, se llama suma de ideales al conjunto $I\,\, +\,\, J = \{a+b\,\, |\,\, a\,\, \in\,\, I, b\in\,\, J\}$. La suma de ideales también es un ideal.
 \end{defi}
 
 Está definición es para cualquier ideal, nosotros nos centramos en los ideales finitamente generados. La suma de ideales finitamente generados es también un ideal finitamente generado y esta puede obtenerse a partir de los generadores de ambos ideales, es decir, $I\,+\,J\,\,=\,<I\,\cup\,J>.
@@ -161,7 +162,7 @@ isSameIdeal op (Id xs) (Id ys) =
          | (z_k,b_k) <- zip zs bs ]
 \end{code}
 
-Explicamos con más detalle como funciona \texttt{isSameIdeal}. Recibe como argumento una operación \texttt{op} que representa una operación entre los dos ideales que recibe. Es decir, la función \texttt{op} debería devolver una terna \texttt{(Id zs, as, bs)}, donde $as$ y $bs$ son listas de listas de coeficientes (justamente, los coeficientes de cada generador de \texttt{zs} en función de \texttt{xs} y de \texttt{ys},respectivamente). La función \texttt{isSameIdeal} devuelve un booleano, si devuelve \texttt{True} nos indica que la operación que se ha realizado entre ambos ideales es correcta. Cada elemento de \texttt{zs} se puede expresar como combinación lineal de \texttt{xs} con los coeficientes proporcionados por el correspondiente elemento de \texttt{as} (análogamente, como combinación lineal de \texttt{ys} con los coeficientes proporcionados por \texttt{bs}).
+Explicamos con más detalle como funciona \texttt{isSameIdeal}. Recibe como argumento una operación \texttt{op} que representa una operación entre los dos ideales que recibe. Es decir, la función \texttt{op} debería devolver una terna \texttt{(Id zs, as, bs)}, donde \texttt{as} y \texttt{bs} son listas de listas de coeficientes (justamente, los coeficientes de cada generador de \texttt{zs} en función de \texttt{xs} y de \texttt{ys}, respectivamente). La función \texttt{isSameIdeal} devuelve un booleano, si devuelve \texttt{True} nos indica que la operación que se ha realizado entre ambos ideales es correcta. Cada elemento de \texttt{zs} se puede expresar como combinación lineal de \texttt{xs} con los coeficientes proporcionados por el correspondiente elemento de \texttt{as} (análogamente, como combinación lineal de \texttt{ys} con los coeficientes proporcionados por \texttt{bs}).
 
 Para finalizar esta sección, implementamos la función zeroIdealWitnesses proporciona la función “testigo” para una operación sobre ideales cuyo resultado sea el ideal cero.
 

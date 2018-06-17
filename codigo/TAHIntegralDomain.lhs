@@ -8,7 +8,7 @@ module TAHIntegralDomain
 import Test.QuickCheck
 import TAHCommutative
 \end{code}
-Para iniciar este módulo necesitamos importar el módulo \texttt{TAHCommutative} ya que vamos a definir los dominios de integridad sobre anillos conmutativos, por lo que la clase que vamos a definir parte del tipo \texttt{CommutRing} que como hemos definido antes es el tipo de los anillos conmutativos. Damos su definición.\\
+Para iniciar este módulo necesitamos importar el módulo \texttt{TAHCommutative} ya que vamos a definir los dominios de integridad sobre anillos conmutativos, por lo que la clase que vamos a definir parte de la clase \texttt{CommutRing} que como hemos definido antes es el tipo de los anillos conmutativos. Damos su definición.\\
 
 \begin{defi}
 Dado un anillo $(A,+,*)$, un elemento $a \in\, A$ se dice que es un divisor de cero si existe $b \in\, A- \{0\}$ tal que $a*b = 0$.
@@ -19,7 +19,8 @@ Un anillo A se dice dominio de integridad, si el único divisor de cero es $0$. 
 -- | Definición de dominio de integridad.
 class CommutRing a => IntegralDomain a
 
--- | Un dominio de integridad es un anillo cuyo único divisor de cero es 0.
+-- | Un dominio de integridad es un anillo cuyo único divisor
+--   de cero es 0.
 propZeroDivisors :: (IntegralDomain a, Eq a) => a -> a -> Bool
 propZeroDivisors a b = if a <**> b == zero then
                               a == zero || b == zero else True
@@ -30,12 +31,13 @@ Para determinar si un anillo es un dominio de integridad usaremos la siguiente p
 \index{\texttt{propIntegralDomain}}
 \begin{code}
 propIntegralDomain :: (IntegralDomain a, Eq a) => a -> a -> a -> Property
-propIntegralDomain a b c = if propZeroDivisors a b
-                              then propCommutRing a b c 
-                              else whenFail (print "propZeroDivisors") False
+propIntegralDomain a b c =
+    if propZeroDivisors a b
+        then propCommutRing a b c 
+        else whenFail (print "propZeroDivisors") False
 \end{code}
 
-Un ejemplo de dominio de integridad es el de los números enteros, el cual definimos sus operaciones en el anterior módulo de anillos. Por tanto añadiendo la instancia a la clase de dominio de integridad, comprueba que se verifiquen las operaciones necesarias para ser un dominio de integridad.
+El conjunto de los números enteros es un dominio de integridad. Mediante la instancia a la clase de dominio de integridad, comprueba que se verifiquen las operaciones necesarias para ser un dominio de integridad.
 \index{\texttt{instance IntegralDomain Integer}}
 \begin{code}
 instance IntegralDomain Integer 

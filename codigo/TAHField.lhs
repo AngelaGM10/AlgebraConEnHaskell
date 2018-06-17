@@ -49,6 +49,7 @@ infixl 7 </>
 x </> y = x <**> inv y
 \end{code}
 
+Un ejemplo de cuerpo es el conjunto de los números reales $\mathbb{R}$, mediante instancias especificamos las operaciones que dotan al conjunto de estructura de anillo, anillo conmutativo y dominio de integridad. Para la instancia de cuerpo, tenemos que concretar la operación \texttt{inv} para que obtenga el inverso de cada elemento.
 
 \begin{code}
 -- | El anillo de los reales con las operaciones usuales es cuerpo:
@@ -56,7 +57,7 @@ x </> y = x <**> inv y
 instance Ring Double where
      (<+>)  = (+)
      (<**>) = (*)
-     neg a  = 1/a
+     neg    = negate
      zero   = 0
      one    = 1 
 

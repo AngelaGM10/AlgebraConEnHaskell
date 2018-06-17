@@ -32,7 +32,7 @@ Si $\,b\,\in\,<m_1,\cdots ,m_n>\,$ entonces se tiene que obtener los coeficiente
 $b=m_1w_1 + \cdots + m_nw_n\,$. Por tanto, $\,(w_1,\cdots ,w_n)\,$ es solución.
 \end{dem}
 
-Mediante la función que denotaremos \texttt{solveGeneralEquation} obtendremos el primer paso para calcular la solución de un sistema del tipo $\,M\vec{X}=\vec{b}\,$, partiendo de que estamos en un anillo fuertemente discreto. Esta función recibe el vector $\,v\,$ y la solución $\,b\,$. Aplicamos \texttt{solve} sobre dicho vector para encontrar la matriz $\,L\,$ para verificar que se trata de un anillo coherente. Después con \texttt{member} se generará la lista de coeficientes de la combinación lineal. Finalmente se suman ambas.
+Mediante la función que denotaremos \texttt{solveGeneralEquation} obtendremos el primer paso para calcular la solución de un sistema del tipo $\,M\vec{X}=\vec{b}\,$, partiendo de que estamos en un anillo fuertemente discreto. Esta función recibe el vector \texttt{v} y \texttt{b}. Aplicamos \texttt{solve} sobre dicho vector para encontrar la matriz $\,L\,$ por ser un anillo coherente. Después con \texttt{member} se generará la lista de coeficientes de la combinación lineal. Finalmente se suman ambas.
 \index{\texttt{solveGeneralEquation}}
 \index{\texttt{isSolutionB}}
 \index{\texttt{propSolveGeneralEquation}}

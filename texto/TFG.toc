@@ -5,10 +5,10 @@
 \contentsline {section}{\numberline {2.1}Anillos}{17}{section.2.1}
 \contentsline {section}{\numberline {2.2}Anillos Conmutativos}{22}{section.2.2}
 \contentsline {section}{\numberline {2.3}Dominio de integridad y Cuerpos}{23}{section.2.3}
-\contentsline {section}{\numberline {2.4}Ideales}{26}{section.2.4}
+\contentsline {section}{\numberline {2.4}Ideales}{27}{section.2.4}
 \contentsline {chapter}{\numberline {3}Vectores y Matrices}{33}{chapter.3}
 \contentsline {section}{\numberline {3.1}Vectores}{33}{section.3.1}
-\contentsline {section}{\numberline {3.2}Matrices}{35}{section.3.2}
+\contentsline {section}{\numberline {3.2}Matrices}{36}{section.3.2}
 \contentsline {chapter}{\numberline {4}Anillos Coherentes}{51}{chapter.4}
 \contentsline {section}{\numberline {4.1}Anillos Fuertemente Discretos}{51}{section.4.1}
 \contentsline {section}{\numberline {4.2}Anillos Coherentes}{52}{section.4.2}
@@ -16,7 +16,7 @@
 \contentsline {chapter}{\numberline {A}Como empezar con Emacs en Ubuntu}{65}{appendix.Alph1}
 \contentsline {section}{\numberline {A.1}Instalar Ubuntu 16.04 junto a windows 10}{65}{section.Alph1.1}
 \contentsline {section}{\numberline {A.2}Iniciar un Cap\IeC {\'\i }tulo}{67}{section.Alph1.2}
-\contentsline {chapter}{\numberline {B}Abreviaciones de Emacs}{69}{appendix.Alph2}
-\contentsline {chapter}{\numberline {C}Push and Pull de Github con Emacs}{71}{appendix.Alph3}
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{72}{appendix.Alph3}
-\contentsline {chapter}{Indice de definiciones}{73}{appendix*.3}
+\contentsline {section}{\numberline {A.3}Abreviaciones de Emacs}{67}{section.Alph1.3}
+\contentsline {section}{\numberline {A.4}Push and Pull de Github con Emacs}{69}{section.Alph1.4}
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{70}{section.Alph1.4}
+\contentsline {chapter}{Indice de definiciones}{71}{appendix*.3}

@@ -36,7 +36,7 @@ instance Arbitrary r => Arbitrary (Vector r) where
 
 \end{code}
 
-Explicamos brevemente algunas de las funciones utilizadas en el generador de vectores. Con \texttt{choose} se elige de forma aleatoria un número, en nuestro caso, entre 1 y 10. La función \texttt{liftM} nos permite transformar una función en una función correspondiente dentro de otra configuración en nuestro caso en forma de vector y junto con \texttt{gen} generamos un tipo dado de forma aleatoria en nuestro caso del tipo vector.\\
+Explicamos brevemente algunas de las funciones utilizadas en el generador de vectores. Con \texttt{choose} se elige de forma aleatoria un número (en nuestro caso, entre 1 y 10) para establecer la longitud del vector. Con \texttt{gen} generamos elementos aleatorios del tipo \texttt{Int} y la lista obtenida la transformamos en tipo \texttt{Vector} con la función \texttt{liftM}.\\
 
 Damos la función que muestra el vector en forma de lista y la que mide la longitud de un vector en ese formato. Acompañamos de ejemplos para mostrar los resultados que se obtienen.
 \index{\texttt{unVec}}
@@ -61,7 +61,7 @@ Para trabajar con vectores, haremos uso de la clase de tipos \texttt{Functor} de
 --     fmap :: (a -> b) -> f a -> f b
 \end{code}
 
-Define una función, $\texttt{fmap}, y no proporciona ninguna implementación por defecto. El tipo de \texttt{fmap} es similar al tipo de \texttt{map}. Aquí, \texttt{f} no es un tipo concreto, sino un constructor de tipos que toma un tipo como parámetro. Vemos que \texttt{fmap} toma una función de un tipo a otro, un funtor aplicado a un tipo y devuelve otro funtor aplicado con el otro tipo.\\
+Define una función, \texttt{fmap}, y no proporciona ninguna implementación por defecto. El tipo de \texttt{fmap} es similar al tipo de \texttt{map}. Aquí, \texttt{f} no es un tipo concreto, sino un constructor de tipos que toma un tipo como parámetro. Vemos que \texttt{fmap} toma una función de un tipo a otro, un funtor aplicado a un tipo y devuelve otro funtor aplicado con el otro tipo.\\
 
 En nuestro caso crearemos una instancia con la clase de tipos \texttt{Functor} sobre el constructor \texttt{Vector} con el objetivo de aplicar una función \texttt{f} sobre un vector. Definiremos la función \texttt{(fmap f)} de forma que devuelva un vector con la función \texttt{f} aplicada a cada componente del vector.
 

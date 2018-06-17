@@ -77,14 +77,14 @@ La propiedad de la coherencia es bastante difícil de implementar
 en Haskell. El contenido que se puede implementar es que es posible calcular
 la matriz $\,L\,$ dada $\,\vec{m}\,$ tal que $\,\vec{m}L\, =\, 0$.\\
 
-En esta sección todos los anillos de los que partimos son dominios de integridad, por lo que al construir la clase de los anillos coherentes haremos una restricción a la clase de $IntegralDomain$. Introducimos la clase de anillos coherentes:
+En esta sección todos los anillos de los que partimos son dominios de integridad, por lo que al construir la clase de los anillos coherentes haremos una restricción a la clase de \texttt{IntegralDomain}. Introducimos la clase de anillos coherentes:
 
 \begin{code}
 class IntegralDomain a => Coherent a where
   solve :: Vector a -> Matrix a
 \end{code}
 
-Al igual que ocurría con \texttt{member} en el anterior capítulo, aquí $solve$ es una función que no tiene una definición concreta. El objetivo de esta función es que dado un vector $\,\vec{m}\,\in\,R^n$ devuelva una matriz $L \in\,R^{n\times r}$ de forma que al multiplicar ambos el vector resultante sea un vector fila de ceros.\\
+Al igual que ocurría con \texttt{member} en el anterior capítulo, aquí \texttt{solve} es una función que no tiene una definición concreta. El objetivo de esta función es que dado un vector $\,\vec{m}\,\in\,R^n$ devuelva una matriz $L \in\,R^{n\times r}$ de forma que al multiplicar ambos el vector resultante sea un vector fila de ceros.\\
 
 Para verificar que una definición concreta de \texttt{solve} es correcta especificamos unas funciones para realizar dicha comprobación. La función que denotaremos\\
 \texttt{propCoherent} es la encargada de comprobar que la multiplicación de $\vec{m}$ por $L$ sea nula. Para ello, se ayuda de una segunda función que denotaremos por \texttt{isSolution}, esta comprueba que el vector que se obtiene tras la multiplicación de $\vec{m}L$ es un vector de ceros.
@@ -361,13 +361,12 @@ Esto es,
                                    v_sn 
                                    \end{array} \right)
 \end{equation}
-Luego, obtenemos $\,\{ (w_{11},\cdots ,w_{1n}),\cdots ,(w_{r1},\cdots ,w_{rn})\}\,$ y \\
+Luego, obtenemos $\,\{ (w_{11},\cdots ,w_{1n}),\cdots ,(w_{p1},\cdots ,w_{pn})\}\,$ y \\
 $\{ (0,v_{12},\cdots ,v_{1n}),\cdots ,(0,v_{s2},\cdots ,v_{sn})\} \, \,$ que generan el conjunto de las soluciones.
 \end{dem}
 
-Esto proporciona un método para probar que los anillos son coherentes. Ahora vamos a ver cómo calcular la intersección de los ideales finitamente generados. Esto implicará que el anillo es coherente. También muestra que la coherencia de
-los anillos se puede caracterizar solo en términos de la intersección finita de
-ideales finitamente generados.\\
+Esto proporciona un método para probar que un anillo es coherente. Ahora vamos a ver cómo calcular la intersección de los ideales finitamente generados. Esto implicará que el anillo es coherente. También muestra que la coherencia de
+los anillos se puede caracterizar solo en términos de la intersección de ideales finitamente generados.\\
 
 Vamos a dar un algoritmo para obtener una solución del sistema mediante la intersección, basándonos en las propocisión anterior.
 \index{\texttt{solveWithIntersection}}
@@ -397,6 +396,7 @@ solveWithIntersection (Vec xs) int = transpose $ matrix $ solveInt xs
      --Este es el caso x /= 0, aquí resolvemos por intersección
 
     | otherwise = error "solveInt: No se puede calcular la intersección"
+
       where
       as = Id [x]              -- a_1x_1
       bs = Id (map neg xs)     -- -a_2x_2-..-a_nx_n
@@ -411,10 +411,8 @@ solveWithIntersection (Vec xs) int = transpose $ matrix $ solveInt xs
 
 \end{code}
 
-La función \texttt{(solveWithIntersection\,\, (Vec xs)\,\, int)} recibe como argumento de entrada el vector a resolver $\,\vec{X}\,$ así como la intersección de dos ideales finitamente generados en forma de terna \texttt{(Ideal a,[[a]],[[a]]))} de forma que \texttt{(Ideal a)} son los generadores del ideal intersección, las otras dos listas de listas contienen los coeficientes correspondiente a cada uno de los dos ideales de los que se obtiene la intersección. Es decir, como \texttt{(Ideal\,\,a)} es el resultado de interseccionar estos dos ideales, si un elemento pertenece a la intersección, este puede escribirse como combinación lineal de cada uno de los dos ideales.\\
+La función \texttt{(solveWithIntersection\,\, (Vec xs)\,\, int)} recibe como argumento de entrada el vector a resolver $\,\vec{X}\,$ así como la función intersección de dos ideales finitamente generados en forma de terna \texttt{(Ideal a,[[a]],[[a]]))} de forma que \texttt{(Ideal a)} son los generadores del ideal intersección, las otras dos listas de listas contienen los coeficientes correspondiente a cada uno de los dos ideales de los que se obtiene la intersección. Es decir, como \texttt{(Ideal\,\,a)} es el resultado de interseccionar estos dos ideales, si un elemento pertenece a la intersección, este puede escribirse como combinación lineal de cada uno de los dos ideales.\\
 
-Para el caso en el que $\,a_1\neq0\,$, aplicamos \texttt{(isSameIdeal int as bs)}. Recordamos que esta función devuelve un booleano cuando se verifica lo comentado anteriormente. De esta forma, si \texttt{isSameIdeal} devuelve \texttt{True} se realiza la intersección de los generadores que se obtienen de la intersección de los dos ideales, junto con los generadores de la solución obtenida al resolver $\,a_2x_2+..+a_nx_n\,$.\\
-
-De esta forma, obtenemos la intersección de dos ideales finitamente generados, por lo que podemos calcular la solución recursivamente. Hasta obtener la matriz formada por los generadores de la solución. Que es la matriz que
+Para el caso en el que $\,a_1\neq0\,$, aplicamos \texttt{(isSameIdeal int as bs)}. Recordamos que esta función devuelve un booleano cuando se verifica lo comentado anteriormente. De esta forma, obtenemos la intersección de dos ideales finitamente generados, por lo que podemos calcular la solución recursivamente. Hasta obtener la matriz formada por los generadores de la solución. Que es la matriz que
 \texttt{(solveWithIntersection (Vec xs) int)} devuelve.
 

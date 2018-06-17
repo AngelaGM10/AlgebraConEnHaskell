@@ -18,7 +18,7 @@
 \indexentry{\texttt{instance CommutRing Integer}|hyperpage}{23}
 \indexentry{\texttt{propZeroDivisors}|hyperpage}{24}
 \indexentry{\texttt{propIntegralDomain}|hyperpage}{24}
-\indexentry{\texttt{instance IntegralDomain Integer}|hyperpage}{24}
+\indexentry{\texttt{instance IntegralDomain Integer}|hyperpage}{25}
 \indexentry{\texttt{propMulInv}|hyperpage}{25}
 \indexentry{\texttt{propField}|hyperpage}{26}
 \indexentry{\texttt{</>}|hyperpage}{26}
@@ -56,13 +56,13 @@
 \indexentry{\texttt{addCol}|hyperpage}{43}
 \indexentry{\texttt{subRow}|hyperpage}{43}
 \indexentry{\texttt{subCol}|hyperpage}{43}
-\indexentry{\texttt{pivot}|hyperpage}{44}
-\indexentry{\texttt{findPivot}|hyperpage}{44}
-\indexentry{\texttt{fE}|hyperpage}{45}
+\indexentry{\texttt{pivot}|hyperpage}{45}
+\indexentry{\texttt{findPivot}|hyperpage}{45}
+\indexentry{\texttt{fE}|hyperpage}{46}
 \indexentry{\texttt{forwardElim}|hyperpage}{46}
-\indexentry{\texttt{jordan}|hyperpage}{47}
-\indexentry{\texttt{gaussElim}|hyperpage}{48}
-\indexentry{\texttt{gaussElimCorrect}|hyperpage}{48}
+\indexentry{\texttt{jordan}|hyperpage}{48}
+\indexentry{\texttt{gaussElim}|hyperpage}{49}
+\indexentry{\texttt{gaussElimCorrect}|hyperpage}{49}
 \indexentry{\texttt{propStronglyDiscrete}|hyperpage}{52}
 \indexentry{\texttt{isSolution}|hyperpage}{54}
 \indexentry{\texttt{propCoherent}|hyperpage}{54}
