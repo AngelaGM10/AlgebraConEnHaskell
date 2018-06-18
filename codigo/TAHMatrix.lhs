@@ -20,7 +20,7 @@ import TAHField
 import TAHVector
 
 \end{code}
-Antes de comenzar, hemos importado algunas librerías necesarias para construir las matrices. Entre ellas utilizaremos \texttt{Control.Arrow}, de ella tenemos que excluir la suma \texttt{(<+>)} pues nosotros utilizamos la definida en anillos. Esta librería es necesaria para el uso de la función \texttt{&&&}.
+Antes de comenzar, hemos importado algunas librerías necesarias para construir las matrices. Entre ellas utilizaremos \texttt{Control.Arrow}, de ella tenemos que excluir la suma \texttt{(<+>)} pues nosotros utilizamos la definida en anillos.\\
 
 Declaramos el nuevo tipo de matrices, la representación de la matriz viene dada en forma de lista de vectores, donde cada vector de la lista representa una fila de la matriz. Daremos también una instancia para que se puedan mostrar. Así como un generador de matrices aleatorio, similar al utilizado en vectores, con el fin de poder comprobar resultados mediante \texttt{QuickCheck}.
 
@@ -92,8 +92,9 @@ vectorToMatrix = matrix . (:[]) . unVec
 
 -- | De matriz a vector.
 matrixToVector :: Matrix r -> Vector r
-matrixToVector m | fst (dimension m) == 1 = head (unM m)
-                 | otherwise = error "No pueden tener dimensiones distintas"
+matrixToVector m
+      | fst (dimension m) == 1 = head (unM m)
+      | otherwise = error "No pueden tener dimensiones distintas"
 -- Ejemplos:
 -- λ> matrixToVector (M [Vec [2,3], Vec [4,5]])
 --    *** Exception: No pueden tener dimensiones distintas
@@ -102,8 +103,9 @@ matrixToVector m | fst (dimension m) == 1 = head (unM m)
 
 -- | Obtener el elemento de la posición (i+1,j+1).
 (!!!) :: Matrix a -> (Int,Int) -> a
-m !!! (i,j) | i >= 0 && i < rows && j >= 0 && j < cols = unMVec m !! i !! j
-            | otherwise = error "!!!: Fuera de los límetes"
+m !!! (i,j)
+        | i >= 0 && i < rows && j >= 0 && j < cols = unMVec m !! i !! j
+        | otherwise = error "!!!: Fuera de los límetes"
   where
   (rows,cols) = dimension m
 

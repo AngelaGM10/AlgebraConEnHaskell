@@ -39,7 +39,7 @@ Se llama ideal generado por los elementos $e_1,..,e_r$ de un anillo $(A,+,*)$ al
 
 Para el tipo de dato de los ideales, en anteriores versiones de Haskell podiamos introducir una restricción al tipo que ibamos a definir mediante el constructor \texttt{data}, pero actualmente no se puede. Mediante \texttt{data} se define el tipo \texttt{Ideal a}, donde \texttt{a} es un tipo cualquiera que representa los elementos del ideal. El constructor es \texttt{Id} cuyo conjunto es una lista de elementos de \texttt{a} (los generadores del ideal).\\
 
-Para especificar en Haskell el ideal generado por un conjunto finito $E$, con \texttt{data} crearemos el tipo de dato mediante el constructor \texttt{Id} y el conjunto $E$ se representará por una lista de elementos del anillo. Por ejemplo, en el anillo de los enteros $\mathbb{Z}$, el ideal generado por $<2,5>$ se representará por \texttt{(Id\, [2,5])}. Y el ideal canónico cero <0> en cualquier anillo se representará por \texttt{(Id [zero])}, hay dos ideales canónicos, el cero ideal y todo el anillo R, este último se representará por \texttt{(Id [one])}.\\
+Para especificar en Haskell el ideal generado por un conjunto finito $E$, con \texttt{data} crearemos el tipo de dato mediante el constructor \texttt{Id} y el conjunto $E$ se representará por una lista de elementos del anillo. Por ejemplo, en el anillo de los enteros $\mathbb{Z}$, el ideal generado por $<2,5>$ se representará por \texttt{(Id\, [2,5])}. Y el ideal canónico cero $<0>$ en cualquier anillo se representará por \texttt{(Id [zero])}, hay dos ideales canónicos, el cero ideal y todo el anillo R, este último se representará por \texttt{(Id [one])}.\\
 
 Los ideales con los que trabajaremos están restringidos a anillos conmutativos. Para aplicar dicha restricción, lo haremos en cada definición de instancia o función, quedando explícito que usaremos los anillos conmutativos con la clase definida anteriormente como \texttt{CommutRing}.
 \index{\texttt{zeroIdeal}}
@@ -155,11 +155,13 @@ isSameIdeal op (Id xs) (Id ys) =
   let (Id zs, as, bs) = (Id xs) `op` (Id ys)
   in length as == length zs && length bs == length zs
      &&
-     and [ z_k == sumRing (zipWith (<**>) a_k xs) && length a_k == length xs
-         | (z_k,a_k) <- zip zs as ]
+     and [ z_k == sumRing (zipWith (<**>) a_k xs) &&
+                          length a_k == length xs
+                                | (z_k,a_k) <- zip zs as ]
      &&
-     and [ z_k == sumRing (zipWith (<**>) b_k ys) && length b_k == length ys
-         | (z_k,b_k) <- zip zs bs ]
+     and [ z_k == sumRing (zipWith (<**>) b_k ys) &&
+                          length b_k == length ys
+                                | (z_k,b_k) <- zip zs bs ]
 \end{code}
 
 Explicamos con más detalle como funciona \texttt{isSameIdeal}. Recibe como argumento una operación \texttt{op} que representa una operación entre los dos ideales que recibe. Es decir, la función \texttt{op} debería devolver una terna \texttt{(Id zs, as, bs)}, donde \texttt{as} y \texttt{bs} son listas de listas de coeficientes (justamente, los coeficientes de cada generador de \texttt{zs} en función de \texttt{xs} y de \texttt{ys}, respectivamente). La función \texttt{isSameIdeal} devuelve un booleano, si devuelve \texttt{True} nos indica que la operación que se ha realizado entre ambos ideales es correcta. Cada elemento de \texttt{zs} se puede expresar como combinación lineal de \texttt{xs} con los coeficientes proporcionados por el correspondiente elemento de \texttt{as} (análogamente, como combinación lineal de \texttt{ys} con los coeficientes proporcionados por \texttt{bs}).
@@ -167,7 +169,8 @@ Explicamos con más detalle como funciona \texttt{isSameIdeal}. Recibe como argu
 Para finalizar esta sección, implementamos la función zeroIdealWitnesses proporciona la función “testigo” para una operación sobre ideales cuyo resultado sea el ideal cero.
 
 \begin{code}
-zeroIdealWitnesses :: (CommutRing a) => [a] -> [a] -> (Ideal a, [[a]], [[a]])
+zeroIdealWitnesses :: (CommutRing a) =>
+                           [a] -> [a] -> (Ideal a, [[a]], [[a]])
 zeroIdealWitnesses xs ys = ( zeroIdeal
                            , [replicate (length xs) zero]
                            , [replicate (length ys) zero])

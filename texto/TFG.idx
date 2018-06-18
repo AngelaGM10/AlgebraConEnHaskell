@@ -38,9 +38,9 @@
 \indexentry{\texttt{vectorToMatrix }|hyperpage}{37}
 \indexentry{\texttt{matrixToVector}|hyperpage}{37}
 \indexentry{\texttt{Posici\IeC {\'o}n (i+1,j+1)}|hyperpage}{37}
-\indexentry{\texttt{dimension}|hyperpage}{38}
-\indexentry{\texttt{isSquareMatrix}|hyperpage}{38}
-\indexentry{\texttt{transpose}|hyperpage}{38}
+\indexentry{\texttt{dimension}|hyperpage}{39}
+\indexentry{\texttt{isSquareMatrix}|hyperpage}{39}
+\indexentry{\texttt{transpose}|hyperpage}{39}
 \indexentry{\texttt{addM}|hyperpage}{39}
 \indexentry{\texttt{mulM}|hyperpage}{39}
 \indexentry{\texttt{identity}|hyperpage}{40}

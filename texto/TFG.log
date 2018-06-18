@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.2)  17 JUN 2018 21:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.2)  18 JUN 2018 12:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1557,13 +1557,6 @@ Package babel Info: Redefining spanish shorthand "?
 ]
 Cap\'{\i }tulo 1.
 
-LaTeX Warning: Reference `aprendehaskell' on page 13 undefined on input line 7.
-
-
-
-LaTeX Warning: Reference `haskell' on page 13 undefined on input line 7.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 3--8
 
  []
@@ -2412,20 +2405,46 @@ Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 145.
 [30]
 
-../codigo/TAHIdeal.lhs:176: LaTeX Error: Command \textlambda unavailable in enc
+../codigo/TAHIdeal.lhs:179: LaTeX Error: Command \textlambda unavailable in enc
 oding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.176 --λ> zeroIdealWitnesses [2,3] [4,5]
+l.179 --λ> zeroIdealWitnesses [2,3] [4,5]
                                           
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-))
+LaTeX Info: Redefining \. on input line 182.
+LaTeX Info: Redefining \% on input line 182.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 182.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 182.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 182.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 182.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 182.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 182.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 182.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 182.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 182.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 182.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 182.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 182.
+[31]))
 LaTeX Info: Redefining \. on input line 249.
 LaTeX Info: Redefining \% on input line 249.
 Package babel Info: Redefining spanish shorthand <<
@@ -2452,41 +2471,10 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 249.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 249.
- [31]
+ [32]
 \openout2 = `Vectores_y_Matrices.aux'.
 
  (./Vectores_y_Matrices.tex
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1.
- [32
-
-
-
-]
 Cap\'{\i }tulo 3.
 (../codigo/TAHVector.lhs
 Package babel Info: Redefining spanish shorthand <<
@@ -2513,7 +2501,11 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 18.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 18.
- [33]
+ [33
+
+
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 39--40
 
  []
@@ -2633,41 +2625,9 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 1.
  [35]
-../codigo/TAHMatrix.lhs:23: Misplaced alignment tab character &.
-<recently read> &
-                 
-l.23 ...ia para el uso de la función \texttt{&&&}
-                                                  .
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
+Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
-../codigo/TAHMatrix.lhs:23: Misplaced alignment tab character &.
-<argument> &&
-             &
-l.23 ...ia para el uso de la función \texttt{&&&}
-                                                  .
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-../codigo/TAHMatrix.lhs:23: Misplaced alignment tab character &.
-<argument> &&&
-              
-l.23 ...ia para el uso de la función \texttt{&&&}
-                                                  .
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
+ []
 
 LaTeX Info: Redefining \. on input line 33.
 LaTeX Info: Redefining \% on input line 33.
@@ -2766,43 +2726,29 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHMatrix.lhs:98: LaTeX Error: Command \textlambda unavailable in enc
+../codigo/TAHMatrix.lhs:99: LaTeX Error: Command \textlambda unavailable in enc
 oding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.98 ... matrixToVector (M [Vec [2,3], Vec [4,5]])
+l.99 ... matrixToVector (M [Vec [2,3], Vec [4,5]])
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHMatrix.lhs:100: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:101: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.100 -- λ> matrixToVector (M [Vec [2,3]])
+l.101 -- λ> matrixToVector (M [Vec [2,3]])
                                            
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-../codigo/TAHMatrix.lhs:111: LaTeX Error: Command \textlambda unavailable in en
-coding T1.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.111 ...,4], Vec [4,5,6], Vec [7,8,9]]) !!! (2,3)
-                                                  
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
@@ -2815,7 +2761,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.113 ...,4], Vec [4,5,6], Vec [7,8,9]]) !!! (1,2)
+l.113 ...,4], Vec [4,5,6], Vec [7,8,9]]) !!! (2,3)
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2829,62 +2775,62 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.115 ...,4], Vec [4,5,6], Vec [7,8,9]]) !!! (0,1)
+l.115 ...,4], Vec [4,5,6], Vec [7,8,9]]) !!! (1,2)
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-LaTeX Info: Redefining \. on input line 126.
-LaTeX Info: Redefining \% on input line 126.
+
+../codigo/TAHMatrix.lhs:117: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 ...,4], Vec [4,5,6], Vec [7,8,9]]) !!! (0,1)
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+LaTeX Info: Redefining \. on input line 125.
+LaTeX Info: Redefining \% on input line 125.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 126.
+(babel)             in language  on input line 125.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 126.
+(babel)             in language  on input line 125.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 126.
+(babel)             in language  on input line 125.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 126.
+(babel)             in language  on input line 125.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 126.
+(babel)             in language  on input line 125.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 126.
+(babel)             in language  on input line 125.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 126.
+(babel)             in language  on input line 125.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 126.
+(babel)             in language  on input line 125.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 126.
+(babel)             in language  on input line 125.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 126.
+(babel)             in language  on input line 125.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 126.
+(babel)             in language  on input line 125.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 126.
+(babel)             in language  on input line 125.
 [38]
 
-../codigo/TAHMatrix.lhs:129: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:131: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.129 ... [Vec [2,3,4], Vec [4,5,6], Vec [7,8,9]])
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-../codigo/TAHMatrix.lhs:137: LaTeX Error: Command \textlambda unavailable in en
-coding T1.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.137 ... [Vec [2,3,4], Vec [4,5,6], Vec [7,8,9]])
+l.131 ... [Vec [2,3,4], Vec [4,5,6], Vec [7,8,9]])
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -2898,28 +2844,42 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.139 ...uareMatrix (M [Vec [2,3,4], Vec [4,5,6]])
+l.139 ... [Vec [2,3,4], Vec [4,5,6], Vec [7,8,9]])
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHMatrix.lhs:147: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:141: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.147 ... transpose (M [Vec [2,3,4], Vec [4,5,6]])
+l.141 ...uareMatrix (M [Vec [2,3,4], Vec [4,5,6]])
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--154
+../codigo/TAHMatrix.lhs:149: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.149 ... transpose (M [Vec [2,3,4], Vec [4,5,6]])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
 
  []
 
@@ -2951,70 +2911,70 @@ Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 164.
 [39]
 
-../codigo/TAHMatrix.lhs:168: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:170: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.168 ... [4,5,6]]) (M [Vec [1,0,2], Vec [1,2,3]])
+l.170 ... [4,5,6]]) (M [Vec [1,0,2], Vec [1,2,3]])
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHMatrix.lhs:171: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:173: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.171 ... [2,3,4], Vec [4,5,6]]) (M [Vec [1,0,2]])
+l.173 ... [2,3,4], Vec [4,5,6]]) (M [Vec [1,0,2]])
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHMatrix.lhs:184: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:186: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.184 ...ec [4,5]]) (M [Vec [1,0,2], Vec [1,2,3]])
+l.186 ...ec [4,5]]) (M [Vec [1,0,2], Vec [1,2,3]])
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHMatrix.lhs:187: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:189: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.187 ... [4,5,6]]) (M [Vec [1,0,2], Vec [1,2,3]])
+l.189 ... [4,5,6]]) (M [Vec [1,0,2], Vec [1,2,3]])
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHMatrix.lhs:200: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:202: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.200 ...> fmap (<+> 2) (M [Vec [2,3], Vec [4,5]])
+l.202 ...> fmap (<+> 2) (M [Vec [2,3], Vec [4,5]])
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3048,21 +3008,21 @@ Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 213.
 [40]
 
-../codigo/TAHMatrix.lhs:218: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:220: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.218 -- λ> identity 3
+l.220 -- λ> identity 3
                        
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
 
@@ -3094,28 +3054,28 @@ Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 249.
 [41]
 
-../codigo/TAHMatrix.lhs:251: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:253: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.251 ...caleMatrix (M [Vec [2,3], Vec [4,5]]) 1 5
+l.253 ...caleMatrix (M [Vec [2,3], Vec [4,5]]) 1 5
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHMatrix.lhs:282: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:284: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.282 ...(M [Vec [2,3], Vec [4,5], Vec [6,7]]) 0 1
+l.284 ...(M [Vec [2,3], Vec [4,5], Vec [6,7]]) 0 1
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3149,28 +3109,14 @@ Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 296.
 [42]
 
-../codigo/TAHMatrix.lhs:324: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:326: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.324 ...], Vec [4,5], Vec [6,7]]) (Vec [10,15]) 1
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-../codigo/TAHMatrix.lhs:341: LaTeX Error: Command \textlambda unavailable in en
-coding T1.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.341 ...Vec [4,5], Vec [6,7]]) (Vec [10,15,10]) 1
+l.326 ...], Vec [4,5], Vec [6,7]]) (Vec [10,15]) 1
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -3204,317 +3150,331 @@ Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 343.
 [43]
 
-../codigo/TAHMatrix.lhs:356: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:343: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.356 ...Vec [4,5], Vec [6,7]]) (Vec [10,15,10]) 1
+l.343 ...Vec [4,5], Vec [6,7]]) (Vec [10,15,10]) 1
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHMatrix.lhs:360: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:358: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.360 ...Vec [4,5], Vec [6,7]]) (Vec [10,15,10]) 1
+l.358 ...Vec [4,5], Vec [6,7]]) (Vec [10,15,10]) 1
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 367--368
+../codigo/TAHMatrix.lhs:362: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
 
- []
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.362 ...Vec [4,5], Vec [6,7]]) (Vec [10,15,10]) 1
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 369--370
 
  []
 
-LaTeX Info: Redefining \. on input line 374.
-LaTeX Info: Redefining \% on input line 374.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 374.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 374.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 374.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 374.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 374.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 374.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 374.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 374.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 374.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 374.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 374.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 374.
-[44]
 
-../codigo/TAHMatrix.lhs:383: LaTeX Error: Command \textlambda unavailable in en
-coding T1.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.383 ...3,4], Vec [4,5,6], Vec [4,8,9]]) (-2) 0 1
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-../codigo/TAHMatrix.lhs:402: LaTeX Error: Command \textlambda unavailable in en
-coding T1.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.402 ...[1,3,4], Vec [0,5,6], Vec [0,8,9]]) (0,0)
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-../codigo/TAHMatrix.lhs:407: LaTeX Error: Command \textlambda unavailable in en
-coding T1.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.407 ...[1,3,4], Vec [0,5,6], Vec [0,8,9]]) (0,1)
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-../codigo/TAHMatrix.lhs:413: LaTeX Error: Command \textlambda unavailable in en
-coding T1.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.413 ...[1,3,4], Vec [0,0,6], Vec [0,8,9]]) (0,1)
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-LaTeX Info: Redefining \. on input line 422.
-LaTeX Info: Redefining \% on input line 422.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 422.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 422.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 422.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 422.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 422.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 422.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 422.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 422.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 422.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 422.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 422.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 422.
-[45]
-
-../codigo/TAHMatrix.lhs:445: LaTeX Error: Command \textlambda unavailable in en
-coding T1.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.445 ... [Vec [1,3,4], Vec [0,0,6], Vec [0,8,9]])
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-../codigo/TAHMatrix.lhs:450: LaTeX Error: Command \textlambda unavailable in en
-coding T1.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.450 ...[Vec [1,0,2], Vec [2,-1,3], Vec [4,1,8]])
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-LaTeX Info: Redefining \. on input line 462.
-LaTeX Info: Redefining \% on input line 462.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 462.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 462.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 462.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 462.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 462.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 462.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 462.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 462.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 462.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 462.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 462.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 462.
-[46]
-
-../codigo/TAHMatrix.lhs:501: LaTeX Error: Command \textlambda unavailable in en
-coding T1.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.501 ...], Vec [0,0,6], Vec [0,8,9]],Vec [4,5,6])
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-../codigo/TAHMatrix.lhs:507: LaTeX Error: Command \textlambda unavailable in en
-coding T1.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.507 ..., Vec [2,1,-3], Vec [4,1,8]],Vec [4,5,6])
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-LaTeX Info: Redefining \. on input line 510.
-LaTeX Info: Redefining \% on input line 510.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 510.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 510.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 510.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 510.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 510.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 510.
-Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 510.
-Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 510.
-Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 510.
-Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 510.
-Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 510.
-Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 510.
-[47]
-Underfull \hbox (badness 10000) in paragraph at lines 547--548
+Underfull \hbox (badness 10000) in paragraph at lines 371--372
 
  []
 
-LaTeX Info: Redefining \. on input line 552.
-LaTeX Info: Redefining \% on input line 552.
+LaTeX Info: Redefining \. on input line 376.
+LaTeX Info: Redefining \% on input line 376.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 552.
+(babel)             in language  on input line 376.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 552.
+(babel)             in language  on input line 376.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 552.
+(babel)             in language  on input line 376.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 552.
+(babel)             in language  on input line 376.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 552.
+(babel)             in language  on input line 376.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 552.
+(babel)             in language  on input line 376.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 552.
+(babel)             in language  on input line 376.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 552.
+(babel)             in language  on input line 376.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 552.
+(babel)             in language  on input line 376.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 552.
+(babel)             in language  on input line 376.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 552.
+(babel)             in language  on input line 376.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 552.
-[48]
+(babel)             in language  on input line 376.
+[44]
 
-../codigo/TAHMatrix.lhs:566: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:385: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.566 ..., Vec [2,1,-3], Vec [4,1,8]],Vec [4,5,6])
+l.385 ...3,4], Vec [4,5,6], Vec [4,8,9]]) (-2) 0 1
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 
-../codigo/TAHMatrix.lhs:572: LaTeX Error: Command \textlambda unavailable in en
+../codigo/TAHMatrix.lhs:404: LaTeX Error: Command \textlambda unavailable in en
 coding T1.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.572 ... Vec [1,3,4], Vec [1,4,3]],Vec [-7,3,-2])
+l.404 ...[1,3,4], Vec [0,5,6], Vec [0,8,9]]) (0,0)
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:409: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.409 ...[1,3,4], Vec [0,5,6], Vec [0,8,9]]) (0,1)
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:415: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.415 ...[1,3,4], Vec [0,0,6], Vec [0,8,9]]) (0,1)
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+LaTeX Info: Redefining \. on input line 424.
+LaTeX Info: Redefining \% on input line 424.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 424.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 424.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 424.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 424.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 424.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 424.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 424.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 424.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 424.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 424.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 424.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 424.
+[45]
+
+../codigo/TAHMatrix.lhs:447: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.447 ... [Vec [1,3,4], Vec [0,0,6], Vec [0,8,9]])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:452: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.452 ...[Vec [1,0,2], Vec [2,-1,3], Vec [4,1,8]])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+LaTeX Info: Redefining \. on input line 463.
+LaTeX Info: Redefining \% on input line 463.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 463.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 463.
+[46]
+
+../codigo/TAHMatrix.lhs:503: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.503 ...], Vec [0,0,6], Vec [0,8,9]],Vec [4,5,6])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:509: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.509 ..., Vec [2,1,-3], Vec [4,1,8]],Vec [4,5,6])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+LaTeX Info: Redefining \. on input line 511.
+LaTeX Info: Redefining \% on input line 511.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 511.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 511.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 511.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 511.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 511.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 511.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 511.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 511.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 511.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 511.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 511.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 511.
+[47]
+Underfull \hbox (badness 10000) in paragraph at lines 549--550
+
+ []
+
+LaTeX Info: Redefining \. on input line 554.
+LaTeX Info: Redefining \% on input line 554.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 554.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 554.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 554.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 554.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 554.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 554.
+Package babel Info: Redefining spanish shorthand <<
+(babel)             in language  on input line 554.
+Package babel Info: Redefining spanish shorthand >>
+(babel)             in language  on input line 554.
+Package babel Info: Redefining spanish shorthand "=
+(babel)             in language  on input line 554.
+Package babel Info: Redefining spanish shorthand "~
+(babel)             in language  on input line 554.
+Package babel Info: Redefining spanish shorthand "!
+(babel)             in language  on input line 554.
+Package babel Info: Redefining spanish shorthand "?
+(babel)             in language  on input line 554.
+[48]
+
+../codigo/TAHMatrix.lhs:568: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.568 ..., Vec [2,1,-3], Vec [4,1,8]],Vec [4,5,6])
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+../codigo/TAHMatrix.lhs:574: LaTeX Error: Command \textlambda unavailable in en
+coding T1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.574 ... Vec [1,3,4], Vec [1,4,3]],Vec [-7,3,-2])
                                                   
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -5337,10 +5297,6 @@ LaTeX Info: Redefining \% on input line 23.
 ) (./Como_Empezar.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 287.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 287.
-
-
-LaTeX Warning: There were undefined references.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 287.
  )
 (\end occurred inside a group at level 1)
@@ -5348,10 +5304,10 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 287.
 ### semi simple group (level 1) entered at line 1 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 28644 strings out of 494891
- 510357 string characters out of 6179039
- 628930 words of memory out of 5000000
- 30964 multiletter control sequences out of 15000+600000
+ 28641 strings out of 494891
+ 510314 string characters out of 6179039
+ 628931 words of memory out of 5000000
+ 30961 multiletter control sequences out of 15000+600000
  38034 words of font info for 89 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
  62i,14n,104p,1275b,647s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -5366,10 +5322,10 @@ onts/type1/public/mathpazo/fplmbb.pfb></usr/share/texlive/texmf-dist/fonts/type
 athpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on TFG.pdf (73 pages, 401001 bytes).
+Output written on TFG.pdf (73 pages, 400514 bytes).
 PDF statistics:
- 714 PDF objects out of 1000 (max. 8388607)
- 511 compressed objects within 6 object streams
+ 716 PDF objects out of 1000 (max. 8388607)
+ 513 compressed objects within 6 object streams
  131 named destinations out of 1000 (max. 500000)
  129 words of extra memory for PDF output out of 10000 (max. 10000000)
 

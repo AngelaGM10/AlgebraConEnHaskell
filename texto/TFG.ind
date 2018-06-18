@@ -10,7 +10,7 @@
   \item \texttt{addId}, \hyperpage{30}
   \item \texttt{addM}, \hyperpage{39}
   \item \texttt{addRow}, \hyperpage{43}
-  \item \texttt{dimension}, \hyperpage{38}
+  \item \texttt{dimension}, \hyperpage{39}
   \item \texttt{fE}, \hyperpage{46}
   \item \texttt{findPivot}, \hyperpage{45}
   \item \texttt{forwardElim}, \hyperpage{46}
@@ -25,7 +25,7 @@
   \item \texttt{isSameIdeal}, \hyperpage{31}
   \item \texttt{isSolutionB}, \hyperpage{62}
   \item \texttt{isSolution}, \hyperpage{54}
-  \item \texttt{isSquareMatrix}, \hyperpage{38}
+  \item \texttt{isSquareMatrix}, \hyperpage{39}
   \item \texttt{jordan}, \hyperpage{48}
   \item \texttt{lengthVec}, \hyperpage{34}
   \item \texttt{matrixToVector}, \hyperpage{37}
@@ -70,7 +70,7 @@
   \item \texttt{sumRing}, \hyperpage{21}
   \item \texttt{sumVec}, \hyperpage{35}
   \item \texttt{swap}, \hyperpage{42}
-  \item \texttt{transpose}, \hyperpage{38}
+  \item \texttt{transpose}, \hyperpage{39}
   \item \texttt{unMVec}, \hyperpage{37}
   \item \texttt{unM}, \hyperpage{37}
   \item \texttt{unVec}, \hyperpage{34}
