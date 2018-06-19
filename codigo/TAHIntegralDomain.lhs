@@ -38,7 +38,7 @@ propIntegralDomain a b c =
 \end{code}
 
 El conjunto de los números enteros es un dominio de integridad. Mediante la instancia a la clase de dominio de integridad, comprueba que se verifiquen las operaciones necesarias para ser un dominio de integridad.
-\index{\texttt{instance IntegralDomain Integer}}
+
 \begin{code}
 instance IntegralDomain Integer 
 \end{code}

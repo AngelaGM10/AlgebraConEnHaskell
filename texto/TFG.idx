@@ -6,7 +6,6 @@
 \indexentry{\texttt{propRightDist}|hyperpage}{20}
 \indexentry{\texttt{propLeftDist}|hyperpage}{20}
 \indexentry{\texttt{propRing}|hyperpage}{20}
-\indexentry{\texttt{instance Ring Integer}|hyperpage}{21}
 \indexentry{\texttt{<->}|hyperpage}{21}
 \indexentry{\texttt{sumRing}|hyperpage}{21}
 \indexentry{\texttt{productRing}|hyperpage}{21}
@@ -15,10 +14,8 @@
 \indexentry{\texttt{Mult. por la derecha (<**)}|hyperpage}{22}
 \indexentry{\texttt{propMulComm}|hyperpage}{23}
 \indexentry{\texttt{propCommutRing}|hyperpage}{23}
-\indexentry{\texttt{instance CommutRing Integer}|hyperpage}{23}
 \indexentry{\texttt{propZeroDivisors}|hyperpage}{24}
 \indexentry{\texttt{propIntegralDomain}|hyperpage}{24}
-\indexentry{\texttt{instance IntegralDomain Integer}|hyperpage}{25}
 \indexentry{\texttt{propMulInv}|hyperpage}{25}
 \indexentry{\texttt{propField}|hyperpage}{26}
 \indexentry{\texttt{</>}|hyperpage}{26}
@@ -28,6 +25,7 @@
 \indexentry{\texttt{addId}|hyperpage}{30}
 \indexentry{\texttt{mulId}|hyperpage}{30}
 \indexentry{\texttt{isSameIdeal}|hyperpage}{31}
+\indexentry{\texttt{zeroIdealWitnesses}|hyperpage}{31}
 \indexentry{\texttt{unVec}|hyperpage}{34}
 \indexentry{\texttt{lengthVec}|hyperpage}{34}
 \indexentry{\texttt{sumVec}|hyperpage}{35}

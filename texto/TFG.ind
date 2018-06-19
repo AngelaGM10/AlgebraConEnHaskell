@@ -18,9 +18,6 @@
   \item \texttt{gaussElimCorrect}, \hyperpage{49}
   \item \texttt{gaussElim}, \hyperpage{49}
   \item \texttt{identity}, \hyperpage{40}
-  \item \texttt{instance CommutRing Integer}, \hyperpage{23}
-  \item \texttt{instance IntegralDomain Integer}, \hyperpage{25}
-  \item \texttt{instance Ring Integer}, \hyperpage{21}
   \item \texttt{isPrincipal}, \hyperpage{29}
   \item \texttt{isSameIdeal}, \hyperpage{31}
   \item \texttt{isSolutionB}, \hyperpage{62}
@@ -75,6 +72,7 @@
   \item \texttt{unM}, \hyperpage{37}
   \item \texttt{unVec}, \hyperpage{34}
   \item \texttt{vectorToMatrix }, \hyperpage{37}
+  \item \texttt{zeroIdealWitnesses}, \hyperpage{31}
   \item \texttt{zeroIdeal}, \hyperpage{28}
 
 \end{theindex}

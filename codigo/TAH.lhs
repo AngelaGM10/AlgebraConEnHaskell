@@ -150,7 +150,6 @@ anillo. Por ejemplo, el anillo de los números enteros $\mathbb{Z}$, en
 Haskell es el tipo \texttt{Integer}, con la suma y la multiplicación.
 Ejemplo:\\
 
-\index{\texttt{instance Ring Integer}}
 \begin{code}
 -- | El anillo de los enteros con las operaciones usuales:
 

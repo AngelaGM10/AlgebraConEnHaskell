@@ -167,7 +167,7 @@ isSameIdeal op (Id xs) (Id ys) =
 Explicamos con más detalle como funciona \texttt{isSameIdeal}. Recibe como argumento una operación \texttt{op} que representa una operación entre los dos ideales que recibe. Es decir, la función \texttt{op} debería devolver una terna \texttt{(Id zs, as, bs)}, donde \texttt{as} y \texttt{bs} son listas de listas de coeficientes (justamente, los coeficientes de cada generador de \texttt{zs} en función de \texttt{xs} y de \texttt{ys}, respectivamente). La función \texttt{isSameIdeal} devuelve un booleano, si devuelve \texttt{True} nos indica que la operación que se ha realizado entre ambos ideales es correcta. Cada elemento de \texttt{zs} se puede expresar como combinación lineal de \texttt{xs} con los coeficientes proporcionados por el correspondiente elemento de \texttt{as} (análogamente, como combinación lineal de \texttt{ys} con los coeficientes proporcionados por \texttt{bs}).
 
 Para finalizar esta sección, implementamos la función zeroIdealWitnesses proporciona la función “testigo” para una operación sobre ideales cuyo resultado sea el ideal cero.
-
+\index{\texttt{zeroIdealWitnesses}}
 \begin{code}
 zeroIdealWitnesses :: (CommutRing a) =>
                            [a] -> [a] -> (Ideal a, [[a]], [[a]])

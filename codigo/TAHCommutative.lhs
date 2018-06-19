@@ -35,7 +35,7 @@ propCommutRing a b c = if propMulComm a b
 \end{code}
 
 El conjunto de los números enteros es un anillo conmutativo. Por tanto, añadiendo la instancia a la clase de anillos conmutativos, comprueba que se verifiquen las operaciones necesarias para ser un anillo conmutativo.
-\index{\texttt{instance CommutRing Integer}}
+
 \begin{code}
 instance CommutRing Integer 
 \end{code}
